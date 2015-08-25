@@ -1,0 +1,301 @@
+$navbar-height: 48px;
+
+$navbar-secondary-height: 30px !default;
+$navbar-status-height: 24px !default;
+$navbar-font-primary: Purista_Semibold !default;
+
+$navbar-color: #666 !default;
+$navbar-bg-color: #fff !default;
+$navbar-hover-color: $color-primary !default;
+$navbar-hover-bg-color: transparent !default;
+$navbar-border-color: #dfdfe3 !default;
+$navbar-font-size: rem(14) !default;
+$navbar-secondary-font-size: rem(12) !default;
+$navbar-font-weight: normal !default;
+$navbar-text-transform: none !default;
+
+// module inner default layout
+
+.m-navbar {
+
+    position: fixed;
+    background-color: white;
+    z-index: 10;
+    top: 0;
+
+    width: 100%;
+    height: auto;
+    @include cf();
+
+    .m-navbar--container {
+        @include media(C) {
+            @include l-grid();
+        }
+    }
+
+    .m-navbar--menu-logo,
+    .m-navbar--menu {
+        height: $navbar-height;
+    }
+
+    &.mm-primary {
+        @include box-sizing(border-box);
+        //padding-top: 10px;
+        //padding-bottom: 10px;
+
+        .m-navbar--logo,
+        .m-navbar--menu-primary,
+        .m-navbar--menu-secondary {
+            text-align: center;
+        }
+
+        .m-navbar--logo {
+            @include column(1/4);
+            height: $navbar-height;
+            overflow: hidden;
+            .mm-has-svg {
+                @include vertical-align();
+                height: $navbar-height - 20;
+                //min-height: auto;
+                background-position: left;
+                @include media(A-only) {
+
+                    min-height: auto;
+                }
+            }
+        }
+
+        .m-navbar--menu-secondary {
+            @include inline-list($direction: right, $margin-opposite: 0, $margin-dir: 0);
+        }
+
+        .m-navbar--menu-link {
+            display: none !important;
+        }
+
+        @include media(C) {
+            padding-top: 40px;
+            padding-bottom: 40px;
+
+            .m-navbar--logo {
+                @include column(.2);
+            }
+
+            .m-navbar--menu-secondary {
+                @include inline-list($direction: right, $margin-opposite: 22px, $margin-dir: 0);
+            }
+
+            .m-navbar--menu-toc {
+                display: none !important;
+            }
+            .m-navbar--menu-link {
+                display: block !important;
+            }
+        }
+    }
+
+    &.mm-secondary {
+
+        z-index: 20;
+        top: 0;
+        @include transform(translateY(0));
+
+        .m-navbar--menu-primary {
+            //@include column(.4);
+            width: auto;
+            float: right;
+        }
+
+        .m-navbar--menu-secondary {
+            //@include column(.1);
+            width: auto;
+            float: right;
+        }
+
+        .m-navbar--menu-tertiary {
+            //@include column(.16);
+            width: auto;
+            float: right;
+        }
+
+        display: none;
+
+        @include media(C) {
+            display: block;
+        }
+    }
+
+    &.mm-admin {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+}
+
+// module default styling
+
+.m-navbar {
+
+    background-color: $navbar-bg-color;
+    border-top: 1px solid $navbar-border-color;
+    border-bottom: 1px solid $navbar-border-color;
+    font-family: $navbar-font-primary;
+    font-size: $navbar-font-size;
+    font-weight: $navbar-font-weight;
+    text-transform: $navbar-text-transform;
+
+    em {
+        font-style: normal;
+    }
+
+    .m-navbar--logo {
+        .mm-has-svg {
+            width: 100%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 50% 50%;
+
+            @include media(C) {
+                background-position: 0 50%;
+                min-height: $navbar-height;
+            }
+        }
+    }
+
+    .m-navbar--menu {
+        a {
+            display: block;
+            height: 100%;
+            line-height: $navbar-height;
+            //padding: 0 10px;
+            margin: 0 10px;
+
+            cursor: pointer;
+
+            color: $navbar-color;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            border-bottom-color: transparent;
+            @include transition(color .3s);
+            &:hover {
+                color: $navbar-hover-color;
+                background-color: $navbar-hover-bg-color;
+
+                //border-bottom: 2px solid $navbar-hover-color;
+                border-bottom-color: $navbar-hover-color;
+                @include transition(color .3s);
+            }
+        }
+    }
+
+    .m-navbar--menu,
+    .m-navbar--menu-primary {
+        @include inline-list(left);
+    }
+
+    .m-navbar--menu-secondary,
+    .m-navbar--menu-tertiary {
+        @include inline-list($direction: right);
+    }
+
+    .m-navbar--menu-social {
+        a {
+            padding: 0;
+        }
+        em {
+            display: none;
+        }
+    }
+
+    .m-navbar--menu-dropdown {
+        ul {
+            padding: 0;
+            margin-left: -11px;
+            width: 120px;
+        }
+        a.active {
+            color: black;
+        }
+    }
+
+    // secondary navbar
+    &.mm-secondary {
+        font-size: $navbar-secondary-font-size;
+        height: $navbar-secondary-height;
+        line-height: $navbar-secondary-height;
+
+        border-top: 0;
+
+        .m-navbar--menu {
+            height: auto;
+            padding: 0;
+            border-right: 1px solid $color-secondary;
+
+            > li {
+                padding: 0 0;
+            }
+
+            a {
+                padding: 0;
+                &:hover {
+                    color: $navbar-hover-color;
+                    background-color: $navbar-hover-bg-color;
+                    border-bottom: none;
+                }
+            }
+
+            &:first-of-type {
+                border: none;
+                > li {
+                    padding-right: 0;
+                }
+            }
+
+        }
+
+        a {
+            font-size: $navbar-secondary-font-size;
+            height: $navbar-secondary-height;
+            line-height: $navbar-secondary-height;
+        }
+
+        .m-navbar--menu-primary > li:last-child {
+            margin-right: 10px;
+        }
+
+    }
+
+}
+
+.m-navbar {
+    @include transition(all 0.2s);
+
+    @include media(C) {
+
+        @include transform(translateY(30px));
+
+        &.is-collapsed {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            @include transform(translateY(0px));
+            @include transition(all 0.3s);
+
+            .m-navbar--logo {
+                .mm-has-svg {
+                    background-size: auto 32px;
+                }
+            }
+        }
+
+        &.is-hidden {
+            @include transform(translateY(-30px));
+        }
+    }
+}
+
+.m-navbar.mm-secondary ~ .m-navbar {
+    border-top: none;
+}
+
+
+

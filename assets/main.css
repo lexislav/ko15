@@ -1,0 +1,282 @@
+table.paragraph.paragraph-1 > tbody > tr > td.element {
+  padding-top:26px;
+}
+
+body.body-1 {
+  background-color:rgba(236, 240, 236, 1);
+}
+
+body.body-1 > table.body > tbody > tr > td.center {
+  background-color:rgba(236, 240, 236, 1);
+}
+
+body .row.row-2 {
+  background-color:rgba(255, 255, 255, 1);
+  border-top: 4px solid rgba(192,14,26,1);
+}
+
+body .row.row-3 {
+  background-color:rgba(255, 255, 255, 1);
+}
+
+table.paragraph.paragraph-2 > tbody > tr > td.element {
+  padding-top:26px;
+  padding-right:26px;
+  padding-bottom:14px;
+  padding-left:26px;
+}
+
+table.paragraph span.paragraph-text-1 {
+  font-style:italic;
+}
+
+body .row.row-4 {
+  background-color:rgba(181, 187, 180, 1);
+}
+
+body .row.row-5 {
+  background-color:rgba(255, 255, 255, 1);
+}
+
+table.heading2.heading-1 > tbody > tr > td.element {
+  padding-top:14px;
+  padding-right:14px;
+  padding-left:15px;
+}
+
+table.paragraph.paragraph-3 > tbody > tr > td.element {
+  padding-right:14px;
+  padding-bottom:14px;
+  padding-left:14px;
+}
+
+table.paragraph.paragraph-4 > tbody > tr > td.element {
+  padding-right:14px;
+  padding-bottom:14px;
+  padding-left:14px;
+}
+
+table.heading2.heading-2 > tbody > tr > td.element {
+  padding-top:14px;
+  padding-right:14px;
+  padding-left:14px;
+}
+
+table.heading2.heading-1 > tbody > tr > td.element > * {
+  font-size:20px;
+  text-decoration:underline;
+  color:rgba(0, 0, 0, 1.00);
+}
+
+table.heading2.heading-2 > tbody > tr > td.element > * {
+  font-size:20px;
+  font-weight:400;
+  color:rgba(255, 255, 255, 1.00);
+  text-decoration:underline;
+}
+
+table.heading6.heading-4 > tbody > tr > td.element {
+  text-align:center;
+  padding-top:26px;
+  padding-right:26px;
+  padding-bottom:26px;
+  padding-left:26px;
+}
+
+table.heading6.heading-4 > tbody > tr > td.element > * {
+  text-align:center;
+  font-size:16px;
+}
+
+body .row.row-6 {
+  background-color:rgba(194, 14, 26, 1.00);
+}
+
+table.heading1.heading-3 > tbody > tr > td.element > * {
+  font-size:28px;
+  text-align:center;
+  color:rgba(255, 255, 255, 1.00);
+}
+
+table.heading1.heading-3 > tbody > tr > td.element {
+  text-align:center;
+}
+
+table.image-table.image-1 {
+  margin-left:0;
+  margin-right:0;
+  float:left;
+}
+
+table.image-table.image-1 > tbody > tr > td.element img {
+  margin-left:0;
+  margin-right:0;
+  float:left;
+}
+
+body .row .columns.column-1 td.element_connector {
+  padding-top:26px;
+  padding-right:26px;
+  padding-bottom:26px;
+  padding-left:26px;
+}
+
+table.heading2.heading-5 > tbody > tr > td.element > * {
+  font-size:18px;
+  font-weight:300;
+  text-align:right;
+  line-height:1.45;
+}
+
+table.heading2.heading-5 > tbody > tr > td.element {
+  text-align:right;
+  padding-top:21px;
+  padding-right:26px;
+  padding-bottom:16px;
+}
+
+table.image-table.image-2 {
+  margin-left:0;
+  margin-right:0;
+  float:left;
+}
+
+table.image-table.image-2 > tbody > tr > td.element img {
+  margin-left:0;
+  margin-right:0;
+  float:left;
+}
+
+table.image-table.image-2 > tbody > tr > td.element {
+  padding-top:26px;
+  padding-right:26px;
+  padding-bottom:26px;
+  padding-left:26px;
+}
+
+table.paragraph.paragraph-5 > tbody > tr > td.element {
+  padding-top:13px;
+  padding-right:26px;
+  padding-bottom:26px;
+  padding-left:0px;
+}
+
+table.paragraph.paragraph-5 > tbody > tr > td.element > * {
+  font-size:12px;
+  color:rgba(181, 187, 180, 1);
+}
+
+table.heading2 span.heading-text-1 {
+  color:rgba(181, 187, 180, 1.00);
+}
+
+table.heading2 span.heading-text-2 {
+  color:rgba(0, 0, 0, 1.00);
+}
+
+table.heading2 a.heading-text-3 {
+  color:rgba(255, 255, 255, 1.00);
+}
+
+table.heading2 a.heading-text-4 {
+  color:rgba(0, 0, 0, 1.00);
+}
+
+table.paragraph.paragraph-4 > tbody > tr > td.element > * {
+  color:rgba(255, 255, 255, 1.00);
+}
+
+table.paragraph.paragraph-1 > tbody > tr > td.element > * {
+  font-size:12px;
+  line-height:1;
+  color:rgba(181, 187, 180, 1.00);
+}
+
+table.paragraph span.paragraph-text-3 {
+  color:rgba(0, 0, 0, 1.00);
+}
+
+table.paragraph a.paragraph-text-3 {
+  color:rgba(0, 0, 0, 1.00);
+  text-decoration:underline;
+}
+
+table.paragraph a.paragraph-text-3:hover, table.paragraph a.paragraph-text-2:hover {
+  color:rgba(192, 14, 26, 1.00);
+}
+
+table.social-box-wrapper.social-box-1 {
+  margin-left:0;
+  margin-right:0;
+  float:right;
+}
+
+table.social-box-wrapper.social-box-1 > tbody > tr > td.element {
+  padding-top:13px;
+}
+
+table.paragraph span.paragraph-text-4 {
+  color:rgba(181, 187, 180, 1.00);
+}
+
+table.paragraph a.paragraph-text-6 {
+  color:rgba(194, 14, 26, 1.00);
+}
+
+table.paragraph a.paragraph-text-5 {
+  color:rgba(194, 14, 26, 1.00);
+}
+
+table.paragraph a.paragraph-text-2 {
+  color:rgba(0, 0, 0, 1.00);
+  text-decoration:underline;
+}
+
+@media screen and (max-width: 600px) {
+  table.paragraph.paragraph-1 > tbody > tr > td.element {
+    text-align:left;
+  }
+
+  table.paragraph.paragraph-1 > tbody > tr > td.element > * {
+    text-align:left;
+  }
+
+  table.heading1.heading-3 > tbody > tr > td.element {
+    padding-top:14px;
+    padding-right:14px;
+    padding-bottom:14px;
+    padding-left:14px;
+  }
+
+  table.heading2.heading-5 > tbody > tr > td.element {
+    text-align:right;
+  }
+
+  table.heading2.heading-5 > tbody > tr > td.element > * {
+    text-align:right;
+  }
+
+  table.image-table.image-1 {
+    margin-left:0;
+    margin-right:0;
+    float:left;
+  }
+
+  table.image-table.image-1 > tbody > tr > td.element img {
+    margin-left:0;
+    margin-right:0;
+    float:left;
+  }
+
+  table.image-table.image-3 {
+    width:100%;
+  }
+
+  table.image-table.image-4 {
+    width:100%;
+  }
+
+  table.paragraph.paragraph-5 > tbody > tr > td.element {
+    padding-right:0px;
+  }
+}

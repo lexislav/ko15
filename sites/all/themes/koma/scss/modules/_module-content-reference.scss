@@ -1,0 +1,123 @@
+.m-reference {
+
+}
+
+.l-detail-page {
+
+    .m-section--footer {
+        margin-top: 50px;
+    }
+
+    .m-reference {
+
+        //layout
+
+        & > header {
+            @include l-grid();
+            margin-bottom: 80px;
+            position: relative;
+
+            @include media(C) {
+                height: 480px;
+            }
+        }
+
+        .m-reference--image,
+        .m-reference--summary {
+
+            overflow: hidden;
+            height: 100%;
+            @include column(1);
+            @include media(C) {
+                @include column(6/12);
+            }
+
+        }
+
+        .m-reference--summary {
+            position: relative;
+
+            @include media(C) {
+                @include move(-6/12);
+            }
+        }
+
+        .m-reference--meta {
+
+            @include media(C) {
+                position: absolute;
+                bottom: 0;
+                width: 335px;
+            }
+
+        }
+
+        .m-reference--image {
+            margin-bottom: $space;
+            height: 360px;
+
+            @include media(C) {
+                @include move(6/12);
+                margin-bottom: 0;
+                height: 100%;
+            }
+        }
+
+        .m-reference--description {
+            display: none;
+        }
+
+        .m-reference--content {
+            @include l-grid();
+
+            .m-body--content,
+            aside {
+                @include column(12/12);
+                @include media(B) {
+                    @include column(6/12);
+
+                }
+            }
+        }
+
+        //styles
+
+        .m-reference--image {
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+            img {
+                display: none;
+            }
+
+            &.mm-preview-fit {
+                background-size: contain;
+            }
+        }
+
+        .m-reference--hed {
+            font-size: rem-calc(36);
+            font-weight: 400;
+            @include fontWeight(400);
+            line-height: 1.3em;
+            margin-top: -.2em;
+
+            a {
+                text-decoration: none;
+                pointer-events: none;
+                color: black;
+            }
+            margin-bottom: $space;
+
+            @include media(B) {
+                font-size: rem-calc(42);
+                padding-right: 6%;
+            }
+
+            @include media(C) {
+                margin-bottom: 0;
+            }
+        }
+
+    }
+}

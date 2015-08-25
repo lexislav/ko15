@@ -1,0 +1,75 @@
+// color code setup
+
+//@todo replace skin by maps only
+
+$color-primary:     #C20E1A;
+$color-secondary:   #B5BBB4;
+$color-secondary-light:   #F8F8F8;
+
+
+// color base text
+$color-black:       #000;
+$color-white:       #fff;
+$color-body-font:   #4A4A4A;
+$color-body-bg:     #ECEDEC;
+
+// color custom schema
+
+$pallete: (
+        "1": #7AB929,
+        "2": #6DC1AE,
+        "3": #4E9ED8,
+        "4": #7D83BF,
+        "5": #9C6FAE,
+        "6": #E8308A,
+        "7": #E50051,
+        "8": #EC6608,
+        "9": #F4B003,
+        "10": #B5BBB4
+);
+
+@function pallete($key) {
+    @return map-get($pallete, $key);
+}
+
+// colors
+
+.color-primary { color: $color-primary; }
+.color-secondary { color: $color-secondary; }
+.color-secondary-light { color: $color-secondary-light; }
+.color-black { color: $color-black; }
+.color-white { color: $color-white; }
+.color-body-font { color: $color-body-font; }
+.color-body-bg { color: $color-body-bg; }
+
+@each $colorName, $colorValue in $pallete {
+    .color-#{$colorName} { color: $colorValue; }
+}
+
+// bg colors
+
+.bg-primary { background-color: $color-primary; }
+.bg-secondary { background-color: $color-secondary; }
+.bg-secondary-light { background-color: $color-secondary-light; }
+.bg-black { background-color: $color-black; }
+.bg-white { background-color: $color-white; }
+.bg-body-font { background-color: $color-body-font; }
+.bg-body-bg { background-color: $color-body-bg; }
+
+@each $colorName, $colorValue in $pallete {
+    .bg-#{$colorName} { background-color: $colorValue; }
+}
+
+// colors
+
+.firstline-primary { &:first-line { color: $color-primary; }}
+.firstline-secondary {  &:first-line {color: $color-secondary; }}
+.firstline-secondary-light {  &:first-line {color: $color-secondary-light; }}
+.firstline-black {  &:first-line {color: $color-black; }}
+.firstline-white {  &:first-line {color: $color-white; }}
+.firstline-body-font {  &:first-line {color: $color-body-font; }}
+.firstline-body-bg {  &:first-line {color: $color-body-bg; }}
+
+@each $colorName, $colorValue in $pallete {
+    .firstline-#{$colorName} {  &:first-line {color: $colorValue; }}
+}

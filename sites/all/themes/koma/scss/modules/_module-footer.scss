@@ -1,0 +1,129 @@
+$footer-copyright-height: 64px !default;
+
+// module inner base layout
+
+.m-footer {
+
+    &.m-section {
+        padding-top: $space;
+        padding-bottom: $space * .5;
+    }
+
+    background-color: $color-primary;
+
+    height: 100%;
+    width: 100%;
+
+    .m-footer--container {
+        color: white;
+        //font-weight: 600;
+        @include fontWeight(600);
+    }
+
+    em {
+        font-style: normal;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .m-footer--section {
+
+
+        font-size: rem-calc(14);
+
+        &:nth-of-type(1) {
+            @include column(1);
+            margin-bottom: 16px;
+
+        }
+        &:nth-of-type(2) {
+            @include column(1);
+            margin-bottom: 6px;
+
+        }
+        &:nth-of-type(3) {
+            @include column(1);
+            text-align: left;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid white;
+        }
+
+        @include media(C) {
+            &:nth-of-type(1) {
+                @include column(3/12);
+                margin-bottom: 0;
+
+            }
+            &:nth-of-type(2) {
+                @include column(6/12);
+                margin-bottom: 0;
+            }
+            &:nth-of-type(3) {
+                @include column(3/12);
+                text-align: right;
+                border: none;
+                margin-bottom: 0;
+
+            }
+
+        }
+    }
+
+    .m-footer--subsection {
+        margin-top: 20px;
+        font-size: rem-calc(12);
+
+        &:nth-of-type(1) {
+            @include column(6/12);
+            text-align: left;
+        }
+
+        &:nth-of-type(2) {
+            @include column(6/12);
+            text-align: right;
+        }
+    }
+
+    .m-footer--menu-primary {
+        text-transform: uppercase;
+        @include inline-list(left, 30px);
+    }
+    .m-footer--menu-secondary {
+        text-transform: uppercase;
+        @include inline-list(left, 16px);
+
+        @include media(C) {
+            @include inline-list(right, 30px);
+        }
+    }
+
+    .m-footer--menu-link {
+        i {
+            font-size: rem-calc(24px);
+        }
+    }
+
+    .m-footer--author {
+        text-align: right;
+    }
+
+    .m-footer--logo {
+        height: 64px;
+        width: 200px;
+        text-align: center;
+        .mm-has-svg {
+            height: $footer-copyright-height;
+            width: 100%;
+            background-size: contain;
+            background-position: 0 50%;
+            background-repeat: no-repeat;
+        }
+    }
+}

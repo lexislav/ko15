@@ -1,0 +1,1035 @@
+@mixin m-card() {
+
+    article,
+    header {
+        position: relative;
+    }
+
+    a {
+        color: $color-black;
+        text-decoration: none;
+        &:hover {
+            color: $primary-color;
+            text-decoration: underline;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .m-item--hed {
+        font-size: rem-calc(18);
+    }
+
+    .m-item--description {
+        font-size: rem-calc(14);
+    }
+
+    .m-item--image {
+        img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+    }
+
+}
+
+@mixin m-card-image {
+    @include m-card();
+
+    height: 240px;
+    overflow: hidden;
+
+    article,
+    header {
+        height: 100%;
+    }
+
+    .m-item--image {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            &:before {
+                position: absolute;
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: transparent;
+                opacity: 0.2;
+            }
+
+        }
+
+        img {
+            display: none;
+        }
+
+    }
+    .m-item--summary {
+        height: 100%;
+    }
+    .m-item--hed {
+        position: absolute;
+        bottom: 20px;
+        left: 25px;
+        color: white;
+        text-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+        a {
+            color: white;
+        }
+    }
+
+    .m-item--description {
+        display: none;
+        pointer-events: none;
+    }
+
+    .m-card--more {
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        color: white;
+    }
+
+}
+
+@mixin m-card-vertical() {
+    @include m-card();
+    height: auto;
+    position: relative;
+
+    article {
+        height: 400px;
+        position: relative;
+        background-color: white;
+        padding-bottom: 24px;
+        header {
+            height: 100%;
+        }
+    }
+
+    .m-item--image {
+        margin: 0;
+        width: 100%;
+        height: 170px;
+
+        img {
+            display: none;
+        }
+    }
+
+    .m-item--summary {
+        position: relative;
+        height: 100%;
+        padding: 20px;
+        padding-top: 64px;
+    }
+
+    .m-item--hed {
+        font-size: rem-calc(18);
+        line-height: 1.2em;
+        margin-bottom: .5em;
+        //font-weight: 600;
+        @include fontWeight(600);
+    }
+
+    .m-item--description {
+        position: relative;
+        font-size: rem-calc(14);
+        //height: 60px;
+        overflow: hidden;
+        //display: none;
+    }
+
+    .m-item--meta {
+        position: absolute;
+        font-family: $font-family-secondary;
+        top: 16px;
+        left: 0px;
+        font-size: rem-calc(14);
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .m-card--more {
+        position: absolute;
+        bottom: 16px;
+        left: 20px;
+    }
+
+    @include media(B) {
+        .m-item--image {
+            height: 150px;
+
+        }
+    }
+
+    @include media(C) {
+
+        .m-item--image {
+            height: 181px;
+        }
+
+        .m-item--meta {
+            span {
+                display: block;
+            }
+        }
+    }
+
+    @each $colorName, $colorValue in $pallete {
+        &.mm-color-#{$colorName} {
+            &:before {
+                height: 4px;
+                background-color: $colorValue;
+                display: block;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                content: "";
+                z-index: 1;
+
+            }
+            .colored {
+                color: $colorValue;
+            }
+            a:hover {
+                color: $colorValue;
+            }
+        }
+    }
+
+}
+
+.m-card_standard {
+    @include m-card();
+    background-color: white;
+    padding-bottom: 24px;
+    position: relative;
+
+    .m-item--image {
+        height: 181px;
+        overflow: hidden;
+    }
+
+    .m-item--hed {
+        margin-bottom: 14px;
+    }
+
+    .m-item--summary {
+        padding: 20px;
+        min-height: 120px;
+
+        @include media(C-only) {
+            min-height: 220px;
+        }
+    }
+    .m-card--more {
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+    }
+
+    &.mm-promo {
+        background-color: transparent;
+        .m-item--hed {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .m-item--summary {
+            text-align: center;
+            min-height: 80px;
+            padding-top: 30px;
+            font-size: rem-calc(24px);
+        }
+        .m-card--more {
+            display: none;
+        }
+        &:hover {
+            background-color: white;
+        }
+    }
+
+}
+
+.m-card_list {
+    @include m-card();
+    background-color: white;
+
+    .m-item--image {
+        height: 60px;
+        width: 120px;
+        overflow: hidden;
+        float: left;
+        //margin-right: 30px;
+
+        a {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    .m-item--hed,
+    .m-item--summary {
+        margin-left: 160px;
+    }
+
+}
+
+.m-card_product {
+    @include m-card();
+    background-color: white;
+    position: relative;
+
+    > article {
+        padding: 0;
+        header {
+            height: 200px;
+            overflow: hidden;
+            margin-bottom: 100px;
+        }
+    }
+
+    .m-item--image {
+        height: 200px;
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+
+        a {
+            display: block;
+            height: 100%;
+            width: 100%;
+            opacity: 0.9;
+            background-color: $color-secondary;
+            color: white;
+            img {
+                display: none;
+            }
+        }
+    }
+
+    .m-item--hed {
+        margin-bottom: 14px;
+        a {
+            color: $color-body-font;
+        }
+    }
+
+    .m-item--summary {
+        color: $color-body-font;
+        height: 200px;
+        pointer-events: none;
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+    }
+    .m-card--more {
+        position: absolute;
+        left: 0;
+        bottom: 20px;
+        width: 100%;
+        height: 100px;
+        display: table;
+
+        a {
+            width: 100%;
+            height: 100%;
+            display: table-cell;
+            vertical-align: bottom;
+            padding-left: 20px;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+    }
+
+    &:hover {
+        .m-item--image a {
+            @include transition(all 0.3s);
+            background-color: $primary-color;
+        }
+        .m-item--summary,
+        .m-item--hed {
+            color: white;
+            a {
+                color: white;
+            }
+        }
+    }
+}
+
+.m-card_vertical {
+    @include m-card-vertical();
+}
+
+.m-card_horizontal {
+
+    @include m-card-vertical();
+
+    @include media(D) {
+
+        article {
+            height: 280px;
+        }
+
+        .m-item--image {
+            margin: 0;
+            width: 260px;
+            height: 280px;
+            float: left;
+            margin-right: 35px;
+
+            img {
+                display: none;
+            }
+        }
+
+        .m-item--summary {
+            height: 280px;
+            padding-top: 60px;
+        }
+
+        .m-item--hed {
+            font-size: rem-calc(20);
+            line-height: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .m-item--meta,
+        .m-item--description {
+            position: absolute;
+            left: 0;
+            margin: 0;
+            padding-left: 295px;
+            padding-right: 30px;
+
+            width: 100%;
+
+        }
+
+        .m-item--description {
+            bottom: 30px;
+        }
+
+        .m-item--meta {
+            position: absolute;
+            top: 30px;
+
+            span {
+                display: inline-block;
+            }
+
+            font-size: rem-calc(13);
+        }
+    }
+
+}
+
+.m-card_image {
+    @include m-card-image();
+
+    .m-item--image {
+        a {
+            &:before {
+                background-color: $color-primary; //pallete(1);
+                opacity: 0;
+            }
+        }
+
+    }
+
+    @each $colorName, $colorValue in $pallete {
+        &.mm-color-#{$colorName} {
+            .m-item--image {
+                a {
+                    border-top: 4px solid transparent;
+                    border-top-color: $colorValue; //pallete(1);
+                    &:before {
+                        background-color: $colorValue; //pallete(1);
+                        opacity: .4;
+                    }
+                }
+
+            }
+        }
+    }
+
+    &:hover {
+        .m-item--image a:before {
+            opacity: 0.8;
+        }
+
+        .m-item--description {
+            position: absolute;
+            display: block;
+            padding: 30px;
+            color: white;
+        }
+
+        .m-card--more {
+            display: none;
+        }
+    }
+
+}
+
+.m-card_thumb {
+    @include m-card-image();
+
+    .m-card--more {
+        display: none;
+    }
+
+    .m-item--image {
+
+        img {
+            display: none;
+        }
+
+        a {
+            height: 100%;
+            width: 100%;
+            display: inline-block;
+
+        }
+        &:before {
+            display: block;
+            position: absolute;
+            z-index: 0;
+            content: "";
+            background-color: black;
+            opacity: .6;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .m-item--description {
+        display: none;
+    }
+
+    .m-item--hed {
+        text-align: center;
+        left: 0;
+        @include vertical-align();
+        z-index: 10;
+        margin: 0;
+        padding: 10%;
+    }
+
+    &.mm-has-hover {
+        &:hover {
+            .m-item--image:before {
+                opacity: 0;
+            }
+
+        }
+    }
+
+    @each $colorName, $colorValue in $pallete {
+        &.mm-color-#{$colorName} {
+            .m-item--image {
+                &:before {
+                    background-color: $colorValue; //pallete(1);
+                }
+            }
+        }
+    }
+}
+
+.m-card_reference {
+    @include m-card();
+
+    height: 240px;
+    overflow: hidden;
+
+    article,
+    header {
+        height: 100%;
+        position: relative;
+    }
+
+    .m-item--image {
+
+        background-position: 50% 50%;
+        height: 100%;
+
+        img {
+            visibility: hidden;
+            pointer-events: none;
+        }
+    }
+
+    .m-item--summary {
+        position: absolute;
+        bottom: 20px;
+        left: 25px;
+        width: 300px;
+        height: auto;
+        background-color: transparentize($color-white, 0.4);
+        padding: 20px;
+        //padding-top: 10px;
+        color: $color-body-font;
+    }
+
+    .m-item--hed {
+        margin: 0;
+        margin-bottom: 30px;
+
+        text-transform: uppercase;
+        a {
+            color: $color-body-font;
+        }
+    }
+
+    .m-item--description {
+        pointer-events: none;
+        font-weight: 400;
+        @include fontWeight(400);
+        color: $color-black;
+    }
+
+    .m-card--more {
+        display: none;
+    }
+
+}
+
+.m-card_reference-horizontal {
+    @include m-card();
+    background-color: $color-secondary-light;
+    article {
+        header {
+            @include cf();
+            position: relative;
+
+            height: auto;
+
+            @include media(C) {
+                height: 340px;
+            }
+            @include media(D) {
+                height: 310px;
+            }
+        }
+    }
+
+    .m-item--image,
+    .m-item--summary,
+    .m-properties {
+        overflow: hidden;
+        @include media(C) {
+            height: 100%;
+            @include column(4/12, $gut: 0);
+        }
+    }
+
+    .m-item--image {
+        height: 310px;
+        background-position: center;
+        img {
+
+            visibility: hidden;
+        }
+        @include media(C) {
+            height: 100%;
+        }
+    }
+
+    .m-item--summary,
+    .m-properties {
+        padding: ($space * .7);
+    }
+
+    .m-item--hed {
+        margin-bottom: 1em;
+        font-size: rem-calc(26);
+        line-height: 1.2em;
+        font-weight: 400;
+        @include fontWeight(400);
+
+    }
+
+}
+
+@mixin card_bigteaser() {
+
+    @include m-card();
+
+    article {
+        header {
+            @include cf();
+            position: relative;
+
+            height: auto;
+
+            @include media(C) {
+                //height: 340px;
+            }
+            @include media(D) {
+                height: 540px;
+            }
+        }
+    }
+
+    .m-item--image,
+    .m-item--summary,
+    .m-properties {
+        overflow: hidden;
+        @include media(C) {
+            height: 100%;
+            @include column(6/12, $gut: 0);
+        }
+    }
+
+    .m-item--image {
+        height: 310px;
+        background-position: center;
+        img {
+            visibility: hidden;
+        }
+        @include media(C) {
+            height: 100%;
+        }
+    }
+
+    .m-item--summary,
+    .m-properties {
+        padding: ($space * .7);
+    }
+
+    .m-item--hed {
+        margin-bottom: 1em;
+        font-size: rem-calc(26);
+        line-height: 1.2em;
+        font-weight: 400;
+        @include fontWeight(400);
+
+    }
+
+    .m-item--description {
+        font-size: rem-calc(16);
+        p {
+            line-height: 1.4em;
+            margin-bottom: 1.4em;
+        }
+    }
+
+    .m-card--more {
+
+        display: inline-block;
+        padding: 10px 20px;
+        font-weight: bold;
+        @include fontWeight(800);
+        color: white;
+        a {
+            color: white;
+
+        }
+
+
+
+    }
+}
+
+.m-card_bigteaser {
+    @include card_bigteaser();
+}
+
+.m-card_bigpromo {
+    @include card_bigteaser();
+
+    article {
+        header {
+            position: relative;
+            @include cf();
+        }
+    }
+
+    .m-item--hed,
+    .m-item--description {
+        text-align: center;
+        margin-bottom: $space;
+    }
+
+    .m-item--description {
+        p {
+            line-height: 2em;
+        }
+    }
+
+    .m-item--hed {
+        border: 2px solid black;
+        display: inline-block;
+        padding: 10px;
+        padding-top: 6px;
+
+        margin-left: 50%;
+        @include transform(translateX(-50%));
+    }
+
+    .m-card--more {
+        display: inline-block;
+        margin-left: 50%;
+        color: black;
+        padding: 0;
+        @include transform(translateX(-50%));
+
+        a {
+            color: black;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+
+        background-color: transparent;
+    }
+
+    .m-item--summary {
+        padding: 100px;
+        padding-top: $space;
+
+        @include media(C) {
+            padding: 30px;
+            padding-top: 70px;
+        }
+
+        @include media(D) {
+            padding: 100px;
+            padding-top: 120px;
+        }
+    }
+
+}
+
+.m-card_certificate {
+    @include m-card();
+
+    article {
+        text-align: center;
+    }
+
+    .m-item--image {
+
+        width: 130px;
+        height: 130px;
+        background-size: contain;
+
+        overflow: hidden;
+        margin: 0 auto;
+
+        margin-bottom: 30px;
+        position: relative;
+        img {
+            visibility: hidden;
+        }
+        a {
+            display: block;
+            height: 100%;
+        }
+
+    }
+
+    .m-item--hed {
+        margin-bottom: 15px;
+        font-size: rem-calc(13);
+        color: $primary-color;
+        a {
+            color: $primary-color;
+            &:hover {
+                color: $color-black;
+            }
+        }
+    }
+
+    .m-item--description,
+    .m-item--description p {
+        font-size: rem-calc(11);
+    }
+
+}
+
+.m-card_centered-text {
+    //@include m-card();
+    background-color: transparent;
+
+    article {
+        text-align: center;
+        padding-left: 20%;
+        padding-right: 20%;
+        padding-bottom: $space;
+    }
+
+    .header {
+        margin-bottom: $space * 0.3;
+    }
+
+    .m-item--hed {
+        margin-bottom: $space;
+        font-size: rem-calc(30);
+        font-weight: 400;
+        @include fontWeight(400);
+
+        a {
+            color: $body-font-color;
+            text-decoration: none;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+    .m-item--description {
+        font-size: rem-calc(16);
+        p {
+            line-height: 1.4em;
+            margin-bottom: 1.4em;
+        }
+
+    }
+
+    .m-card--more {
+        text-align: center;
+    }
+
+    .m-gallery {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: $space;
+    }
+}
+
+.m-card_faq {
+    @include m-card();
+    background-color: $color-secondary-light;
+    height: 140px;
+    width: 100%;
+    padding: 20px;
+
+    article,
+    header {
+        position: relative;
+        //cursor: pointer;
+    }
+
+    .m-item--hed {
+        position: relative;
+        height: 100%;
+        margin-bottom: 0.2em;
+    }
+
+    .m-item--hed a {
+        @include vertical-align();
+        //position: absolute;
+        height: 100%;
+        font-size: rem-calc(16);
+        font-weight: 600;
+        @include fontWeight(600);
+        color: $color-black;
+        line-height: 1em;
+        margin: 0;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &:hover {
+        background-color: $color-primary;
+
+        color: white;
+        text-decoration: none;
+
+        .m-item--hed a {
+            color: white;
+        }
+    }
+}
+
+.m-card_nav {
+    @include m-card();
+
+    article,
+    header,
+    .m-item--summary {
+        position: relative;
+        height: 100%;
+    }
+
+    article {
+        &:hover {
+            .m-item--image a:after {
+                font-family: FontAwesome;
+
+                display: block;
+                position: absolute;
+                content: "";
+
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+
+                text-align: center;
+                color: white;
+                line-height: 53px;
+                background-color: rgba(0, 0, 0, .45);
+            }
+
+            .m-item--hed a {
+                color: $primary-color;
+                text-decoration: none;
+            }
+        }
+
+    }
+
+    .m-item--image {
+        width: 70px;
+        height: 53px;
+        overflow: hidden;
+        position: relative;
+
+        a {
+            height: 100%;
+            width: 100%;
+            display: block;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+    }
+
+    .m-item--description,
+    .m-item--meta {
+        display: none;
+    }
+
+    .m-item--hed {
+        @include vertical-align();
+        font-weight: 400;
+        @include fontWeight(400);
+        font-size: rem-calc(14);
+
+    }
+
+}
+
+

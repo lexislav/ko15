@@ -1,0 +1,240 @@
+.messages {
+    @include l-grid();
+    padding: 10px 20px !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#first-time {
+    @include l-grid();
+}
+
+.l-page.admin-menu {
+
+    //  padding-top: 180px;
+
+    .m-navbar {
+        @include transform(translateY(60px));
+
+        &.mm-secondary {
+            @include transform(translateY(30px));
+        }
+    }
+
+    .m-navbar ~ .m-mega {
+        top: 0;
+        @include transform(translateY(180px));
+    }
+    .m-navbar.is-collapsed ~ .m-mega {
+        top: 0;
+        @include transition(all 0.2s);
+        @include transform(translateY(128px));
+    }
+}
+
+.m-bulletin {
+
+    input {
+        border-color: $primary-color !important;
+        border-right: none;
+    }
+    .button {
+        background-color: white;
+        color: $color-secondary;
+        width: 30px;
+
+        border: 1px solid $primary-color;
+        border-left: none;
+
+        &:hover {
+            color: $primary-color;
+        }
+
+    }
+}
+
+.button-group {
+
+    .text-label-button,
+    .text-double-button {
+        border-left: 1px solid white;
+        //font-weight: 800;
+        @include fontWeight(800);
+        text-align: center;
+
+        padding: 0 10px;
+
+        span {
+            display: block;
+            //font-weight: 400;
+            @include fontWeight(400);
+            text-align: center;
+            font-size: rem-calc(12);
+        }
+        a {
+            color: $color-black;
+            text-decoration: none;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+
+        width: 25%;
+
+        @include media(B) {
+            max-width: 148px;
+            width: auto;
+        }
+
+    }
+
+    .text-label-button {
+        width: 100%;
+        max-width: none;
+
+        display: inline-block;
+        //font-weight: 400;
+        @include fontWeight(400);
+        font-size: rem-calc(12);
+        text-align: center;
+        margin-bottom: 14px;
+
+        @include media(B) {
+            width: auto;
+            text-align: right;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.l-two-thirds {
+    .button-group {
+        padding: 0;
+        float: left;
+        margin-bottom: 20px;
+
+        @include media(C) {
+            float: right;
+            margin-top: 8px;
+            margin-bottom: 0;
+
+        }
+    }
+}
+
+.slides [class*="m-card"] {
+    /*border: 3px solid orangered;
+    height: 300px;
+    @include media(C) {
+    height: 500px;
+        }*/
+
+}
+
+// dev
+
+// slick override
+
+.slick-prev, .slick-next {
+    height: 40px;
+    margin-top: -38px;
+}
+
+.slick-next {
+    right: 30px;
+}
+
+.slick-prev {
+    left: 30px;
+}
+
+.slick-prev:before, .slick-next:before {
+    font-family: 'FontAwesome';
+    font-size: rem-calc(42);
+    color: $color-white;
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8);
+}
+
+.slick-prev:before {
+    content: "\f104";
+}
+
+.slick-next:before {
+    content: "\f105";
+}
+
+// dev
+
+* {
+    box-sizing: border-box;
+}
+
+// search
+
+.m-search--hed {
+    text-align: center;
+    padding-bottom: $space * .75;
+}
+
+.m-search--filters {
+
+    .views-exposed-widget:nth-of-type(1) {
+        float: left;
+        width: calc(100% - 100px);
+        padding: 0;
+    }
+    .views-exposed-widget:nth-of-type(2) {
+        float: left;
+        width: 100px;
+        padding: 0;
+    }
+
+    label {
+        display: none;
+    }
+
+    .form-submit,
+    .form-text {
+        height: 59px;
+        margin: 0 !important;
+        display: inline-block;
+    }
+    .form-text {
+        width: 100%;
+    }
+    .form-submit {
+        border: 0;
+        width: 100%;
+        background-color: $primary-color;
+        color: white;
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
+        input:focus {
+            outline: none;
+        }
+    }
+}
+
+.m-search--description {
+    line-height: 1.8em;
+}
+
+.m-search--noresults {
+    .m-search--description {
+        max-width: 60%;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+.clearing-blackout {
+    z-index: 10000;
+}
+
+.m-filter {
+    .container-inline-date .date-padding {
+        padding: 0;
+    }
+}
