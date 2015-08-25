@@ -62,7 +62,7 @@ if ($user->uid == 1) {
         <div class="m-navbar--container">
             <a class="m-navbar--logo" href="<?= $front_page ?>">
                 <div class="mm-has-svg"
-                     style="background-image: url('/sites/koma/assets/images/koma-group-o.png');"></div>
+                     style="background-image: url('<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/koma-group-o.png');"></div>
             </a>
             <div class="xmega">
 <!--                pozice pro hledani-->
