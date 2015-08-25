@@ -80,7 +80,7 @@ if ($user->uid == 1) {
             <section class="m-footer--section">
                 <a class="m-footer--logo" href="/">
                     <img
-                        src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/logo-koma-modular-inline-white.svg"
+                        src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/logo-koma-inline-white.svg"
                         alt=""/>
                 </a>
             </section>
