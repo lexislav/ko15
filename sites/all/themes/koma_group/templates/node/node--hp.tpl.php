@@ -2,29 +2,26 @@
 <?php
 $wrapper = entity_metadata_wrapper('node', $node);
 $pole_slider = $content['field_hlavni_slider']['#items'];
+// dpm($content['field_hlavni_slider']);
 ?>
-<div class="hero-tabs" slick>
+<div class="hero-tabs mm-four" slick>
     <div class="hero-slides" carousel>
         <?php
         foreach ($pole_slider as $cislo => $r) {
             if ($cislo == 0) {
                 ?>
-                <div class="content-tab mm-center mm-welcome"
-                     style="background-image: url(<?= image_style_url('none', $r['field_basic_img']['und'][0]['uri']) ?>);">
+                <div class="content-tab mm-center mm-welcome" style="background-image: url(<?= image_style_url('none', $r['field_basic_img']['und'][0]['uri']) ?>);">
                     <div class="row">
                         <div class="description">
-                            <p><?= $r['field_basic_text']['und'][0]['value'] ?></p>
-                            <img src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/square-down.svg"
-                                 alt=""/>
+                            <?= $r['field_basic_text']['und'][0]['value'] ?>
                         </div>
                     </div>
                 </div>
             <?php } else { ?>
-                <div class="content-tab <?php echo ($cislo <= 3) ? '' : 'mm-right'; ?>"
-                     style="background-image: url(<?= image_style_url('none', $r['field_basic_img']['und'][0]['uri']) ?>);">
+                <div class="content-tab mm-left" style="background-image: url(<?= image_style_url('none', $r['field_basic_img']['und'][0]['uri']) ?>);">
                     <div class="row">
                         <div class="description">
-                            <p><?= $r['field_basic_text']['und'][0]['value'] ?></p>
+                            <?= $r['field_basic_text']['und'][0]['value'] ?>
                         </div>
                     </div>
                 </div>
@@ -38,12 +35,23 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
             <?php
             foreach ($pole_slider as $cislo => $r) {
                 if ($cislo == 0) continue;
-
                 $odkaz_nid = $content['field_hlavni_slider']['#object']->field_hlavni_slider['cs'][$cislo]['field_c_hp_odkaz']['und'][0]['target_id'];
                 ?>
-                <div class="tab color-<?= $cislo ?>" slick-to="<?= $cislo ?>">
 
-                    <a href="<?= test_lang_prefix('node/' . $odkaz_nid) ?>"><?= $r['field_basic_title']['und'][0]['value'] ?></a>
+                <div class="tab" slick-to="<?= $cislo ?>">
+                    <?php
+                    $logoClass = '';
+                    if($cislo == 1) $logoClass = 'koma-space';
+                    if($cislo == 2) $logoClass = 'koma-modular';
+                    if($cislo == 3) $logoClass = 'koma-rent';
+                    if($cislo == 4) $logoClass = 'koma-slovakia';
+
+                    ?>
+
+                    <?= $theme_path ?>
+                    <a href="<?=test_lang_prefix('node/'.$odkaz_nid)?>">
+                        <div class="tab-logo <?= $logoClass ?>"></div>
+                    </a>
                 </div>
                 <?php
             }
@@ -54,8 +62,18 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
 <!--slider-->
 
 <!--text-->
-<div>
-<?=$content['field_basic_text'][0]['#markup']; ?>
+<div class="m-section bg-white">
+    <div class="m-section--underlay"></div>
+
+    <div class="row"><header class="m-section--header"></header></div>
+
+    <div class="row">
+        <div class="l-section--content">
+            <?=$content['field_basic_text'][0]['#markup']; ?>
+        </div>
+    </div>
+
+    <div class="row"><footer class="m-section--footer"></footer></div>
 </div>
 <!--end: text-->
 
