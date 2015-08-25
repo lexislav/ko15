@@ -64,8 +64,6 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
 <!--text-->
 <div class="m-section bg-white">
 
-    <div class="row"><header class="m-section--header"></header></div>
-
     <div class="row">
         <div class="l-section--content mm-big mm-tiny">
             <?=$content['field_basic_text'][0]['#markup']; ?>
