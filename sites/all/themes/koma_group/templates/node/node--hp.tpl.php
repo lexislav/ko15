@@ -72,7 +72,6 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
         </div>
     </div>
 
-    <div class="row"><footer class="m-section--footer"></footer></div>
 </div>
 <!--end: text-->
 
