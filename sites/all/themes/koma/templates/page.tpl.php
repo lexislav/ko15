@@ -137,7 +137,7 @@ if ($user->uid == 1) {
 
                 <div
                     class="m-item--description"><?php print t('Have you not found answers to your questions here? Ask us directly!') ?></div>
-                <button><?php print t('Ask us') ?> &rarr;</button>
+                <a href="<?=test_lang_prefix('node/1444')?>#formSection"><button><?php print t('Ask us') ?> &rarr;</button></a>
             </article>
 
         </div>

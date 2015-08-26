@@ -52,7 +52,7 @@
     <div class="row">
         <footer class="m-section--footer">
             <div class="l-half">
-                <button class="button"><?php print t('Ask us') ?></button>
+                <a href="<?=test_lang_prefix('node/1444')?>#formSection"><button class="button"><?php print t('Ask us') ?></button></a>
             </div>
             <div class="l-half">
                 <ul class="m-section--nav inline-right">
