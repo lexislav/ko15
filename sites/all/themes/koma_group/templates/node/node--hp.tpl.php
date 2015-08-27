@@ -18,7 +18,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
                     </div>
                 </div>
             <?php } else { ?>
-                <div class="content-tab mm-left" style="background-image: url(<?= image_style_url('none', $r['field_basic_img']['und'][0]['uri']) ?>);">
+                <div class="content-tab <?php echo ($cislo <= 2) ? '' : 'mm-right'; ?>" style="background-image: url(<?= image_style_url('none', $r['field_basic_img']['und'][0]['uri']) ?>);">
                     <div class="row">
                         <div class="description">
                             <?= $r['field_basic_text']['und'][0]['value'] ?>
