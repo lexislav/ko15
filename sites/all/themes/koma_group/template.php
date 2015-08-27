@@ -20,6 +20,7 @@ function koma_group_links__locale_block(&$variables) {
 
 // an array of list items
     $items = array();
+
     foreach($variables['links'] as $lang => $info) {
 
         $name     = $info['language']->native;
@@ -43,12 +44,13 @@ function koma_group_links__locale_block(&$variables) {
 // output
     $attributes = array('class' => array('my-list'));
 
-$linky = '';
-foreach($items AS $item){
-    $linky.= '<li>';
-    $linky.= $item['data'];
-    $linky.= '</li>';
-}
+    $linky = '';
+    foreach($items AS $poradi => $item){
+        if($poradi==1)continue;
+        $linky.= '<li class="lang_'.$poradi.'">';
+        $linky.= $item['data'];
+        $linky.= '</li>';
+    }
 
     return $linky;
 }
