@@ -41,15 +41,27 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
                 <div class="tab" slick-to="<?= $cislo ?>">
                     <?php
                     $logoClass = '';
-                    if ($cislo == 1) $logoClass = 'koma-modular';
-                    if ($cislo == 2) $logoClass = 'koma-space';
-                    if ($cislo == 3) $logoClass = 'koma-rent';
-                    if ($cislo == 4) $logoClass = 'koma-slovakia';
+                    if ($cislo == 1) {
+                        $logoClass = 'koma-modular';
+                        $urlwebu = test_basic_url('koma-modular.cz');
+                    }
+                    if ($cislo == 2) {
+                        $logoClass = 'koma-space';
+                        $urlwebu = test_basic_url_special('koma-space.at');
+                    }
+                    if ($cislo == 3) {
+                        $logoClass = 'koma-rent';
+                        $urlwebu = 'http://www.koma-rent.cz';
+                    }
+                    if ($cislo == 4) {
+                        $logoClass = 'koma-slovakia';
+                        $urlwebu = 'http://koma-slovakia.sk/';
+                    }
 
                     ?>
 
                     <?= $theme_path ?>
-                    <a href="<?= test_lang_prefix('node/' . $odkaz_nid) ?>">
+                    <a target="_blank" href="<?= $urlwebu ?>">
                         <div class="tab-logo <?= $logoClass ?>"></div>
                     </a>
                 </div>
