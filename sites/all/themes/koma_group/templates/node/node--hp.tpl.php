@@ -41,15 +41,15 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
                 <div class="tab" slick-to="<?= $cislo ?>">
                     <?php
                     $logoClass = '';
-                    if($cislo == 1) $logoClass = 'koma-space';
-                    if($cislo == 2) $logoClass = 'koma-modular';
-                    if($cislo == 3) $logoClass = 'koma-rent';
-                    if($cislo == 4) $logoClass = 'koma-slovakia';
+                    if ($cislo == 1) $logoClass = 'koma-modular';
+                    if ($cislo == 2) $logoClass = 'koma-space';
+                    if ($cislo == 3) $logoClass = 'koma-rent';
+                    if ($cislo == 4) $logoClass = 'koma-slovakia';
 
                     ?>
 
                     <?= $theme_path ?>
-                    <a href="<?=test_lang_prefix('node/'.$odkaz_nid)?>">
+                    <a href="<?= test_lang_prefix('node/' . $odkaz_nid) ?>">
                         <div class="tab-logo <?= $logoClass ?>"></div>
                     </a>
                 </div>
@@ -58,22 +58,32 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
             ?>
         </div>
     </div>
-</div>
-<!--slider-->
+</div><!--slider-->
 
 <!--text-->
-<div class="m-section bg-white">
-
-    <div class="row"><header class="m-section--header"></header></div>
+<div class="m-section">
 
     <div class="row">
-        <div class="l-section--content mm-big mm-tiny">
-            <?=$content['field_basic_text'][0]['#markup']; ?>
+        <header class="m-section--header">
+            <div class="l-third">
+                <h2 class="m-section--hed mm-small color-primary"><?php print t('About group') ?></h2>
+            </div>
+        </header>
+    </div>
+
+    <div class="row">
+        <div class="l-full">
+            <div class="l-section--content mm-medium mm-tiny">
+                <?php echo strip_tags($content['field_basic_text'][0]['#markup'], '<strong><em><b><a><i>');?>
+            </div>
         </div>
     </div>
 
-</div>
-<!--end: text-->
+    <div class="row">
+        <footer class="m-section--footer"></footer>
+    </div>
+
+</div><!--end: text-->
 
 
 <!--koma zpravodaj-->
@@ -93,8 +103,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
                 <ul class="m-section--nav inline-right">
                     <?php foreach ($tree as $term) { ?>
                         <li class="tid_<?= $term->tid ?>">
-                            <a href="<?= test_basic_url() ?>zpravodaj?field_zpravodaj_kategorie_tid=<?= $term->tid ?>"
-                               title="<?= $term->name ?>"><?= $term->name ?></a>
+                            <a href="<?= test_basic_url() ?>zpravodaj?field_zpravodaj_kategorie_tid=<?= $term->tid ?>" title="<?= $term->name ?>"><?= $term->name ?></a>
                         </li>
                     <?php } ?>
                 </ul>
@@ -123,6 +132,5 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
             </div>
         </footer>
     </div>
-</div>
-<!--koma zpravodaj konec-->
+</div><!--koma zpravodaj konec-->
 
