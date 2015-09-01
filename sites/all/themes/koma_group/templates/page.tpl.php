@@ -94,6 +94,7 @@ if ($user->uid == 1) {
                 </a>
             </section>
             <section class="m-footer--section">
+                &nbsp;
                 <?php print theme('links__system_secondary_menu', array(
                     'links' => $secondary_menu,
                     'attributes' => array(
