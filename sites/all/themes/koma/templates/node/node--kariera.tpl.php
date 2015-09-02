@@ -12,8 +12,8 @@
         <header>
 
 
-            <div class="m-story--image" style="background-image: url(http://lorempixel.com/650/500)">
-                <a href=""><img src="http://lorempixel.com/650/500" alt=""/></a>
+            <div class="m-story--image">
+                <a href=""> &nbsp; </a>
             </div>
 
             <div class="m-story--summary">
