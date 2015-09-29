@@ -108,7 +108,7 @@ if ($user->uid == 1) {
 <!--certifikace-->
 <div class="m-section l-feed_six">
     <header class="m-section--header">
-        <h2 class="m-section--hed mm-small mm-center color-secondary"><?php print t('Certifikace') ?></h2>
+        <h2 class="m-section--hed mm-small mm-center color-secondary"><?php print t('CERTIFICATION') ?></h2>
     </header>
     <div class="row rowfix">
         <?php
@@ -150,7 +150,7 @@ if ($user->uid == 1) {
 
             <article class="m-bulletin">
                 <header>
-                    <h1 class="m-item--hed mm-small color-primary"><?php print t('Customer support') ?></h1>
+                    <h1 class="m-item--hed mm-small color-primary"><?php print t('Začněte odebírat náš E-bulletin') ?></h1>
                 </header>
 
                 <?php print render($page['form_email']); ?>
