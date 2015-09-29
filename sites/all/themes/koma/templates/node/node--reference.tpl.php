@@ -4,6 +4,14 @@ $next_nid = prev_next_nid($node->nid, 'next');
 $next_title = db_query('SELECT title_field_value FROM {field_data_title_field} WHERE entity_id = :nid AND language = :lang', array(':nid' => $next_nid[0]->next_nid, ':lang' => $node->language))->fetchField();
 $prev_title = db_query('SELECT title_field_value FROM {field_data_title_field} WHERE entity_id = :nid AND language = :lang', array(':nid' => $prev_nid[0]->prev_nid, ':lang' => $node->language))->fetchField();
 
+
+if (isset($node->field_reference_main_img['und'][0]['uri'])) {
+    $urickoMain =$node->field_reference_main_img['und'][0]['uri'];
+} else {
+    $urickoMain = $node->field_reference_fotogalerie[$node->language][0]['entity']->field_fotogalerie_main_img['und'][0]['uri'];
+}
+
+
 ?>
 
 <div class="m-section l-detail-page">
@@ -16,9 +24,9 @@ $prev_title = db_query('SELECT title_field_value FROM {field_data_title_field} W
     <article class="m-reference">
         <header>
             <div class="m-reference--image"
-                 style="background-image: url(<?= image_style_url('x618-480', $node->field_reference_main_img['und'][0]['uri']) ?>)">
+                 style="background-image: url(<?= image_style_url('x618-480', $urickoMain) ?>)">
                 <a href=""><img
-                        src="<?= image_style_url('x618-480', $node->field_reference_main_img['und'][0]['uri']) ?>"
+                        src="<?= image_style_url('x618-480', $urickoMain) ?>"
                         alt=""/></a>
             </div>
             <div class="m-reference--summary">
