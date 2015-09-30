@@ -38,7 +38,13 @@
         <!--[if lt IE 9]>
         <script src="<?php print $base_path . $path_to_zen; ?>/js/respond.js"></script><![endif]-->
     <?php endif; ?>
-
+<?php
+if($user->uid==1 OR $user->uid==114){
+    ?>
+    <script src="http://www.koma-modular.cz/sites/all/themes/koma/js/komacookies.js" async></script>
+    <?php
+}
+?>
 
 </head>
 <?php
