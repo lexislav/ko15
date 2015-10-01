@@ -38,50 +38,35 @@
         <!--[if lt IE 9]>
         <script src="<?php print $base_path . $path_to_zen; ?>/js/respond.js"></script><![endif]-->
     <?php endif; ?>
-<?php
-if($user->uid==1 OR $user->uid==114){
-    ?>
     <script src="http://www.koma-modular.cz/sites/all/themes/koma/js/komacookies.js" async></script>
-    <?php
-}
-?>
 
 </head>
-<?php
-if($_SERVER['SERVER_ADDR']=='217.115.249.155'){
-    $jakej = 'novej';
-}else{
-    $jakej = 'starej';
-}
-
-?>
-<body class="l-page <?php print $classes; ?> <?=$jakej?>" <?php print $attributes; ?>>
+<body class="l-page <?php print $classes; ?> <?= $jakej ?>" <?php print $attributes; ?>>
 <?php if ($skip_link_text && $skip_link_anchor): ?>
     <p id="skip-link">
         <a href="#<?php print $skip_link_anchor; ?>"
            class="element-invisible element-focusable"><?php print $skip_link_text; ?></a>
     </p>
 <?php endif; ?>
-
-
-
-
-
 <?php print $page_top; ?>
 <?php print $page; ?>
 <?php print $page_bottom; ?>
-
-
 <div class="m-page-scroll">
     <div class="m-page-scroll--item">
         <img src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/scroll-down-sipka.svg"
              alt="Scroll Down" class="scroll-sipka"/> <?php print t('Scroll down') ?>
     </div>
 </div>
-
-
-
 <script type="text/javascript" src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/js/app.js"></script>
-<script type="text/javascript"> var leady_track_key="zdY943A7JNzTW7S9"; var leady_track_server=document.location.protocol+"//t.leady.cz/"; (function(){ var l=document.createElement("script");l.type="text/javascript";l.async=true; l.src=leady_track_server+leady_track_key+"/L.js"; var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(l,s); })(); </script>
+<script type="text/javascript"> var leady_track_key = "zdY943A7JNzTW7S9";
+    var leady_track_server = document.location.protocol + "//t.leady.cz/";
+    (function () {
+        var l = document.createElement("script");
+        l.type = "text/javascript";
+        l.async = true;
+        l.src = leady_track_server + leady_track_key + "/L.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(l, s);
+    })(); </script>
 </body>
 </html>
