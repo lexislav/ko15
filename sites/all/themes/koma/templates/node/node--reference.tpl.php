@@ -1,8 +1,8 @@
 <?php
 $prev_nid = prev_next_nid($node->nid, 'prev');
 $next_nid = prev_next_nid($node->nid, 'next');
-$next_title = db_query('SELECT title_field_value FROM {field_data_title_field} WHERE entity_id = :nid AND language = :lang', array(':nid' => $next_nid[0]->next_nid, ':lang' => $node->language))->fetchField();
-$prev_title = db_query('SELECT title_field_value FROM {field_data_title_field} WHERE entity_id = :nid AND language = :lang', array(':nid' => $prev_nid[0]->prev_nid, ':lang' => $node->language))->fetchField();
+$next_title = db_query('SELECT title_field_value FROM {field_data_title_field} WHERE entity_id = :nid AND language = :lang', array(':nid' => $next_nid[0]->next_nid, ':lang' => test_lang_code()))->fetchField();
+$prev_title = db_query('SELECT title_field_value FROM {field_data_title_field} WHERE entity_id = :nid AND language = :lang', array(':nid' => $prev_nid[0]->prev_nid, ':lang' => test_lang_code()))->fetchField();
 
 
 if (isset($node->field_reference_main_img['und'][0]['uri'])) {
@@ -154,8 +154,7 @@ if (isset($node->field_reference_main_img['und'][0]['uri'])) {
                 <div class="m-section--top"><a href=""><?php print t('UP') ?> &uarr;</a></div>
             </div>
             <div class="l-half">
-                <div class="m-section--more"><a
-                        href="http://www.koma-modular.cz/reference/archiv"><?php print t('WHOLE ARCHIVES') ?> &rarr;</a>
+                <div class="m-section--more"><a href="<?=test_basic_url()?>reference/archiv"><?php print t('WHOLE ARCHIVES') ?> &rarr;</a>
                 </div>
             </div>
         </footer>
