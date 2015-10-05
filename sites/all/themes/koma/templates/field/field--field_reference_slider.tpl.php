@@ -1,13 +1,13 @@
 <!-- field--field_reference_slider.tpl -->
 <div class="m-section l-feed_carousel">
 
-    <div class="row">
-        <header class="m-section--header">
-            <div class="l-full">
-                <h2 class="m-section--hed mm-big"><?php print t('Reference') ?></h2>
-            </div>
-        </header>
-    </div>
+<!--    <div class="row">-->
+<!--        <header class="m-section--header">-->
+<!--            <div class="l-full">-->
+<!--                <h2 class="m-section--hed mm-big">--><?php //print t('Reference') ?><!--</h2>-->
+<!--            </div>-->
+<!--        </header>-->
+<!--    </div>-->
 
     <div class="row rowfix" style="overflow: visible">
         <div class="l-full" style="overflow: visible">
