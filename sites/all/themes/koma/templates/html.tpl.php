@@ -40,6 +40,31 @@
     <?php endif; ?>
     <script src="http://www.koma-modular.cz/sites/all/themes/koma/js/komacookies.js" async></script>
 
+    <script>
+        var koma_eu_config = {
+            "l18n": {
+                <?php
+                if(test_lang_code()=='en'){
+                    ?>
+                "text": "Cookies allow you to utilise the services provided by us. By utilising our services, you automatically agree with the use of cookies.",
+                "accept": "OK",
+                "more": "Legal warning / More at:,
+                "link": "http://www.koma-modular.cz/en/informations-about-cookies"
+                <?php
+                }elseif(test_lang_code()=='de'){
+                ?>
+                "text": "Cookies ermöglichen Ihnen die Nutzung der von uns bereitgestellten Dienstleistungen. Mit der Nutzung unserer Dienstleistungen stimmen Sie automatisch der Nutzung von Cookies zu.",
+                "accept": "OK",
+                "more": "Rechtliche Hinweise / Mehr auf:",
+                "link": "http://www.koma-modular.cz/de/cookies"
+                <?php
+                }
+                ?>
+            }
+        };
+    </script>
+
+
 </head>
 <body class="l-page <?php print $classes; ?> <?= $jakej ?>" <?php print $attributes; ?>>
 <?php if ($skip_link_text && $skip_link_anchor): ?>
