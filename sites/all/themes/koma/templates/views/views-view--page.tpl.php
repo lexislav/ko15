@@ -5,23 +5,25 @@ $trida = 'l-feed_four';
 if($view->name=='certifik_ty' OR $view->name=='zpravodaj'){
    $trida = 'l-feed_two';
 }
+
 ?>
+<?php if ( empty($title) ): ?>
+    <?php $title = $view->get_title(); ?>
+<?php endif; ?>
 
 <div class="m-section <?=$trida?>">
 
     <div class="row">
         <header class="m-section--header">
             <div class="l-full">
-                <h2 class="m-section--hed mm-big"><?=$view->human_name?></h2>
+                <h2 class="m-section--hed mm-big"><?php print t($title); ?></h2>
             </div>
         </header>
     </div>
 
 
     <?php print render($title_prefix); ?>
-    <?php if ($title): ?>
-        <?php print $title; ?>
-    <?php endif; ?>
+
     <?php print render($title_suffix); ?>
     <?php if ($header): ?>
         <div class="view-header">
