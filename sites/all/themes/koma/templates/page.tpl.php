@@ -150,7 +150,7 @@ if ($user->uid == 1) {
 
             <article class="m-bulletin">
                 <header>
-                    <h1 class="m-item--hed mm-small color-primary"><?php print t('Začněte odebírat náš E-bulletin') ?></h1>
+                    <h1 class="m-item--hed mm-small color-primary"><?php print t('Get modular news with e-bulletin') ?></h1>
                 </header>
 
                 <?php print render($page['form_email']); ?>
