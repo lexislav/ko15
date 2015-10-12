@@ -10,12 +10,7 @@
     <div class="row">
 
         <?php
-        dpm($view->localization_plugin->view->display);
-        if(@$_GET['neco']==1){
-            echo '<pre>';
-         //   var_dump($view->localization_plugin->view->display);
-            echo '</pre>';
-        }
+
 
     //    dpm($view->filter['status']->view->display[$view->filter['status']->view->current_display]);
         print render($title_prefix); ?>
