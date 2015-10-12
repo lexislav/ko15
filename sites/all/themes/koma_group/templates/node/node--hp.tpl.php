@@ -105,19 +105,22 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
     <div class="row">
         <header class="m-section--header">
             <div class="l-third">
-                <h2 class="m-section--hed mm-small color-primary"><?php print t('Koma zpravodaj') ?></h2>
+                <h2 class="m-section--hed mm-small color-primary"><?php print t('KOMA Bulletin') ?></h2>
             </div>
             <?php
             $tree = taxonomy_get_tree(5);
             ?>
-
             <div class="l-two-thirds">
                 <ul class="m-section--nav inline-right">
-                    <?php foreach ($tree as $term) { ?>
+                    <?php foreach ($tree as $term) {
+                        $termLang = taxonomy_term_load($term->tid);
+                        ?>
                         <li class="tid_<?= $term->tid ?>">
-                            <a href="<?= test_basic_url() ?>zpravodaj?field_zpravodaj_kategorie_tid=<?= $term->tid ?>" title="<?= $term->name ?>"><?= $term->name ?></a>
+                            <a href="<?= test_basic_url() ?>zpravodaj?field_zpravodaj_kategorie_tid=<?= $term->tid ?>" title="<?= $termLang->name ?>"><?= $termLang->name ?></a>
                         </li>
-                    <?php } ?>
+                        <?php
+                        unset($termLang);
+                    } ?>
                 </ul>
             </div>
         </header>
