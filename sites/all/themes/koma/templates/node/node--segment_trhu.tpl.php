@@ -106,9 +106,16 @@ global $language;
                                         ?>
                                         <br/>
                                         <a href="<?= test_lang_prefix('node/'.$reference['entity']->nid) ?>">
-                                            <?php print t('Reference detail') ?></a> &rarr; [
-                                        <a href="<?= test_lang_prefix('node/'.$reference['entity']->nid) ?>/edit">editovat</a>
-                                        ]
+                                            <?php print t('Reference detail') ?></a> &rarr;
+                                        <?php
+                                        if(@$user->uid>0) {
+                                            ?>
+                                            [
+                                            <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>/edit">editovat</a>
+                                            ]
+                                            <?php
+                                        }
+                                            ?>
                                     </p>
                                 </div>
                             </div>
@@ -226,9 +233,18 @@ print render($block);
 
                                         ?>
                                         <br/>
-                                        <a href="<?= test_lang_prefix('node/'.$reference['entity']->nid) ?>"><?php print t('Reference detail') ?></a> &rarr; [ <a
-                                            href="<?= test_lang_prefix('node/'.$reference['entity']->nid) ?>/edit">editovat</a>
-                                        ]</p>
+                                        <a href="<?= test_lang_prefix('node/'.$reference['entity']->nid) ?>"><?php print t('Reference detail') ?></a> &rarr;
+
+                                        <?php
+                                        if(@$user->uid>0) {
+                                            ?>
+                                            [
+                                            <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>/edit">editovat</a>
+                                            ]
+                                            <?php
+                                        }
+                                        ?>
+
 
                                 </div>
                         </header>
