@@ -1,44 +1,33 @@
 <article id="produktove-rady">
-    <header class="m-basic-page--header">
+
+    <div class="m-section l-feed_four">
         <div class="row">
-            <div class="l-half ">
-                <h1 class="m-basic-page--hed">
+            <header class="m-section--header">
+                <div class="l-full">
+                    <h1 class="m-basic-page--hed mm-big mm-pad-bottom"><?= $title ?></h1>
+                </div>
+                <div class="l-third">
 
-
-
-
-
-                    <div class="field field-name-title-field field-type-text field-label-hidden">
-                        <div class="field-items">
-                            <div class="field-item even"><?=$title?></div>
-                        </div>
-                    </div>
-
-
-
-
-                </h1>
-            </div>
-
+                </div>
+                <div class="l-two-thirds">
+                </div>
+            </header>
         </div>
-    </header>
 
-    <div class="row">
-        <div class="m-basic-page--content">
-
-
-            <div class="m-body--content">
-                <?php
-                print render($content);
-                ?>
+        <div class="row">
+            <div class="m-basic-page--content">
 
 
+                <div class="m-body--content">
+                    <?php
+                    print render($content);
+                    ?>
+
+
+                </div>
 
 
             </div>
-
-
-
         </div>
     </div>
 </article>
