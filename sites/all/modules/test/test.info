@@ -1,0 +1,5 @@
+name = test modul
+description = Just a simple example module
+version = 0.1
+core = 7.x
+package = Alpha Custom Modules
