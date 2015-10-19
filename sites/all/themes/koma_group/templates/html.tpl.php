@@ -65,7 +65,13 @@
     </script>
 
 </head>
-
+<?php
+if($_SERVER['SERVER_ADDR']=='217.115.249.155'){
+    $jakej = 'internet';
+}else{
+    $jakej = 'local';
+}
+?>
 <body class="l-page <?php print $classes; ?> <?= $jakej ?>" <?php print $attributes; ?>>
 <?php if ($skip_link_text && $skip_link_anchor): ?>
     <p id="skip-link">
