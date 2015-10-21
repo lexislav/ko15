@@ -53,3 +53,6 @@
  * @see conf_path()
  * @see http://drupal.org/documentation/install/multi-site
  */
+
+$sites['koma-group.dev'] = 'koma-group.cz';
+$sites['koma-modular.dev'] = 'koma-modular.cz';
