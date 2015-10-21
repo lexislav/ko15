@@ -1,6 +1,17 @@
 <div class="m-section l-detail-page">
     <div class="row">
-        <header class="m-section--header"></header>
+        <header class="m-section--header">
+            <div class="l-full">
+                <nav class="breadcrumbs">
+                    <?php
+                    foreach (drupal_get_breadcrumb() AS $drobek) {
+                        echo $drobek;
+                    }
+                    ?>
+                </nav>
+
+            </div>
+        </header>
     </div>
     <article class="m-reference">
         <header>
