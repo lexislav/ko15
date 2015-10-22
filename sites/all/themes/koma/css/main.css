@@ -4435,6 +4435,10 @@ button:focus {
     width: 100%;
     height: auto;
     display: none; }
+  .m-card_standard .m-item--image a {
+    display: block;
+    width: 100%;
+    height: 100%; }
   .m-card_standard .m-item--image {
     height: 181px;
     overflow: hidden; }
@@ -4486,6 +4490,10 @@ button:focus {
     width: 100%;
     height: auto;
     display: none; }
+  .m-card_list .m-item--image a {
+    display: block;
+    width: 100%;
+    height: 100%; }
   .m-card_list .m-item--image {
     height: 60px;
     width: 120px;
@@ -4521,6 +4529,10 @@ button:focus {
     width: 100%;
     height: auto;
     display: none; }
+  .m-card_product .m-item--image a {
+    display: block;
+    width: 100%;
+    height: 100%; }
   .m-card_product > article {
     padding: 0; }
     .m-card_product > article header {
@@ -4601,6 +4613,10 @@ button:focus {
     width: 100%;
     height: auto;
     display: none; }
+  .m-card_vertical .m-item--image a {
+    display: block;
+    width: 100%;
+    height: 100%; }
   .m-card_vertical article {
     height: 400px;
     position: relative;
@@ -4802,6 +4818,10 @@ button:focus {
     width: 100%;
     height: auto;
     display: none; }
+  .m-card_horizontal .m-item--image a {
+    display: block;
+    width: 100%;
+    height: 100%; }
   .m-card_horizontal article {
     height: 400px;
     position: relative;
@@ -4984,10 +5004,12 @@ button:focus {
     .m-card_horizontal article {
       height: 280px; }
     .m-card_horizontal .m-item--image {
-      margin: 0;
       width: 260px;
       height: 280px;
       float: left;
+      position: relative;
+      z-index: 10;
+      margin: 0;
       margin-right: 35px; }
       .m-card_horizontal .m-item--image img {
         display: none; }
@@ -5037,6 +5059,10 @@ button:focus {
     width: 100%;
     height: auto;
     display: none; }
+  .m-card_image .m-item--image a {
+    display: block;
+    width: 100%;
+    height: 100%; }
   .m-card_image article,
   .m-card_image header {
     height: 100%; }
@@ -5174,6 +5200,10 @@ button:focus {
     width: 100%;
     height: auto;
     display: none; }
+  .m-card_thumb .m-item--image a {
+    display: block;
+    width: 100%;
+    height: 100%; }
   .m-card_thumb article,
   .m-card_thumb header {
     height: 100%; }
@@ -5293,6 +5323,10 @@ button:focus {
     width: 100%;
     height: auto;
     display: none; }
+  .m-card_reference .m-item--image a {
+    display: block;
+    width: 100%;
+    height: 100%; }
   .m-card_reference article,
   .m-card_reference header {
     height: 100%;
@@ -5348,6 +5382,10 @@ button:focus {
     width: 100%;
     height: auto;
     display: none; }
+  .m-card_reference-horizontal .m-item--image a {
+    display: block;
+    width: 100%;
+    height: 100%; }
   .m-card_reference-horizontal article header {
     *zoom: 1;
     position: relative;
@@ -5417,6 +5455,11 @@ button:focus {
   width: 100%;
   height: auto;
   display: none; }
+
+.m-card_bigteaser .m-item--image a {
+  display: block;
+  width: 100%;
+  height: 100%; }
 
 .m-card_bigteaser article header {
   *zoom: 1;
@@ -5504,6 +5547,11 @@ button:focus {
   width: 100%;
   height: auto;
   display: none; }
+
+.m-card_bigpromo .m-item--image a {
+  display: block;
+  width: 100%;
+  height: 100%; }
 
 .m-card_bigpromo article header {
   *zoom: 1;
@@ -5649,6 +5697,11 @@ button:focus {
   height: auto;
   display: none; }
 
+.m-card_certificate .m-item--image a {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
 .m-card_certificate article {
   text-align: center; }
 
@@ -5735,6 +5788,10 @@ button:focus {
     width: 100%;
     height: auto;
     display: none; }
+  .m-card_faq .m-item--image a {
+    display: block;
+    width: 100%;
+    height: 100%; }
   .m-card_faq article,
   .m-card_faq header {
     position: relative; }
@@ -5789,6 +5846,11 @@ button:focus {
   width: 100%;
   height: auto;
   display: none; }
+
+.m-card_nav .m-item--image a {
+  display: block;
+  width: 100%;
+  height: 100%; }
 
 .m-card_nav article,
 .m-card_nav header,
