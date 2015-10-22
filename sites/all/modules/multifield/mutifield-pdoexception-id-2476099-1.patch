@@ -1,0 +1,15 @@
+diff --git a/multifield.field.inc b/multifield.field.inc
+index 2fa7058..54e4fcb 100644
+--- a/multifield.field.inc
++++ b/multifield.field.inc
+@@ -329,6 +329,10 @@ function multifield_field_insert($entity_type, $entity, $field, $instance, $lang
+     $pseudo_entity = _multifield_field_item_to_entity($machine_name, $item);
+     _multifield_field_attach_insert('multifield', $pseudo_entity);
+     $items[$delta] = _multifield_field_entity_to_item($pseudo_entity);
++    if (empty($pseudo_entity->id)) {
++      // If the ID is NULL provide a new ID.
++      $items[$delta]['id'] = multifield_get_next_id();
++    }
+   }
+ 
+   // Because this is invoked right prior to field storage writing, we need to

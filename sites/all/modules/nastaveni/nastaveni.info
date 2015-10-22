@@ -1,0 +1,5 @@
+name = Nastaveni webu
+description = Nastaveni webu
+version = 0.1
+core = 7.x
+package = Alpha Custom Modules
