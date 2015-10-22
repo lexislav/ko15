@@ -18,6 +18,13 @@ if (isset($node->field_reference_main_img['und'][0]['uri'])) {
     <div class="row">
         <header class="m-section--header">
             <div class="l-full">
+<!--                <nav class="breadcrumbs">-->
+<!--                    --><?php
+//                    foreach (drupal_get_breadcrumb() AS $drobek) {
+//                        echo $drobek;
+//                    }
+//                    ?>
+<!--                </nav>-->
             </div>
         </header>
     </div>
@@ -163,6 +170,7 @@ if (isset($node->field_reference_main_img['und'][0]['uri'])) {
 <div class="m-section l-navigation bg-white">
     <div class="row">
         <?php
+
         if ($prev_nid[0]->prev_nid > 0) {
             ?>
             <div class="l-prev m-card_nav">

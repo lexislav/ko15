@@ -149,7 +149,7 @@ if ($user->uid == 1) {
         <div class="m-section--item">
 
             <article class="m-bulletin">
-                <?php print render($page['form_email']); ?>
+
                 <header>
                     <h1 class="m-item--hed mm-small color-primary"><?php print t('Get modular news with e-bulletin') ?></h1>
                 </header>
@@ -159,6 +159,7 @@ if ($user->uid == 1) {
                 <div
                     class="m-item--description"><?php print t('If you subscribe to our monthly e-bulletin you will be periodically informed about the latest developments in the world of modular architecture and new offers of the KOMA modular building system.') ?></div>
 
+                <?php print render($page['form_email']); ?>
             </article>
 
         </div>

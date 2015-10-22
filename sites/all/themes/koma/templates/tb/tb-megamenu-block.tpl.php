@@ -1,4 +1,7 @@
-<?php if ($content) : ?>
+<?php
+
+
+if ($content) : ?>
     <div class="tblock">
         <?php print $content ?>
     </div>
