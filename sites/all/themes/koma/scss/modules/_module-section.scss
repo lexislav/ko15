@@ -78,6 +78,11 @@
 }
 
 .m-section.bg-secondary-light {
+
+    .m-item--summary {
+        color: $color-black;
+    }
+
     .m-section--close {
         color: $color-secondary;
     }

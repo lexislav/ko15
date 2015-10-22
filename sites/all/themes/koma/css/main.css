@@ -3756,6 +3756,9 @@ button:focus {
       height: 100%;
       width: auto; }
 
+.m-section.bg-secondary-light .m-item--summary {
+  color: #000; }
+
 .m-section.bg-secondary-light .m-section--close {
   color: #B5BBB4; }
 
