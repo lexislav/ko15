@@ -5184,7 +5184,7 @@ button:focus {
       background-color: #B5BBB4;
       opacity: .8; }
   .m-card_image:hover .m-item--image a:before {
-    opacity: 0.8; }
+    opacity: 1; }
   .m-card_image:hover .m-item--description {
     position: absolute;
     display: block;
