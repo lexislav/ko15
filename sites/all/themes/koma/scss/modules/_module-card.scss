@@ -38,6 +38,11 @@
             height: 100%;
         }
     }
+    &:hover {
+        a {
+            text-decoration: underline;
+        }
+    }
 
 }
 
@@ -106,6 +111,12 @@
         top: 20px;
         left: 30px;
         color: white;
+    }
+
+    &:hover {
+        .m-item--hed {
+            text-decoration: underline;
+        }
     }
 
 }
@@ -537,7 +548,7 @@
         @include vertical-align();
         z-index: 10;
         margin: 0;
-        padding: 10%;
+        padding: 0 10%;
     }
 
     &.mm-has-hover {

@@ -4439,6 +4439,8 @@ button:focus {
     display: block;
     width: 100%;
     height: 100%; }
+  .m-card_standard:hover a {
+    text-decoration: underline; }
   .m-card_standard .m-item--image {
     height: 181px;
     overflow: hidden; }
@@ -4494,6 +4496,8 @@ button:focus {
     display: block;
     width: 100%;
     height: 100%; }
+  .m-card_list:hover a {
+    text-decoration: underline; }
   .m-card_list .m-item--image {
     height: 60px;
     width: 120px;
@@ -4533,6 +4537,8 @@ button:focus {
     display: block;
     width: 100%;
     height: 100%; }
+  .m-card_product:hover a {
+    text-decoration: underline; }
   .m-card_product > article {
     padding: 0; }
     .m-card_product > article header {
@@ -4617,6 +4623,8 @@ button:focus {
     display: block;
     width: 100%;
     height: 100%; }
+  .m-card_vertical:hover a {
+    text-decoration: underline; }
   .m-card_vertical article {
     height: 400px;
     position: relative;
@@ -4822,6 +4830,8 @@ button:focus {
     display: block;
     width: 100%;
     height: 100%; }
+  .m-card_horizontal:hover a {
+    text-decoration: underline; }
   .m-card_horizontal article {
     height: 400px;
     position: relative;
@@ -5063,6 +5073,8 @@ button:focus {
     display: block;
     width: 100%;
     height: 100%; }
+  .m-card_image:hover a {
+    text-decoration: underline; }
   .m-card_image article,
   .m-card_image header {
     height: 100%; }
@@ -5105,6 +5117,8 @@ button:focus {
     top: 20px;
     left: 30px;
     color: white; }
+  .m-card_image:hover .m-item--hed {
+    text-decoration: underline; }
   .m-card_image .m-item--image a:before {
     background-color: #C20E1A;
     opacity: 0; }
@@ -5204,6 +5218,8 @@ button:focus {
     display: block;
     width: 100%;
     height: 100%; }
+  .m-card_thumb:hover a {
+    text-decoration: underline; }
   .m-card_thumb article,
   .m-card_thumb header {
     height: 100%; }
@@ -5246,6 +5262,8 @@ button:focus {
     top: 20px;
     left: 30px;
     color: white; }
+  .m-card_thumb:hover .m-item--hed {
+    text-decoration: underline; }
   .m-card_thumb .m-card--more {
     display: none; }
   .m-card_thumb .m-item--image img {
@@ -5277,7 +5295,7 @@ button:focus {
     transform: translateY(-50%);
     z-index: 10;
     margin: 0;
-    padding: 10%; }
+    padding: 0 10%; }
   .m-card_thumb.mm-has-hover:hover .m-item--image:before {
     opacity: 0; }
   .m-card_thumb.mm-color-1 .m-item--image:before {
@@ -5327,6 +5345,8 @@ button:focus {
     display: block;
     width: 100%;
     height: 100%; }
+  .m-card_reference:hover a {
+    text-decoration: underline; }
   .m-card_reference article,
   .m-card_reference header {
     height: 100%;
@@ -5386,6 +5406,8 @@ button:focus {
     display: block;
     width: 100%;
     height: 100%; }
+  .m-card_reference-horizontal:hover a {
+    text-decoration: underline; }
   .m-card_reference-horizontal article header {
     *zoom: 1;
     position: relative;
@@ -5460,6 +5482,9 @@ button:focus {
   display: block;
   width: 100%;
   height: 100%; }
+
+.m-card_bigteaser:hover a {
+  text-decoration: underline; }
 
 .m-card_bigteaser article header {
   *zoom: 1;
@@ -5552,6 +5577,9 @@ button:focus {
   display: block;
   width: 100%;
   height: 100%; }
+
+.m-card_bigpromo:hover a {
+  text-decoration: underline; }
 
 .m-card_bigpromo article header {
   *zoom: 1;
@@ -5702,6 +5730,9 @@ button:focus {
   width: 100%;
   height: 100%; }
 
+.m-card_certificate:hover a {
+  text-decoration: underline; }
+
 .m-card_certificate article {
   text-align: center; }
 
@@ -5792,6 +5823,8 @@ button:focus {
     display: block;
     width: 100%;
     height: 100%; }
+  .m-card_faq:hover a {
+    text-decoration: underline; }
   .m-card_faq article,
   .m-card_faq header {
     position: relative; }
@@ -5851,6 +5884,9 @@ button:focus {
   display: block;
   width: 100%;
   height: 100%; }
+
+.m-card_nav:hover a {
+  text-decoration: underline; }
 
 .m-card_nav article,
 .m-card_nav header,
