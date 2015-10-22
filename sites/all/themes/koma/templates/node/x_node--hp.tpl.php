@@ -128,7 +128,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
     </div>
 
     <div class="row">
-        <div class="l-section--content slider block-feed-slider">
+        <div class="l-section--content slider block-feed-slider mm-red-arrows">
             <?php
             $block = module_invoke('views', 'block_view', 'zpravodajhp-block');
             print render($block);

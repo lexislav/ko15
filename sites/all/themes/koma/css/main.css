@@ -7366,6 +7366,33 @@ article header figure {
 .slick-next:before {
   content: "\f105"; }
 
+.mm-red-arrows .slick-prev, .mm-red-arrows .slick-next {
+  height: 60px;
+  margin-top: -44px;
+  background-color: #C20E1A;
+  color: white;
+  border-radius: 50%;
+  line-height: 60px;
+  width: 60px;
+  text-align: center;
+  display: block; }
+  .mm-red-arrows .slick-prev:before, .mm-red-arrows .slick-next:before {
+    width: 60px;
+    height: 60px;
+    line-height: 56px;
+    font-family: 'FontAwesome';
+    font-size: 3.875rem;
+    color: #fff;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8); }
+  .mm-red-arrows .slick-prev:hover, .mm-red-arrows .slick-next:hover {
+    background-color: #aa0c17; }
+
+.mm-red-arrows .slick-next:before {
+  margin-right: -5px; }
+
+.mm-red-arrows .slick-prev:before {
+  margin-left: -5px; }
+
 * {
   box-sizing: border-box; }
 

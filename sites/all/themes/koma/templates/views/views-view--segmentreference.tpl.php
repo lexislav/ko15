@@ -19,7 +19,7 @@ $jmeno = taxonomy_term_load($pole[0])->name;
 
 
     <div class="row">
-        <div class="l-section--content slider block-feed-slider">
+        <div class="l-section--content slider block-feed-slider mm-red-arrows">
             <?php print render($title_prefix); ?>
             <?php if ($title): ?>
                 <?php print $title; ?>
