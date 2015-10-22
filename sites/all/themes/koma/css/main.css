@@ -6141,6 +6141,7 @@ button:focus {
       margin: 0; }
     .m-properties dl dt {
       font-weight: bold;
+      color: black;
       font-family: Purista_Bold;
       font-weight: bold;
       margin-right: 6px;
@@ -6164,10 +6165,10 @@ button:focus {
       border-top: 1px solid black; }
     .m-properties dl a {
       color: #4A4A4A;
-      text-decoration: none;
-      font-weight: bold;
-      font-family: Purista_Bold;
-      font-weight: bold; }
+      text-decoration: none; }
+      .m-properties dl a:hover {
+        color: #C20E1A;
+        text-decoration: underline; }
     .m-properties dl.mm-nolabels dt {
       display: none; }
     .m-properties dl.mm-noborder {

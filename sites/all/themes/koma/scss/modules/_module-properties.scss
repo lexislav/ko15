@@ -18,6 +18,7 @@
         }
         dt {
             font-weight: bold;
+            color: black;
             @include fontWeight(800);
             margin-right: 6px;
             clear: left;
@@ -56,8 +57,10 @@
         a {
             color: $body-font-color;
             text-decoration: none;
-            font-weight: bold;
-            @include fontWeight(800);
+            &:hover {
+                color: $color-primary;
+                text-decoration: underline;
+            }
         }
 
         &.mm-nolabels {

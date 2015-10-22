@@ -25,13 +25,15 @@
                 <h1 class="m-reference--hed"><a href=""><?php print $title; ?></a></h1>
 
                 <div class="m-reference--description"></div>
-                <div class="m-reference--meta m-properties">
+                <div class="m-reference--meta">
+
+                <div class=" m-properties">
                     <dl>
                         <dt><?php print t('Classification') ?></dt>
                         <dd><?= ($content['field_cert_kategorie'][0]['#title']); ?></dd>
                     </dl>
                     <dl>
-                        <dt><?php print t('Download') ?></dt>
+                        <dt><i class="fa fa-download"></i> <?php print t('Download') ?></dt>
                         <dd>
                             <a href="<?= (file_create_url($content['field_cert_cert']['#items'][0]['uri'])); ?>"><?= $title ?></a>
                         </dd>
@@ -44,6 +46,7 @@
                             <dd><?= $content['field_cert_popis']['#items'][0]['value'] ?></dd>
                         </dl>
                     <?php } ?>
+                </div>
                 </div>
             </div>
         </header>
