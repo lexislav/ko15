@@ -1,3 +1,4 @@
+$menu-debug: false;
 
 .xmega {
     margin-left: 170px;
@@ -87,6 +88,7 @@
 
     > .nav.mobile {
         display: block;
+
         @include media(C) {
             display: none;
         }
@@ -94,13 +96,14 @@
 
     > .nav.desktop {
         display: none;
+
         @include media(C) {
             display: block;
         }
     }
 
     .item-submenu {
-        display: none !important;
+        //display: none !important;
     }
 }
 
@@ -136,7 +139,9 @@
 
     //overflow: hidden;
 
-    display: none;
+    @if ($menu-debug == false) {
+        display: none; // show
+    }
 
     .m-mega--sub {
         height: 100%;
@@ -146,46 +151,92 @@
             padding-top: 40px;
             padding-bottom: 40px;
             background-color: $color-secondary;
-            display: none;
+
+            @if ($menu-debug == false) {
+                display: none; // show
+            }
 
             > .row {
                 @include l-grid();
 
+                //background-color: lightpink;
+
                 > .submenu {
                     padding: 15px;
+                }
+
+                // first level of columns
+                > .submenu {
                     & > .columns {
+                        //background-color: greenyellow;
+                        @include display(flex);
+                        @include flex-direction(row);
+                        @include flex-wrap(wrap);
 
-                        & > .column:first-child {
+                        //display: flex;
+                        //flex-wrap: wrap;
+                        //flex-direction: row;
 
-                            padding-right: 5%;
-                            width: 100%;
-                            margin-bottom: 30px;
+                        & > .column {
+                            //border: 1px solid red;
+
+                            @include flex(0 0 100%);
+
+                            margin-bottom: $space_A;
+                            padding-bottom: $space_A;
+                            border-bottom: 1px solid white;
 
                             @include media(C) {
-                                width: 360px;
-                                margin-bottom: 0;
+
+                                @include flex(1);
+
+                                padding-right: 30px;
+                                margin-bottom: 0px;
+                                padding-bottom: 0px;
+                                border-bottom: none;
+
+                                background-image: url("/sites/all/themes/koma/assets/images/menu-divider.png");
+                                background-repeat: repeat-y;
+                                background-position: top right;
+                            }
+
+                        }
+
+                        // first column
+                        & > .column:first-child {
+                            //background-color: darkorange;
+                            @include flex(0 0 100%);
+
+                            @include media(C) {
+                                @include flex(0 0 360px);
                             }
                         }
-                    }
-                }
 
-                .columns {
-                    @include cf();
-                    //width: 100%;
-                }
+                        // first column
+                        & > .column:last-child {
+                            background-image: none;
+                        }
 
-                .column {
-                    float: left;
-                    .column {
-                        width: 100%;
-                        padding-right: 20%;
                     }
+
+                    & > [cols="3"] {
+                        //background-color: cadetblue;
+                    }
+
                 }
 
             }
         }
 
-        [cols="5"] {
+        [cols="2"] {
+            @include display(flex);
+            .column {
+                @include flex(0 0 50%);
+                padding-right: 10px;
+            }
+        }
+
+        /*[cols="5"] {
             .column {
                 width: 100% / 4;
             }
@@ -236,7 +287,7 @@
                     float: left;
                 }
             }
-        }
+        }*/
 
         .tblock {
             vertical-align: top;
@@ -256,6 +307,7 @@
             color: $color-body-font;
             font-weight: 400;
             @include fontWeight(400);
+            display: inline-block;
 
             text-decoration: none;
             &:hover {
@@ -317,4 +369,44 @@
 
 .scroll-lock {
     overflow: hidden;
+    .m-mega {
+        overflow: scroll;
+    }
+}
+
+// hack for table
+
+#mega-id-0.item-submenu {
+    //.column {
+    //    @include media(A-only) {
+    //        @include flex(0 0 100%);
+    //    }
+    //}
+    //
+
+    > .row {
+        // first level of columns
+        > .submenu {
+            & > .columns {
+
+                .block-block {
+                    overflow: hidden;
+                    h3 {
+                        margin-top: 0;
+                    }
+                }
+
+                // first column
+                & > .column:nth-of-type(2) {
+                    @include flex(0 0 100%);
+
+                    @include media(C) {
+                        @include flex(0 0 360px);
+                        padding-right: 80px;
+                    }
+                }
+
+            }
+        }
+    }
 }
