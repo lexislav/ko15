@@ -1,8 +1,13 @@
 .m-banner {
-    padding: ($space * 0.5) 0;
+    @include cf();
+
     text-align: center;
     position: relative;
-    @include cf();
+
+    padding: ($space_A * 0.5) 0;
+    @include media(B) {
+        padding: ($space * 0.5) 0;
+    }
 
     & > header {
         max-width: 600px;

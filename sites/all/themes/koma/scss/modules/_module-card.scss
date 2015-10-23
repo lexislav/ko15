@@ -19,11 +19,19 @@
     }
 
     .m-item--hed {
-        font-size: rem-calc(18);
+        font-size: rem-calc(15);
+        @include media(B) {
+
+            font-size: rem-calc(18);
+        }
     }
 
     .m-item--description {
-        font-size: rem-calc(14);
+        font-size: rem-calc(12);
+        @include media(B) {
+            font-size: rem-calc(14);
+
+        }
     }
 
     .m-item--image {
@@ -672,7 +680,10 @@
 
     .m-item--summary,
     .m-properties {
-        padding: ($space * .7);
+        padding: ($space_A * .7);
+        @include media(B) {
+            padding: ($space * .7);
+        }
     }
 
     .m-item--hed {
@@ -729,7 +740,10 @@
 
     .m-item--summary,
     .m-properties {
-        padding: ($space * .7);
+        padding: ($space_A * .7);
+        @include media(B) {
+            padding: ($space * .7);
+        }
     }
 
     .m-item--hed {
@@ -761,8 +775,6 @@
 
         }
 
-
-
     }
 }
 
@@ -783,7 +795,11 @@
     .m-item--hed,
     .m-item--description {
         text-align: center;
-        margin-bottom: $space;
+
+        margin-bottom: $space_A;
+        @include media(B) {
+            margin-bottom: $space;
+        }
     }
 
     .m-item--description {
@@ -821,7 +837,7 @@
 
     .m-item--summary {
         padding: 100px;
-        padding-top: $space;
+        padding-top: $space_A;
 
         @include media(C) {
             padding: 30px;
@@ -891,15 +907,26 @@
         text-align: center;
         padding-left: 20%;
         padding-right: 20%;
-        padding-bottom: $space;
+
+        padding-bottom: $space_A;
+        @include media(B) {
+            padding-bottom: $space;
+        }
     }
 
     .header {
-        margin-bottom: $space * 0.3;
+        margin-bottom: $space_A * 0.3;
+        @include media(B) {
+            margin-bottom: $space * 0.3;
+        }
     }
 
     .m-item--hed {
-        margin-bottom: $space;
+        margin-bottom: $space_A;
+        @include media(B) {
+
+            margin-bottom: $space;
+        }
         font-size: rem-calc(30);
         font-weight: 400;
         @include fontWeight(400);
@@ -928,7 +955,11 @@
     .m-gallery {
         width: 80%;
         margin: 0 auto;
-        margin-top: $space;
+
+        margin-top: $space_A;
+        @include media(B) {
+            margin-top: $space;
+        }
     }
 }
 

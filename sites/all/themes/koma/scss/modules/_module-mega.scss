@@ -126,7 +126,6 @@
 
     .m-mega--section {
 
-
         &.l-single,
         &.l-double {
             @include column(1);
@@ -135,12 +134,15 @@
 
         &:first-of-type {
             @include column(1);
-            margin-bottom: $space * 0.5;
+            margin-bottom: $space_A * 0.5;
+            @include media(B) {
+                margin-bottom: $space * 0.5;
+            }
         }
 
         @include media(C) {
             height: 100%;
-            border-left: 1px solid #CBCFCA;
+            border-left: 1px solid #cbcfca;
             padding-left: 20px;
 
             &:first-of-type {

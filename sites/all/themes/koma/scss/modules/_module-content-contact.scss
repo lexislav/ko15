@@ -14,9 +14,12 @@
         }
 
         .m-contact--image,
-        .m-contact--map,
-        {
-            margin-bottom: $space * 0.5;
+        .m-contact--map {
+            margin-bottom: $space_A * 0.5;
+            @include media(B) {
+                margin-bottom: $space * 0.5;
+
+            }
 
             @include column(6/12);
 
@@ -97,7 +100,10 @@
 
     .m-contact-tab {
 
-        margin-bottom: $space *.4;
+        margin-bottom: $space_A *.4;
+        @include media(B) {
+            margin-bottom: $space *.4;
+        }
 
         .m-contact-tab--content {
             height: 0;
@@ -164,7 +170,7 @@
         left: 20px;
 
         top: 50%;
-        content:"+";
+        content: "+";
         @include transform(translateY(-50%));
     }
 
@@ -186,17 +192,24 @@
     }
 
     .m-address {
-        margin-bottom: $space * 0.8;
+        margin-bottom: $space_A * 0.8;
+        @include media(B) {
+            margin-bottom: $space * 0.8;
+        }
     }
 }
-
 
 .m-contact-form {
     width: 60%;
     margin: 0 auto;
     header {
         text-align: center;
-        margin-bottom: $space;
+
+        margin-bottom: $space_A;
+        @include media(B) {
+            margin-bottom: $space;
+        }
+
         color: $color-body-font;
         span {
             color: $color-black;
@@ -209,11 +222,9 @@
 
     &.mm-sent {
 
-
     }
 
 }
-
 
 [collapsible] {
     cursor: pointer;
