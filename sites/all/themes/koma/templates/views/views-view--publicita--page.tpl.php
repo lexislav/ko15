@@ -9,7 +9,7 @@
                 <h2 class="m-section--hed mm-big"><?php print t($title); ?></h2>
             </div>
         </header>
-    </div>adpis
+    </div>
     <div class="row">
         <?php
         print render($title_prefix); ?>
