@@ -41,5 +41,5 @@ if (isset($row->field_field_reference_main_img[0])) {
             </div>
         </header>
     </article>
-    <div class="m-card--more">&rarr;</div>
+    <div class="m-card--more"><a title="<?= $row->_field_data['nid']['entity']->title ?>" href="<?= test_lang_prefix('node/'.$row->nid) ?>">&rarr;</a></div>
 </div>
