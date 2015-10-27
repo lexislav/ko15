@@ -2,7 +2,13 @@
     <div class="row">
         <header class="m-section--header">
             <div class="l-full">
-
+                <nav class="breadcrumbs">
+                    <?php
+                    foreach (drupal_get_breadcrumb() AS $drobek) {
+                        echo $drobek;
+                    }
+                    ?>
+                </nav>
 
             </div>
         </header>
@@ -12,9 +18,9 @@
         <header>
 
 
-            <div class="m-story--image">
-                <a href=""> &nbsp; </a>
-            </div>
+<!--            <div class="m-story--image">-->
+<!--                <a href=""> &nbsp; </a>-->
+<!--            </div>-->
 
             <div class="m-story--summary">
 
