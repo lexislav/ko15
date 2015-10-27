@@ -53,7 +53,7 @@
         }
 
         .m-reference--image {
-            margin-bottom: $space;
+            margin-bottom: $space_A;
             height: 360px;
 
             @include media(C) {
@@ -107,7 +107,7 @@
                 pointer-events: none;
                 color: black;
             }
-            margin-bottom: $space;
+            margin-bottom: $space_A;
 
             @include media(B) {
                 font-size: rem-calc(42);

@@ -1,0 +1,91 @@
+<?php
+
+function nastaveni_menu() {
+    $items['admin/config/nastaveni'] = array(
+        'title' => 'Hlavní nastavení částí webu.',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('nastaveni_form'),
+        'access arguments' => array('administer users'),
+        'type' => MENU_NORMAL_ITEM,
+    );
+
+    return $items;
+}
+
+function nastaveni_form($form, &$form_state) {
+    $form['nastaveni_fb'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Facebook'),
+        '#size' => 80,
+        '#maxlength' => 120,
+        '#required' => FALSE,
+        '#default_value' => variable_get('nastaveni_fb', 'nastaveni'),
+    );
+
+    $form['nastaveni_twitter'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Twitter'),
+        '#size' => 80,
+        '#maxlength' => 120,
+        '#required' => FALSE,
+        '#default_value' => variable_get('nastaveni_twitter', 'nastaveni'),
+    );
+
+    $form['nastaveni_youtube'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Youtube'),
+        '#size' => 80,
+        '#maxlength' => 120,
+        '#required' => FALSE,
+        '#default_value' => variable_get('nastaveni_youtube', 'nastaveni'),
+    );
+
+    $form['nastaveni_tel_cs'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Telefon - Čeština'),
+        '#size' => 80,
+        '#maxlength' => 120,
+        '#required' => FALSE,
+        '#default_value' => variable_get('nastaveni_tel_cs', 'nastaveni'),
+    );
+    $form['nastaveni_tel_en'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Telefon - Angličtina'),
+        '#size' => 80,
+        '#maxlength' => 120,
+        '#required' => FALSE,
+        '#default_value' => variable_get('nastaveni_tel_en', 'nastaveni'),
+    );
+    $form['nastaveni_tel_de'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Telefon - Němčina'),
+        '#size' => 80,
+        '#maxlength' => 120,
+        '#required' => FALSE,
+        '#default_value' => variable_get('nastaveni_tel_de', 'nastaveni'),
+    );
+    $form['nastaveni_bulletin'] = array(
+        '#type' => 'textarea',
+        '#title' => t('HTML'),
+        '#required' => FALSE,
+        '#default_value' => variable_get('nastaveni_bulletin', 'nastaveni'),
+    );
+    $form['nastaveni_bulletin_txt1'] = array(
+        '#type' => 'textarea',
+        '#title' => t('HTML txt1'),
+        '#required' => FALSE,
+        '#default_value' => variable_get('nastaveni_bulletin_txt1', 'nastaveni'),
+    );
+    $form['nastaveni_bulletin_txt2'] = array(
+        '#type' => 'textarea',
+        '#title' => t('HTML txt2'),
+        '#required' => FALSE,
+        '#default_value' => variable_get('nastaveni_bulletin_txt2', 'nastaveni'),
+    );
+
+    return system_settings_form($form);
+}
+
+
+
+

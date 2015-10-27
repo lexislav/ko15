@@ -55,8 +55,14 @@
 
         .mega-dropdown-inner {
             @include l-grid();
+
+            margin-top: $space_A;
+            margin-bottom: $space_A;
+
+            @include media(B) {
             margin-top: $space;
             margin-bottom: $space;
+                }
         }
     }
 

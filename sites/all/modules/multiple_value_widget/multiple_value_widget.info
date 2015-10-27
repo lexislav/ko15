@@ -1,0 +1,11 @@
+name = Multiple Value Widget
+description = Make multiple value forms more user friendly.
+core = 7.x
+package = Fields
+
+; Information added by Drupal.org packaging script on 2015-02-08
+version = "7.x-2.x-dev"
+core = "7.x"
+project = "multiple_value_widget"
+datestamp = "1423398783"
+

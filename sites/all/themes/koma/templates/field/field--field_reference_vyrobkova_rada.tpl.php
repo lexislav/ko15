@@ -6,7 +6,7 @@
     <div class="m-section--underlay"></div>
 
     <div class="row rowfix">
-        <div class="l-section--content slider block-feed-slider">
+        <div class="l-section--content slider block-feed-slider mm-red-arrows">
             <?php
             $block = module_invoke('views', 'block_view', 'segmentreference-block');
             print render($block);

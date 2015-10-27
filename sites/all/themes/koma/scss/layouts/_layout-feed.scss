@@ -3,14 +3,17 @@
 
 .l-feed {
 
-
 }
 
 .l-feed_list {
     .l-single {
         @include column(1);
-        margin-bottom: $space;
         position: relative;
+
+        margin-bottom: $space_A;
+        @include media(B) {
+            margin-bottom: $space;
+        }
     }
 }
 
@@ -18,8 +21,12 @@
 
     .l-single {
         @include column(1, $gut: 60px);
-        margin-bottom: $space;
         position: relative;
+
+        margin-bottom: $space_A;
+        @include media(B) {
+            margin-bottom: $space;
+        }
 
         @include media(B) {
             @include column(1, $gut: 60px);
@@ -45,7 +52,6 @@
         margin-bottom: 30px;
     }
 }
-
 
 .l-feed_two {
 
@@ -88,7 +94,6 @@
         }
     }
 }
-
 
 .l-feed_four {
 
@@ -202,7 +207,6 @@
     }
 
 }
-
 
 //todo: fix this, move params to slick component
 .m-basic-page--header,

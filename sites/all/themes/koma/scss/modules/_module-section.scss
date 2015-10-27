@@ -18,7 +18,10 @@
     }
 
     .mm-big {
-        font-size: rem-calc(50);
+        font-size: rem-calc(30);
+        @include media(B) {
+            font-size: rem-calc(50);
+        }
     }
 
     .mm-tiny {
@@ -63,13 +66,15 @@
         cursor: pointer;
     }
 
-
     .mm-pad-double,
     &.mm-pad-double {
-        padding-top: $space * 1.5;
-        padding-bottom: $space * 1.5;
+        padding-top: $space_A * 1.5;
+        padding-bottom: $space_A * 1.5;
+        @include media(B) {
+            padding-top: $space * 1.5;
+            padding-bottom: $space * 1.5;
+        }
     }
-
 
     .row.rowfix {
         margin-bottom: -31px;
@@ -78,6 +83,11 @@
 }
 
 .m-section.bg-secondary-light {
+
+    .m-item--summary {
+        color: $color-black;
+    }
+
     .m-section--close {
         color: $color-secondary;
     }
@@ -91,8 +101,14 @@
     text-transform: uppercase;
     font-weight: 800;
     @include fontWeight(800);
-    padding-top: $space;
-    padding-bottom: $space;
+
+    padding-top: $space_A;
+    padding-bottom: $space_A;
+
+    @include media(B) {
+        padding-top: $space;
+        padding-bottom: $space;
+    }
 
     a {
         text-decoration: none;
@@ -117,7 +133,6 @@
             }
         }
     }
-
 
     .l-left,
     .l-right {
@@ -384,7 +399,7 @@
         }
 
         @include media(C) {
-           // height: 500px;
+            // height: 500px;
 
             overflow: hidden;
             position: absolute;
@@ -406,12 +421,16 @@
 
 .m-section_support {
 
-    background-image: url("/sites/koma/assets/images/montaznik-support-background.jpg");
-    background-size: auto 422px;
-    background-repeat: repeat-x;
-    background-position: 0 0;
+
 
     background-color: #f5f5f5;
+
+    @include media(B) {
+        background-image: url("/sites/koma/assets/images/montaznik-support-background.jpg");
+        background-size: auto 422px;
+        background-repeat: repeat-x;
+        background-position: 0 0;
+        }
 
     @include media(C) {
         height: 422px;

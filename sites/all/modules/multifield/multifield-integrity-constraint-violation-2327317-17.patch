@@ -1,0 +1,35 @@
+diff --git a/multifield.module b/multifield.module
+index fa3a1c6..134f06d 100644
+--- a/multifield.module
++++ b/multifield.module
+@@ -441,17 +441,21 @@ function multifield_item_serialize(&$item, $delta, $machine_name) {
+     $subfield = field_info_field($subfield_name);
+     foreach ($subfield['columns'] as $column => $details) {
+       // @see field_sql_storage_field_storage_write()
+-      // @todo Should this be using array_key_exists() instead of isset()?
+-      if (!isset($item[$subfield_name][LANGUAGE_NONE][0][$column])) {
+-        $item[$subfield_name][LANGUAGE_NONE][0][$column] = isset($details['default']) ? $details['default'] : NULL;
++      if (!isset($item[$subfield_name . '_' . $column])) {
++        if (array_key_exists($subfield_name, $item) && \
++            count($item[$subfield_name][LANGUAGE_NONE]) > 0 && \
++            array_key_exists($column, $item[$subfield_name][LANGUAGE_NONE][0])) {
++          // This value is assigned by reference as $items[$delta][$subfield_name]
++          // could be modified in multifield_field_insert() or multifield_field_update().
++          $item[$subfield_name . '_' . $column] = &$item[$subfield_name][LANGUAGE_NONE][0][$column];
++        } elseif (array_key_exists('default', $details)) {
++          $item[$subfield_name . '_' . $column] = $details['default'];
++        } elseif (array_key_exists('not null', $details) && $details['not null'] === FALSE) {
++          $item[$subfield_name . '_' . $column] = NULL;
++        }
+       }
+-
+-      // We need to assign this value by reference because
+-      // $items[$delta][$subfield_name] could be modified in
+-      // multifield_field_insert() or multifield_field_update().
+-      $item[$subfield_name . '_' . $column] = &$item[$subfield_name][LANGUAGE_NONE][0][$column];
+     }
+-    //unset($item[$subfield_name]);
++    unset($item[$subfield_name]);
+   }
+ }
+ 

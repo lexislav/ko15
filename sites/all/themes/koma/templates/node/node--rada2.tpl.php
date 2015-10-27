@@ -90,7 +90,7 @@
     <div class="m-section--underlay"></div>
 
     <div class="row">
-        <div class="l-section--content slider block-feed-slider">
+        <div class="l-section--content slider block-feed-slider mm-red-arrows">
             <?php
             $block = module_invoke('views', 'block_view', 'segmentreference-block_1');
             print render($block);

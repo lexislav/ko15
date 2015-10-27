@@ -46,11 +46,18 @@
 }
 
 .mm-pad-top {
-    padding-top: $space;
+
+    padding-top: $space_A;
+    @include media(B) {
+        padding-top: $space;
+    }
 }
 
 .mm-pad-bottom {
+    padding-bottom: $space_A;
+    @include media(B) {
     padding-bottom: $space;
+        }
 }
 
 .mm-pad-zero {

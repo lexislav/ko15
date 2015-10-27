@@ -52,12 +52,12 @@
     }
 
     var j = "koma-eu-cookies", k = "koma_eu_config", l = "no-show", m = "show", n = "hide", o = "consent", p = {
-        css: ".koma-eu-cookies{display:flex;flex-wrap:nowrap;justify-content:center;background:#4A4A4A;align-items:center;color:white;padding:5px;z-index:1000;position:fixed; bottom:0; width:100%}.koma-eu-cookies,.koma-eu-cookies span,.koma-eu-cookies a{font-size:12px;font-family:'Arial','Helvetica',sans-serif; color:white}.koma-eu-cookies span{padding-right:5px}.koma-eu-cookies a,.koma-eu-cookies a:hover,.koma-eu-cookies a:visited,.koma-eu-cookies a:active,.koma-eu-cookies a:focus{color:white;text-decoration:underline}.koma-eu-cookies button{flex-shrink:0;cursor:pointer;font-weight:.9em;margin: 0;padding: 3px 7px;}",
+        css: ".koma-eu-cookies{display:flex;flex-wrap:nowrap;justify-content:center;background:#4A4A4A;align-items:center;color:white;padding:5px;z-index:1000;position:fixed; bottom:0; width:100%}.koma-eu-cookies,.koma-eu-cookies span,.koma-eu-cookies a{font-size:14px;font-family:'Arial','Helvetica',sans-serif; color:white}.koma-eu-cookies span{padding-right:5px}.koma-eu-cookies a,.koma-eu-cookies a:hover,.koma-eu-cookies a:visited,.koma-eu-cookies a:active,.koma-eu-cookies a:focus{color:white;text-decoration:underline}.koma-eu-cookies button{flex-shrink:0;cursor:pointer;font-weight:.9em;margin: 0;padding: 3px 7px;}",
         l18n: {
-            text: "Tento web používá k poskytování služeb, personalizaci reklam a analýze návštěvnosti soubory cookie. Používáním tohoto webu s tím souhlasíte.",
+            text: "Tento web používá k poskytování služeb, personalizaci reklam a analýze návštěvnosti soubory cookie. Používáním tohoto webu s tím souhlasíte. &nbsp;&nbsp;",
             accept: "Souhlasím",
             more: "Více informací",
-            link: "https://www.google.com/intl/cs/policies/technologies/cookies/"
+            link: "http://www.koma-modular.cz/informace-o-cookies"
         },
         options: {popupMore: !1, callback: null, dataLayerName: null}
     }, q = {};

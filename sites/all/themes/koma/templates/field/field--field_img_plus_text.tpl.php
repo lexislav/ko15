@@ -18,7 +18,7 @@ foreach ($items AS $pole) {
         </header>
 
         <div class="row rowfix">
-            <div class="m-card_centered-text l-single bg-secondary-light">
+            <div class="m-card_centered-text bg-secondary-light">
 
                 <article class="m-story">
                     <header class="m-item--header">
