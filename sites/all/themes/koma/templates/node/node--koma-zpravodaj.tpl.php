@@ -40,8 +40,10 @@ $next_nid = prev_next_nid($node->nid, 'next');
 
         <?php
         $hasImage = false;
+        if($node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'][0]){
+            $hasImage = true;
+        }
         $contentClass = '';
-
         if ($hasImage) {
             $contentClass = "mm-has-image";
         }
@@ -51,7 +53,7 @@ $next_nid = prev_next_nid($node->nid, 'next');
 
             <?php if ($hasImage) { ?>
                 <div class="m-story--image">
-                    <img src="http://lorempixel.com/600/400/" alt="">
+                    <img src="<?= image_style_url('x412-300', $node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'][0]['uri']) ?>" alt="">
                 </div>
             <?php } ?>
 
