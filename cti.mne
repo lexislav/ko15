@@ -1,0 +1,5 @@
+upravy modulu:
+
+prev_next.module - pridany nacitani obrazku (obrazky pridava script /utils/obrazky)
+
+sites/all/modules/custom_breadcrumbs/custom_breadcrumbs.module - updava na preklad Home, radka 565
