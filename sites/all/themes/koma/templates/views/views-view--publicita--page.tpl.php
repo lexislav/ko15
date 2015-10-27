@@ -1,20 +1,18 @@
 <!--views-view--publicita--page.tpl.php-->
+<?php if ( empty($title) ): ?>
+    <?php $title = $view->get_title(); ?>
+<?php endif; ?>
 <div class="m-section l-feed_three">
     <div class="row">
         <header class="m-section--header">
             <div class="l-full">
-                <h2 class="m-section--hed mm-big"><?=$view->filter['status']->view->display[$view->filter['status']->view->current_display]->display_title;?></h2>
+                <h2 class="m-section--hed mm-big"><?php print t($title); ?></h2>
             </div>
         </header>
-    </div>
+    </div>adpis
     <div class="row">
-
         <?php
-
-
-    //    dpm($view->filter['status']->view->display[$view->filter['status']->view->current_display]);
         print render($title_prefix); ?>
-
         <?php print render($title_suffix); ?>
         <?php if ($header): ?>
             <div class="view-header">
@@ -28,60 +26,41 @@
                 </div>
             </div>
         <?php endif; ?>
-
         <?php if ($attachment_before): ?>
             <div class="attachment attachment-before">
                 <?php print $attachment_before; ?>
             </div>
         <?php endif; ?>
-
         <?php if ($rows): ?>
-
             <?php
-
-            //dsm($rows);
-
             print $rows; ?>
-
         <?php elseif ($empty): ?>
             <div class="view-empty">
                 <?php print $empty; ?>
             </div>
         <?php endif; ?>
-
-
-
         <?php if ($attachment_after): ?>
             <div class="attachment attachment-after">
                 <?php print $attachment_after; ?>
             </div>
         <?php endif; ?>
-
         <?php if ($more): ?>
             <?php print $more; ?>
         <?php endif; ?>
-
         <?php if ($footer): ?>
             <div class="view-footer">
                 <?php print $footer; ?>
             </div>
         <?php endif; ?>
-
         <?php if ($feed_icon): ?>
             <div class="feed-icon">
                 <?php print $feed_icon; ?>
             </div>
         <?php endif; ?>
-
     </div>
-
-
-
-
 </div>
 <div class="m-section bg-white">
     <div class="row">
-
         <footer class="m-section--footer">
             <div class="l-left">
                 <div class="m-section--top"><a href=""><?php print t('UP') ?> &uarr;</a></div>
@@ -95,12 +74,10 @@
                     ?>
                     <?php print $pager; ?>
                 <?php endif; ?>
-
             </div>
             <div class="l-right">
                 <div class="m-section--more"><a href="http://<?=explode('?',$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'])[0]?>"><?php print t('WHOLE ARCHIVES') ?> &rarr;</a></div>
             </div>
         </footer>
-
     </div>
 </div>
