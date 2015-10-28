@@ -3411,6 +3411,9 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden; }
   .scroll-lock .m-mega {
     overflow: scroll; }
+  @media only screen and (min-width: 961px) {
+    .scroll-lock .m-mega {
+      overflow: hidden; } }
 
 [lang="cs"] #mega-id-0.item-submenu > .row > .submenu > .columns .block-block h3 {
   margin-top: 0; }

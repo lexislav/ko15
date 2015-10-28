@@ -373,6 +373,12 @@ $menu-debug: false;
     .m-mega {
         overflow: scroll;
     }
+    @include media(C) {
+        .m-mega {
+            overflow: hidden;
+        }
+    }
+
 }
 
 // hack for table
