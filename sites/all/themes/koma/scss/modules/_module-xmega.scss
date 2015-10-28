@@ -376,37 +376,39 @@ $menu-debug: false;
 }
 
 // hack for table
+[lang="cs"] {
 
-#mega-id-0.item-submenu {
-    //.column {
-    //    @include media(A-only) {
-    //        @include flex(0 0 100%);
-    //    }
-    //}
-    //
+    #mega-id-0.item-submenu {
+        //.column {
+        //    @include media(A-only) {
+        //        @include flex(0 0 100%);
+        //    }
+        //}
+        //
 
-    > .row {
-        // first level of columns
-        > .submenu {
-            & > .columns {
+        > .row {
+            // first level of columns
+            > .submenu {
+                & > .columns {
 
-                .block-block {
-                    //overflow: hidden;
-                    h3 {
-                        margin-top: 0;
+                    .block-block {
+                        //overflow: hidden;
+                        h3 {
+                            margin-top: 0;
+                        }
                     }
-                }
 
-                // first column
-                & > .column:nth-of-type(2) {
-                    @include flex(0 0 100%);
+                    // first column
+                    & > .column:nth-of-type(2) {
+                        @include flex(0 0 100%);
 
-                    @include media(C) {
-                        @include flex(0 0 360px);
-                        padding-right: 80px;
+                        @include media(C) {
+                            @include flex(0 0 360px);
+                            padding-right: 80px;
+                        }
                     }
-                }
 
+                }
             }
         }
     }

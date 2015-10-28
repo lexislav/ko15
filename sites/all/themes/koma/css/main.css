@@ -3412,9 +3412,9 @@ h1, h2, h3, h4, h5, h6 {
   .scroll-lock .m-mega {
     overflow: scroll; }
 
-#mega-id-0.item-submenu > .row > .submenu > .columns .block-block h3 {
+[lang="cs"] #mega-id-0.item-submenu > .row > .submenu > .columns .block-block h3 {
   margin-top: 0; }
-#mega-id-0.item-submenu > .row > .submenu > .columns > .column:nth-of-type(2) {
+[lang="cs"] #mega-id-0.item-submenu > .row > .submenu > .columns > .column:nth-of-type(2) {
   -webkit-box-flex: 0;
   -moz-box-flex: 0;
   box-flex: 0;
@@ -3423,7 +3423,7 @@ h1, h2, h3, h4, h5, h6 {
   -ms-flex: 0 0 100%;
   flex: 0 0 100%; }
   @media only screen and (min-width: 961px) {
-    #mega-id-0.item-submenu > .row > .submenu > .columns > .column:nth-of-type(2) {
+    [lang="cs"] #mega-id-0.item-submenu > .row > .submenu > .columns > .column:nth-of-type(2) {
       -webkit-box-flex: 0;
       -moz-box-flex: 0;
       box-flex: 0;
