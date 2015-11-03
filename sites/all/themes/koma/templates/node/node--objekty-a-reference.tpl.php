@@ -16,17 +16,9 @@
 
         <div class="row">
             <div class="m-basic-page--content">
-
-
-                <div class="m-body--content">
                     <?php
                     print render($content);
                     ?>
-
-
-                </div>
-
-
             </div>
         </div>
     </div>
