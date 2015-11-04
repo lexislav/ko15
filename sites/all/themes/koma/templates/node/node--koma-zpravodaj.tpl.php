@@ -11,11 +11,8 @@ $next_nid = prev_next_nid($node->nid, 'next');
     <article class="m-story">
         <header>
 
-
             <div class="m-story--summary">
-
                 <h1 class="m-story--hed"><a href=""><?php print $title; ?></a></h1>
-
 
                 <div class="m-story--meta">
                     <dl>
@@ -35,12 +32,13 @@ $next_nid = prev_next_nid($node->nid, 'next');
                         </dd>
                     </dl>
                 </div>
+
             </div>
         </header>
 
         <?php
         $hasImage = false;
-        if($node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'][0]){
+        if ($node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'][0]) {
             $hasImage = true;
         }
         $contentClass = '';
@@ -104,49 +102,62 @@ $next_nid = prev_next_nid($node->nid, 'next');
         </div>
     </article>
 
+    <footer class="m-section--footer" style="padding: 0">
 
-    <div style="display: none;">
-        <?php
-        if ($prev_nid[0]->prev_nid > 0) {
-            ?>
-            <a href="<?= test_lang_prefix('node/' . $prev_nid[0]->prev_nid) ?>"><?php print t('STARŠÍ') ?></a>
-            <?php
-        }
-        ?>
-        <?php
-        if ($next_nid[0]->next_nid > 0) {
-            ?>
-            <a href="<?= test_lang_prefix('node/' . $next_nid[0]->next_nid) ?>"><?php print t('NOVĚJŠÍ') ?></a>
-
-            <?php
-        }
-        ?>
-    </div>
-
-
-    <div class="row">
-        <footer class="m-section--footer">
-            <div class="l-third">
-                <div class="m-section--top"><a href=""><?php print t('UP') ?> &uarr;</a></div>
-            </div>
-            <div class="l-two-thirds">
-                <?php
-                $tree = taxonomy_get_tree(5);
-                ?>
-                <ul class="m-section--nav inline-right">
+        <!-- starší novější -->
+        <?php if (($prev_nid[0]->prev_nid > 0) || ($next_nid[0]->next_nid > 0)) { ?>
+        <div class="clearfix">
+            <div class="row" style="padding:  48px 0">
+                <div class="l-half" style="padding: 0 48px; text-align: right">
                     <?php
-                    foreach ($tree as $term) {
-
+                    if ($prev_nid[0]->prev_nid > 0) {
                         ?>
-                        <li>
-                            <a href="<?= test_basic_url() ?>zpravodaj?field_zpravodaj_kategorie_tid=<?= $term->tid ?>" title="<?= $term->name ?>"><?= $term->name ?></a>
-                        </li>
+                        <a href="<?= test_lang_prefix('node/' . $prev_nid[0]->prev_nid) ?>">&larr;<?php print t('STARŠÍ') ?></a>
                         <?php
                     }
                     ?>
-                </ul>
+                </div>
+
+                <div class="l-half"  style="padding: 0 48px;">
+                    <?php
+                    if ($next_nid[0]->next_nid > 0) {
+                        ?>
+                        <a href="<?= test_lang_prefix('node/' . $next_nid[0]->next_nid) ?>"><?php print t('NOVĚJŠÍ') ?>&rarr;</a>
+
+                        <?php
+                    }
+                    ?>
+                </div>
+
             </div>
-        </footer>
-    </div>
+        </div>
+        <?php } ?>
+
+        <div class="bg-white clearfix">
+            <div class="row" style="padding:  48px 0">
+
+                <div class="l-third">
+                    <div class="m-section--top"><a href=""><?php print t('UP') ?> &uarr;</a></div>
+                </div>
+                <div class="l-two-thirds">
+                    <?php
+                    $tree = taxonomy_get_tree(5);
+                    ?>
+                    <ul class="m-section--nav inline-right">
+                        <?php
+                        foreach ($tree as $term) {
+
+                            ?>
+                            <li>
+                                <a href="<?= test_basic_url() ?>zpravodaj?field_zpravodaj_kategorie_tid=<?= $term->tid ?>" title="<?= $term->name ?>"><?= $term->name ?></a>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
 
