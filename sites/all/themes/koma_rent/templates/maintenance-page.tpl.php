@@ -10,7 +10,7 @@
     <meta name="author" content="all: OdOka; studio@odoka.cz">
 
 
-    <title>KOMA Rent</title>
+    <title>KOMA Group</title>
 
     <link rel="stylesheet" href="css/style.css">
     <!--[if lt IE 9]>
@@ -20,7 +20,7 @@
 <body>
 
 
-<img src="assets/logo-koma-group.svg" alt="KOMA-RENT.CZ" title="Logo KOMA Rent" />
+<img src="assets/logo-koma-group.svg" alt="KOMA-RENT.CZ" title="Logo KOMA Group" />
 
 </body>
 </html>

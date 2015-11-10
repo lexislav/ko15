@@ -10,7 +10,7 @@
 
 
 
-function koma_group_form_system_theme_settings_alter(&$form, &$form_state, $form_id = NULL)  {
+function koma_rent_form_system_theme_settings_alter(&$form, &$form_state, $form_id = NULL)  {
   // Work-around for a core bug affecting admin themes. See issue #943212.
   if (isset($form_id)) {
     return;
