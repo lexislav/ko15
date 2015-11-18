@@ -65,17 +65,7 @@ if ($user->uid == 1) {
                      style="background-image: url('<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma_rent/logo.svg');"></div>
             </a>
             <div class="xmega">
-                <div id="block-tb-megamenu-menu-megamenu" class="block block-tb-megamenu  block-tb-megamenu-menu-megamenu contextual-links-region first last odd">
-                    <div class="megacleaned not-ready">
-                        <div class="nav desktop">
-                            <div class="item tb-megamenu-item level-1 mega">
-                                <a href="/vyhledavani" class="mm-link-search" title="<?php print t('Search') ?>">
-                                    <span class="icon"><?php print t('Search') ?></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php print render($page['navigation']); ?>
             </div>
         </div>
     </div>
