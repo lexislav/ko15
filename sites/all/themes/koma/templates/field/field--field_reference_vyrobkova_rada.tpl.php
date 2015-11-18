@@ -1,5 +1,5 @@
 <!--field--field_reference_vyrobkova_rada.tpl.php-->
-<div class="m-section l-feed_block-carousel">
+<div class="m-section l-feed_block-carousel" <?php koma_theme_wrapper(__FILE__)?>>
 
     <header class="m-section--header"></header>
 

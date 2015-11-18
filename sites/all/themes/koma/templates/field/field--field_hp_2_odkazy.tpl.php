@@ -2,7 +2,7 @@
 foreach ($items AS $druhetri) {
     ?>
 
-    <div class="l-section--item m-card_image">
+    <div class="l-section--item m-card_image" <?php koma_theme_wrapper(__FILE__)?>>
         <article class="m-story">
             <header>
                 <div class="m-item--image" style="background-image: url(<?= image_style_url('zadny', $druhetri['field_basic_img']['#items'][0]['uri']) ?>)">

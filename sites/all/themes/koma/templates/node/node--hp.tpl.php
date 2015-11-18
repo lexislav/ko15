@@ -4,7 +4,7 @@ $wrapper = entity_metadata_wrapper('node', $node);
 $pole_slider = $content['field_hlavni_slider']['#items'];
 // dpm($content['field_hlavni_slider']);
 ?>
-<div class="hero-tabs" slick>
+<div class="hero-tabs" slick <?php koma_theme_wrapper(__FILE__)?>>
     <div class="hero-slides" carousel>
         <?php
         foreach ($pole_slider as $cislo => $r) {
@@ -53,7 +53,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
 <?php
 // @todo: REZ: tohle nema byt samostatna sekce ale jen titulek sekce viz nasledujici render(content[field_img_text_text])
 ?>
-<div class="m-section l-feed_triple-card bg-secondary-light">
+<div class="m-section l-feed_triple-card bg-secondary-light" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="row">
         <header class="m-section--header">
             <div class="l-full">
@@ -74,7 +74,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
     </div>
 </div><!--koma zpravodaj-->
 
-<div class="m-section l-feed_block-carousel bg-white">
+<div class="m-section l-feed_block-carousel bg-white" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="m-section--underlay"></div>
 
     <div class="row">
@@ -127,7 +127,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
 
 
 <!--cim se lisime zacatek-->
-<div class="m-section l-section_side-triple bg-white" style="background-image: url('/sites/all/themes/koma/assets/images/mozaika-koma.png')">
+<div class="m-section l-section_side-triple bg-white" style="background-image: url('/sites/all/themes/koma/assets/images/mozaika-koma.png')" <?php koma_theme_wrapper(__FILE__)?>>
 
     <div class="row">
         <header class="m-section--header">

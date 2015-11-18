@@ -5,7 +5,7 @@
 //
 //?>
 
-<article>
+<article <?php koma_theme_wrapper(__FILE__)?>>
 
     <div class="m-section l-feed_carousel bg-secondary-light">
         <div class="row">
@@ -55,7 +55,7 @@
 </article>
 
 
-<div class="m-section l-feed_three bg-white" id="ke-stazeni">
+<div class="m-section l-feed_three bg-white" id="ke-stazeni" <?php koma_theme_wrapper(__FILE__)?>>
 
     <div class="row">
         <header class="m-section--header">
@@ -89,7 +89,7 @@
 
 </div>
 
-<div class="kotva" id="dalsi-informace"></div>
+<div class="kotva" id="dalsi-informace" <?php koma_theme_wrapper(__FILE__)?>></div>
 <?php
 $block = module_invoke('views', 'block_view', 'publicita-block');
 print render($block);

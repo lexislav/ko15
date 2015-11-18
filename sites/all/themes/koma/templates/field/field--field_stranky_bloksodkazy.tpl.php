@@ -1,6 +1,6 @@
 <?php foreach ($items[0]['entity']['field_collection_item'] AS $pole) { ?>
 
-    <div class="m-section l-feed_two bg-secondary-light">
+    <div class="m-section l-feed_two bg-secondary-light" <?php koma_theme_wrapper(__FILE__)?>>
         <header class="m-section--header">
             <h2 class="m-section--hed mm-medium mm-tiny mm-center mm-border"><?= $pole['field_cs_nadpis_bloku']['#items'][0]['value'] ?></h2>
         </header>

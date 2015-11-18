@@ -3,7 +3,7 @@ $prev_nid = prev_next_nid($node->nid, 'prev');
 $next_nid = prev_next_nid($node->nid, 'next');
 ?>
 
-<div class="m-section l-detail-page">
+<div class="m-section l-detail-page" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="row">
         <header class="m-section--header"></header>
     </div>
@@ -102,7 +102,7 @@ $next_nid = prev_next_nid($node->nid, 'next');
         </div>
     </article>
 
-    <footer class="m-section--footer" style="padding: 0">
+    <footer class="m-section--footer" style="padding: 0" <?php koma_theme_wrapper(__FILE__)?>>
 
         <!-- starší novější -->
         <?php if (($prev_nid[0]->prev_nid > 0) || ($next_nid[0]->next_nid > 0)) { ?>

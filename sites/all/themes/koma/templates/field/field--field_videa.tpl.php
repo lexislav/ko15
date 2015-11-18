@@ -1,4 +1,4 @@
-<div class="m-section l-feed_three">
+<div class="m-section l-feed_three" <?php koma_theme_wrapper(__FILE__) ?>>
     <div class="row">
         <header class="m-section--header">
             <div class="l-full">
@@ -22,10 +22,10 @@
                     <div class="m-section--top"><a href=""><?php print t('UP') ?> &uarr;</a></div>
                 </div>
                 <div class="l-half">
-<!--                    <ul class="m-section--nav inline-right">-->
-<!--                        <li><a href="" title="Novinky">Technická pomoc</a></li>-->
-<!--                        <li><a href="">informace pro architekty</a></li>-->
-<!--                    </ul>-->
+                    <!--                    <ul class="m-section--nav inline-right">-->
+                    <!--                        <li><a href="" title="Novinky">Technická pomoc</a></li>-->
+                    <!--                        <li><a href="">informace pro architekty</a></li>-->
+                    <!--                    </ul>-->
                 </div>
             </footer>
         </div>

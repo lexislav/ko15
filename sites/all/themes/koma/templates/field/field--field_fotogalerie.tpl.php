@@ -5,7 +5,7 @@ if (count($items) > 0) {
     }
     ?>
 
-    <div class="m-section">
+    <div class="m-section" <?php koma_theme_wrapper(__FILE__)?>>
         <div class="row">
             <header class="m-section--header">
                 <div class="l-full">

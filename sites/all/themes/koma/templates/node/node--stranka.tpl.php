@@ -5,7 +5,7 @@
 ?>
 
 
-<div class="m-section l-detail-page bg-white">
+<div class="m-section l-detail-page bg-white" <?php koma_theme_wrapper(__FILE__) ?>>
 
     <header class="m-section--header bg-secondary-light">
         <!--        <div class="row ">-->
@@ -65,7 +65,7 @@
 print render($content);
 ?>
 
-<div class="m-section l-feed_block-carousel">
+<div class="m-section l-feed_block-carousel" <?php koma_theme_wrapper(__FILE__) ?>>
 
     <div class="m-section--underlay"></div>
 

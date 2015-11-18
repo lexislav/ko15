@@ -1,4 +1,4 @@
-<div class="m-section l-feed_two bg-secondary-light">
+<div class="m-section l-feed_two bg-secondary-light" <?php koma_theme_wrapper(__FILE__)?>>
 
     <header class="m-section--header">
         <h2 class="m-section--hed mm-medium mm-tiny mm-center mm-border"><?= $items[0]['field_basic_title']['#items'][0]['value'] ?></h2>

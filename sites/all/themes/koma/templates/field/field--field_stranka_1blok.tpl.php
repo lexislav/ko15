@@ -50,7 +50,7 @@
 
 foreach ($items[0]['entity']['field_collection_item'] AS $pole) { ?>
 
-    <div class="m-section l-feed_one bg-white">
+    <div class="m-section l-feed_one bg-white" <?php koma_theme_wrapper(__FILE__)?>>
 
         <header class="m-section--header">
             <h2 class="m-section--hed mm-medium mm-center"><?= $pole['field_cs_b1_nadpis']['#items'][0]['value'] ?></h2>

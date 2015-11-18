@@ -1,6 +1,6 @@
 <!-- produkt -->
 
-    <div class="row rowfix">
+    <div class="row rowfix" <?php koma_theme_wrapper(__FILE__)?>>
         <?php
         foreach ($element['#items'] AS $pole) {
 

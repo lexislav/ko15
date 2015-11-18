@@ -1,6 +1,6 @@
 <?php if (count($items) > 0) { ?>
 
-    <div class="m-section l-feed_four">
+    <div class="m-section l-feed_four" <?php koma_theme_wrapper(__FILE__)?>>
 <!---->
 <!--        <div class="row">-->
 <!--            <header class="m-section--header mm-center">Photo gallery - rez: to tu nema co delat</header>-->

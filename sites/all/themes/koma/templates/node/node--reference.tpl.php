@@ -4,9 +4,8 @@ $next_nid = prev_next_nid($node->nid, 'next');
 $next_title = db_query('SELECT title_field_value FROM {field_data_title_field} WHERE entity_id = :nid AND language = :lang', array(':nid' => $next_nid[0]->next_nid, ':lang' => test_lang_code()))->fetchField();
 $prev_title = db_query('SELECT title_field_value FROM {field_data_title_field} WHERE entity_id = :nid AND language = :lang', array(':nid' => $prev_nid[0]->prev_nid, ':lang' => test_lang_code()))->fetchField();
 
-
 if (isset($node->field_reference_main_img['und'][0]['uri'])) {
-    $urickoMain =$node->field_reference_main_img['und'][0]['uri'];
+    $urickoMain = $node->field_reference_main_img['und'][0]['uri'];
 } else {
     $urickoMain = $node->field_reference_fotogalerie[$node->language][0]['entity']->field_fotogalerie_main_img['und'][0]['uri'];
 }
@@ -14,7 +13,7 @@ if (isset($node->field_reference_main_img['und'][0]['uri'])) {
 
 ?>
 
-<div class="m-section l-detail-page">
+<div class="m-section l-detail-page" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="row">
         <header class="m-section--header">
             <div class="l-full">
@@ -30,11 +29,8 @@ if (isset($node->field_reference_main_img['und'][0]['uri'])) {
     </div>
     <article class="m-reference">
         <header>
-            <div class="m-reference--image"
-                 style="background-image: url(<?= image_style_url('x618-480', $urickoMain) ?>)">
-                <a href=""><img
-                        src="<?= image_style_url('x618-480', $urickoMain) ?>"
-                        alt=""/></a>
+            <div class="m-reference--image" style="background-image: url(<?= image_style_url('x618-480', $urickoMain) ?>)">
+                <a href=""><img src="<?= image_style_url('x618-480', $urickoMain) ?>" alt="" /></a>
             </div>
             <div class="m-reference--summary">
                 <h1 class="m-reference--hed"><a href=""><?php print $title; ?></a></h1>
@@ -100,10 +96,8 @@ if (isset($node->field_reference_main_img['und'][0]['uri'])) {
                     foreach ($content['field_reference_video']['#items'] AS $video) {
 
                         ?>
-                        <iframe width="560" height="315"
-                                src="https://www.youtube.com/embed/<?= $video['video_id'] ?>?rel=0" frameborder="0"
-                                allowfullscreen></iframe>
-                        <br/>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/<?= $video['video_id'] ?>?rel=0" frameborder="0" allowfullscreen></iframe>
+                        <br />
 
                         <?php
                     };
@@ -127,7 +121,7 @@ if (isset($node->field_reference_main_img['und'][0]['uri'])) {
                             } else {
                                 $cesta = $node->field_reference_fotogalerie['cs'][0]['entity']->field_fotogalerie_imgs['und'];
                             }
- 
+
                             ?>
                             <div class="m-aside-block--meta">
                                 (<?= count($cesta) ?>
@@ -144,8 +138,7 @@ if (isset($node->field_reference_main_img['und'][0]['uri'])) {
 
                             foreach ($cesta AS $poradi => $obrazek) { ?>
                                 <li class="m-gallery--item">
-                                    <a href="<?= image_style_url('zadny', $obrazek['uri']) ?>"><img
-                                            src="<?= image_style_url('x186-139', $obrazek['uri']) ?>"></a>
+                                    <a href="<?= image_style_url('zadny', $obrazek['uri']) ?>"><img src="<?= image_style_url('x186-139', $obrazek['uri']) ?>"></a>
                                 </li>
                             <?php } ?>
                         </ul>
@@ -161,13 +154,14 @@ if (isset($node->field_reference_main_img['und'][0]['uri'])) {
                 <div class="m-section--top"><a href=""><?php print t('UP') ?> &uarr;</a></div>
             </div>
             <div class="l-half">
-                <div class="m-section--more"><a href="<?=test_basic_url()?>reference/archiv"><?php print t('WHOLE ARCHIVES') ?> &rarr;</a>
+                <div class="m-section--more">
+                    <a href="<?= test_basic_url() ?>reference/archiv"><?php print t('WHOLE ARCHIVES') ?> &rarr;</a>
                 </div>
             </div>
         </footer>
     </div>
 </div>
-<div class="m-section l-navigation bg-white">
+<div class="m-section l-navigation bg-white" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="row">
         <?php
 
@@ -177,10 +171,9 @@ if (isset($node->field_reference_main_img['und'][0]['uri'])) {
 
                 <article class="m-story">
                     <header>
-                        <div class="m-item--image"
-                             style="background-image: url(<?= image_style_url('thumbnail', $prev_nid[0]->prev_img) ?>)">
+                        <div class="m-item--image" style="background-image: url(<?= image_style_url('thumbnail', $prev_nid[0]->prev_img) ?>)">
                             <a href="<?= test_lang_prefix('node/' . $prev_nid[0]->prev_nid) ?> ">
-                                <img src="<?= image_style_url('thumbnail', $prev_nid[0]->prev_img) ?>" alt=""/>
+                                <img src="<?= image_style_url('thumbnail', $prev_nid[0]->prev_img) ?>" alt="" />
                             </a>
                         </div>
                         <div class="m-item--summary">
@@ -204,10 +197,9 @@ if (isset($node->field_reference_main_img['und'][0]['uri'])) {
             <div class="l-next m-card_nav">
                 <article class="m-story">
                     <header>
-                        <div class="m-item--image"
-                             style="background-image: url(<?= image_style_url('thumbnail', $next_nid[0]->next_img) ?>)">
+                        <div class="m-item--image" style="background-image: url(<?= image_style_url('thumbnail', $next_nid[0]->next_img) ?>)">
                             <a href="<?= test_lang_prefix('node/' . $next_nid[0]->next_nid) ?>">
-                                <img src="<?= image_style_url('thumbnail', $next_nid[0]->next_img) ?>" alt=""/>
+                                <img src="<?= image_style_url('thumbnail', $next_nid[0]->next_img) ?>" alt="" />
                             </a>
                         </div>
                         <div class="m-item--summary">

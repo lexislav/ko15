@@ -1,5 +1,5 @@
 <!-- field--field_reference_slider.tpl -->
-<div class="m-section l-feed_carousel">
+<div class="m-section l-feed_carousel" <?php koma_theme_wrapper(__FILE__)?>>
 
 <!--    <div class="row">-->
 <!--        <header class="m-section--header">-->

@@ -1,24 +1,16 @@
 <?php
 $nid= 'node/782';
 
-
 echo drupal_lookup_path('alias',$nid,'en');
-
-
-
-
-
-
 
 $tree = taxonomy_get_tree(5);
 $term = taxonomy_term_load(24);
-
 $translated_term = $term->name_field[$language][0]['value'];
 
 ?>
 
 <!-- full size breakout -->
-<div class="m-section l-feed_one bg-secondary-light mm-has-background" style="background-image: url(http://lorempixel.com/900/600)">
+<div class="m-section l-feed_one bg-secondary-light mm-has-background" style="background-image: url(http://lorempixel.com/900/600)" <?php koma_theme_wrapper(__FILE__)?>>
 
     <header class="m-section--header">
         <h2 class="m-section--hed mm-medium mm-normal mm-center color-white">TEST Nabídka fasádních systémů</h2>
@@ -46,7 +38,7 @@ $translated_term = $term->name_field[$language][0]['value'];
 
 
 <!--paginace footer-->
-<div class="m-section l-feed_four">
+<div class="m-section l-feed_four" <?php koma_theme_wrapper(__FILE__)?>>
 
     <div class="row">
         <header class="m-section--header">
@@ -172,7 +164,7 @@ $translated_term = $term->name_field[$language][0]['value'];
 <!--paginace ve footer-->
 
 <!-- produkt -->
-<div class="m-section l-feed_four">
+<div class="m-section l-feed_four" <?php koma_theme_wrapper(__FILE__)?>>
 
     <div class="row">
         <header class="m-section--header">
@@ -233,7 +225,7 @@ $translated_term = $term->name_field[$language][0]['value'];
 
 
 <!-- dummy gallery-->
-<div class="m-section">
+<div class="m-section" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="row">
         <header class="m-section--header">
             <div class="l-full">
@@ -281,7 +273,7 @@ $translated_term = $term->name_field[$language][0]['value'];
 
 <!-- dummy bannery-->
 
-<div class="m-section bg-primary">
+<div class="m-section bg-primary" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="m-section--close" close-section>&times;</div>
     <article class="m-banner">
         <header>
@@ -299,7 +291,7 @@ $translated_term = $term->name_field[$language][0]['value'];
     </article>
 </div>
 
-<div class="m-section bg-secondary">
+<div class="m-section bg-secondary" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="m-section--close" close-section>&times;</div>
     <article class="m-banner">
         <header>
@@ -317,7 +309,7 @@ $translated_term = $term->name_field[$language][0]['value'];
     </article>
 </div>
 
-<div class="m-section bg-secondary-light">
+<div class="m-section bg-secondary-light" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="m-section--close" close-section>&times;</div>
     <article class="m-banner">
         <header>
@@ -335,7 +327,7 @@ $translated_term = $term->name_field[$language][0]['value'];
     </article>
 </div>
 
-<div class="m-section bg-secondary-light">
+<div class="m-section bg-secondary-light" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="m-section--close" close-section>&times;</div>
     <article class="m-banner">
         <header>

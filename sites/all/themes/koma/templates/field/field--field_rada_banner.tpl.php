@@ -4,7 +4,7 @@ foreach ($items AS $pole) {
 
 }
 ?>
-<div class="m-section l-feed_one bg-secondary-light mm-has-background" style="background-image: url(<?= image_style_url('none', $cast->field_basic_img['und'][0]['uri']) ?>)">
+<div class="m-section l-feed_one bg-secondary-light mm-has-background" style="background-image: url(<?= image_style_url('none', $cast->field_basic_img['und'][0]['uri']) ?>)" <?php koma_theme_wrapper(__FILE__)?>>
 
     <header class="m-section--header">
         <h2 class="m-section--hed mm-medium mm-normal mm-center color-white"><?= $cast->field_basic_title[$element['#language']][0]['value'] ?></h2>

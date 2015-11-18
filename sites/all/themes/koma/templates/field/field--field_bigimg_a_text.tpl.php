@@ -1,5 +1,5 @@
 <!--field--field_bigimg_a_text.tpl.php-->
-<div class="m-section l-feed_one bg-secondary-light mm-has-background" style="background-image: url(<?= image_style_url('none', $items[0]['field_basic_img']['#items'][0]['uri']) ?>)">
+<div class="m-section l-feed_one bg-secondary-light mm-has-background" style="background-image: url(<?= image_style_url('none', $items[0]['field_basic_img']['#items'][0]['uri']) ?>)" <?php koma_theme_wrapper(__FILE__)?>>
     <header class="m-section--header">
         <h2 class="m-section--hed mm-medium mm-normal mm-center color-white"><?=$items[0]['field_basic_title']['#items'][0]['value']?></h2>
     </header>

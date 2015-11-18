@@ -1,4 +1,4 @@
-<ul class="button-group">
+<ul class="button-group" <?php koma_theme_wrapper(__FILE__)?>>
     <li class="text-label-button"><?= $items[0]['field_basic_title']['#items'][0]['value'] ?></li>
     <?php
     foreach ($items AS $poradi => $pole) {

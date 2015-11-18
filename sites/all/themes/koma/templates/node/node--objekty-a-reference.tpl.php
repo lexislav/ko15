@@ -1,4 +1,4 @@
-<div id="produktove-rady">
+<div id="produktove-rady" <?php koma_theme_wrapper(__FILE__)?>>
 
     <div class="m-section l-feed_four">
         <div class="row">

@@ -1,4 +1,4 @@
-<div class="m-section l-feed_three">
+<div class="m-section l-feed_three" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="row rowfix">
         <?php
         // @TODO zkontrolovat kategorie a tenhle seznam
