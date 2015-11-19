@@ -56,3 +56,4 @@
 
 $sites['koma-group.dev'] = 'koma-group.cz';
 $sites['koma-modular.dev'] = 'koma-modular.cz';
+$sites['koma-rent.dev'] = 'koma-rent.cz';
