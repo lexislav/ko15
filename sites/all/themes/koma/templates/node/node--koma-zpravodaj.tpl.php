@@ -106,31 +106,31 @@ $next_nid = prev_next_nid($node->nid, 'next');
 
         <!-- starší novější -->
         <?php if (($prev_nid[0]->prev_nid > 0) || ($next_nid[0]->next_nid > 0)) { ?>
-        <div class="clearfix">
-            <div class="row" style="padding:  48px 0">
-                <div class="l-half" style="padding: 0 48px; text-align: right">
-                    <?php
-                    if ($prev_nid[0]->prev_nid > 0) {
-                        ?>
-                        <a href="<?= test_lang_prefix('node/' . $prev_nid[0]->prev_nid) ?>">&larr;<?php print t('STARŠÍ') ?></a>
+            <div class="clearfix">
+                <div class="row" style="padding:  48px 0">
+                    <div class="l-half" style="padding: 0 48px; text-align: right">
                         <?php
-                    }
-                    ?>
-                </div>
-
-                <div class="l-half"  style="padding: 0 48px;">
-                    <?php
-                    if ($next_nid[0]->next_nid > 0) {
+                        if ($prev_nid[0]->prev_nid > 0) {
+                            ?>
+                            <a href="<?= test_lang_prefix('node/' . $prev_nid[0]->prev_nid) ?>">&larr;<?php print t('STARŠÍ') ?></a>
+                            <?php
+                        }
                         ?>
-                        <a href="<?= test_lang_prefix('node/' . $next_nid[0]->next_nid) ?>"><?php print t('NOVĚJŠÍ') ?>&rarr;</a>
+                    </div>
 
+                    <div class="l-half"  style="padding: 0 48px;">
                         <?php
-                    }
-                    ?>
-                </div>
+                        if ($next_nid[0]->next_nid > 0) {
+                            ?>
+                            <a href="<?= test_lang_prefix('node/' . $next_nid[0]->next_nid) ?>"><?php print t('NOVĚJŠÍ') ?>&rarr;</a>
 
+                            <?php
+                        }
+                        ?>
+                    </div>
+
+                </div>
             </div>
-        </div>
         <?php } ?>
 
         <div class="bg-white clearfix">
