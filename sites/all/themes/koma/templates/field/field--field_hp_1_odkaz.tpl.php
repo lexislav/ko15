@@ -1,4 +1,4 @@
-<div class="m-section l-feed_<?= (count($items) == 3) ? 'triple-card' : 'four' ?>">
+<div class="m-section l-feed_<?= (count($items) == 3) ? 'triple-card' : 'four' ?>" <?php koma_theme_wrapper(__FILE__)?>>
 
     <div class="row">
         <header class="m-section--header">

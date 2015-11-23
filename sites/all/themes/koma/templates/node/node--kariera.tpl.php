@@ -1,4 +1,4 @@
-<div class="m-section l-detail-page">
+<div class="m-section l-detail-page" <?php koma_theme_wrapper(__FILE__) ?>>
     <div class="row">
         <header class="m-section--header">
             <div class="l-full">
@@ -18,9 +18,9 @@
         <header>
 
 
-<!--            <div class="m-story--image">-->
-<!--                <a href=""> &nbsp; </a>-->
-<!--            </div>-->
+            <!--            <div class="m-story--image">-->
+            <!--                <a href=""> &nbsp; </a>-->
+            <!--            </div>-->
 
             <div class="m-story--summary">
 
@@ -51,8 +51,8 @@
                 <div class="m-section--top"><a href=""><?php print t('UP') ?> &uarr;</a></div>
             </div>
             <div class="l-half">
-                <div class="m-section--more"><a
-                        href="http://www.koma-modular.cz/firma-a-lide/kariera"><?php print t('WHOLE ARCHIVES') ?> &rarr;</a>
+                <div class="m-section--more">
+                    <a href="http://www.koma-modular.cz/firma-a-lide/kariera"><?php print t('WHOLE ARCHIVES') ?> &rarr;</a>
                 </div>
             </div>
         </footer>

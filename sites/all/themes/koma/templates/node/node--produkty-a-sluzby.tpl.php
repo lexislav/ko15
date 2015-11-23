@@ -4,7 +4,7 @@
 //dsm($content);
 //
 //?>
-<article id="produktove-rady">
+<article id="produktove-rady" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="m-section l-feed_four">
         <div class="row">
             <header class="m-section--header">
@@ -41,7 +41,7 @@ if (isset($content['field_bigimg_a_text'][0])) {
 ?>
 
 
-<div class="m-section l-feed_two bg-white">
+<div class="m-section l-feed_two bg-white" <?php koma_theme_wrapper(__FILE__)?>>
 
     <div class="row">
         <header class="m-section--header">
@@ -111,7 +111,7 @@ if (isset($content['field_segment_faq'][0])) {
     print render($content['field_segment_faq']);
 }
 ?>
-<div id="modularni-vystavba" class="m-section l-feed_four" style="background-image: url('/sites/all/themes/koma/assets/images/mozaika-koma.png')">
+<div id="modularni-vystavba" class="m-section l-feed_four" style="background-image: url('/sites/all/themes/koma/assets/images/mozaika-koma.png')" <?php koma_theme_wrapper(__FILE__)?>>
 
     <div class="row">
         <header class="m-section--header">

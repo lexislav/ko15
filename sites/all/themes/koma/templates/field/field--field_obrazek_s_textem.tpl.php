@@ -7,7 +7,7 @@ foreach ($items AS $pole) {
     ?>
     <!--@TODO NONE neni styl, vyresit-->
 
-    <div class="m-section l-feed_one bg-secondary-light mm-has-background" style="background-image: url(<?= image_style_url('none', $cast['field_basic_img']['#items'][0]['uri']) ?>)">
+    <div class="m-section l-feed_one bg-secondary-light mm-has-background" style="background-image: url(<?= image_style_url('none', $cast['field_basic_img']['#items'][0]['uri']) ?>)" <?php koma_theme_wrapper(__FILE__)?>>
 
         <header class="m-section--header">
             <h2 class="m-section--hed mm-medium mm-tiny mm-center mm-border"><?= $cast['field_basic_title']['#items'][0]['value'] ?></h2>

@@ -1,24 +1,22 @@
 <?php
-
 global $language;
 ?>
-
-    <div class="m-section l-detail-page bg-white">
+    <div class="m-section l-detail-page bg-white" <?php koma_theme_wrapper(__FILE__)?>>
 
         <header class="m-section--header bg-secondary-light">
-                    <div class="row ">
-                        <div class="l-full">
+            <div class="row ">
+                <div class="l-full">
 
-                            <nav class="breadcrumbs">
-                                <?php
-                                foreach (drupal_get_breadcrumb() AS $drobek) {
-                                echo $drobek;
-                                }
-                                ?>
-                            </nav>
+                    <nav class="breadcrumbs">
+                        <?php
+                        foreach (drupal_get_breadcrumb() AS $drobek) {
+                            echo $drobek;
+                        }
+                        ?>
+                    </nav>
 
-                        </div>
-                    </div>
+                </div>
+            </div>
         </header>
 
         <article class="m-basic-page">
@@ -29,11 +27,8 @@ global $language;
                     </div>
 
                     <div class="l-full">
-                        <figure class="m-basic-page--image"
-                                style="background-image: url(<?= $GLOBALS['base_url'] ?>/sites/default/files/segment_trhu/<?= $node->field_segment_img['und'][0]['filename'] ?>)">
-                            <a href=""><img
-                                    src="<?= $GLOBALS['base_url'] ?>/sites/default/files/segment_trhu/<?= $node->field_segment_img['und'][0]['filename'] ?>"
-                                    alt=""/></a>
+                        <figure class="m-basic-page--image" style="background-image: url(<?= $GLOBALS['base_url'] ?>/sites/default/files/segment_trhu/<?= $node->field_segment_img['und'][0]['filename'] ?>)">
+                            <a href=""><img src="<?= $GLOBALS['base_url'] ?>/sites/default/files/segment_trhu/<?= $node->field_segment_img['und'][0]['filename'] ?>" alt="" /></a>
                             <figcaption>
                                 <?= $content['field_segment_img_text']['#items'][0]['value'] ?>
                             </figcaption>
@@ -82,18 +77,15 @@ global $language;
                     <article class="m-reference">
                         <header>
                             <!-- @TODO dodelat nacitani main img z fotogalerie -->
-                            <div class="m-item--image"
-                                 style="background-image: url(<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>)">
+                            <div class="m-item--image" style="background-image: url(<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>)">
                                 <a href="">
-                                    <img
-                                        src="<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>"
-                                        alt=""/>
+                                    <img src="<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>" alt="" />
                                 </a>
                             </div>
 
                             <div class="m-item--summary">
                                 <h1 class="m-item--hed">
-                                    <a href="<?= test_lang_prefix('node/'.$reference['entity']->nid) ?>"><?= $reference['entity']->title ?></a>
+                                    <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>"><?= $reference['entity']->title ?></a>
                                 </h1>
 
                                 <div class="m-item--description  ">
@@ -104,18 +96,17 @@ global $language;
                                         }
 
                                         ?>
-                                        <br/>
-                                        <a href="<?= test_lang_prefix('node/'.$reference['entity']->nid) ?>">
+                                        <br />
+                                        <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>">
                                             <?php print t('Reference detail') ?></a> &rarr;
                                         <?php
-                                        if(@$user->uid>0) {
+                                        if (@$user->uid > 0) {
                                             ?>
                                             [
-                                            <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>/edit">editovat</a>
-                                            ]
+                                            <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>/edit">editovat</a>]
                                             <?php
                                         }
-                                            ?>
+                                        ?>
                                     </p>
                                 </div>
                             </div>
@@ -134,7 +125,7 @@ global $language;
 
                                 <dl>
                                     <dt><?php print t('Country of implementation') ?></dt>
-                                    <dd><?=  test_get_list($reference['entity']->field_reference_zeme['und'][0]['iso2']);?></dd>
+                                    <dd><?= test_get_list($reference['entity']->field_reference_zeme['und'][0]['iso2']); ?></dd>
                                 </dl>
 
                                 <!--@TODO dodelat if pro zobrazeni-->
@@ -174,18 +165,17 @@ global $language;
     </div>
 
 
-
 <?php
 $block = module_invoke('views', 'block_view', 'segmentreference-block');
 print render($block);
 ?>
 
-<?php if (FALSE) {
+<?php if (false) {
     //// to dole vzniklo chybou s gitem, nechci to radsi zatim mazat, tak je to jen zakazany
     ?>
 
-<?php //if (isset($node->field_segment_reference['und'])) { ?>
-    <div class="m-section l-feed_list bg-white">
+    <?php //if (isset($node->field_segment_reference['und'])) { ?>
+    <div class="m-section l-feed_list bg-white" <?php koma_theme_wrapper(__FILE__)?>>
         <div class="row">
             <?php
             $poletid = array();
@@ -209,18 +199,15 @@ print render($block);
                     <article class="m-reference ">
                         <header>
                             <!--                        @TODO dodelat nacitani main img z fotogalerie-->
-                            <div class="m-item--image"
-                                 style="background-image: url(<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>)">
+                            <div class="m-item--image" style="background-image: url(<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>)">
                                 <a href="">
-                                    <img
-                                        src="<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>"
-                                        alt=""/>
+                                    <img src="<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>" alt="" />
                                 </a>
                             </div>
 
                             <div class="m-item--summary">
                                 <h1 class="m-item--hed">
-                                    <a href="<?= test_lang_prefix('node/'.$reference['entity']->nid) ?>"><?= $reference['entity']->title ?></a>
+                                    <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>"><?= $reference['entity']->title ?></a>
                                 </h1>
 
                                 <div class="m-item--description">
@@ -232,15 +219,14 @@ print render($block);
                                         }
 
                                         ?>
-                                        <br/>
-                                        <a href="<?= test_lang_prefix('node/'.$reference['entity']->nid) ?>"><?php print t('Reference detail') ?></a> &rarr;
+                                        <br />
+                                        <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>"><?php print t('Reference detail') ?></a> &rarr;
 
                                         <?php
-                                        if(@$user->uid>0) {
+                                        if (@$user->uid > 0) {
                                             ?>
                                             [
-                                            <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>/edit">editovat</a>
-                                            ]
+                                            <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>/edit">editovat</a>]
                                             <?php
                                         }
                                         ?>
@@ -257,7 +243,7 @@ print render($block);
         </div>
     </div>
 
-<?php
+    <?php
 }
 
 ?>

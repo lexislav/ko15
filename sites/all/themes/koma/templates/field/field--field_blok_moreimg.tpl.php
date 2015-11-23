@@ -10,7 +10,7 @@ foreach ($items AS $pole) {
  //  dsm($cast['field_segment_fotogalerie']['#object']->field_segment_fotogalerie['und'][0]['entity']->field_fotogalerie_imgs['und']);
     ?>
 
-    <div class="m-card_centered-text l-single bg-secondary-light">
+    <div class="m-card_centered-text l-single bg-secondary-light" <?php koma_theme_wrapper(__FILE__)?>>
         <article class="m-story">
             <header>
                 <div class="m-item--summary">

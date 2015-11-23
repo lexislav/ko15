@@ -1,4 +1,4 @@
-<div class="m-section_vertical-tabs">
+<div class="m-section_vertical-tabs" <?php koma_theme_wrapper(__FILE__) ?>>
 
     <div class="m-section--container">
         <div slick>
@@ -19,13 +19,12 @@
                                 foreach ($pole['entity']['field_collection_item'][key($pole['entity']['field_collection_item'])]['field_cs_b2_odkaz']['#items'] AS $poradi => $cast) {
                                     $hodnota = ($zkracenina[$poradi]['entity']['field_collection_item'][$cast['value']]);
                                     ?>
-                                    <li slick-to="<?=($poradi)?>"><a
-                                            href=""><?= $hodnota['field_cs_cs2_nadpis']['#items'][0]['value'] ?></a>
+                                    <li slick-to="<?= ($poradi) ?>">
+                                        <a href=""><?= $hodnota['field_cs_cs2_nadpis']['#items'][0]['value'] ?></a>
                                     </li>
-                                <?php
+                                    <?php
                                 }
-                                ?>
-                            <?php
+                                ?><?php
                             }
                             ?>
 
@@ -48,11 +47,11 @@
                                 <header>
                                     <div class="m-item--image" style="background-image: url(<?= image_style_url('x595-0', $hodnota['field_cs_cs2_img']['#items'][0]['uri']) ?>)">
                                         <a href="">
-                                            <img src="<?= image_style_url('x595-0', $hodnota['field_cs_cs2_img']['#items'][0]['uri']) ?>" alt=""/>
+                                            <img src="<?= image_style_url('x595-0', $hodnota['field_cs_cs2_img']['#items'][0]['uri']) ?>" alt="" />
                                         </a>
                                     </div>
                                     <h1 class="m-item--hed">
-                                        <a href="<?=@$hodnota['field_cs_cs2_odkaz']['#items'][0]['url']?>"><?= @$hodnota['field_cs_cs2_popis']['#items'][0]['value'] ?></a>
+                                        <a href="<?= @$hodnota['field_cs_cs2_odkaz']['#items'][0]['url'] ?>"><?= @$hodnota['field_cs_cs2_popis']['#items'][0]['value'] ?></a>
                                     </h1>
 
                                     <div class="m-item--description">
@@ -63,22 +62,14 @@
                         </div>
 
 
-
-                    <?php
+                        <?php
                     }
-                    ?>
-                <?php
+                    ?><?php
                 }
                 ?>
-
-
-
             </div>
-
         </div>
     </div>
-
-
 </div>
 
 

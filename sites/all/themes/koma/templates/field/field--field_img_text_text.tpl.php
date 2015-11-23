@@ -1,6 +1,6 @@
 <!--<div class="m-section l-feed_--><? //= (count($items) == 3) ? 'triple-card' : 'four' ?><!--">-->
 
-<div class="row rowfix">
+<div class="row rowfix" <?php koma_theme_wrapper(__FILE__)?>>
     <?php
     $modificatiorClass = '';
     if (isset($items[0]['myclass'])) $modificatiorClass = $items[0]['myclass'];

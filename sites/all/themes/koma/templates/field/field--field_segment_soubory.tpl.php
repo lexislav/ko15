@@ -44,7 +44,7 @@
  * @ingroup themeable
  */
 ?>
-<aside>
+<aside <?php koma_theme_wrapper(__FILE__)?>>
     <div class="m-aside-block bg-secondary-light mm-pad">
         <header class="m-aside-block--header">
             <h3 class="m-aside-block--hed"><?php print t('For download') ?></h3>

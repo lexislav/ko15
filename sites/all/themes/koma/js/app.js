@@ -274,3 +274,21 @@ jQuery('.m-section--top').each(function () {
 
     });
 });
+
+function listTemplates() {
+    jQuery('[theme-wrapper]').each(function () {
+        var el = jQuery(this);
+        console.dir(el.attr('theme-wrapper'));
+    });
+}
+
+function highlightTemplates() {
+    jQuery('[theme-wrapper]').each(function () {
+        var el = jQuery(this);
+        el.css("outline", "1px dashed black");
+        var elInfo = jQuery('<div class="theme-wrapper-info">tpl: ' + el.attr('theme-wrapper') +'</div>');
+        elInfo.prependTo(el);
+    });
+}
+
+listTemplates();

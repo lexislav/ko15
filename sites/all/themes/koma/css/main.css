@@ -7399,3 +7399,10 @@ article header figure {
 /*body {
     border: 10px solid orange !important;
 }*/
+.theme-wrapper-info {
+  background: deeppink;
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 8px;
+  top: 0;
+  left: 0; }

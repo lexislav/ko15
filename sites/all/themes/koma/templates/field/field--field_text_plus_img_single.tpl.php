@@ -3,7 +3,7 @@
 foreach($items AS $item) {
     ?>
 
-    <div class="m-section l-feed_one bg-white">
+    <div class="m-section l-feed_one bg-white" <?php koma_theme_wrapper(__FILE__)?>>
 
         <header class="m-section--header"></header>
 

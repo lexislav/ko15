@@ -7,6 +7,24 @@
  * @see https://drupal.org/node/1728096
  */
 
+function koma_is_local()
+{
+
+    if (substr($_SERVER['REMOTE_ADDR'], 0, 4) == '127.'
+        || $_SERVER['REMOTE_ADDR'] == '::1'
+    ) {
+        return true;
+    }
+    return false;
+
+}
+
+function koma_theme_wrapper($variable)
+{
+        $pth = pathinfo($variable);
+        echo 'theme-wrapper="' . $pth["basename"] . '"';
+}
+
 
 //function koma_links__locale_block(&$variables) {
 //    // the global $language variable tells you what the current language is
@@ -48,26 +66,27 @@
 //function koma_preprocess_page(&$variables) {
 //    echo '<pre>'; var_dump($variables['theme_hook_suggestions']); echo '</pre>';
 //}
-function koma_links__locale_block(&$variables) {
+function koma_links__locale_block(&$variables)
+{
     // the global $language variable tells you what the current language is
     global $language;
 
 // an array of list items
     $items = array();
 
-    foreach($variables['links'] as $lang => $info) {
+    foreach ($variables['links'] as $lang => $info) {
 
-        $name     = $info['language']->native;
-        $href     = isset($info['href']) ? $info['href'] : '';
-        $li_classes   = array('list-item-class');
+        $name = $info['language']->native;
+        $href = isset($info['href']) ? $info['href'] : '';
+        $li_classes = array('list-item-class');
         // if the global language is that of this item's language, add the active class
-        if($lang === $language->language){
+        if ($lang === $language->language) {
             $li_classes[] = 'active';
         }
         $link_classes = array('link-class1', 'link-class2');
-        $options = array('attributes' => array('class'    => $link_classes),
+        $options = array('attributes' => array('class' => $link_classes),
             'language' => $info['language'],
-            'html'     => true
+            'html' => true
         );
         $link = l($name, $href, $options);
 
@@ -78,24 +97,25 @@ function koma_links__locale_block(&$variables) {
 // output
     $attributes = array('class' => array('my-list'));
 
-$linky = '';
-foreach($items AS $poradi => $item){
-    if($poradi==1)continue;
-    $linky.= '<li class="lang_'.$poradi.'">';
-    $linky.= $item['data'];
-    $linky.= '</li>';
-}
+    $linky = '';
+    foreach ($items AS $poradi => $item) {
+        if ($poradi == 1) continue;
+        $linky .= '<li class="lang_' . $poradi . '">';
+        $linky .= $item['data'];
+        $linky .= '</li>';
+    }
 
     return $linky;
 }
 
-function koma_menu_breadcrumb_alter(&$active_trail, $item) {
-    global $language ;
+function koma_menu_breadcrumb_alter(&$active_trail, $item)
+{
+    global $language;
     $lang_name = $language->language;
     $i = 0;
     foreach (array_keys($active_trail) as $key) {
-        if($i!=0){
-            $translatedValue = i18n_string_translate(array('menu', 'item', $active_trail[$key]['mlid'], 'title'), $active_trail[$key]['title'], array('langcode' => $lang_name, 'sanitize' => FALSE));
+        if ($i != 0) {
+            $translatedValue = i18n_string_translate(array('menu', 'item', $active_trail[$key]['mlid'], 'title'), $active_trail[$key]['title'], array('langcode' => $lang_name, 'sanitize' => false));
             $active_trail[$key]['title'] = $translatedValue;
         }
         $i++;
@@ -103,7 +123,8 @@ function koma_menu_breadcrumb_alter(&$active_trail, $item) {
 }
 
 
-function koma_theme() {
+function koma_theme()
+{
     $items = array();
 
     $items['user_login'] = array(
@@ -133,18 +154,23 @@ function koma_theme() {
     return $items;
 }
 
-function koma_preprocess_user_login(&$vars) {
+function koma_preprocess_user_login(&$vars)
+{
     $vars['intro_text'] = t('This is my awesome login form');
 }
 
-function koma_preprocess_user_register_form(&$vars) {
+function koma_preprocess_user_register_form(&$vars)
+{
     $vars['intro_text'] = t('This is my super awesome reg form');
 }
 
-function koma_preprocess_user_pass(&$vars) {
+function koma_preprocess_user_pass(&$vars)
+{
     $vars['intro_text'] = t('This is my super awesome request new password form');
 }
-function koma_menu_local_tasks(&$variables) {
+
+function koma_menu_local_tasks(&$variables)
+{
     $output = '';
 
     // Add theme hook suggestions for tab type.

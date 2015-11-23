@@ -1,16 +1,15 @@
-<div class="m-section l-detail-page">
+<div class="m-section l-detail-page" <?php koma_theme_wrapper(__FILE__) ?>>
     <div class="row">
         <header class="m-section--header">
-                        <div class="l-full">
-
-                            <nav class="breadcrumbs">
-                                <?php
-                                foreach (drupal_get_breadcrumb() AS $drobek) {
-                                    echo $drobek;
-                                }
-                                ?>
-                            </nav>
-                        </div>
+            <div class="l-full">
+                <nav class="breadcrumbs">
+                    <?php
+                    foreach (drupal_get_breadcrumb() AS $drobek) {
+                        echo $drobek;
+                    }
+                    ?>
+                </nav>
+            </div>
         </header>
     </div>
 
@@ -18,9 +17,9 @@
         <header>
 
 
-<!--            <div class="m-story--image">-->
-<!--                <a href=""> &nbsp; </a>-->
-<!--            </div>-->
+            <!--            <div class="m-story--image">-->
+            <!--                <a href=""> &nbsp; </a>-->
+            <!--            </div>-->
 
             <div class="m-story--summary">
 
@@ -42,9 +41,8 @@
 
                 </div>
             </div>
-
-
         </header>
+
         <div class="m-story--content">
             <div class="m-body--content">
                 <?= ($content['field_nabidka_text']['#items'][0]['value']); ?>
@@ -84,7 +82,8 @@
     <div class="row">
         <footer class="m-section--footer">
             <div class="l-half">
-                <div class="m-section--top"><a href=""><?php print t('UP',array(),array('langcode'=>'cs',)) ?> &uarr;</a></div>
+                <div class="m-section--top">
+                    <a href=""><?php print t('UP', array(), array('langcode' => 'cs',)) ?> &uarr;</a></div>
             </div>
             <div class="l-half">
                 <?php
