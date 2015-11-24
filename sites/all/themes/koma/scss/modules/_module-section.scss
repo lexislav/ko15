@@ -10,14 +10,18 @@
         margin-bottom: 0;
     }
 
-    .mm-small {
+    .mm-small, .mm-xs {
         font-size: rem-calc(16);
     }
-    .mm-medium {
+    .mm-s {
+        font-size: rem-calc(21);
+    }
+
+    .mm-medium, .mm-m {
         font-size: rem-calc(36);
     }
 
-    .mm-big {
+    .mm-big, .mm-xl {
         font-size: rem-calc(30);
         @include media(B) {
             font-size: rem-calc(50);
@@ -41,6 +45,14 @@
 
     .mm-center {
         text-align: center;
+    }
+
+    .mm-nocase {
+        text-transform: none;
+    }
+
+    .mm-upcase {
+        text-transform: uppercase;
     }
 
     &.mm-has-background {
@@ -558,6 +570,8 @@
     }
 
 }
+
+
 
 .m-section {
     &.l-login {

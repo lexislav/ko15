@@ -72,4 +72,15 @@
             border-bottom: none;
         }
     }
+
+
+    &.mm-size-l {
+        font-size: rem-calc(16);
+        line-height: 1.4em;
+        .fa {
+            font-size: rem-calc(24);
+            padding-right: 12px;
+        }
+    }
+
 }

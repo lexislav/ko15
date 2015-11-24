@@ -2,17 +2,22 @@
 
 .m-aside-block--header {
     @include cf();
-    margin-bottom: 20px;
 }
 
 .m-aside-block--footer {
     @include cf();
+}
+.m-aside-block--header {
+    margin-bottom: .5em;
 }
 
 .m-aside-block--hed,
 .m-aside-block--meta {
     display: inline-block;
     font-size: rem-calc(18);
+    font-weight: 600;
+    line-height: 1.4em;
+
 
     .fa {
         font-size: 18px;
@@ -23,5 +28,21 @@
 .m-aside-block {
     &.mm-pad {
         padding: 16px 20px;
+    }
+}
+
+aside {
+    .m-aside-block--header {
+        margin-bottom: 20px;
+    }
+
+    .m-aside-block--hed,
+    .m-aside-block--meta {
+        font-size: rem-calc(18);
+
+        .fa {
+            font-size: rem-calc(18);
+            line-height: rem-calc(18);
+        }
     }
 }

@@ -1,3 +1,4 @@
+
 .l-navigation {
 
     &.m-section {
@@ -10,18 +11,21 @@
         @include column(4/12, $gut: 0);
         height: 53px;
         overflow: hidden;
+        a:after {
+           display: none;
+        }
     }
 
     .l-prev {
         text-align: left;
 
-            .m-item--image {
-                float: left;
-                margin-right: 20px;
-                a:after {
-                    content: "\f060" !important;
-                }
+        .m-item--image {
+            float: left;
+            margin-right: 20px;
+            a:after {
+                content: "\f060" !important;
             }
+        }
         .m-item--summary {
             margin-left: 70px;
         }

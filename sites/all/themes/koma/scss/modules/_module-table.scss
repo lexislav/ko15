@@ -1,0 +1,37 @@
+.m-table,
+.m-table table {
+
+
+    background-color: transparent;
+    border-collapse: collapse;
+    border: none;
+    width: 100%;
+
+    tr, th, td {
+        border-collapse: collapse;
+        border: none;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: rem-calc(16);
+
+    }
+
+    th, td {
+        padding: 4px 16px;
+        font-weight: 400;
+    }
+
+
+
+    tr {
+        background-color: transparent;
+
+        &:nth-of-type(2n+1) {
+            background-color: #9FACA2;
+        }
+
+        td:first-child {
+            width: 25%;
+        }
+    }
+
+}

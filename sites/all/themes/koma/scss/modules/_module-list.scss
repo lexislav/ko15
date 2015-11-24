@@ -1,0 +1,32 @@
+.m-list {
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        line-height: 1.4em;
+        padding: 10px 0;
+        font-size: rem-calc(16);
+        color: black;
+    }
+
+
+
+}
+
+.m-list--bullet {
+    $bullet-size: 26px;
+    border: 2px solid $color-primary;
+    color: $color-primary;
+    text-align: center;
+    display: inline-block;
+    width: $bullet-size;
+    height: $bullet-size;
+    line-height: $bullet-size * 0.90; // multiplier is font optical compensation
+    margin-right: 10px;
+    border-radius: 50%;
+    vertical-align: middle;
+    font-weight: 600;
+    font-size: $bullet-size *.6;
+}
