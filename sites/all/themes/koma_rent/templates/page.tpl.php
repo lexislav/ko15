@@ -470,7 +470,7 @@ if ($user->uid == 1) {
 
 </div>
 
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">Detail page se dvěma sloupci, předělaný. sekce se dá použít i na  pronájem kontainerů</div>
+<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">Detail page se dvěma sloupci, předělaný. odsazené texty</div>
 
 
 <div class="m-section l-detail-page" <?php koma_theme_wrapper(__FILE__) ?>>
@@ -495,11 +495,11 @@ if ($user->uid == 1) {
             <div class="l-half">
                 <header>
 
-                    <div class="m-reference--summary">
-                        <h1 class="m-reference--hed"><a href="">Ubytovna pro uprchlíky v Anröchte, DE</a></h1>
+                    <div class="m-story--summary">
+                        <h1 class="m-story--hed mm-pad-bottom"><a href="">Ubytovna pro uprchlíky v Anröchte, DE</a></h1>
                     </div>
                 </header>
-                <div class="m-body--content">
+                <div class="m-body--content mm-pad-bottom">
                     <p>Dodali jsme první část ubytovny pro uprchlíky do německého města Anröchte. Přízemní budova je sestavená z&nbsp;23 modulů výrobkové řady StandardLine. V&nbsp;ubytovně je kromě jednotlivých pokojů pro uprchlíky i společné sociální zařízení a kuchyň. Druhá část ubytovny by měla být dodána do konce roku 2015.</p>
                 </div>
                 <button class="button" style="margin: 0">Pronájem &rarr;</button>
@@ -507,7 +507,7 @@ if ($user->uid == 1) {
             <!-- 2/2-->
             <div class="l-half">
 
-                <div class="m-reference--image" style="background-image: url(http://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/reference//uvodni?itok=_rvgewtr)">
+                <div class="m-story--image" style="background-image: url(http://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/reference//uvodni?itok=_rvgewtr)">
                     <a href=""><img src="http://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/reference//uvodni?itok=_rvgewtr" alt=""></a>
                 </div>
 
@@ -523,6 +523,8 @@ if ($user->uid == 1) {
                     </header>
 
                     <div class="m-aside-block--content">
+                        <div class="row">
+
                         <ul class="m-gallery" data-clearing>
                             <li class="m-gallery--item">
                                 <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-2.jpg?itok=hveNC31L"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-2.jpg?itok=6KMb-CXb"></a>
@@ -544,6 +546,7 @@ if ($user->uid == 1) {
                             </li>
 
                         </ul>
+                        </div>
                     </div>
 
                 </div>
