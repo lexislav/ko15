@@ -1,0 +1,17 @@
+diff --git a/domain_path.module b/domain_path.module
+index ff2fb36..a2c2d10 100644
+--- a/domain_path.module
++++ b/domain_path.module
+@@ -544,3 +544,12 @@ function domain_path_field_extra_fields() {
+   }
+   return $extra;
+ }
++
++/**
++ * Implements hook_url_outbound_alter().
++ */
++function domain_path_url_outbound_alter(&$path, &$options, $original_path) {
++  if ($alias = domain_path_lookup_path('alias', $original_path, NULL)) {
++    $path = $alias;
++  }
++}
