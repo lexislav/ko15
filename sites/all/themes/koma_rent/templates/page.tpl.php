@@ -472,7 +472,6 @@ if ($user->uid == 1) {
 
 <div style="background-color: deeppink; padding: 30px; color:white; text-align: center">Detail page se dvěma sloupci, předělaný. odsazené texty</div>
 
-
 <div class="m-section l-detail-page" <?php koma_theme_wrapper(__FILE__) ?>>
 
     <!-- header sekce-->
@@ -489,6 +488,7 @@ if ($user->uid == 1) {
     </div>
 
     <!-- artikl -->
+
     <article>
         <div class="row">
             <!-- 1/2-->
@@ -513,6 +513,7 @@ if ($user->uid == 1) {
 
 
                 <div class="m-aside-block">
+
                     <header class="m-aside-block--header">
                         <div class="m-aside-block--summary">
                             <h2 class="m-aside-block--hed">→ Fotogalerie</h2>
@@ -525,27 +526,27 @@ if ($user->uid == 1) {
                     <div class="m-aside-block--content">
                         <div class="row">
 
-                        <ul class="m-gallery" data-clearing>
-                            <li class="m-gallery--item">
-                                <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-2.jpg?itok=hveNC31L"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-2.jpg?itok=6KMb-CXb"></a>
-                            </li>
-                            <li class="m-gallery--item">
-                                <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-1.jpg?itok=V5-y-Jn6"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-1.jpg?itok=kICIl0MV"></a>
-                            </li>
-                            <li class="m-gallery--item">
-                                <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-18.jpg?itok=tOgGWN5x"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-18.jpg?itok=5bI217hV"></a>
-                            </li>
-                            <li class="m-gallery--item">
-                                <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-3.jpg?itok=uTLwQdTX"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-3.jpg?itok=Hiy1uOBl"></a>
-                            </li>
-                            <li class="m-gallery--item">
-                                <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-7.jpg?itok=IFxIKlri"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-7.jpg?itok=pzNZ6pzB"></a>
-                            </li>
-                            <li class="m-gallery--item">
-                                <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-13.jpg?itok=G-D7eZ-d"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-13.jpg?itok=z0oOTHfO"></a>
-                            </li>
+                            <ul class="m-gallery" data-clearing>
+                                <li class="m-gallery--item">
+                                    <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-2.jpg?itok=hveNC31L"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-2.jpg?itok=6KMb-CXb"></a>
+                                </li>
+                                <li class="m-gallery--item">
+                                    <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-1.jpg?itok=V5-y-Jn6"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-1.jpg?itok=kICIl0MV"></a>
+                                </li>
+                                <li class="m-gallery--item">
+                                    <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-18.jpg?itok=tOgGWN5x"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-18.jpg?itok=5bI217hV"></a>
+                                </li>
+                                <li class="m-gallery--item">
+                                    <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-3.jpg?itok=uTLwQdTX"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-3.jpg?itok=Hiy1uOBl"></a>
+                                </li>
+                                <li class="m-gallery--item">
+                                    <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-7.jpg?itok=IFxIKlri"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-7.jpg?itok=pzNZ6pzB"></a>
+                                </li>
+                                <li class="m-gallery--item">
+                                    <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-13.jpg?itok=G-D7eZ-d"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-13.jpg?itok=z0oOTHfO"></a>
+                                </li>
 
-                        </ul>
+                            </ul>
                         </div>
                     </div>
 
@@ -568,6 +569,45 @@ if ($user->uid == 1) {
                 </div>
             </div>
         </footer>
+    </div>
+
+</div>
+
+
+<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">Sekce s fotkou v pravo</div>
+
+<div class="m-section" <?php koma_theme_wrapper(__FILE__) ?>>
+
+    <!-- header sekce-->
+    <div class="row">
+        <header class="m-section--header"></header>
+    </div>
+
+    <!-- artikl -->
+
+    <article>
+        <div class="row">
+            <!-- 1/2-->
+            <div class="l-half">
+                <header>
+                    <h1 class="m-item--hed mm-bold mm-big mm-color-black">Ubytovna pro uprchlíky v Anröchte, DE</h1>
+                </header>
+                <div class="m-item--description mm-pad-bottom">
+                    <p>Dodali jsme první část ubytovny pro uprchlíky do německého města Anröchte. Přízemní budova je sestavená z&nbsp;23 modulů výrobkové řady StandardLine. V&nbsp;ubytovně je kromě jednotlivých pokojů pro uprchlíky i společné sociální zařízení a kuchyň. Druhá část ubytovny by měla být dodána do konce roku 2015.</p>
+                </div>
+                <button class="button" style="margin: 0">Pronájem &rarr;</button>
+            </div>
+            <!-- 2/2-->
+            <div class="l-half">
+                <div class="m-item--image" style="background-image: url(http://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/reference//uvodni?itok=_rvgewtr)">
+                    <a href=""><img src="http://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/reference//uvodni?itok=_rvgewtr" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <div class="row">
+        <footer class="m-section--footer"></footer>
     </div>
 
 </div>
@@ -615,9 +655,6 @@ if ($user->uid == 1) {
 
     </div>
 </div>
-
-
-
 
 
 <div style="background-color: deeppink; padding: 30px; color:white; text-align: center">Detail page příslušenství</div><!--.content-->
