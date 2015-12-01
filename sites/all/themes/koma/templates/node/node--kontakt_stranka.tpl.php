@@ -40,6 +40,21 @@
                 <a target="_blank" href="https://www.google.cz/maps/place/KOMA+MODULAR+s.r.o./@49.212273,17.862165,17z/data=!3m1!4b1!4m2!3m1!1s0x4713774877b90479:0xf22380988353fbe9"><img src="<?= image_style_url('x294-226', $content['field_image']['#items'][1]['uri']) ?>" alt="" /></a>
             </div>
 
+            <?php
+            if(isset($content['field_image']['#items'][2]['uri'])){
+                ?>
+                <div class="m-contact--image" style="background-image: url(<?= image_style_url('x294-226', $content['field_image']['#items'][0]['uri']) ?>)">
+                    <a target="_blank" href="https://www.google.cz/maps/place/KOMA+MODULAR+s.r.o./@49.212273,17.862165,17z/data=!3m1!4b1!4m2!3m1!1s0x4713774877b90479:0xf22380988353fbe9"><img src="<?= image_style_url('x294-226', $content['field_image']['#items'][2]['uri']) ?>" alt="" /></a>
+                </div>
+
+                <div class="m-contact--map" style="background-image: url(<?= image_style_url('x294-226', $content['field_image']['#items'][1]['uri']) ?>)">
+                    <a target="_blank" href="https://www.google.cz/maps/place/KOMA+MODULAR+s.r.o./@49.212273,17.862165,17z/data=!3m1!4b1!4m2!3m1!1s0x4713774877b90479:0xf22380988353fbe9"><img src="<?= image_style_url('x294-226', $content['field_image']['#items'][3]['uri']) ?>" alt="" /></a>
+                </div>
+            <?php
+            }
+            ?>
+
+
 
         </header>
     </article>
@@ -47,7 +62,7 @@
     <div class="row">
         <footer class="m-section--footer">
             <div class="l-half">
-                <a href="<?= test_lang_prefix('node/1444') ?>#formSection">
+                <a href="<?= test_basic_url() ?>kontakty#formSection">
                     <button class="button"><?php print t('Ask us') ?></button>
                 </a>
             </div>
