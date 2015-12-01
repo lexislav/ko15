@@ -580,7 +580,23 @@ if ($user->uid == 1) {
 
     <!-- header sekce-->
     <div class="row">
-        <header class="m-section--header"></header>
+        <header class="m-section--header">
+            <div class="l-full mm-pad-bottom">
+                <nav class="breadcrumbs">
+                    <a href="/">Domů</a><a href="/reference">reference</a><a href="/reference/archiv">ARCHIV REFERENCÍ</a>
+                </nav>
+            </div>
+            <div class="l-half">
+                <h2 class="m-section--hed mm-medium color-black">Faq / Knowledge base</h2>
+            </div>
+            <div class="l-half">
+                <ul class="m-section--nav inline-right">
+                    <li><a href="" title="">Pronájmy</a></li>
+                    <li><a href="" title="">Technická pomoc</a></li>
+                    <li><a href="" title="">Faq</a></li>
+                </ul>
+            </div>
+        </header>
     </div>
 
     <!-- artikl -->
@@ -656,75 +672,46 @@ if ($user->uid == 1) {
     </div>
 </div>
 
+<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">kontakty</div><!--.content-->
 
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">kontakt</div><!--.content-->
+<div class="m-section bg-white"  <?php koma_theme_wrapper(__FILE__) ?>>
 
-<div class="m-section l-detail-page" <?php koma_theme_wrapper(__FILE__) ?>>
+    <!-- header sekce-->
     <div class="row">
         <header class="m-section--header">
-            <div class="l-half">
-                <h2 class="m-section--hed mm-medium">titulek</h2>
-            </div>
-            <div class="l-half">
-                <ul class="m-section--nav inline-right">
-                    <li><a href="" target="" title=""><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="" target="" title=""><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="" target="" title=""><i class="fa fa-youtube-play"></i></a></li>
-                </ul>
+            <div class="l-full">
+                <h2 class="m-section--hed mm-medium color-primary">Adresář firmy</h2>
             </div>
         </header>
     </div>
 
-    <?php for ($k = 0; $k < 3; $k++) { ?>
-
-        <article class="m-contact">
-            <header>
-                <div class="m-contact--summary">
-                    <h1 class="m-contact--hed color-black">KOMA Modular s.r.o.</h1>
-
-                    <div class="m-contact--description">
-                        cosi
-                        <br />
-                        <span class="color-primary">T</span> 602 372 591<br />
-                        <span class="color-primary">F</span> 602 372 591<br />
-                        <span class="color-primary">E</span> 602 372 591<br />
-                    </div>
-
-                    <div class="m-contact--meta"></div>
-                </div>
-
-                <div class="m-contact--image" style="background-image: url(<?= image_style_url('x294-226', $content['field_image']['#items'][0]['uri']) ?>)">
-                    <a target="_blank" href=""><img src="http://lorempixel.com/294/226/" alt="" /></a>
-                </div>
-
-                <div class="m-contact--map" style="background-image: url(<?= image_style_url('x294-226', $content['field_image']['#items'][1]['uri']) ?>)">
-                    <a target="_blank" href=""><img src="http://lorempixel.com/294/226/" alt="" /></a>
-                </div>
-
-            </header>
-        </article>
-
-    <?php } ?>
-
 
     <div class="row">
-        <footer class="m-section--footer">
-            <div class="l-half">
-                <a href="<?= test_basic_url() ?>kontakty#formSection">
-                    <button class="button">Ask us</button>
-                </a>
+        <?php for($idx=0; $idx<6; $idx++) { ?>
+            <div class="small-6 medium-4 large-2 columns mm-pad-bottom">
+                <div class="m-address">
+                    <div class="m-address--name">Ing. Jaroslav Kandel</div>
+                    <div class="m-address--job"><div class="field-content">Vedoucí útvaru</div></div>
+                    <div class="m-address--phone"><span>T</span> +420 577 007 715</div>
+                    <div class="m-address--phone"><span>M</span> +420 724 232 232</div>
+                    <div class="m-address--fax"><span>F</span> +420 577 452 839</div>
+                    <div class="m-address--mail"><span>E</span> sales@koma-modular.cz</div>
+                    <div class="m-address--action">
+                        <a href="" title="" fillform="" data-subject="Pro vedoucí útvaru" data-name="Ing. Jaroslav Kandel" data-email="sales@koma-modular.cz">Odeslat zprávu<i class="fa fa-envelope"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="l-half">
-                <ul class="m-section--nav inline-right">
-                    <li><a href="#kariera">Career with KOMA</a></li>
-                    <li><a href="#adresar">Directory</a></li>
-                    <li><a href="#formSection">&darr; Contact form</a></li>
-                </ul>
-            </div>
-        </footer>
+        <?php } ?>
+    </div>
+
+    <div class="row">
+        <footer class="m-section--footer"></footer>
     </div>
 
 </div>
+
+
+<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">Detail page příslušenství</div><!--.content-->
 
 <!--paticka-->
 <footer class="m-footer m-section l-footer">
