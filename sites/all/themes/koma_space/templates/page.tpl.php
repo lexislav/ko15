@@ -657,7 +657,74 @@ if ($user->uid == 1) {
 </div>
 
 
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">Detail page příslušenství</div><!--.content-->
+<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">kontakt</div><!--.content-->
+
+<div class="m-section l-detail-page" <?php koma_theme_wrapper(__FILE__) ?>>
+    <div class="row">
+        <header class="m-section--header">
+            <div class="l-half">
+                <h2 class="m-section--hed mm-medium">titulek</h2>
+            </div>
+            <div class="l-half">
+                <ul class="m-section--nav inline-right">
+                    <li><a href="" target="" title=""><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="" target="" title=""><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="" target="" title=""><i class="fa fa-youtube-play"></i></a></li>
+                </ul>
+            </div>
+        </header>
+    </div>
+
+    <?php for ($k = 0; $k < 3; $k++) { ?>
+
+        <article class="m-contact">
+            <header>
+                <div class="m-contact--summary">
+                    <h1 class="m-contact--hed color-black">KOMA Modular s.r.o.</h1>
+
+                    <div class="m-contact--description">
+                        cosi
+                        <br />
+                        <span class="color-primary">T</span> 602 372 591<br />
+                        <span class="color-primary">F</span> 602 372 591<br />
+                        <span class="color-primary">E</span> 602 372 591<br />
+                    </div>
+
+                    <div class="m-contact--meta"></div>
+                </div>
+
+                <div class="m-contact--image" style="background-image: url(<?= image_style_url('x294-226', $content['field_image']['#items'][0]['uri']) ?>)">
+                    <a target="_blank" href=""><img src="http://lorempixel.com/294/226/" alt="" /></a>
+                </div>
+
+                <div class="m-contact--map" style="background-image: url(<?= image_style_url('x294-226', $content['field_image']['#items'][1]['uri']) ?>)">
+                    <a target="_blank" href=""><img src="http://lorempixel.com/294/226/" alt="" /></a>
+                </div>
+
+            </header>
+        </article>
+
+    <?php } ?>
+
+
+    <div class="row">
+        <footer class="m-section--footer">
+            <div class="l-half">
+                <a href="<?= test_basic_url() ?>kontakty#formSection">
+                    <button class="button">Ask us</button>
+                </a>
+            </div>
+            <div class="l-half">
+                <ul class="m-section--nav inline-right">
+                    <li><a href="#kariera">Career with KOMA</a></li>
+                    <li><a href="#adresar">Directory</a></li>
+                    <li><a href="#formSection">&darr; Contact form</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+</div>
 
 <!--paticka-->
 <footer class="m-footer m-section l-footer">
