@@ -1,11 +1,8 @@
 <?php
-
-
-
-if (isset($row->field_field_cert_nahled[0])) {
-    $uricko = $row->field_field_cert_nahled[0]['raw']['uri'];
+if (isset($row->_field_data['nid']['entity']->field_cert_nahled['und'][0])) {
+    $uricko = $row->_field_data['nid']['entity']->field_cert_nahled['und'][0]['uri'];
 } else {
-    $uricko = $row->field_field_cert_cert[0]['rendered']['#preview'];
+    $uricko = $row->_field_data['nid']['entity']->field_field_cert_cert[0]['rendered']['#preview'];
 }
 ?>
 <article class="m-story">
