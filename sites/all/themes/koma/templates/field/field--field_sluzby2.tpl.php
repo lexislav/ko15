@@ -48,7 +48,7 @@
                                     </a>
                                 </div>
                                 <h1 class="m-item--hed">
-                                    <a href="<?= @test_lang_prefix($pole['field_page_link']['#items'][0]['url']) ?>"><?= @$pole['field_basic_popis']['#items'][0]['value'] ?></a>
+                                    <a <?php echo ($poradi2==0)?'':'href="'.@test_lang_prefix($pole['field_page_link']['#items'][0]['url']).'"'; ?>><?= @$pole['field_basic_popis']['#items'][0]['value'] ?></a>
                                 </h1>
 
                                 <div class="m-item--description">
