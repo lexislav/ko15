@@ -2,15 +2,23 @@
 <?php
 $wrapper = entity_metadata_wrapper('node', $node);
 $pole_slider = $content['field_hlavni_slider']['#items'];
-// dpm($content['field_hlavni_slider']);
 ?>
 <div class="hero-tabs mm-four" slick>
     <div class="hero-slides" carousel>
         <?php
         foreach ($pole_slider as $cislo => $r) {
+            if(isset($r['field_basic_img']['und'][0]['uri'])){
+                $uri = $r['field_basic_img']['und'][0]['uri'];
+            }else{
+                $uri = file_load($r['field_basic_img']['und'][0]['fid'])->uri;
+            }
+
+
+
             if ($cislo == 0) {
+
                 ?>
-                <div class="content-tab mm-center mm-welcome" style="background-image: url(<?= image_style_url('none', $r['field_basic_img']['und'][0]['uri']) ?>);">
+                <div class="content-tab mm-center mm-welcome" style="background-image: url(<?= image_style_url('none', $uri) ?>);">
                     <div class="row">
                         <div class="description">
                             <?= $r['field_basic_text']['und'][0]['value'] ?>
@@ -18,7 +26,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
                     </div>
                 </div>
             <?php } else { ?>
-                <div class="content-tab <?php echo ($cislo <= 2) ? '' : 'mm-right'; ?>" style="background-image: url(<?= image_style_url('none', $r['field_basic_img']['und'][0]['uri']) ?>);">
+                <div class="content-tab <?php echo ($cislo <= 2) ? '' : 'mm-right'; ?>" style="background-image: url(<?= image_style_url('none', $uri) ?>);">
                     <div class="row">
                         <div class="description">
                             <?= $r['field_basic_text']['und'][0]['value'] ?>
