@@ -1,10 +1,12 @@
 <!--views-view--zpravodaj.tpl.php-->
-
+<?php if ( empty($title) ): ?>
+    <?php $title = $view->get_title(); ?>
+<?php endif; ?>
 <div class="m-section l-feed_two">
     <div class="row">
         <header class="m-section--header">
             <div class="l-full">
-                <h2 class="m-section--hed mm-big"><?php print t('Zpravodaj')?></h2>
+                <h2 class="m-section--hed mm-big"><?php print t($title); ?></h2>
             </div>
         </header>
     </div>
