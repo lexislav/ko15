@@ -385,7 +385,13 @@ function test_get_list($iso)
     return $countries[$iso];
 
 }
-
+function test_menu_site_status_alter(&$menu_site_status, $path) {
+    if (user_is_anonymous()) {
+        if ($path == 'user') {
+            drupal_goto('user/login');
+        }
+    }
+}
 
 function test_node_presave($node)
 {
@@ -436,7 +442,6 @@ function test_node_presave($node)
 
     }
 }
-
 
 function taxonomy_get_term_name_by_id($tid)
 {
