@@ -1,24 +1,9 @@
-
 <?php print render($tabs); ?>
-
-
-
 <?php
-
 if ($user->uid == 1) {
     print $messages;
-
-
-
-
 }
-
-
-
-
 ?>
-
-
 <div class="l-navbar">
 
     <div class="m-navbar mm-secondary" id="navbarSecondary">
@@ -27,19 +12,19 @@ if ($user->uid == 1) {
             <ul class="m-navbar--menu m-navbar--menu-tertiary">
 
                 <li class="m-navbar--menu-social m-navbar--menu-twitter">
-                    <a target="_blank" title="" href="<?=variable_get('nastaveni_twitter', 'nastaveni')?>">
+                    <a target="_blank" title="" href="<?= variable_get('nastaveni_twitter', 'nastaveni') ?>">
                         <span class="fa fa-twitter"><em class="">Twitter</em></span>
                     </a>
                 </li>
 
                 <li class="m-navbar--menu-social m-navbar--menu-facebook">
-                    <a target="_blank" title="" href="<?=variable_get('nastaveni_fb', 'nastaveni')?>">
+                    <a target="_blank" title="" href="<?= variable_get('nastaveni_fb', 'nastaveni') ?>">
                         <span class="fa fa-facebook"><em>Facebook</em></span>
                     </a>
                 </li>
 
                 <li class="m-navbar--menu-social m-navbar--menu-youtube">
-                    <a target="_blank" title="" href="<?=variable_get('nastaveni_youtube', 'nastaveni')?>">
+                    <a target="_blank" title="" href="<?= variable_get('nastaveni_youtube', 'nastaveni') ?>">
                         <span class="fa fa-youtube-play"><em class="">YouTube</em></span>
                     </a>
                 </li>
@@ -88,7 +73,7 @@ if ($user->uid == 1) {
 
         <div class="m-navbar--container">
 
-            <a class="m-navbar--logo" href="<?=$front_page?>">
+            <a class="m-navbar--logo" href="<?= $front_page ?>">
                 <div class="mm-has-svg"
                      style="background-image: url('/sites/koma/assets/images/logo-koma-modular.svg');"></div>
             </a>
@@ -99,6 +84,39 @@ if ($user->uid == 1) {
         </div>
 
     </div>
+    <?php
+    if ($user->uid > 0) {
+        $banner1 = node_load(2315);
+        if ($banner1->status == 1) {
+
+            if(isset($banner1->field_simple_img['und'][0]['uri'])){
+                $uri1 = $banner1->field_simple_img['und'][0]['uri'];
+            }
+            ?>
+            <div class="m-section <?=($banner1->field_banner_barva['und'][0]['value']==2)?'bg-secondary':'bg-primary';?>" <?php koma_theme_wrapper(__FILE__) ?>>
+                <div class="m-section--close" close-section>&times;</div>
+                <article class="m-banner">
+                    <header>
+                        <?php if(isset($banner1->field_simple_img['und'][0]['uri'])){ ?>
+                        <div class="m-banner--image" style="background-image: url(<?= image_style_url('0x60', $uri1) ?>)">
+                            <a href="<?=$banner1->field_page_link[test_lang_code()][0]['url']?>">
+                                <img src="<?= image_style_url('0x60', $uri1) ?>" />
+                            </a>
+                        </div>
+                <?php } ?>
+                        <div class="m-banner--summary">
+                            <h1 class="m-banner--hed">
+                                <?=$banner1->field_basic_text[test_lang_code()][0]['value']?>
+                            </h1>
+                        </div>
+                    </header>
+                </article>
+            </div>
+
+            <?php
+        }
+    }
+    ?>
 </div>
 
 <?php print render($page['hledani']); ?>
@@ -137,7 +155,9 @@ if ($user->uid == 1) {
 
                 <div
                     class="m-item--description"><?php print t('Have you not found answers to your questions here? Ask us directly!') ?></div>
-                <a href="<?=test_lang_prefix('node/1444')?>#formSection"><button><?php print t('Ask us') ?> &rarr;</button></a>
+                <a href="<?= test_lang_prefix('node/1444') ?>#formSection">
+                    <button><?php print t('Ask us') ?> &rarr;</button>
+                </a>
             </article>
 
         </div>
@@ -153,7 +173,6 @@ if ($user->uid == 1) {
                 <header>
                     <h1 class="m-item--hed mm-small color-primary"><?php print t('Get modular news with e-bulletin') ?></h1>
                 </header>
-
 
 
                 <div
@@ -201,13 +220,16 @@ if ($user->uid == 1) {
                 <ul class="m-footer--menu-secondary">
 
                     <li class="m-footer--menu-link">
-                        <a href="<?=variable_get('nastaveni_fb', 'nastaveni')?>" target="" title=""><i class="fa fa-facebook"></i></a>
+                        <a href="<?= variable_get('nastaveni_fb', 'nastaveni') ?>" target="" title=""><i
+                                class="fa fa-facebook"></i></a>
                     </li>
                     <li class="m-footer--menu-link">
-                        <a href="<?=variable_get('nastaveni_twitter', 'nastaveni')?>" target="" title=""><i class="fa fa-twitter"></i></a>
+                        <a href="<?= variable_get('nastaveni_twitter', 'nastaveni') ?>" target="" title=""><i
+                                class="fa fa-twitter"></i></a>
                     </li>
                     <li class="m-footer--menu-link">
-                        <a href="<?=variable_get('nastaveni_youtube', 'nastaveni')?>" target="" title=""><i class="fa fa-youtube-play"></i></a>
+                        <a href="<?= variable_get('nastaveni_youtube', 'nastaveni') ?>" target="" title=""><i
+                                class="fa fa-youtube-play"></i></a>
                     </li>
                 </ul>
 

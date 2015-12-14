@@ -1,4 +1,3 @@
-
 <?php print render($tabs); ?>
 
 
@@ -9,11 +8,7 @@ if ($user->uid == 1) {
     print $messages;
 
 
-
-
 }
-
-
 
 
 ?>
@@ -25,35 +20,18 @@ if ($user->uid == 1) {
         <div class="m-navbar--container">
 
             <ul class="m-navbar--menu m-navbar--menu-tertiary">
-
-                <li class="m-navbar--menu-social m-navbar--menu-twitter">
-                    <a target="_blank" title="" href="<?=variable_get('nastaveni_twitter', 'nastaveni')?>">
-                        <span class="fa fa-twitter"><em class="">Twitter</em></span>
-                    </a>
-                </li>
-
                 <li class="m-navbar--menu-social m-navbar--menu-facebook">
-                    <a target="_blank" title="" href="<?=variable_get('nastaveni_fb', 'nastaveni')?>">
+                    <a target="_blank" title="" href="https://www.facebook.com/KOMA-RENT-sro-252931971538577/">
                         <span class="fa fa-facebook"><em>Facebook</em></span>
                     </a>
                 </li>
 
                 <li class="m-navbar--menu-social m-navbar--menu-youtube">
-                    <a target="_blank" title="" href="<?=variable_get('nastaveni_youtube', 'nastaveni')?>">
+                    <a target="_blank" title="" href="https://www.youtube.com/user/TopKOMASPACE">
                         <span class="fa fa-youtube-play"><em class="">YouTube</em></span>
                     </a>
                 </li>
             </ul>
-
-            <?php
-            include('include/languages.php')
-            ?>
-
-
-
-
-
-
 
 
 
@@ -65,9 +43,9 @@ if ($user->uid == 1) {
 
         <div class="m-navbar--container">
 
-            <a class="m-navbar--logo" href="<?=$front_page?>">
+            <a class="m-navbar--logo" href="<?= $front_page ?>">
                 <div class="mm-has-svg"
-                     style="background-image: url('/sites/koma/assets/images/logo-koma-modular.svg');"></div>
+                     style="background-image: url('<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma_rent/logo.svg');"></div>
             </a>
 
             <div class="xmega">
@@ -76,6 +54,40 @@ if ($user->uid == 1) {
         </div>
 
     </div>
+
+    <?php
+    if ($user->uid > 0) {
+        $banner1 = node_load(2316);
+        if ($banner1->status == 1) {
+
+            if(isset($banner1->field_simple_img['und'][0]['uri'])){
+                $uri1 = $banner1->field_simple_img['und'][0]['uri'];
+            }
+            ?>
+            <div class="m-section <?=($banner1->field_banner_barva['und'][0]['value']==2)?'bg-secondary':'bg-primary';?>" <?php koma_theme_wrapper(__FILE__) ?>>
+                <div class="m-section--close" close-section>&times;</div>
+                <article class="m-banner">
+                    <header>
+                        <?php if(isset($banner1->field_simple_img['und'][0]['uri'])){ ?>
+                            <div class="m-banner--image" style="background-image: url(<?= image_style_url('0x60', $uri1) ?>)">
+                                <a href="<?=$banner1->field_page_link[test_lang_code()][0]['url']?>">
+                                    <img src="<?= image_style_url('0x60', $uri1) ?>" />
+                                </a>
+                            </div>
+                        <?php } ?>
+                        <div class="m-banner--summary">
+                            <h1 class="m-banner--hed">
+                                <?=$banner1->field_basic_text[test_lang_code()][0]['value']?>
+                            </h1>
+                        </div>
+                    </header>
+                </article>
+            </div>
+
+            <?php
+        }
+    }
+    ?>
 </div>
 
 <?php print render($page['hledani']); ?>
@@ -114,7 +126,9 @@ if ($user->uid == 1) {
 
                 <div
                     class="m-item--description"><?php print t('Have you not found answers to your questions here? Ask us directly!') ?></div>
-                <a href="<?=test_lang_prefix('node/2283')?>#formSection"><button><?php print t('Ask us') ?> &rarr;</button></a>
+                <a href="<?= test_basic_url() ?>kontakty#formSection">
+                    <button><?php print t('Ask us') ?> &rarr;</button>
+                </a>
             </article>
 
         </div>
@@ -132,7 +146,6 @@ if ($user->uid == 1) {
                 </header>
 
 
-
                 <div
                     class="m-item--description"><?php print t('If you subscribe to our monthly e-bulletin you will be periodically informed about the latest developments in the world of modular architecture and new offers of the KOMA modular building system.') ?></div>
 
@@ -141,27 +154,19 @@ if ($user->uid == 1) {
 
         </div>
     </div>
+
 </div><!--support-->
 
-<!--paticka-->
+
 <footer class="m-footer m-section l-footer">
     <div class="m-footer--container">
         <div class="row">
-
-
             <section class="m-footer--section">
                 <a class="m-footer--logo" href="/">
-                    <img
-                        src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/logo-koma-modular-inline-white.svg"
-                        alt=""/>
+                    <img src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma_rent/logo-koma-rent-inline-white.svg" alt="" />
                 </a>
-
             </section>
-
-
             <section class="m-footer--section">
-
-
                 <?php print theme('links__system_secondary_menu', array(
                     'links' => $secondary_menu,
                     'attributes' => array(
@@ -178,34 +183,27 @@ if ($user->uid == 1) {
                 <ul class="m-footer--menu-secondary">
 
                     <li class="m-footer--menu-link">
-                        <a href="<?=variable_get('nastaveni_fb', 'nastaveni')?>" target="" title=""><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/KOMA-RENT-sro-252931971538577/" target="" title=""><i class="fa fa-facebook"></i></a>
                     </li>
+
                     <li class="m-footer--menu-link">
-                        <a href="<?=variable_get('nastaveni_twitter', 'nastaveni')?>" target="" title=""><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li class="m-footer--menu-link">
-                        <a href="<?=variable_get('nastaveni_youtube', 'nastaveni')?>" target="" title=""><i class="fa fa-youtube-play"></i></a>
+                        <a href="https://www.youtube.com/user/TopKOMASPACE" target="" title=""><i class="fa fa-youtube-play"></i></a>
                     </li>
                 </ul>
 
             </section>
         </div>
-
         <div class="row">
-
             <section class="m-footer--subsection">
                 <a class="m-footer--author" href="/">
                     <a href="">© 2015 – 2017 KOMA Modular, s. r. o.</a>
                 </a>
             </section>
-
             <section class="m-footer--subsection">
                 <a class="m-footer--author" href="/">
                     <a target="_blank" href="http://www.odoka.cz/">Od Oka</a>
                 </a>
             </section>
         </div>
-
-
     </div>
 </footer><!--paticka-->

@@ -79,6 +79,39 @@ if ($user->uid == 1) {
             </div>
         </div>
     </div>
+    <?php
+    if ($user->uid > 0) {
+        $banner1 = node_load(2317);
+        if ($banner1->status == 1) {
+
+            if(isset($banner1->field_simple_img['und'][0]['uri'])){
+                $uri1 = $banner1->field_simple_img['und'][0]['uri'];
+            }
+            ?>
+            <div class="m-section <?=($banner1->field_banner_barva['und'][0]['value']==2)?'bg-secondary':'bg-primary';?>" <?php koma_theme_wrapper(__FILE__) ?>>
+                <div class="m-section--close" close-section>&times;</div>
+                <article class="m-banner">
+                    <header>
+                        <?php if(isset($banner1->field_simple_img['und'][0]['uri'])){ ?>
+                            <div class="m-banner--image" style="background-image: url(<?= image_style_url('0x60', $uri1) ?>)">
+                                <a href="<?=$banner1->field_page_link[test_lang_code()][0]['url']?>">
+                                    <img src="<?= image_style_url('0x60', $uri1) ?>" />
+                                </a>
+                            </div>
+                        <?php } ?>
+                        <div class="m-banner--summary">
+                            <h1 class="m-banner--hed">
+                                <?=$banner1->field_basic_text[test_lang_code()][0]['value']?>
+                            </h1>
+                        </div>
+                    </header>
+                </article>
+            </div>
+
+            <?php
+        }
+    }
+    ?>
 </div>
 <?php print render($page['hledani']); ?>
 <?php print render($page['content']); ?>
