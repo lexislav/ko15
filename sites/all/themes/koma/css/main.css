@@ -7346,7 +7346,8 @@ aside .m-aside-block--meta {
       box-shadow: none;
       font-family: Purista_Semibold;
       font-weight: normal;
-      outline: none; }
+      outline: none;
+      max-width: 180px; }
 
 .chosen-container {
   width: 100% !important;
