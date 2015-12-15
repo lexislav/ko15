@@ -285,7 +285,10 @@ jQuery('.m-section--top').each(function () {
 
 
 // banners
-if (!jQuery.cookie('koma-banner')) {
+var hostname = jQuery('<a>').prop('href', '/').prop('hostname');
+var hostCookieName = hostname + "-banner";
+
+if (!jQuery.cookie(hostCookieName)) {
     console.log("Show banners")
     jQuery( "#page-banner" ).show();
 
@@ -294,7 +297,7 @@ if (!jQuery.cookie('koma-banner')) {
         // set the cookie for 24 hours
         var date = new Date();
         date.setTime(date.getTime() + 24 * 60 * 60 * 1000);
-        jQuery.cookie('koma-banner', true, { expires: date });
+        jQuery.cookie(hostCookieName, true, { expires: date });
     //});
 
 } else {
