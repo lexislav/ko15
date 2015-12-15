@@ -7319,7 +7319,8 @@ aside .m-aside-block--meta {
     width: auto;
     color: #000;
     height: 48px;
-    display: block; }
+    display: block;
+    padding-right: 1px; }
     .m-filter .m-filter--items > li .form-type-bef-link,
     .m-filter .m-filter--items > li .form-submit, .m-filter .m-filter--items > li.label {
       padding: 0 14px;
@@ -7335,10 +7336,22 @@ aside .m-aside-block--meta {
       background-color: #C20E1A; }
       .m-filter .m-filter--items > li .form-submit:hover {
         background-color: #920b14; }
+    .m-filter .m-filter--items > li select {
+      height: 48px;
+      padding: 10px 16px;
+      font-size: 0.9375rem;
+      border: 0 !important;
+      border-radius: 0;
+      background-color: white;
+      box-shadow: none;
+      font-family: Purista_Semibold;
+      font-weight: normal;
+      outline: none; }
 
 .chosen-container {
   width: 100% !important;
-  padding-right: 1px; }
+  padding-right: 1px;
+  margin: 0; }
 
 .l-right .chosen-container {
   padding-left: 1px;

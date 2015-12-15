@@ -5,6 +5,9 @@ jQuery(document).foundation();
 //
 jQuery(function () {
 
+
+
+
     //
     jQuery('[slick]').each(function () {
         var SlickWrapper = jQuery(this);
@@ -247,17 +250,22 @@ jQuery('[close-section]').each(function () {
 
 
 // chosen filters - select boxes
+// apply chosen only for desktops
 
+// detect mobile devices
+var isMobile = jQuery('html').hasClass('touch');
 
-jQuery(".form-select").chosen({
-    width: "95%",
-    inherit_select_classes: true,
-    create_option: true,
-    persistent_create_option: true,
-    create_option_text: 'add',
-    disable_search_threshold: 40,
-    //allow_single_deselect: true
-});
+if (!isMobile) {
+    jQuery(".form-select").chosen({
+        width: "95%",
+        inherit_select_classes: true,
+        create_option: true,
+        persistent_create_option: true,
+        create_option_text: 'add',
+        disable_search_threshold: 40,
+        //allow_single_deselect: true
+    });
+}
 
 jQuery('.m-section--top').each(function () {
     var el = jQuery(this);
@@ -286,7 +294,7 @@ function highlightTemplates() {
     jQuery('[theme-wrapper]').each(function () {
         var el = jQuery(this);
         el.css("outline", "1px dashed black");
-        var elInfo = jQuery('<div class="theme-wrapper-info">tpl: ' + el.attr('theme-wrapper') +'</div>');
+        var elInfo = jQuery('<div class="theme-wrapper-info">tpl: ' + el.attr('theme-wrapper') + '</div>');
         elInfo.prependTo(el);
     });
 }
