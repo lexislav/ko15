@@ -283,6 +283,26 @@ jQuery('.m-section--top').each(function () {
     });
 });
 
+
+// banners
+if (!jQuery.cookie('koma-banner')) {
+    console.log("Show banners")
+    jQuery( "#page-banner" ).show();
+
+    //jQuery(".close").click(function() {
+      //  jQuery( "#page-banner" ).hide();
+        // set the cookie for 24 hours
+        var date = new Date();
+        date.setTime(date.getTime() + 24 * 60 * 60 * 1000);
+        jQuery.cookie('koma-banner', true, { expires: date });
+    //});
+
+} else {
+    console.log("Hide banners");
+    jQuery( "#page-banner" ).hide();
+}
+
+
 function listTemplates() {
     jQuery('[theme-wrapper]').each(function () {
         var el = jQuery(this);

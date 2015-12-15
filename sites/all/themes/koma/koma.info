@@ -79,6 +79,7 @@ stylesheets[all][] = css/main.css
 
 
 scripts[] = components/modernizr/modernizr.js
+scripts[] = components/jquery.cookie/jquery.cookie.js
 scripts[] = components/chosen/chosen.jquery.min.js
 scripts[] = components/slick-carousel/slick/slick.min.js
 scripts[] = components/foundation/js/foundation.min.js
