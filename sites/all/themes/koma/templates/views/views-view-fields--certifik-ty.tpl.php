@@ -1,6 +1,6 @@
 <?php
-if (isset($row->_field_data['nid']['entity']->field_cert_nahled['und'][0])) {
-    $uricko = $row->_field_data['nid']['entity']->field_cert_nahled['und'][0]['uri'];
+if (isset($row->_field_data['nid']['entity']->field_cert_nahled[test_lang_code()][0])) {
+    $uricko = $row->_field_data['nid']['entity']->field_cert_nahled[test_lang_code()][0]['uri'];
 } else {
     $uricko = $row->_field_data['nid']['entity']->field_field_cert_cert[0]['rendered']['#preview'];
 }
