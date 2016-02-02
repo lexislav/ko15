@@ -1,16 +1,31 @@
 <!--views-view--segmentreference.tpl.php-->
 <div class="m-section l-feed_block-carousel bg-white">
-<?php
- $pole = explode(',',$view->query->where[0]['conditions'][1]['value']);
-$jmeno = taxonomy_term_load($pole[0])->name;
+    <?php
 
 
-?>
+
+//    if($view->current_display=='panel_pane_1'){
+        $pole = explode(',', $view->query->where[0]['conditions'][1]['value']);
+        $vocabulary_machine_name_0 = taxonomy_term_load($pole[0])->vocabulary_machine_name;
+        $jmeno = taxonomy_term_load($pole[0])->name;
+     if($jmeno==''){
+        $jmeno = taxonomy_term_load($view->query->where[1]['conditions'][2]['value'])->name;
+   }
+
+
+ if(arg(1) == '2366'){
+     $jmeno = 'REALIZACE PRO SPORT A KULTURU';
+ }
+
+
+
+    ?>
     <div class="row">
         <header class="m-section--header">
             <div class="l-full">
 
-                <h2 class="m-section--hed mm-small mm-left"><span class="color-primary" ><?=$jmeno?></span> / <?php print t('SELECTED REFERENCES') ?></h2>
+                <h2 class="m-section--hed mm-small mm-left"><span class="color-primary test_<?= $jmeno ?>"><?= $jmeno ?></span>
+                    / <?php print t('SELECTED REFERENCES') ?></h2>
             </div>
         </header>
     </div>
@@ -82,7 +97,6 @@ $jmeno = taxonomy_term_load($pole[0])->name;
     </div>
 
 
-
 </div>
 <div class="m-section bg-white">
     <div class="row">
@@ -103,7 +117,9 @@ $jmeno = taxonomy_term_load($pole[0])->name;
 
             </div>
             <div class="l-right">
-                <div class="m-section--more"><a href="http://<?=explode('?',$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'])[0]?>"><?php print t('WHOLE ARCHIVES') ?> &rarr;</a></div>
+                <div class="m-section--more"><a
+                        href="http://<?= explode('?', $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])[0] ?>"><?php print t('WHOLE ARCHIVES') ?> &rarr;</a>
+                </div>
             </div>
         </footer>
 
