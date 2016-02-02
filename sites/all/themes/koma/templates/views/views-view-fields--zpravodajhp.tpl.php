@@ -14,7 +14,7 @@ if ($cislo == 1 OR $cislo == 4 OR $cislo == 7 OR $cislo == 10  OR $cislo == 13 O
     echo ' <div class="blok-feed-slide">';
 }
 ?>
-    <div class="m-card_thumb  mm-has-hover <?= $coco ?>">
+    <div class="m-card_thumb  mm-has-hover <?= $coco ?>" <?php koma_theme_wrapper(__FILE__)?>>
         <article class="m-story">
             <header>
                 <div class="m-item--image" style="background-image: url(<?= image_style_url('x618-480', $uricko) ?>)">
