@@ -1,8 +1,8 @@
-<!--views-view--publicita--page.tpl.php-->
+<!--views-view--publicita--page.tpl.phaaaap-->
 <?php if ( empty($title) ): ?>
     <?php $title = $view->get_title(); ?>
 <?php endif; ?>
-<div class="m-section l-feed_three">
+<div class="m-section l-feed_three" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="row">
         <header class="m-section--header">
             <div class="l-full">
