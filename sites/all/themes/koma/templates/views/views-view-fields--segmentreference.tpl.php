@@ -6,8 +6,11 @@ if (isset($row->field_field_reference_main_img[0])) {
     $uricko = $row->field_field_reference_fotogalerie[0]['raw']['entity']->field_fotogalerie_main_img['und'][0]['uri'];
 }
 if(count($view->result)>1){
-
+    $celkem = (count($view->result));
     $cislo = $view->row_index + 1;
+
+
+
     $coco = 'l-single';
     if ($cislo == 1 OR $cislo == 6 OR $cislo == 7 OR $cislo == 12 OR $cislo == 13 OR $cislo == 18) {
         $coco = 'l-double';
@@ -17,7 +20,7 @@ if(count($view->result)>1){
         echo ' <div class="blok-feed-slide">';
     }
     ?>
-    <div class="m-card_thumb  mm-has-hover <?= $coco ?>">
+    <div class="m-card_thumb  mm-has-hover <?= $coco ?> celkem_<?=$celkem?> cislo_<?=$cislo?>">
         <article class="m-story">
             <header>
                 <div class="m-item--image" style="background-image: url(<?= image_style_url('x618-480', $uricko) ?>)">
@@ -41,8 +44,9 @@ if(count($view->result)>1){
     <?php
     if ($cislo == 3 OR $cislo == 6 OR $cislo == 9 OR $cislo == 12  OR $cislo == 15 OR $cislo == 18 ) {
         echo '</div>';
+    } else if(intval($celkem) ==  intval($cislo)){
+        echo '</div>';
     }
-
 }else{
          echo ' <div class="blok-feed-slide">';
 
