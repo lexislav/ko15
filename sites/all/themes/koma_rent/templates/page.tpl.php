@@ -64,7 +64,7 @@ if ($user->uid == 1) {
                 $uri1 = $banner1->field_simple_img['und'][0]['uri'];
             }
             ?>
-            <div class="m-section <?=($banner1->field_banner_barva['und'][0]['value']==2)?'bg-secondary':'bg-primary';?>" <?php koma_theme_wrapper(__FILE__) ?>>
+            <div id="page-banner" class="m-section <?=($banner1->field_banner_barva['und'][0]['value']==2)?'bg-secondary':'bg-primary';?>" <?php koma_theme_wrapper(__FILE__) ?>>
                 <div class="m-section--close" close-section>&times;</div>
                 <article class="m-banner">
                     <header>

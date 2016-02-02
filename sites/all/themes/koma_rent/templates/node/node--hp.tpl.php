@@ -85,7 +85,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
         <footer class="m-section--footer">
             <div class="l-full">
                 <div class="mm-center">
-                    <a href="<?= test_lang_prefix('node/2283') ?>">
+                    <a href="<?= test_basic_url() ?>kontakty#formSection">
                         <button class="button" style="margin: 0"><?php print t('Contact us') ?></button>
                     </a>
                 </div>
@@ -106,6 +106,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
             </div>
             <?php
             $tree = taxonomy_get_tree(5);
+            dpm($tree);
             ?>
             <div class="l-two-thirds">
                 <ul class="m-section--nav inline-right">

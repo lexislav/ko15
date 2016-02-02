@@ -1,6 +1,7 @@
 <?php
 //
-
+dsm($node);
+dsm($content);
 $typ = 1;
 $vyskaObrazku = '330';
 if ($node->nid == 2290) {
@@ -24,9 +25,9 @@ if ($typ == 1) {
                     <!-- drobky-->
                     <nav class="breadcrumbs">
                         <?php
-                        foreach (drupal_get_breadcrumb() AS $drobek) {
-                            echo $drobek;
-                        }
+                            foreach (drupal_get_breadcrumb() AS $drobek) {
+                                echo $drobek;
+                            }
                         ?>
                     </nav>
                 </div>
@@ -38,11 +39,10 @@ if ($typ == 1) {
                 </div>
                 <div class="l-half">
                     <ul class="m-section--nav inline-right">
-                        <li><a href="<?= test_lang_prefix('node/2320') ?>">Exkluzivní</a></li>
-                        <li><a href="<?= test_lang_prefix('node/2301') ?>">Ostatní</a></li>
-                        <li><a href="<?= test_lang_prefix('node/2302') ?>">Skladové</a></li>
-                        <li><a href="<?= test_lang_prefix('node/2301') ?>">Sanitární</a></li>
-                        <li><a href="<?= test_lang_prefix('node/2285') ?>">| Obytné</a></li>
+                        <li><a href="#kariera">Ostatníaaa</a></li>
+                        <li><a href="#kariera">Skladové</a></li>
+                        <li><a href="#adresar">Sanitární</a></li>
+                        <li><a href="#formSection">| Obytné</a></li>
                     </ul>
 
                 </div>
@@ -305,13 +305,6 @@ if (isset($content['field_bigimg_a_text'][0])) {
 
     </div>
 </div>
-
-
-
-
-
-
-
 <div class="kotva" id="faq"></div>
 <!--end: ke stazeni-->
 <?php
