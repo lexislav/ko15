@@ -4,7 +4,7 @@ $wrapper = entity_metadata_wrapper('node', $node);
 $pole_slider = $content['field_hlavni_slider']['#items'];
 // dpm($content['field_hlavni_slider']);
 ?>
-<div class="hero-tabs" slick <?php koma_theme_wrapper(__FILE__) ?>>
+<div class="hero-tabs mm-four" slick <?php koma_theme_wrapper(__FILE__) ?>>
     <div class="hero-slides" carousel>
         <?php
         foreach ($pole_slider as $cislo => $r) {
