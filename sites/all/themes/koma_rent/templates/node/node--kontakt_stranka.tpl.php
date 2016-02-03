@@ -108,12 +108,11 @@
     </div>
 
 
-    <div class="row">
+    <div class="row fix-height-kontakty">
         <?php
         $block = module_invoke('views', 'block_view', 'kontakty-block');
         print render($block);
         ?>
-
     </div>
 
     <div class="row">

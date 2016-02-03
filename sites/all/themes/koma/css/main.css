@@ -8921,4 +8921,10 @@ body.local:after {
   bottom: 30px;
   margin: auto; }
 
+.fix-height-kontakty .columns {
+  min-height: 250px; }
+
+.fix-height-kontakty [class*="column"] + [class*="column"]:last-child {
+  float: none; }
+
 /*# sourceMappingURL=main.css.map */

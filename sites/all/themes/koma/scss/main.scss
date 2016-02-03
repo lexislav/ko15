@@ -101,3 +101,13 @@ body {
         }
     }
 }
+
+.fix-height-kontakty {
+    .columns {
+        min-height: 250px;
+    }
+
+    [class*="column"] + [class*="column"]:last-child {
+        float: none;
+    }
+}
