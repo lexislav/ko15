@@ -4613,7 +4613,8 @@ h1, h2, h3, h4, h5, h6 {
                 -webkit-flex: 0 0 360px;
                 -moz-flex: 0 0 360px;
                 -ms-flex: 0 0 360px;
-                flex: 0 0 360px; } }
+                flex: 0 0 360px;
+                padding-right: 50px; } }
           .m-mega .m-mega--sub > .item-submenu > .row > .submenu > .columns > .column:last-child {
             background-image: none; }
     .m-mega .m-mega--sub [cols="2"] {

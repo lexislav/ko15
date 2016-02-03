@@ -224,6 +224,7 @@ $menu-debug: false;
 
                             @include media(C) {
                                 @include flex(0 0 360px);
+                                padding-right: 50px;
                             }
                         }
 
