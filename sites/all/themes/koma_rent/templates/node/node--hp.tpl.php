@@ -4,7 +4,7 @@ $wrapper = entity_metadata_wrapper('node', $node);
 $pole_slider = $content['field_hlavni_slider']['#items'];
 // dpm($content['field_hlavni_slider']);
 ?>
-<div class="hero-tabs" slick <?php koma_theme_wrapper(__FILE__) ?>>
+<div class="hero-tabs mm-four" slick <?php koma_theme_wrapper(__FILE__) ?>>
     <div class="hero-slides" carousel>
         <?php
         foreach ($pole_slider as $cislo => $r) {
@@ -21,7 +21,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
                     </div>
                 </div>
             <?php } else { ?>
-                <div class="content-tab <?php echo ($cislo <= 3) ? '' : 'mm-right'; ?>"
+                <div class="content-tab <?php echo ($cislo <= 2) ? '' : 'mm-right'; ?>"
                      style="background-image: url(<?= image_style_url('none', $r['field_basic_img']['und'][0]['uri']) ?>);">
                     <div class="row">
                         <div class="description">
@@ -106,7 +106,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
             </div>
             <?php
             $tree = taxonomy_get_tree(5);
-            dpm($tree);
+
             ?>
             <div class="l-two-thirds">
                 <ul class="m-section--nav inline-right">
