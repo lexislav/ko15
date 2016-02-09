@@ -79,9 +79,6 @@
     left: 0;
 }
 
-
-
-
 body {
     &.local {
         &:after {
@@ -102,5 +99,15 @@ body {
             bottom: 30px;
             margin: auto;
         }
+    }
+}
+
+.fix-height-kontakty {
+    .columns {
+        min-height: 250px;
+    }
+
+    [class*="column"] + [class*="column"]:last-child {
+        float: none;
     }
 }

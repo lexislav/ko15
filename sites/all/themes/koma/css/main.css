@@ -4446,6 +4446,9 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: auto;
   display: none; }
+  .m-mega .columns {
+    padding-left: 0;
+    padding-right: 0; }
   .m-mega .m-mega--sub {
     height: 100%;
     /*[cols="5"] {
@@ -4540,7 +4543,8 @@ h1, h2, h3, h4, h5, h6 {
             padding-left: 0;
             padding-right: 0; } }
         .m-mega .m-mega--sub > .item-submenu > .row > .submenu {
-          padding: 15px; }
+          padding-top: 15px;
+          padding-bottom: 15px; }
         .m-mega .m-mega--sub > .item-submenu > .row > .submenu > .columns {
           display: -webkit-box;
           display: -moz-box;
@@ -4590,6 +4594,9 @@ h1, h2, h3, h4, h5, h6 {
                 background-image: url("/sites/all/themes/koma/assets/images/menu-divider.png");
                 background-repeat: repeat-y;
                 background-position: top right; } }
+          .m-mega .m-mega--sub > .item-submenu > .row > .submenu > .columns .block-block h3 {
+            margin-top: 0;
+            margin-bottom: 30px; }
           .m-mega .m-mega--sub > .item-submenu > .row > .submenu > .columns > .column:first-child {
             -webkit-box-flex: 0;
             -moz-box-flex: 0;
@@ -4606,7 +4613,8 @@ h1, h2, h3, h4, h5, h6 {
                 -webkit-flex: 0 0 360px;
                 -moz-flex: 0 0 360px;
                 -ms-flex: 0 0 360px;
-                flex: 0 0 360px; } }
+                flex: 0 0 360px;
+                padding-right: 50px; } }
           .m-mega .m-mega--sub > .item-submenu > .row > .submenu > .columns > .column:last-child {
             background-image: none; }
     .m-mega .m-mega--sub [cols="2"] {
@@ -4657,6 +4665,8 @@ h1, h2, h3, h4, h5, h6 {
       display: block; }
   .m-mega .item:not(.mega-group).active > a {
     color: white; }
+  .m-mega p {
+    margin-top: 0; }
   .m-mega .level-3 {
     margin-bottom: 8px;
     font-size: 0.875rem; }
@@ -4695,7 +4705,8 @@ h1, h2, h3, h4, h5, h6 {
       overflow: hidden; } }
 
 [lang="cs"] #mega-id-0.item-submenu > .row > .submenu > .columns .block-block h3 {
-  margin-top: 0; }
+  margin-top: 0;
+  margin-bottom: 30px; }
 
 [lang="cs"] #mega-id-0.item-submenu > .row > .submenu > .columns > .column:nth-of-type(2) {
   -webkit-box-flex: 0;
@@ -8909,5 +8920,11 @@ body.local:after {
   right: 0;
   bottom: 30px;
   margin: auto; }
+
+.fix-height-kontakty .columns {
+  min-height: 250px; }
+
+.fix-height-kontakty [class*="column"] + [class*="column"]:last-child {
+  float: none; }
 
 /*# sourceMappingURL=main.css.map */
