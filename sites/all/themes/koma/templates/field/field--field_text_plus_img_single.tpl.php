@@ -1,14 +1,15 @@
 <!--field--field_text_plus_img_single.tpl.php-->
 <?php
-if($items[0]['field_basic_img']['#items'][0]['uri']==''){
-  $file = file_load($items[0]['field_basic_img']['#items'][0]['fid']);
-  $uri = ($file->uri);
-}else{
-  $uri = $items[0]['field_basic_img']['#items'][0]['uri'];
-}
+
 
 foreach($items AS $item) {
 
+  if($item['field_basic_img']['#items'][0]['uri']==''){
+    $file = file_load($item['field_basic_img']['#items'][0]['fid']);
+    $uri = ($file->uri);
+  }else{
+    $uri = $item['field_basic_img']['#items'][0]['uri'];
+  }
 
 
     ?>
