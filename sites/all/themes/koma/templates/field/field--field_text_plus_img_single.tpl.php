@@ -1,6 +1,16 @@
 <!--field--field_text_plus_img_single.tpl.php-->
 <?php
+if($items[0]['field_basic_img']['#items'][0]['uri']==''){
+  $file = file_load($items[0]['field_basic_img']['#items'][0]['fid']);
+  $uri = ($file->uri);
+}else{
+  $uri = $items[0]['field_basic_img']['#items'][0]['uri'];
+}
+
 foreach($items AS $item) {
+
+
+
     ?>
 
     <div class="m-section l-feed_one bg-white" <?php koma_theme_wrapper(__FILE__)?>>
@@ -13,9 +23,9 @@ foreach($items AS $item) {
                 <article class="m-story">
                     <header>
                         <div class="m-item--image"
-                             style="background-image: url(<?= image_style_url('x633-540', $item['field_basic_img']['#items'][0]['uri']) ?>)">
+                             style="background-image: url(<?= image_style_url('x633-540', $uri) ?>)">
                             <a href=""><img
-                                    src="<?= image_style_url('x633-540', $item['field_basic_img']['#items'][0]['uri']) ?>"
+                                    src="<?= image_style_url('x633-540', $uri) ?>"
                                     alt=""/></a>
                         </div>
 
