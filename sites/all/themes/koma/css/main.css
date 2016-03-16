@@ -549,6 +549,15 @@ th {
 .firstline-body-bg a {
   color: inherit;
   text-decoration: inherit; }
+  .firstline-primary a:hover,
+  .firstline-secondary a:hover,
+  .firstline-secondary-light a:hover,
+  .firstline-black a:hover,
+  .firstline-white a:hover,
+  .firstline-body-font a:hover,
+  .firstline-body-bg a:hover {
+    color: #C20E1A;
+    text-decoration: none; }
 
 .firstline-1:first-line {
   color: #7AB929; }
