@@ -1,11 +1,9 @@
 @font-face {
     font-family: 'Purista_Bold';
-    src:
-    url('../assets/komafonts/purista-bold/Purista_Bold.eot');
-    src:
-    url('../assets/komafonts/purista-bold/Purista_Bold.eot?#iefix') format('embedded-opentype'),
-    url('../assets/komafonts/purista-bold/Purista_Bold.woff') format('woff'),
-    url('../assets/komafonts/purista-bold/Purista_Bold.svg') format('svg'),
+    src: url('../assets/komafonts/purista_bold-webfont.eot');
+    src: url('../assets/komafonts/purista_bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../assets/komafonts/purista_bold-webfont.woff') format('woff'),
+    url('../assets/komafonts/purista_bold-webfont.svg') format('svg'),
     local('☺');
     font-weight: bold;
     font-style: normal;
@@ -14,12 +12,10 @@
 
 @font-face {
     font-family: 'Purista_Light';
-    src:
-    url('../assets/komafonts/purista-light/Purista_Light.eot');
-    src:
-    url('../assets/komafonts/purista-light/Purista_Light.eot?#iefix') format('embedded-opentype'),
-    url('../assets/komafonts/purista-light/Purista_Light.woff') format('woff'),
-    url('../assets/komafonts/purista-light/Purista_Light.svg') format('svg'),
+    src: url('../assets/komafonts/purista_light-webfont.eot');
+    src: url('../assets/komafonts/purista_light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../assets/komafonts/purista_light-webfont.woff') format('woff'),
+    url('../assets/komafonts/purista_light-webfont.svg') format('svg'),
     local('☺');
     font-weight: normal;
     font-style: normal;
@@ -29,11 +25,11 @@
 @font-face {
     font-family: 'Purista_Medium';
     src:
-    url('../assets/komafonts/purista-medium/Purista_Medium.eot');
+    url('../assets/komafonts/purista_medium-webfont.eot');
     src:
-    url('../assets/komafonts/purista-medium/Purista_Medium.eot?#iefix') format('embedded-opentype'),
-    url('../assets/komafonts/purista-medium/Purista_Medium.woff') format('woff'),
-    url('../assets/komafonts/purista-medium/Purista_Medium.svg') format('svg'),
+    url('../assets/komafonts/purista_medium-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../assets/komafonts/purista_medium-webfont.woff') format('woff'),
+    url('../assets/komafonts/purista_medium-webfont.svg') format('svg'),
     local('☺');
     font-weight: normal;
     font-style: normal;
@@ -43,11 +39,11 @@
 @font-face {
     font-family: 'Purista_Semibold';
     src:
-    url('../assets/komafonts/purista-semibold/Purista_Semibold.eot');
+    url('../assets/komafonts/purista_semibold-webfont.eot');
     src:
-    url('../assets/komafonts/purista-semibold/Purista_Semibold.eot?#iefix') format('embedded-opentype'),
-    url('../assets/komafonts/purista-semibold/Purista_Semibold.woff') format('woff'),
-    url('../assets/komafonts/purista-semibold/Purista_Semibold.svg') format('svg'),
+    url('../assets/komafonts/purista_semibold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../assets/komafonts/purista_semibold-webfont.woff') format('woff'),
+    url('../assets/komafonts/purista_semibold-webfont.svg') format('svg'),
     local('☺');
     font-weight: normal;
     font-style: normal;
@@ -73,3 +69,5 @@
         font-weight: bold;
     }
 }
+
+// fonts
