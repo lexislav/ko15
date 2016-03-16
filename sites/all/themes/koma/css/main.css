@@ -540,6 +540,16 @@ th {
 .firstline-body-bg:first-line {
   color: #ECEDEC; }
 
+.firstline-primary a,
+.firstline-secondary a,
+.firstline-secondary-light a,
+.firstline-black a,
+.firstline-white a,
+.firstline-body-font a,
+.firstline-body-bg a {
+  color: inherit;
+  text-decoration: inherit; }
+
 .firstline-1:first-line {
   color: #7AB929; }
 
