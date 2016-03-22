@@ -138,7 +138,8 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
     <div class="row">
         <h2 class="m-section--hed mm-big mm-tiny mm-pad-bottom firstline-primary">
             <?php foreach ($content['field_hp_2_text']['#items'] as $cislo2 => $text) { ?>
-                <?= $text['value'] ?><br />
+                <!-- odkaz http://www.koma-modular.cz/o-firme/hodnoty-vize-strategie-firmy -->
+                <a href="#"><?= $text['value'] ?></a><br />
             <?php } ?>
         </h2>
         <?php print render($content['field_hp_2_odkazy']); ?>

@@ -25,7 +25,7 @@
         }
 
         &:nth-of-type(2),
-        &:nth-of-type(3),
+        &:nth-of-type(3)
         {
             height: $cellheight;
             @include move(-1/2);
@@ -43,7 +43,7 @@
             }
 
             &:nth-of-type(2),
-            &:nth-of-type(3),
+            &:nth-of-type(3)
             {
                 height: $cellheight;
             }
@@ -63,7 +63,7 @@
             }
 
             &:nth-of-type(2),
-            &:nth-of-type(3),
+            &:nth-of-type(3)
             {
                 height: $cellheight;
                 @include move(-1/4);
@@ -83,7 +83,7 @@
             }
 
             &:nth-of-type(2),
-            &:nth-of-type(3),
+            &:nth-of-type(3)
             {
                 height: $cellheight;
             }

@@ -9,11 +9,16 @@ jQuery(function () {
 
 
     //
+
+    var currentSlide = -1;
+
+
     jQuery('[slick]').each(function () {
         var SlickWrapper = jQuery(this);
         var carousel = SlickWrapper.find('[carousel]');
         var oldActive = null;
         var nav = SlickWrapper.find('[carouselnav]');
+
 
         if (carousel) {
             carousel.slick({
@@ -25,8 +30,25 @@ jQuery(function () {
                 speed: 300,
                 slidesToShow: 1,
                 adaptiveHeight: true
-            })
+            });
+
+            carousel.on('afterChange', function (event, slick, currentSlide) {
+                if (nav) {
+                    var items = nav.find('[slick-to]');
+                    if (oldActive) {
+                        oldActive.removeClass("active");
+                    }
+                    for (var i = 0; i < items.length; i++) {
+                        var item = jQuery(items[i]);
+                        if(item.attr('slick-to') == currentSlide) {
+                            item.addClass("active");
+                            oldActive = item;
+                        }
+                    }
+                }
+            });
         }
+        
 
         if (nav) {
             //  console.log("nav");
@@ -36,17 +58,20 @@ jQuery(function () {
                 var item = jQuery(items[i]);
 
                 if (nav.attr("slick-method") == "mouseenter") {
-                    item.mouseenter(function (e) {
 
+                    item.mouseenter(function (e) {
                         if (oldActive) {
                             oldActive.removeClass("active");
                         }
 
                         e.preventDefault();
                         carousel.slick('slickGoTo', jQuery(this).attr('slick-to'));
+                        currentSlide = carousel.slick('slickCurrentSlide');
+                        console.log(currentSlide);
                         jQuery(this).addClass("active");
                         oldActive = jQuery(this);
                     });
+
                 } else {
                     item.click(function (e) {
 
@@ -56,14 +81,15 @@ jQuery(function () {
 
                         e.preventDefault();
                         carousel.slick('slickGoTo', jQuery(this).attr('slick-to'));
+                        currentSlide = carousel.slick('slickCurrentSlide');
+                        console.log(currentSlide);
                         jQuery(this).addClass("active");
                         oldActive = jQuery(this);
                     });
                 }
-
-
             }
         }
+
 
     });
 
@@ -290,19 +316,19 @@ var hostCookieName = hostname + "-banner";
 
 if (!jQuery.cookie(hostCookieName)) {
     console.log("Show banners")
-    jQuery( "#page-banner" ).show();
+    jQuery("#page-banner").show();
 
     //jQuery(".close").click(function() {
-      //  jQuery( "#page-banner" ).hide();
-        // set the cookie for 24 hours
-        var date = new Date();
-        date.setTime(date.getTime() + 24 * 60 * 60 * 1000);
-        jQuery.cookie(hostCookieName, true, { expires: date });
+    //  jQuery( "#page-banner" ).hide();
+    // set the cookie for 24 hours
+    var date = new Date();
+    date.setTime(date.getTime() + 24 * 60 * 60 * 1000);
+    jQuery.cookie(hostCookieName, true, {expires: date});
     //});
 
 } else {
     console.log("Hide banners");
-    jQuery( "#page-banner" ).hide();
+    jQuery("#page-banner").hide();
 }
 
 

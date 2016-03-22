@@ -70,6 +70,25 @@ $pallete: (
 .firstline-body-font {  &:first-line {color: $color-body-font; }}
 .firstline-body-bg {  &:first-line {color: $color-body-bg; }}
 
+.firstline-primary,
+.firstline-secondary,
+.firstline-secondary-light,
+.firstline-black,
+.firstline-white,
+.firstline-body-font,
+.firstline-body-bg {
+    a {
+        color: inherit;
+        text-decoration: inherit;
+
+        &:hover {
+            color: $color-primary;
+            text-decoration: none;
+        }
+    }
+}
+
+
 @each $colorName, $colorValue in $pallete {
     .firstline-#{$colorName} {  &:first-line {color: $colorValue; }}
 }
