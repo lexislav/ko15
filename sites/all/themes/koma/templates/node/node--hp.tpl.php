@@ -8,9 +8,19 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
     <div class="hero-slides" carousel>
         <?php
         foreach ($pole_slider as $cislo => $r) {
+
+          if($r['field_basic_img']['und'][0]['uri']==''){
+            $file = file_load($r['field_basic_img']['und'][0]['fid']);
+            $uri = ($file->uri);
+          }else{
+            $uri = $r['field_basic_img']['und'][0]['uri'];
+          }
+
+
+
             if ($cislo == 0) {
                 ?>
-                <div class="content-tab mm-center mm-welcome" style="background-image: url(<?= image_style_url('none', $r['field_basic_img']['und'][0]['uri']) ?>);">
+                <div class="content-tab mm-center mm-welcome" style="background-image: url(<?= image_style_url('none', $uri) ?>);">
                     <div class="row">
                         <div class="description">
                             <p><?= $r['field_basic_text']['und'][0]['value'] ?></p>
@@ -139,7 +149,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
         <h2 class="m-section--hed mm-big mm-tiny mm-pad-bottom firstline-primary">
             <?php foreach ($content['field_hp_2_text']['#items'] as $cislo2 => $text) { ?>
                 <!-- odkaz http://www.koma-modular.cz/o-firme/hodnoty-vize-strategie-firmy -->
-                <a href="#"><?= $text['value'] ?></a><br />
+                <a href="<?=$content['field_page_link']['#items'][0]['url']?>"><?= $text['value'] ?></a><br />
             <?php } ?>
         </h2>
         <?php print render($content['field_hp_2_odkazy']); ?>
