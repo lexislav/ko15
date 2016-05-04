@@ -18,7 +18,18 @@ if ($user->uid == 1) {
                 </li>
 
                 <li class="m-navbar--menu-social m-navbar--menu-facebook">
+                  <?php
+                  if ($language->language == 'cs') {
+                  ?>
                     <a target="_blank" title="" href="<?= variable_get('nastaveni_fb', 'nastaveni') ?>">
+                  <?php
+                  }else{
+                    ?>
+                      <a target="_blank" title="" href="https://www.facebook.com/KomaModularInternational">
+                      <?php
+                  }
+                  ?>
+
                         <span class="fa fa-facebook"><em>Facebook</em></span>
                     </a>
                 </li>
@@ -130,6 +141,22 @@ if ($user->uid == 1) {
 <?php print render($page['content']); ?>
 
 
+<!--banner loga zive firmy-->
+<div  id="page-banner-bottom" class="m-section bg-secondary">
+  <article class="m-banner">
+    <header>
+      <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/spolehliva-firma-2016_125.png)">
+        <img style="height: 64px;"  src="http://www.koma-modular.cz/sites/all/themes/koma/images/spolehliva-firma-2016_125.png">
+      </div>
+      <div class="m-banner--summary">
+        <h1 class="m-banner--hed">
+          Jsme držiteli ocenění Spolehlivá firma.
+        </h1>
+      </div>
+    </header>
+  </article>
+</div>
+
 <!--certifikace-->
 <div class="m-section l-feed_six">
     <header class="m-section--header">
@@ -227,7 +254,18 @@ if ($user->uid == 1) {
                 <ul class="m-footer--menu-secondary">
 
                     <li class="m-footer--menu-link">
-                        <a href="<?= variable_get('nastaveni_fb', 'nastaveni') ?>" target="" title=""><i
+                      <?php
+                      if ($language->language == 'cs') {
+                      ?>
+                      <a target="_blank" title="" href="<?= variable_get('nastaveni_fb', 'nastaveni') ?>">
+                        <?php
+                        }else{
+                        ?>
+                        <a target="_blank" title="" href="https://www.facebook.com/KomaModularInternational">
+                          <?php
+                          }
+                          ?>
+                          <i
                                 class="fa fa-facebook"></i></a>
                     </li>
                     <li class="m-footer--menu-link">
