@@ -20,7 +20,8 @@
     <meta name="HandheldFriendly" content="True"/>
     <meta name="MobileOptimized" content="320"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta http-equiv="cleartype" content="on">
+  <meta name="google-site-verification" content="lyJrEQqJPKsQ2aF1tLoDthgPHrvcZ62KnvMSetiaxbg" />
+  <meta http-equiv="cleartype" content="on">
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="format-detection" content="address=no"/>
