@@ -8,10 +8,17 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
     <div class="hero-slides" carousel>
         <?php
         foreach ($pole_slider as $cislo => $r) {
-            if ($cislo == 0) {
+          if($r['field_basic_img']['und'][0]['uri']==''){
+            $file = file_load($r['field_basic_img']['und'][0]['fid']);
+            $uri = ($file->uri);
+          }else{
+            $uri = $r['field_basic_img']['und'][0]['uri'];
+          }
+
+          if ($cislo == 0) {
                 ?>
                 <div class="content-tab mm-center mm-welcome"
-                     style="background-image: url(<?= image_style_url('none', $r['field_basic_img']['und'][0]['uri']) ?>);">
+                     style="background-image: url(<?= image_style_url('none', $uri) ?>);">
                     <div class="row">
                         <div class="description">
                             <p><?= $r['field_basic_text']['und'][0]['value'] ?></p>
@@ -22,7 +29,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
                 </div>
             <?php } else { ?>
                 <div class="content-tab <?php echo ($cislo <= 2) ? '' : 'mm-right'; ?>"
-                     style="background-image: url(<?= image_style_url('none', $r['field_basic_img']['und'][0]['uri']) ?>);">
+                     style="background-image: url(<?= image_style_url('none', $uri) ?>);">
                     <div class="row">
                         <div class="description">
                             <p><?= $r['field_basic_text']['und'][0]['value'] ?></p>
