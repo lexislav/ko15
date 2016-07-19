@@ -31,7 +31,7 @@
                 <div class="m-address--action">
 
                     <a href="" title="" fillform data-subject="Pro vedoucí útvaru" data-name="<?=$fields['title']->raw?>" data-email="<?=$mail ?>" >
-                        <?php print t('Odeslat zprávu') ?>
+                        <?php print t('Send a message') ?>
                         <i class="fa fa-envelope"></i></a>
                 </div>
     </div>
