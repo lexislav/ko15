@@ -53,32 +53,35 @@
             <?php
             foreach ($items AS $soubor) {
                 $trida = '';
+              if(isset($soubor['#file']->filename)){
                 $typ = end(explode('.', $soubor['#file']->filename));
                 switch ($typ) {
-                    case "zip":
-                        $trida = 'fa-file-archive-o';
-                        break;
-                    case "xls":
-                        $trida = 'fa-file-excel-o';
-                        break;
-                    case "xlsx":
-                        $trida = 'fa-file-excel-o';
-                        break;
-                    case "doc":
-                        $trida = 'fa-file-word-o';
-                        break;
-                    case "docx":
-                        $trida = 'fa-file-word-o';
-                        break;
-                    case "pdf":
-                        $trida = 'fa-file-pdf-o';
-                        break;
-                    case "txt":
-                        $trida = 'fa-file-text-o';
-                        break;
-                    default:
-                        $trida = 'fa-file-o';
+                  case "zip":
+                    $trida = 'fa-file-archive-o';
+                    break;
+                  case "xls":
+                    $trida = 'fa-file-excel-o';
+                    break;
+                  case "xlsx":
+                    $trida = 'fa-file-excel-o';
+                    break;
+                  case "doc":
+                    $trida = 'fa-file-word-o';
+                    break;
+                  case "docx":
+                    $trida = 'fa-file-word-o';
+                    break;
+                  case "pdf":
+                    $trida = 'fa-file-pdf-o';
+                    break;
+                  case "txt":
+                    $trida = 'fa-file-text-o';
+                    break;
+                  default:
+                    $trida = 'fa-file-o';
                 }
+              }
+
                 ?>
                 <dl class="mm-nolabels mm-noborder">
                     <dt><?=$soubor['#file']->description?></dt>
