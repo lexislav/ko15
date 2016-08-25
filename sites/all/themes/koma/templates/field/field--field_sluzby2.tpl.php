@@ -29,7 +29,8 @@
                 <?php
                 unset($pole);
                 foreach ($items AS $poradi2 => $pole) {
-                    if($pole['field_basic_img']['#items'][0]['uri']==''){
+
+                    if(  isset($pole['field_basic_img']['#items'][0]['uri']) AND ($pole['field_basic_img']['#items'][0]['uri']=='')){
                         $file = file_load($pole['field_basic_img']['#items'][0]['fid']);
                         $uri = ($file->uri);
                     }else{
