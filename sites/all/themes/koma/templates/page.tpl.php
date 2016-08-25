@@ -116,7 +116,7 @@ if ($user->uid == 1) {
                         <?php if (isset($banner1->field_simple_img['und'][0]['uri'])) { ?>
                             <div class="m-banner--image"
                                  style="background-image: url(<?= image_style_url('0x60', $uri1) ?>)">
-                                <a href="<?= $banner1->field_page_link[test_lang_code()][0]['url'] ?>">
+                                <a href="<?=@ $banner1->field_page_link[test_lang_code()][0]['url'] ?>">
                                     <img src="<?= image_style_url('0x60', $uri1) ?>"/>
                                 </a>
                             </div>
