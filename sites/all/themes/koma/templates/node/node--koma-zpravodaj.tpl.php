@@ -38,7 +38,7 @@ $next_nid = prev_next_nid($node->nid, 'next');
 
         <?php
         $hasImage = false;
-        if ($node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'][0]) {
+        if (isset($node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'][0])) {
             $hasImage = true;
         }
         $contentClass = '';

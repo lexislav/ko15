@@ -103,7 +103,7 @@ print render($block);
 ?>
 
 <?php
-dpm($content['field_text_text_link']);
+//dpm($content['field_text_text_link']);
 if (isset($content['field_text_text_link'][0])) {
     print render($content['field_text_text_link']);
 }

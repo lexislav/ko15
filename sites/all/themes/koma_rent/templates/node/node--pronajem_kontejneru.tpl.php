@@ -220,6 +220,7 @@ if (isset($content['field_bigimg_a_text'][0])) {
                     <!--                @TODO predelat na field tpl-->
                     <?php
                     foreach ($content['field_kestazeni_link']['#items'] AS $soubor) {
+                      if(isset($soubor['filename'])){
                         $typ = end(explode('.', $soubor['filename']));
                         switch ($typ) {
                             case "zip":
@@ -245,6 +246,7 @@ if (isset($content['field_bigimg_a_text'][0])) {
                                 break;
                             default:
                                 $trida = 'fa-file-o';
+                        }
                         }
                         ?>
                         <dl class="mm-nolabels mm-noborder">

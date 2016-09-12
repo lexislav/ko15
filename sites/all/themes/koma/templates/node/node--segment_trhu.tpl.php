@@ -9,9 +9,12 @@ global $language;
 
                     <nav class="breadcrumbs">
                         <?php
-                        foreach (drupal_get_breadcrumb() AS $drobek) {
+                        if(drupal_get_breadcrumb()){
+                          foreach (drupal_get_breadcrumb() AS $drobek) {
                             echo $drobek;
+                          }
                         }
+
                         ?>
                     </nav>
 
@@ -58,15 +61,19 @@ global $language;
         <div class="row rowfix">
             <?php
             $poletid = array();
-            foreach ($node->field_segment_reference['und'] AS $referencetemp) {
+            if($node->field_segment_reference['und']){
+              foreach ($node->field_segment_reference['und'] AS $referencetemp) {
                 $poletid[] = ($referencetemp['entity']->field_reference_kategorie_stavby['und'][0]['tid']);
                 if (isset($referencetemp['entity']->field_reference_kategorie_stavby['und'][1]['tid'])) {
-                    $poletid[] = ($referencetemp['entity']->field_reference_kategorie_stavby['und'][1]['tid']);
+                  $poletid[] = ($referencetemp['entity']->field_reference_kategorie_stavby['und'][1]['tid']);
                 }
+              }
             }
 
+
             $polejmen = taxonomy_term_load_multiple($poletid);
-            foreach ($node->field_segment_reference['und'] AS $reference) {
+            if($node->field_segment_reference['und']){
+              foreach ($node->field_segment_reference['und'] AS $reference) {
 
                 $reference['entity']->field_reference_zeme['und'][0]['iso2'];
                 $rok = str_replace('-01-01 00:00:00', '', $reference['entity']->field_reference_rok['und'][0]['value']);
@@ -74,93 +81,98 @@ global $language;
 
                 <div class="m-card_reference-horizontal l-single">
 
-                    <article class="m-reference">
-                        <header>
-                            <!-- @TODO dodelat nacitani main img z fotogalerie -->
-                            <div class="m-item--image" style="background-image: url(<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>)">
-                                <a href="">
-                                    <img src="<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>" alt="" />
-                                </a>
-                            </div>
+                  <article class="m-reference">
+                    <header>
+                      <!-- @TODO dodelat nacitani main img z fotogalerie -->
+                      <div class="m-item--image" style="background-image: url(<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>)">
+                        <a href="">
+                          <img src="<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>" alt="" />
+                        </a>
+                      </div>
 
-                            <div class="m-item--summary">
-                                <h1 class="m-item--hed">
-                                    <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>"><?= $reference['entity']->title ?></a>
-                                </h1>
+                      <div class="m-item--summary">
+                        <h1 class="m-item--hed">
+                          <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>"><?= $reference['entity']->title ?></a>
+                        </h1>
 
-                                <div class="m-item--description  ">
-                                    <p><?php if (isset($reference['entity']->field_reference_perex[$language->language][0]['value'])) {
-                                            echo $reference['entity']->field_reference_perex[$language->language][0]['value'];
-                                        } else {
-                                            echo truncate($reference['entity']->field_reference_text[$language->language][0]['value']);
-                                        }
+                        <div class="m-item--description  ">
+                          <p><?php if (isset($reference['entity']->field_reference_perex[$language->language][0]['value'])) {
+                              echo $reference['entity']->field_reference_perex[$language->language][0]['value'];
+                            } else {
+                              echo truncate($reference['entity']->field_reference_text[$language->language][0]['value']);
+                            }
 
-                                        ?>
-                                        <br />
-                                        <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>">
-                                            <?php print t('Reference detail') ?></a> &rarr;
-                                        <?php
-                                        if (@$user->uid > 0) {
-                                            ?>
-                                            [
-                                            <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>/edit">editovat</a>]
-                                            <?php
-                                        }
-                                        ?>
-                                    </p>
-                                </div>
-                            </div>
+                            ?>
+                            <br />
+                            <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>">
+                              <?php print t('Reference detail') ?></a> &rarr;
+                            <?php
+                            if (@$user->uid > 0) {
+                              ?>
+                              [
+                              <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>/edit">editovat</a>]
+                              <?php
+                            }
+                            ?>
+                          </p>
+                        </div>
+                      </div>
 
-                            <div class="m-properties">
-                                <dl>
-                                    <dt><?php print t('Classification') ?></dt>
-                                    <dd><?= $polejmen[$reference['entity']->field_reference_kategorie_stavby['und'][0]['tid']]->name ?>
-                                        – <?= $polejmen[$reference['entity']->field_reference_kategorie_stavby['und'][1]['tid']]->name ?></dd>
-                                </dl>
+                      <div class="m-properties">
+                        <dl>
+                          <dt><?php print t('Classification') ?></dt>
+                          <dd><?= $polejmen[$reference['entity']->field_reference_kategorie_stavby['und'][0]['tid']]->name ?>
+                            – <?= $polejmen[$reference['entity']->field_reference_kategorie_stavby['und'][1]['tid']]->name ?></dd>
+                        </dl>
 
-                                <dl>
-                                    <dt><?php print t('Year of implementation') ?></dt>
-                                    <dd><?= $rok ?></dd>
-                                </dl>
+                        <dl>
+                          <dt><?php print t('Year of implementation') ?></dt>
+                          <dd><?= $rok ?></dd>
+                        </dl>
 
-                                <dl>
-                                    <dt><?php print t('Country of implementation') ?></dt>
-                                    <dd><?= test_get_list($reference['entity']->field_reference_zeme['und'][0]['iso2']); ?></dd>
-                                </dl>
+                        <dl>
+                          <dt><?php print t('Country of implementation') ?></dt>
+                          <dd><?= test_get_list($reference['entity']->field_reference_zeme['und'][0]['iso2']); ?></dd>
+                        </dl>
 
-                                <!--@TODO dodelat if pro zobrazeni-->
-                                <dl>
-                                    <dt class="mm-label"><?php print t('Technical Specifications') ?></dt>
+                        <!--@TODO dodelat if pro zobrazeni-->
+                        <dl>
+                          <dt class="mm-label"><?php print t('Technical Specifications') ?></dt>
 
-                                    <?php if (isset($reference['entity']->field_reference_pomodulu['und'][0]['value'])) { ?>
-                                        <dt class="mm-sub"><?php print t('Number of modules') ?></dt>
-                                        <dd><?= $reference['entity']->field_reference_pomodulu['und'][0]['value'] ?></dd>
-                                    <?php } ?>
+                          <?php if (isset($reference['entity']->field_reference_pomodulu['und'][0]['value'])) { ?>
+                            <dt class="mm-sub"><?php print t('Number of modules') ?></dt>
+                            <dd><?= $reference['entity']->field_reference_pomodulu['und'][0]['value'] ?></dd>
+                          <?php } ?>
 
-                                    <?php if (isset($reference['entity']->field_reference_delka[$language->language][0]['value'])) { ?>
-                                        <dt class="mm-sub"><?php print t('Length of manufacture') ?></dt>
-                                        <dd><?= $reference['entity']->field_reference_delka[$language->language][0]['value'] ?></dd>
-                                    <?php } ?>
+                          <?php if (isset($reference['entity']->field_reference_delka[$language->language][0]['value'])) { ?>
+                            <dt class="mm-sub"><?php print t('Length of manufacture') ?></dt>
+                            <dd><?= $reference['entity']->field_reference_delka[$language->language][0]['value'] ?></dd>
+                          <?php } ?>
 
-                                    <?php if (isset($reference['entity']->field_reference_dstavby[$language->language][0]['value'])) { ?>
-                                        <dt class="mm-sub"><?php print t('Length of construction') ?></dt>
-                                        <dd><?= $reference['entity']->field_reference_dstavby[$language->language][0]['value'] ?></dd>
-                                    <?php } ?>
+                          <?php if (isset($reference['entity']->field_reference_dstavby[$language->language][0]['value'])) { ?>
+                            <dt class="mm-sub"><?php print t('Length of construction') ?></dt>
+                            <dd><?= $reference['entity']->field_reference_dstavby[$language->language][0]['value'] ?></dd>
+                          <?php } ?>
 
-                                    <?php if (isset($reference['entity']->field_reference_plocha['und'][0]['value'])) { ?>
-                                        <dt class="mm-sub"><?php print t('Usable area') ?></dt>
-                                        <dd><?= $reference['entity']->field_reference_plocha['und'][0]['value'] ?>
-                                            m<sup>2</sup>
-                                        </dd>
-                                    <?php } ?>
-                                </dl>
+                          <?php if (isset($reference['entity']->field_reference_plocha['und'][0]['value'])) { ?>
+                            <dt class="mm-sub"><?php print t('Usable area') ?></dt>
+                            <dd><?= $reference['entity']->field_reference_plocha['und'][0]['value'] ?>
+                              m<sup>2</sup>
+                            </dd>
+                          <?php } ?>
+                        </dl>
 
 
-                            </div>
-                        </header>
-                    </article>
+                      </div>
+                    </header>
+                  </article>
                 </div>
-            <?php } ?>
+              <?php }
+            }
+
+
+
+            ?>
         </div>
     </div>
 
@@ -179,65 +191,72 @@ print render($block);
         <div class="row">
             <?php
             $poletid = array();
-            foreach ($node->field_segment_reference['und'] AS $referencetemp) {
+            if($node->field_segment_reference['und']){
+              foreach ($node->field_segment_reference['und'] AS $referencetemp) {
                 $poletid[] = ($referencetemp['entity']->field_reference_kategorie_stavby['und'][0]['tid']);
                 if (isset($referencetemp['entity']->field_reference_kategorie_stavby['und'][1]['tid'])) {
-                    $poletid[] = ($referencetemp['entity']->field_reference_kategorie_stavby['und'][1]['tid']);
+                  $poletid[] = ($referencetemp['entity']->field_reference_kategorie_stavby['und'][1]['tid']);
                 }
+              }
             }
+
             $polejmen = taxonomy_term_load_multiple($poletid);
-
-            foreach ($node->field_segment_reference['und'] AS $reference) {
-
-
-                $reference['entity']->field_reference_zeme['und'][0]['iso2'];
+if($node->field_segment_reference['und']){
+  foreach ($node->field_segment_reference['und'] AS $reference) {
 
 
-                $rok = str_replace('-01-01 00:00:00', '', $reference['entity']->field_reference_rok['und'][0]['value']);
+    $reference['entity']->field_reference_zeme['und'][0]['iso2'];
+
+
+    $rok = str_replace('-01-01 00:00:00', '', $reference['entity']->field_reference_rok['und'][0]['value']);
+    ?>
+    <div class="m-card_reference-horizontal l-single">
+      <article class="m-reference ">
+        <header>
+          <!--                        @TODO dodelat nacitani main img z fotogalerie-->
+          <div class="m-item--image" style="background-image: url(<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>)">
+            <a href="">
+              <img src="<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>" alt="" />
+            </a>
+          </div>
+
+          <div class="m-item--summary">
+            <h1 class="m-item--hed">
+              <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>"><?= $reference['entity']->title ?></a>
+            </h1>
+
+            <div class="m-item--description">
+
+              <p><?php if (isset($reference['entity']->field_reference_perex[$language->language][0]['value'])) {
+                  echo $reference['entity']->field_reference_perex[$language->language][0]['value'];
+                } else {
+                  echo truncate($reference['entity']->field_reference_text[$language->language][0]['value']);
+                }
+
                 ?>
-                <div class="m-card_reference-horizontal l-single">
-                    <article class="m-reference ">
-                        <header>
-                            <!--                        @TODO dodelat nacitani main img z fotogalerie-->
-                            <div class="m-item--image" style="background-image: url(<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>)">
-                                <a href="">
-                                    <img src="<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>" alt="" />
-                                </a>
-                            </div>
+                <br />
+                <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>"><?php print t('Reference detail') ?></a> &rarr;
 
-                            <div class="m-item--summary">
-                                <h1 class="m-item--hed">
-                                    <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>"><?= $reference['entity']->title ?></a>
-                                </h1>
-
-                                <div class="m-item--description">
-
-                                    <p><?php if (isset($reference['entity']->field_reference_perex[$language->language][0]['value'])) {
-                                            echo $reference['entity']->field_reference_perex[$language->language][0]['value'];
-                                        } else {
-                                            echo truncate($reference['entity']->field_reference_text[$language->language][0]['value']);
-                                        }
-
-                                        ?>
-                                        <br />
-                                        <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>"><?php print t('Reference detail') ?></a> &rarr;
-
-                                        <?php
-                                        if (@$user->uid > 0) {
-                                            ?>
-                                            [
-                                            <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>/edit">editovat</a>]
-                                            <?php
-                                        }
-                                        ?>
+                <?php
+                if (@$user->uid > 0) {
+                  ?>
+                  [
+                  <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>/edit">editovat</a>]
+                  <?php
+                }
+                ?>
 
 
-                                </div>
-                        </header>
-                    </article>
+            </div>
+        </header>
+      </article>
 
-                </div>
-            <?php } ?>
+    </div>
+  <?php }
+}
+
+
+            ?>
 
 
         </div>

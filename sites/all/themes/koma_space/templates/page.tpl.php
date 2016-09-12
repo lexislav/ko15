@@ -1,768 +1,301 @@
 <?php print render($tabs); ?>
 <?php
 if ($user->uid == 1) {
-    print $messages;
+  print $messages;
 }
 ?>
 <div class="l-navbar">
-    <div class="m-navbar mm-secondary" id="navbarSecondary">
-        <div class="m-navbar--container">
-            <ul class="m-navbar--menu m-navbar--menu-tertiary">
-                <li class="m-navbar--menu-social m-navbar--menu-twitter">
-                    <a target="_blank" title="" href="<?= variable_get('nastaveni_twitter', 'nastaveni') ?>">
-                        <span class="fa fa-twitter"><em class="">Twitter</em></span>
-                    </a>
-                </li>
-                <li class="m-navbar--menu-social m-navbar--menu-facebook">
-                    <a target="_blank" title="" href="<?= variable_get('nastaveni_fb', 'nastaveni') ?>">
-                        <span class="fa fa-facebook"><em>Facebook</em></span>
-                    </a>
-                </li>
-                <li class="m-navbar--menu-social m-navbar--menu-youtube">
-                    <a target="_blank" title="" href="<?= variable_get('nastaveni_youtube', 'nastaveni') ?>">
-                        <span class="fa fa-youtube-play"><em class="">YouTube</em></span>
-                    </a>
-                </li>
-            </ul>
-            <ul class="m-navbar--menu m-navbar--menu-secondary">
-                <li class="m-navbar--menu-dropdown">
-                    <a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false"><em class="">Language</em></a>
-                    <ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
-                        <?php print block_render('locale', 'language'); ?>
-                    </ul>
-                </li>
-            </ul>
+
+  <div class="m-navbar mm-secondary" id="navbarSecondary">
+    <div class="m-navbar--container">
+
+      <ul class="m-navbar--menu m-navbar--menu-tertiary">
+
+        <li class="m-navbar--menu-social m-navbar--menu-twitter">
+          <a target="_blank" title="" href="<?= variable_get('nastaveni_twitter', 'nastaveni') ?>">
+            <span class="fa fa-twitter"><em class="">Twitter</em></span>
+          </a>
+        </li>
+
+        <li class="m-navbar--menu-social m-navbar--menu-facebook">
+          <?php
+          if ($language->language == 'cs') {
+          ?>
+          <a target="_blank" title="" href="<?= variable_get('nastaveni_fb', 'nastaveni') ?>">
             <?php
-            function block_render($module, $block_id)
-            {
-                $block = block_load($module, $block_id);
-                $block_content = _block_render_blocks(array($block));
-                $build = _block_get_renderable_array($block_content);
-                $block_rendered = drupal_render($build);
-                return $block_rendered;
-            }
-
+            }else{
             ?>
-            <ul class="m-navbar--menu m-navbar--menu-primary">
-                <li class="m-navbar--menu-callout">
-                    <?php
-                    if ($language->language == 'cs') {
-                        print variable_get('nastaveni_tel_cs', 'nastaveni');
-                    } elseif ($language->language == 'en') {
-                        print variable_get('nastaveni_tel_en', 'nastaveni');
-                    } elseif ($language->language == 'de') {
-                        print variable_get('nastaveni_tel_de', 'nastaveni');
-                    }
-                    ?>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="m-navbar mm-primary" id="navbarPrimary">
-        <div class="m-navbar--container">
-            <a class="m-navbar--logo" href="<?= $front_page ?>">
-                <div class="mm-has-svg" style="background-image: url('<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma_rent/logo.svg');"></div>
+            <a target="_blank" title="" href="https://www.facebook.com/KomaModularInternational">
+              <?php
+              }
+              ?>
+
+              <span class="fa fa-facebook"><em>Facebook</em></span>
             </a>
-            <div class="xmega">
-                <?php print render($page['navigation']); ?>
-            </div>
-        </div>
+        </li>
+
+        <li class="m-navbar--menu-social m-navbar--menu-youtube">
+          <a target="_blank" title="" href="<?= variable_get('nastaveni_youtube', 'nastaveni') ?>">
+            <span class="fa fa-youtube-play"><em class="">YouTube</em></span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="m-navbar--menu m-navbar--menu-secondary">
+        <li class="m-navbar--menu-dropdown">
+          <a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false"><em
+              class="">Language</em></a>
+          <ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+            <?php print block_render('locale', 'language'); ?>
+          </ul>
+        </li>
+      </ul>
+
+      <?php
+
+      function block_render($module, $block_id)
+      {
+        $block = block_load($module, $block_id);
+        $block_content = _block_render_blocks(array($block));
+        $build = _block_get_renderable_array($block_content);
+        $block_rendered = drupal_render($build);
+        return $block_rendered;
+      }
+
+      ?>
+      <ul class="m-navbar--menu m-navbar--menu-primary">
+        <li class="m-navbar--menu-callout">
+          <?php
+          if ($language->language == 'cs') {
+            print variable_get('nastaveni_tel_cs', 'nastaveni');
+          } elseif ($language->language == 'en') {
+            print variable_get('nastaveni_tel_en', 'nastaveni');
+          } elseif ($language->language == 'de') {
+            print variable_get('nastaveni_tel_de', 'nastaveni');
+          }
+          ?>
+        </li>
+      </ul>
     </div>
+  </div>
+
+  <div class="m-navbar mm-primary" id="navbarPrimary">
+
+
+    <div class="m-navbar--container">
+
+      <a class="m-navbar--logo" href="<?= $front_page ?>">
+        <div class="mm-has-svg"
+             style="background-image: url('/sites/koma/assets/images/koma-space-logo.svg');"></div>
+      </a>
+
+      <div class="xmega">
+        <?php print render($page['navigation']); ?>
+      </div>
+    </div>
+
+  </div>
+  <?php
+
+  $banner1 = node_load(2315);
+  if ($banner1->status == 1) {
+
+
+    if (($user->uid > 0 AND $banner1->field_zobrazeni['und'][0]['value'] == 2 ) OR $banner1->field_zobrazeni['und'][0]['value'] == 1) {
+
+
+      if (isset($banner1->field_simple_img['und'][0]['uri'])) {
+        $uri1 = $banner1->field_simple_img['und'][0]['uri'];
+      }
+      ?>
+      <div id="page-banner"
+           class="m-section <?= ($banner1->field_banner_barva['und'][0]['value'] == 2) ? 'bg-secondary' : 'bg-primary'; ?>" <?php koma_theme_wrapper(__FILE__) ?>>
+        <div class="m-section--close" close-section>&times;</div>
+        <article class="m-banner">
+          <header>
+            <?php if (isset($banner1->field_simple_img['und'][0]['uri'])) { ?>
+              <div class="m-banner--image"
+                   style="background-image: url(<?= image_style_url('0x60', $uri1) ?>)">
+                <a href="<?=@ $banner1->field_page_link[test_lang_code()][0]['url'] ?>">
+                  <img src="<?= image_style_url('0x60', $uri1) ?>"/>
+                </a>
+              </div>
+            <?php } ?>
+            <div class="m-banner--summary">
+              <h1 class="m-banner--hed">
+                <?=@ $banner1->field_basic_text[test_lang_code()][0]['value'] ?>
+              </h1>
+            </div>
+          </header>
+        </article>
+      </div>
+
+      <?php
+    }
+  }
+
+  ?>
 </div>
+
 <?php print render($page['hledani']); ?>
-
-<!-- content. -->
-<?php // print render($page['content']); ?>
+<?php print render($page['content']); ?>
 
 
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center"> Sekce na hp rentu, 3 bloky, titulek, podtitulek, button.</div><!-- konec sekce s karuselem -->
-
-
-<!-- sekce 3 boxy -->
-<div class="m-section l-feed_triple-card" <?php koma_theme_wrapper(__FILE__) ?>>
-
-    <!-- hlavička sekce-->
-    <div class="row">
-        <header class="m-section--header">
-            <div class="columns small-12 small-centered">
-                <h2 class="m-section--hed mm-big mm-tiny mm-center">Když pronájem tak
-                    <span class="color-primary">Koma rent</span></h2>
-
-            </div>
-            <div class="columns small-12 medium-8 small-centered">
-                <div class="mm-center mm-s mm-normal mm-nocase mm-grid-pad-top">
-                    Pronájem obytných kontejnerů, celých modulárních staveb včetně doplňků a příslušenství pro různé účely a příležitosti. Pronájem je budoucnost.
-                </div>
-            </div>
-        </header>
-    </div>
-
-    <!-- tělo sekce-->
-    <div class="row rowfix">
-
-        <?php for ($i = 0; $i < 3; $i++) { ?>
-            <!--karty v sekci-->
-            <div class="m-card_standard l-single">
-                <!-- obsah karty-->
-                <article class="m-story">
-                    <!-- hlavička karty-->
-                    <header>
-                        <div class="m-item--image" style="background-image: url(http://lorempixel.com/282/181)">
-                            <a href="" title="">
-                                <img src="http://lorempixel.com/282/181" alt="" />
-                            </a>
-                        </div>
-                        <div class="m-item--summary">
-                            <h1 class="m-item--hed">
-                                <a href="" title="">blalblal</a>
-                            </h1>
-
-                            <div class="m-item--description">
-                                bla bla bla bla
-                            </div>
-                        </div>
-                    </header>
-                </article>
-                <!-- more odkaz-->
-                <div class="m-card--more">
-                    <a href="#" title="">&rarr;</a>
-                </div>
-                <!-- konec obsahu karty-->
-            </div><!-- konec karty-->
-        <?php } ?>
-
-    </div>
-
-
-    <!-- patička sekce-->
-    <div class="row">
-        <footer class="m-section--footer">
-            <div class="l-full">
-                <div class="mm-center">
-                    <button class="button" style="margin: 0">Kontaktujte nás</button>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-</div><!-- .sekce 1 -->
-
-
-<!-- sekce s karuselem -->
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center"> Sekce na hp rentu, 3 bloky v pravo, texty v levo + nově logo + aktuální patička.</div><!-- konec sekce s karuselem -->
-
-
-<!-- sekce 3 vlevo + text vpravo + logo -->
-<div class="m-section l-section_side-triple bg-white" style="background-image: url('/sites/all/themes/koma/assets/images/mozaika-koma.png')" <?php koma_theme_wrapper(__FILE__) ?>>
-
-    <div class="row">
-        <header class="m-section--header">
-            <div class="l-full"></div>
-        </header>
-    </div>
-
-    <div class="row" style="position: relative;">
-        <h2 class="m-section--hed mm-big mm-tiny mm-pad-bottom firstline-primary">
-            Text1 <br>
-            Text2 <br>
-            Text3 <br>
-
-        </h2>
-        <?php for ($i = 0; $i < 3; $i++) { ?>
-            <div class="l-section--item m-card_image" <?php koma_theme_wrapper(__FILE__) ?>>
-                <article class="m-story">
-                    <header>
-                        <div class="m-item--image" style="background-image: url(http://lorempixel.com/400/600)">
-                            <a href="#">
-                                <img src="http://lorempixel.com/400/600" alt="" />
-                            </a>
-                        </div>
-                        <div class="m-item--summary">
-                            <h1 class="m-item--hed">
-                                <a href="#">titulek titulek tituled</a>
-                            </h1>
-
-                            <div class="m-item--description ellipsis"></div>
-                        </div>
-                    </header>
-                    <div class="m-card--more"><a href="#"> &rarr;</a></div>
-                </article>
-            </div>
-        <?php } ?>
-
-        <div class="m-section--logo" style="position: absolute; width: 116px; height: 84px; overflow: hidden; bottom: 0; left:20px; ">
-            <a href="#"><img src="/sites/all/themes/koma/assets/images/logo-apst-cz.png" alt="" /></a>
-        </div>
-    </div>
-
-    <div class="row">
-        <footer class="m-section--footer">
-            <div class="l-half">
-                <div class="m-section--top"><a href=""><?php print t('UP') ?> &uarr;</a></div>
-            </div>
-            <div class="l-half">
-                <ul class="m-section--nav inline-right">
-                    <li><a href="" title="">firma a lidé &rarr;</a></li>
-                </ul>
-            </div>
-        </footer>
-    </div>
-</div><!-- sekce 3 vlevo + text vpravo + logo -->
-
-
-<!-- sekce s karuselem -->
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center"> Sekce "Proč koma rent, titulek v levo, sezanm v pravo"</div><!-- konec sekce s karuselem -->
-
-
-<div class="m-section bg-white" <?php koma_theme_wrapper(__FILE__) ?>>
-
-    <div class="row">
-        <header class="m-section--header">
-            <div class="l-full"></div>
-        </header>
-    </div>
-
-    <div class="row" style="position: relative;">
-
-        <div class="l-half"><h2 class="m-item--hed mm-upcase color-primary mm-xl">Proč koma rent</h2></div>
-        <div class="l-half">
-            <ol class="m-list">
-                <?php for ($idx = 1; $idx <= 4; $idx++) { ?>
-                    <li><span class="m-list--bullet"><?php echo $idx; ?>.</span>zakladní elektrovize
-                        <strong>Zdarma</strong></li>
-                <?php } ?>
-            </ol>
-        </div>
-    </div>
-
-    <div class="row">
-        <footer class="m-section--footer"></footer>
-    </div>
+<!--banner loga zive firmy-->
+<div  id="page-banner-bottom" class="m-section bg-secondary">
+  <article class="m-banner">
+    <header>
+      <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/spolehliva-firma-2016_125.png)">
+        <img style="height: 64px;"  src="http://www.koma-modular.cz/sites/all/themes/koma/images/spolehliva-firma-2016_125.png">
+      </div>
+      <div class="m-banner--summary">
+        <h1 class="m-banner--hed">
+          Jsme držiteli ocenění Spolehlivá firma.
+        </h1>
+      </div>
+    </header>
+  </article>
 </div>
 
+<!--certifikace-->
+<div class="m-section l-feed_six">
+  <header class="m-section--header">
+    <h2 class="m-section--hed mm-small mm-center color-secondary"><?php print t('CERTIFICATION') ?></h2>
+  </header>
+  <div class="row rowfix">
+    <?php
+    $block = module_invoke('views', 'block_view', 'certifik_ty-block');
+    print render($block);
+    ?>
+  </div>
+  <div class="row">
+    <footer class="m-section--footer"></footer>
+  </div>
+</div><!--certifikace-->
 
-<!-- sekce typ kontaineru -->
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">sekce - typ kontajneru</div><!-- konec sekce s karuselem -->
 
-<div class="m-section" <?php koma_theme_wrapper(__FILE__) ?>>
+<!--support-->
+<div class="m-section m-section_support">
 
-    <div class="row">
-        <header class="m-section--header">
-            <div class="l-full">
-                <h2 class="m-item--hed">Article xy</h2>
-            </div>
+  <div class="l-grid">
+    <div class="m-section--item">
+
+      <article class="m-newsletter">
+        <header>
+          <div class="m-item--hed-icon"
+               style="background-image: url(<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/votaznik.png)"></div>
+          <h1 class="m-item--hed mm-small color-primary"><?php print t('Customer support') ?></h1>
         </header>
-    </div>
 
-    <div class="row mm-pad-bottom">
-
-
-        <!-- 1/2-->
-        <div class="l-half">
-            <!-- wyswyg start-->
-            <div class="m-table mm-type-dark">
-                <table>
-                    <?php for ($idx = 1; $idx <= 12; $idx++) { ?>
-                        <tr>
-                            <td>Typ</td>
-                            <td>Cl3fadfa</td>
-                        </tr>
-                    <?php } ?>
-                </table>
-            </div>
-            <!-- wyswyg start-->
-
-            <div class="m-item--description">
-                <p>Kontejner s otevřenou stranou, který umožňuje vytváření prostoru podle Vašich předsav. Chcete větší kancelář, vytvořit prostor ve školce nebo šatnu pro sportovce? Toto je jedna z částí, kterou budete potřebovat .</p>
-                <p>K dispozici také v šíři 2990 mm.</p>
-            </div>
-        </div>
-
-        <!-- 1/2-->
-        <div class="l-half">
-            <div class="m-item--image mm-grid-gutter-bottom">
-                <img src="http://lorempixel.com/640/400/" alt="schema">
-            </div>
-            <ul class="small-block-grid-3 " data-clearing style="margin-left: -10px;">
-                <li><a href="http://lorempixel.com/900/600/"><img src="http://lorempixel.com/300/200/"></a></li>
-                <li><a href="http://lorempixel.com/900/600/"><img src="http://lorempixel.com/300/200/"></a></li>
-                <li><a href="http://lorempixel.com/900/600/"><img src="http://lorempixel.com/300/200/"></a></li>
-            </ul>
-        </div>
+        <div
+          class="m-item--description"><?php print t('Have you not found answers to your questions here? Ask us directly!') ?></div>
+        <a href="<?= test_lang_prefix('node/1444') ?>#formSection">
+          <button><?php print t('Ask us') ?> &rarr;</button>
+        </a>
+      </article>
 
     </div>
-    <!-- nema patičku-->
-</div>
 
-
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">!!! Opravená sekce, na stránce produkty a služby špatně titule, patička, do textu se generuje body apod.</div>
-
-<div class="m-section l-feed_one bg-secondary-light mm-has-background" style="background-image: url('/sites/all/themes/koma/assets/images/kamiony.jpg')" <?php koma_theme_wrapper(__FILE__) ?>>
-
-    <div class="row">
-        <header class="m-section--header"></header>
+    <div class="m-section--item worker">
+      <img src="<?= $GLOBALS['base_url'] ?>/sites/koma/assets/images/worker.jpg"/>
     </div>
 
-    <div class="row rowfix">
-        <div class="m-card_centered-text l-single bg-secondary-light">
+    <div class="m-section--item">
 
-            <article class="m-story">
-                <header class="m-item--header">
-                    <div class="m-item--hed color-white">eTady je titulek</div>
-                    <div class="m-item--summary">
-                        <div class="m-item--description color-white mm-bold">
-                            <p>
-                                K pronájmu nabízíme široké spektrum doplňkévých služeb, včetně dopravy, servisu a údržby pronajatých sestav. Nabízíme finanční poradenství k dlouhodobým pronájmům a další… </p>
-                        </div>
-                </header>
-            </article>
+      <article class="m-bulletin">
 
-            <div class="m-card--more ">
-                <a class="button" href="#">Příslušenstvi →</a>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="row">
-        <footer class="m-section--footer"></footer>
-    </div>
-
-</div>
-
-
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">ke stažení upravená verze, m-properties správně nastavené na větší. Nikde tam nesmí být tag ASIDE, ve stávající šabloně kterou máme v komě je balast + nezpracované todo pro MR.</div>
-
-<div class="m-section l-feed_two bg-white" <?php koma_theme_wrapper(__FILE__) ?>>
-
-    <div class="row">
-        <header class="m-section--header">
-            <div class="l-full">
-                <h2 class="m-section--hed mm-medium color-primary mm-upcase">Ke stažení</h2>
-            </div>
+        <header>
+          <h1 class="m-item--hed mm-small color-primary"><?php print t('Get modular news with e-bulletin') ?></h1>
         </header>
-    </div>
-
-    <div class="row">
-
-        <div class="l-single">
-            <div class="m-aside-block bg-secondary-light mm-pad">
-                <header class="m-aside-block--header">
-                    <h3 class="m-aside-block--hed">BAZAR</h3>
-                </header>
-
-                <div class="m-reference--meta m-properties mm-size-l">
-
-                    <dl class="mm-nolabels mm-noborder">
-                        <dt>Garáže - sestava 2 ks kontejnerů </dt>
-                        <dd><a href="http://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
-                                <i class="fa fa-file-pdf-o"></i>Garáže - sestava 2 ks kontejnerů </a></dd>
-                    </dl>
-
-                    <dl class="mm-nolabels mm-noborder">
-                        <dt>Garáže - sestava 2 ks kontejnerů </dt>
-                        <dd><a href="http://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
-                                <i class="fa fa-file-pdf-o"></i>Garáže - sestava 2 ks kontejnerů </a></dd>
-                    </dl>
-
-                    <dl class="mm-nolabels mm-noborder">
-                        <dt>Garáže - sestava 2 ks kontejnerů </dt>
-                        <dd><a href="http://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
-                                <i class="fa fa-file-pdf-o"></i>Garáže - sestava 2 ks kontejnerů </a></dd>
-                    </dl>
 
 
-                </div>
-            </div>
-        </div>
+        <div
+          class="m-item--description"><?php print t('If you subscribe to our monthly e-bulletin you will be periodically informed about the latest developments in the world of modular architecture and new offers of the KOMA modular building system.') ?></div>
 
-        <div class="l-single">
-            <div class="m-aside-block bg-secondary-light mm-pad">
-                <header class="m-aside-block--header">
-                    <h3 class="m-aside-block--hed">BAZAR</h3>
-                </header>
-
-                <div class="m-reference--meta m-properties mm-size-l">
-
-                    <dl class="mm-nolabels mm-noborder">
-                        <dt>Garáže - sestava 2 ks kontejnerů </dt>
-                        <dd><a href="http://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
-                                <i class="fa fa-file-pdf-o"></i>Garáže - sestava 2 ks kontejnerů </a></dd>
-                    </dl>
-
-                    <dl class="mm-nolabels mm-noborder">
-                        <dt>Garáže - sestava 2 ks kontejnerů </dt>
-                        <dd><a href="http://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
-                                <i class="fa fa-file-pdf-o"></i>Garáže - sestava 2 ks kontejnerů </a></dd>
-                    </dl>
-
-                    <dl class="mm-nolabels mm-noborder">
-                        <dt>Garáže - sestava 2 ks kontejnerů </dt>
-                        <dd><a href="http://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
-                                <i class="fa fa-file-pdf-o"></i>Garáže - sestava 2 ks kontejnerů </a></dd>
-                    </dl>
-
-
-                </div>
-            </div>
-        </div>
+        <?php print render($page['form_email']); ?>
+      </article>
 
     </div>
-</div>
-
-
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">Faq, nastavený trochu jinak, jiná velikost fontu v headeru, barva fontu v headeru, zbytek stejný</div>
-
-<div class="m-section l-feed_three bg-white" <?php koma_theme_wrapper(__FILE__) ?>>
-
-    <div class="row">
-        <header class="m-section--header">
-            <div class="l-full">
-                <h2 class="m-section--hed mm-medium color-primary">Faq / Knowledge base</h2>
-            </div>
-        </header>
-    </div>
-
-
-    <!-- layout řádky-->
-    <div class="row rowfix">
-        <?php for ($idx = 1; $idx <= 5; $idx++) { ?>
-            <!-- layout karty -->
-            <div class="m-card_faq l-single">
-                <!-- obsah karty-->
-                <article class="m-story">
-                    <header>
-                        <h1 class="m-item--hed">
-                            <a href="http://www.koma-modular.cz/znalostni-baze/jaky-rozsah-specifikace-montazi-provadi-koma-modular-v-zahranici">Jaký rozsah (specifikace) montáží provádí KOMA Modular v&nbsp;zahraničí?</a>
-                        </h1>
-
-                        <div class="m-item--summary">
-                            <div class="m-item--description"></div>
-                        </div>
-                    </header>
-                </article>
-                <!-- konec obsahu karty-->
-            </div>
-        <?php } ?>
-        <!-- konec karty-->
-    </div>
-    <!-- konec řádky-->
-
-
-    <!-- patička sekce-->
-    <div class="row">
-        <footer class="m-section--footer">
-            <div class="l-half">
-                <ul class="m-section--nav inline">
-                    <li><a href="" title="">&uarr; Nahoru</a></li>
-                </ul>
-            </div>
-
-            <div class="l-half">
-                <ul class="m-section--nav inline-right">
-                    <li><a href="" title="">Pronájmy</a></li>
-                    <li><a href="" title="">Technická pomoc</a></li>
-                    <li><a href="" title="">Faq</a></li>
-                </ul>
-            </div>
-        </footer>
-    </div>
-
-</div>
-
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">Detail page se dvěma sloupci, předělaný. odsazené texty</div>
-
-<div class="m-section l-detail-page" <?php koma_theme_wrapper(__FILE__) ?>>
-
-    <!-- header sekce-->
-    <div class="row">
-        <header class="m-section--header">
-            <!-- full page layout-->
-            <div class="l-full">
-                <!-- drobky-->
-                <nav class="breadcrumbs">
-                    <a href="/">Domů</a><a href="/reference">reference</a><a href="/reference/archiv">ARCHIV REFERENCÍ</a>
-                </nav>
-            </div>
-        </header>
-    </div>
-
-    <!-- artikl -->
-
-    <article>
-        <div class="row">
-            <!-- 1/2-->
-            <div class="l-half">
-                <header>
-
-                    <div class="m-story--summary">
-                        <h1 class="m-story--hed mm-pad-bottom"><a href="">Ubytovna pro uprchlíky v Anröchte, DE</a></h1>
-                    </div>
-                </header>
-                <div class="m-body--content mm-pad-bottom">
-                    <p>Dodali jsme první část ubytovny pro uprchlíky do německého města Anröchte. Přízemní budova je sestavená z&nbsp;23 modulů výrobkové řady StandardLine. V&nbsp;ubytovně je kromě jednotlivých pokojů pro uprchlíky i společné sociální zařízení a kuchyň. Druhá část ubytovny by měla být dodána do konce roku 2015.</p>
-                </div>
-                <button class="button" style="margin: 0">Pronájem &rarr;</button>
-            </div>
-            <!-- 2/2-->
-            <div class="l-half">
-
-                <div class="m-story--image" style="background-image: url(http://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/reference//uvodni?itok=_rvgewtr)">
-                    <a href=""><img src="http://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/reference//uvodni?itok=_rvgewtr" alt=""></a>
-                </div>
-
-
-                <div class="m-aside-block">
-
-                    <header class="m-aside-block--header">
-                        <div class="m-aside-block--summary">
-                            <h2 class="m-aside-block--hed">→ Fotogalerie</h2>
-                            <div class="m-aside-block--meta">
-                                (13 fotografií)
-                            </div>
-                        </div>
-                    </header>
-
-                    <div class="m-aside-block--content">
-                        <div class="row">
-
-                            <ul class="m-gallery" data-clearing>
-                                <li class="m-gallery--item">
-                                    <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-2.jpg?itok=hveNC31L"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-2.jpg?itok=6KMb-CXb"></a>
-                                </li>
-                                <li class="m-gallery--item">
-                                    <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-1.jpg?itok=V5-y-Jn6"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-1.jpg?itok=kICIl0MV"></a>
-                                </li>
-                                <li class="m-gallery--item">
-                                    <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-18.jpg?itok=tOgGWN5x"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-18.jpg?itok=5bI217hV"></a>
-                                </li>
-                                <li class="m-gallery--item">
-                                    <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-3.jpg?itok=uTLwQdTX"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-3.jpg?itok=Hiy1uOBl"></a>
-                                </li>
-                                <li class="m-gallery--item">
-                                    <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-7.jpg?itok=IFxIKlri"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-7.jpg?itok=pzNZ6pzB"></a>
-                                </li>
-                                <li class="m-gallery--item">
-                                    <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-13.jpg?itok=G-D7eZ-d"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-13.jpg?itok=z0oOTHfO"></a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div>
-    </article>
-
-
-    <div class="row">
-        <footer class="m-section--footer">
-            <div class="l-half">
-                <div class="m-section--top jsActivated"><a href="">NAHORU ↑</a></div>
-            </div>
-            <div class="l-half">
-                <div class="m-section--more">
-                    <a href="http://www.koma-modular.cz/reference/archiv">CELÝ ARCHIV →</a>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-</div>
-
-
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">Sekce s fotkou v pravo</div>
-
-<div class="m-section" <?php koma_theme_wrapper(__FILE__) ?>>
-
-    <!-- header sekce-->
-    <div class="row">
-        <header class="m-section--header">
-            <div class="l-full mm-pad-bottom">
-                <nav class="breadcrumbs">
-                    <a href="/">Domů</a><a href="/reference">reference</a><a href="/reference/archiv">ARCHIV REFERENCÍ</a>
-                </nav>
-            </div>
-            <div class="l-half">
-                <h2 class="m-section--hed mm-medium color-black">Faq / Knowledge base</h2>
-            </div>
-            <div class="l-half">
-                <ul class="m-section--nav inline-right">
-                    <li><a href="" title="">Pronájmy</a></li>
-                    <li><a href="" title="">Technická pomoc</a></li>
-                    <li><a href="" title="">Faq</a></li>
-                </ul>
-            </div>
-        </header>
-    </div>
-
-    <!-- artikl -->
-
-    <article>
-        <div class="row">
-            <!-- 1/2-->
-            <div class="l-half">
-                <header>
-                    <h1 class="m-item--hed mm-bold mm-big mm-color-black">Ubytovna pro uprchlíky v Anröchte, DE</h1>
-                </header>
-                <div class="m-item--description mm-pad-bottom">
-                    <p>Dodali jsme první část ubytovny pro uprchlíky do německého města Anröchte. Přízemní budova je sestavená z&nbsp;23 modulů výrobkové řady StandardLine. V&nbsp;ubytovně je kromě jednotlivých pokojů pro uprchlíky i společné sociální zařízení a kuchyň. Druhá část ubytovny by měla být dodána do konce roku 2015.</p>
-                </div>
-                <button class="button" style="margin: 0">Pronájem &rarr;</button>
-            </div>
-            <!-- 2/2-->
-            <div class="l-half">
-                <div class="m-item--image" style="background-image: url(http://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/reference//uvodni?itok=_rvgewtr)">
-                    <a href=""><img src="http://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/reference//uvodni?itok=_rvgewtr" alt=""></a>
-                </div>
-            </div>
-        </div>
-    </article>
-
-    <div class="row">
-        <footer class="m-section--footer"></footer>
-    </div>
-
-</div>
-
-
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">Navigace NEXT PREV</div><!--.content-->
-
-<div class="m-section l-navigation bg-white" theme-wrapper="node--reference.tpl.php">
-    <div class="row">
-        <div class="l-prev m-card_nav">
-
-            <article class="m-story">
-                <header>
-                    <div class="m-item--image" style="background-image: url(http://lorempixel.com/400/300/)">
-                        <a href="http://www.koma-modular.cz/reference/zakladni-skola-schaarbeek-b ">
-                            <img src="http://lorempixel.com/400/300/" alt="">
-                        </a>
-                    </div>
-                    <div class="m-item--summary">
-                        <h1 class="m-item--hed">
-                            <a href="http://www.koma-modular.cz/reference/zakladni-skola-schaarbeek-b">Základní škola Schaarbeek, B</a>
-                        </h1>
-                    </div>
-                </header>
-            </article>
-        </div>
-
-        <div class="l-next m-card_nav">
-            <article class="m-story">
-                <header>
-                    <div class="m-item--image" style="background-image: url(http://lorempixel.com/400/300/)">
-                        <a href="http://www.koma-modular.cz/reference/bytove-domy-pro-uprchliky-hamburk-brookkehre-str-de">
-                            <img src="http://lorempixel.com/400/300/" alt="">
-                        </a>
-                    </div>
-                    <div class="m-item--summary">
-                        <h1 class="m-item--hed">
-                            <a href="http://www.koma-modular.cz/reference/bytove-domy-pro-uprchliky-hamburk-brookkehre-str-de">Bytové domy pro uprchlíky Hamburk – Brookkehre Str., DE</a>
-                        </h1>
-
-                    </div>
-                </header>
-            </article>
-        </div>
-
-    </div>
-</div>
-
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">kontakty</div><!--.content-->
-
-<div class="m-section bg-white"  <?php koma_theme_wrapper(__FILE__) ?>>
-
-    <!-- header sekce-->
-    <div class="row">
-        <header class="m-section--header">
-            <div class="l-full">
-                <h2 class="m-section--hed mm-medium color-primary">Adresář firmy</h2>
-            </div>
-        </header>
-    </div>
-
-
-    <div class="row">
-        <?php for($idx=0; $idx<6; $idx++) { ?>
-            <div class="small-6 medium-4 large-2 columns mm-pad-bottom">
-                <div class="m-address">
-                    <div class="m-address--name">Ing. Jaroslav Kandel</div>
-                    <div class="m-address--job"><div class="field-content">Vedoucí útvaru</div></div>
-                    <div class="m-address--phone"><span>T</span> +420 577 007 715</div>
-                    <div class="m-address--phone"><span>M</span> +420 724 232 232</div>
-                    <div class="m-address--fax"><span>F</span> +420 577 452 839</div>
-                    <div class="m-address--mail"><span>E</span> sales@koma-modular.cz</div>
-                    <div class="m-address--action">
-                        <a href="" title="" fillform="" data-subject="Pro vedoucí útvaru" data-name="Ing. Jaroslav Kandel" data-email="sales@koma-modular.cz">Odeslat zprávu<i class="fa fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
-    </div>
-
-    <div class="row">
-        <footer class="m-section--footer"></footer>
-    </div>
-
-</div>
-
-
-<div style="background-color: deeppink; padding: 30px; color:white; text-align: center">Detail page příslušenství</div><!--.content-->
+  </div>
+</div><!--support-->
 
 <!--paticka-->
 <footer class="m-footer m-section l-footer">
-    <div class="m-footer--container">
-        <div class="row">
-            <section class="m-footer--section">
-                <a class="m-footer--logo" href="/">
-                    <img src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/logo-koma-inline-white.svg" alt="" />
-                </a>
-            </section>
-            <section class="m-footer--section">
-                &nbsp;
-                <?php print theme('links__system_secondary_menu', array(
-                    'links' => $secondary_menu,
-                    'attributes' => array(
-                        'class' => array('m-footer--menu-primary'),
-                    )
-                )); ?>
-                <!--            @TODO Upravit podle predlohy-->
-                <!--                    <li class="m-footer--menu-link">-->
-                <!--                        <a target="{{ link.target }}" title="{{ link.title }}"><em class="">{{ link.title }}</em></a>-->
-                <!--                    </li>-->
-            </section>
+  <div class="m-footer--container">
+    <div class="row">
 
-            <section class="m-footer--section">
-                <ul class="m-footer--menu-secondary">
 
-                    <li class="m-footer--menu-link">
-                        <a href="<?= variable_get('nastaveni_fb', 'nastaveni') ?>" target="" title=""><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li class="m-footer--menu-link">
-                        <a href="<?= variable_get('nastaveni_twitter', 'nastaveni') ?>" target="" title=""><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li class="m-footer--menu-link">
-                        <a href="<?= variable_get('nastaveni_youtube', 'nastaveni') ?>" target="" title=""><i class="fa fa-youtube-play"></i></a>
-                    </li>
-                </ul>
+      <section class="m-footer--section">
+        <a class="m-footer--logo" href="/">
+          <img
+            src="<?= $GLOBALS['base_url'] ?>/sites/koma/assets/images/logo-koma-space-inline-white.svg"
+            alt=""/>
+        </a>
 
-            </section>
-        </div>
-        <div class="row">
-            <section class="m-footer--subsection">
-                <a class="m-footer--author" href="/">
-                    <a href="">© 2015 – 2017 KOMA Modular, s. r. o.</a>
-                </a>
-            </section>
-            <section class="m-footer--subsection">
-                <a class="m-footer--author" href="/">
-                    <a target="_blank" href="http://www.odoka.cz/">Od Oka</a>
-                </a>
-            </section>
-        </div>
+      </section>
+
+
+      <section class="m-footer--section">
+
+
+        <?php print theme('links__system_secondary_menu', array(
+          'links' => $secondary_menu,
+          'attributes' => array(
+            'class' => array('m-footer--menu-primary'),
+          )
+        )); ?>
+        <!--            @TODO Upravit podle predlohy-->
+        <!--                    <li class="m-footer--menu-link">-->
+        <!--                        <a target="{{ link.target }}" title="{{ link.title }}"><em class="">{{ link.title }}</em></a>-->
+        <!--                    </li>-->
+      </section>
+
+      <section class="m-footer--section">
+        <ul class="m-footer--menu-secondary">
+
+          <li class="m-footer--menu-link">
+            <?php
+            if ($language->language == 'cs') {
+            ?>
+            <a target="_blank" title="" href="<?= variable_get('nastaveni_fb', 'nastaveni') ?>">
+              <?php
+              }else{
+              ?>
+              <a target="_blank" title="" href="https://www.facebook.com/KomaModularInternational">
+                <?php
+                }
+                ?>
+                <i
+                  class="fa fa-facebook"></i></a>
+          </li>
+          <li class="m-footer--menu-link">
+            <a href="<?= variable_get('nastaveni_twitter', 'nastaveni') ?>" target="" title=""><i
+                class="fa fa-twitter"></i></a>
+          </li>
+          <li class="m-footer--menu-link">
+            <a href="<?= variable_get('nastaveni_youtube', 'nastaveni') ?>" target="" title=""><i
+                class="fa fa-youtube-play"></i></a>
+          </li>
+        </ul>
+
+      </section>
     </div>
+
+    <div class="row">
+
+      <section class="m-footer--subsection">
+        <a class="m-footer--author" href="/">
+          <a href="">© 2015 – 2017 KOMA Modular, s. r. o.</a>
+        </a>
+      </section>
+
+      <section class="m-footer--subsection">
+        <a class="m-footer--author" href="/">
+          <a target="_blank" href="http://www.odoka.cz/">Od Oka</a>
+        </a>
+      </section>
+    </div>
+
+
+  </div>
 </footer><!--paticka-->

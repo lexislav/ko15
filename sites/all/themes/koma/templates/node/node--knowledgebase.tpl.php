@@ -31,6 +31,7 @@
                 <div class="m-story--meta">
                     <dl>
                         <dt><?php print t('Category') ?></dt>
+
                         <dd><?= ($content['field_knowledgebase_kategorie'][0]['#title']); ?></dd>
                     </dl>
                 </div>
