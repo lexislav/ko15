@@ -89,7 +89,7 @@
 
 .l-section_half-page {
     display: flex;
-    min-height: 200px;
+    min-height: 250px;
     flex-direction: column;
     @include media(B) {
         flex-direction: row;
@@ -120,12 +120,8 @@
             }
         }
 
-
-
-
         &.mm-has-background {
-            min-height: 160px;
-
+            min-height: 200px;
         }
 
     }
