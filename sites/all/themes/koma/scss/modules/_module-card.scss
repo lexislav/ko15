@@ -46,6 +46,7 @@
             height: 100%;
         }
     }
+
     &:hover {
         a {
             text-decoration: underline;
@@ -1081,12 +1082,30 @@
 
 }
 
-.l-section_half-page {
-    .m-card--headline {
-        margin-bottom: 2em;
+.m-card_half-block {
+    @include m-card();
+
+    .m-item--hed {
+        font-size: rem-calc(36);
+        margin-bottom: 1em;
+
+        @include media(C) {
+            font-size: rem-calc(50);
+            margin-bottom: 2em;
+        }
     }
-    .m-card--content {
+    .m-item--content {
         margin-bottom: 3em;
     }
 
+    &:hover {
+        a {
+            text-decoration: none;
+        }
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+
 }
+

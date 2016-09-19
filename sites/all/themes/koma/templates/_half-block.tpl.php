@@ -14,12 +14,12 @@
             <div class="l-content">
                 <!-- obsah pravé-->
 
-                <div class="m-card m-card_half-block">
-                    <h2 class="m-card--headline mm-big">Headline</h2>
-                    <div class="m-card--content">
+                <div class="m-card_half-block">
+                    <h2 class="m-item--hed mm-big"><a href="#" title="">Headline</a></h2>
+                    <div class="m-item--content">
                         <p>Modulární systém je rychlý, ekologický, šetrný k okolí, kvalitní, cenově výhodný, nákladově efektivní, flexibilní, mobilní.</p>
                     </div>
-                    <div class="m-card--meta">
+                    <div class="m-item--meta">
                         <div class="button primary">Button →</div>
                     </div>
                 </div>
@@ -38,12 +38,12 @@
             <div class="l-content">
                 <!-- obsah pravé-->
 
-                <div class="m-card m-card_half-block">
-                    <h2 class="m-card--headline mm-big">Headline</h2>
-                    <div class="m-card--content">
+                <div class="m-card_half-block">
+                    <h2 class="m-item--hed mm-big">Headline</h2>
+                    <div class="m-item--content">
                         <p>Modulární systém je rychlý, ekologický, šetrný k okolí, kvalitní, cenově výhodný, nákladově efektivní, flexibilní, mobilní.</p>
                     </div>
-                    <div class="m-card--meta">
+                    <div class="m-item--meta">
                         <div class="button primary">Button →</div>
                     </div>
                 </div>

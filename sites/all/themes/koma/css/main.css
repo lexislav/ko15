@@ -7346,11 +7346,61 @@ aside .m-aside-block--meta {
   font-weight: normal;
   font-size: 0.875rem; }
 
-.l-section_half-page .m-card--headline {
-  margin-bottom: 2em; }
+.m-card_half-block article,
+.m-card_half-block header {
+  position: relative; }
 
-.l-section_half-page .m-card--content {
+.m-card_half-block a {
+  color: #000;
+  text-decoration: none; }
+  .m-card_half-block a:hover {
+    color: #C20E1A;
+    text-decoration: underline; }
+
+.m-card_half-block p {
+  margin: 0; }
+
+.m-card_half-block .m-item--hed {
+  font-size: 0.9375rem; }
+  @media only screen and (min-width: 641px) {
+    .m-card_half-block .m-item--hed {
+      font-size: 1.125rem; } }
+
+.m-card_half-block .m-item--description {
+  font-size: 0.75rem; }
+  @media only screen and (min-width: 641px) {
+    .m-card_half-block .m-item--description {
+      font-size: 0.875rem; } }
+
+.m-card_half-block .m-item--image img {
+  width: 100%;
+  height: auto;
+  display: none; }
+
+.m-card_half-block .m-item--image a {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+.m-card_half-block:hover a {
+  text-decoration: underline; }
+
+.m-card_half-block .m-item--hed {
+  font-size: 2.25rem;
+  margin-bottom: 1em; }
+  @media only screen and (min-width: 961px) {
+    .m-card_half-block .m-item--hed {
+      font-size: 3.125rem;
+      margin-bottom: 2em; } }
+
+.m-card_half-block .m-item--content {
   margin-bottom: 3em; }
+
+.m-card_half-block:hover a {
+  text-decoration: none; }
+
+.m-card_half-block a:hover {
+  text-decoration: underline; }
 
 .m-filter {
   margin-bottom: 30px; }
