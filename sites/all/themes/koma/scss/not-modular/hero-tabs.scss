@@ -163,7 +163,6 @@
                 border-color: $color-primary;
             }
 
-
             //logos
 
             .koma-modular {
@@ -182,33 +181,42 @@
             &.active,
             &:hover {
                 .koma-modular {
-                        background-image: url(/sites/all/themes/koma/assets/images/koma-modular-atl-o.png);
+                    background-image: url(/sites/all/themes/koma/assets/images/koma-modular-atl-o.png);
                 }
                 .koma-space {
-                        background-image: url(/sites/all/themes/koma/assets/images/koma-space-atl-o.png);
+                    background-image: url(/sites/all/themes/koma/assets/images/koma-space-atl-o.png);
                 }
                 .koma-slovakia {
-                        background-image: url(/sites/all/themes/koma/assets/images/koma-slovakia-atl-o.png);
+                    background-image: url(/sites/all/themes/koma/assets/images/koma-slovakia-atl-o.png);
                 }
                 .koma-rent {
-                        background-image: url(/sites/all/themes/koma/assets/images/koma-rent-atl-o.png);
+                    background-image: url(/sites/all/themes/koma/assets/images/koma-rent-atl-o.png);
                 }
 
             }
-
 
             // colors
             @each $colorName, $colorValue in $pallete {
                 &.color-#{$colorName} {
                     border-color: $colorValue;
-                    &:hover {
-                        background-color: $colorValue;
-                    }
+                    &:hover,
                     &.active {
                         background-color: $colorValue;
                     }
                 }
             }
+
+            @each $colorName, $colorValue in $pallete {
+                &.color-white-border-#{$colorName} {
+                    border-color: white;
+                    &:hover,
+                    &.active {
+                        border-color: $colorValue;
+                        background-color: $colorValue;
+                    }
+                }
+            }
+
 
         }
 

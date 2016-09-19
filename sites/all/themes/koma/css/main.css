@@ -435,6 +435,9 @@ th {
 .color-body-bg {
   color: #ECEDEC; }
 
+.color-0 {
+  color: #C20E1A; }
+
 .color-1 {
   color: #7AB929; }
 
@@ -485,6 +488,9 @@ th {
 
 .bg-body-bg {
   background-color: #ECEDEC; }
+
+.bg-0 {
+  background-color: #C20E1A; }
 
 .bg-1 {
   background-color: #7AB929; }
@@ -555,6 +561,9 @@ th {
   .firstline-body-bg a:hover {
     color: #C20E1A;
     text-decoration: none; }
+
+.firstline-0:first-line {
+  color: #C20E1A; }
 
 .firstline-1:first-line {
   color: #7AB929; }
@@ -5997,6 +6006,19 @@ aside .m-aside-block--meta {
       height: 181px; }
     .m-card_vertical .m-item--meta span {
       display: block; } }
+  .m-card_vertical.mm-color-0:before {
+    height: 4px;
+    background-color: #C20E1A;
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    content: "";
+    z-index: 1; }
+  .m-card_vertical.mm-color-0 .colored {
+    color: #C20E1A; }
+  .m-card_vertical.mm-color-0 a:hover {
+    color: #C20E1A; }
   .m-card_vertical.mm-color-1:before {
     height: 4px;
     background-color: #7AB929;
@@ -6210,6 +6232,19 @@ aside .m-aside-block--meta {
       height: 181px; }
     .m-card_horizontal .m-item--meta span {
       display: block; } }
+  .m-card_horizontal.mm-color-0:before {
+    height: 4px;
+    background-color: #C20E1A;
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    content: "";
+    z-index: 1; }
+  .m-card_horizontal.mm-color-0 .colored {
+    color: #C20E1A; }
+  .m-card_horizontal.mm-color-0 a:hover {
+    color: #C20E1A; }
   .m-card_horizontal.mm-color-1:before {
     height: 4px;
     background-color: #7AB929;
@@ -6459,6 +6494,12 @@ aside .m-aside-block--meta {
   .m-card_image .m-item--image a:before {
     background-color: #C20E1A;
     opacity: 0; }
+  .m-card_image.mm-color-0 .m-item--image a {
+    border-top: 4px solid transparent;
+    border-top-color: #C20E1A; }
+    .m-card_image.mm-color-0 .m-item--image a:before {
+      background-color: #C20E1A;
+      opacity: .8; }
   .m-card_image.mm-color-1 .m-item--image a {
     border-top: 4px solid transparent;
     border-top-color: #7AB929; }
@@ -6641,6 +6682,8 @@ aside .m-aside-block--meta {
     padding: 0 10%; }
   .m-card_thumb.mm-has-hover:hover .m-item--image:before {
     opacity: 0; }
+  .m-card_thumb.mm-color-0 .m-item--image:before {
+    background-color: #C20E1A; }
   .m-card_thumb.mm-color-1 .m-item--image:before {
     background-color: #7AB929; }
   .m-card_thumb.mm-color-2 .m-item--image:before {
@@ -8642,65 +8685,104 @@ article header figure {
         background-image: url(/sites/all/themes/koma/assets/images/koma-slovakia-atl-o.png); }
       .hero-tabs .navigation .tab.active .koma-rent, .hero-tabs .navigation .tab:hover .koma-rent {
         background-image: url(/sites/all/themes/koma/assets/images/koma-rent-atl-o.png); }
+      .hero-tabs .navigation .tab.color-0 {
+        border-color: #C20E1A; }
+        .hero-tabs .navigation .tab.color-0:hover, .hero-tabs .navigation .tab.color-0.active {
+          background-color: #C20E1A; }
       .hero-tabs .navigation .tab.color-1 {
         border-color: #7AB929; }
-        .hero-tabs .navigation .tab.color-1:hover {
-          background-color: #7AB929; }
-        .hero-tabs .navigation .tab.color-1.active {
+        .hero-tabs .navigation .tab.color-1:hover, .hero-tabs .navigation .tab.color-1.active {
           background-color: #7AB929; }
       .hero-tabs .navigation .tab.color-2 {
         border-color: #6DC1AE; }
-        .hero-tabs .navigation .tab.color-2:hover {
-          background-color: #6DC1AE; }
-        .hero-tabs .navigation .tab.color-2.active {
+        .hero-tabs .navigation .tab.color-2:hover, .hero-tabs .navigation .tab.color-2.active {
           background-color: #6DC1AE; }
       .hero-tabs .navigation .tab.color-3 {
         border-color: #4E9ED8; }
-        .hero-tabs .navigation .tab.color-3:hover {
-          background-color: #4E9ED8; }
-        .hero-tabs .navigation .tab.color-3.active {
+        .hero-tabs .navigation .tab.color-3:hover, .hero-tabs .navigation .tab.color-3.active {
           background-color: #4E9ED8; }
       .hero-tabs .navigation .tab.color-4 {
         border-color: #7D83BF; }
-        .hero-tabs .navigation .tab.color-4:hover {
-          background-color: #7D83BF; }
-        .hero-tabs .navigation .tab.color-4.active {
+        .hero-tabs .navigation .tab.color-4:hover, .hero-tabs .navigation .tab.color-4.active {
           background-color: #7D83BF; }
       .hero-tabs .navigation .tab.color-5 {
         border-color: #9C6FAE; }
-        .hero-tabs .navigation .tab.color-5:hover {
-          background-color: #9C6FAE; }
-        .hero-tabs .navigation .tab.color-5.active {
+        .hero-tabs .navigation .tab.color-5:hover, .hero-tabs .navigation .tab.color-5.active {
           background-color: #9C6FAE; }
       .hero-tabs .navigation .tab.color-6 {
         border-color: #E8308A; }
-        .hero-tabs .navigation .tab.color-6:hover {
-          background-color: #E8308A; }
-        .hero-tabs .navigation .tab.color-6.active {
+        .hero-tabs .navigation .tab.color-6:hover, .hero-tabs .navigation .tab.color-6.active {
           background-color: #E8308A; }
       .hero-tabs .navigation .tab.color-7 {
         border-color: #E50051; }
-        .hero-tabs .navigation .tab.color-7:hover {
-          background-color: #E50051; }
-        .hero-tabs .navigation .tab.color-7.active {
+        .hero-tabs .navigation .tab.color-7:hover, .hero-tabs .navigation .tab.color-7.active {
           background-color: #E50051; }
       .hero-tabs .navigation .tab.color-8 {
         border-color: #EC6608; }
-        .hero-tabs .navigation .tab.color-8:hover {
-          background-color: #EC6608; }
-        .hero-tabs .navigation .tab.color-8.active {
+        .hero-tabs .navigation .tab.color-8:hover, .hero-tabs .navigation .tab.color-8.active {
           background-color: #EC6608; }
       .hero-tabs .navigation .tab.color-9 {
         border-color: #F4B003; }
-        .hero-tabs .navigation .tab.color-9:hover {
-          background-color: #F4B003; }
-        .hero-tabs .navigation .tab.color-9.active {
+        .hero-tabs .navigation .tab.color-9:hover, .hero-tabs .navigation .tab.color-9.active {
           background-color: #F4B003; }
       .hero-tabs .navigation .tab.color-10 {
         border-color: #B5BBB4; }
-        .hero-tabs .navigation .tab.color-10:hover {
+        .hero-tabs .navigation .tab.color-10:hover, .hero-tabs .navigation .tab.color-10.active {
           background-color: #B5BBB4; }
-        .hero-tabs .navigation .tab.color-10.active {
+      .hero-tabs .navigation .tab.color-white-border-0 {
+        border-color: white; }
+        .hero-tabs .navigation .tab.color-white-border-0:hover, .hero-tabs .navigation .tab.color-white-border-0.active {
+          border-color: #C20E1A;
+          background-color: #C20E1A; }
+      .hero-tabs .navigation .tab.color-white-border-1 {
+        border-color: white; }
+        .hero-tabs .navigation .tab.color-white-border-1:hover, .hero-tabs .navigation .tab.color-white-border-1.active {
+          border-color: #7AB929;
+          background-color: #7AB929; }
+      .hero-tabs .navigation .tab.color-white-border-2 {
+        border-color: white; }
+        .hero-tabs .navigation .tab.color-white-border-2:hover, .hero-tabs .navigation .tab.color-white-border-2.active {
+          border-color: #6DC1AE;
+          background-color: #6DC1AE; }
+      .hero-tabs .navigation .tab.color-white-border-3 {
+        border-color: white; }
+        .hero-tabs .navigation .tab.color-white-border-3:hover, .hero-tabs .navigation .tab.color-white-border-3.active {
+          border-color: #4E9ED8;
+          background-color: #4E9ED8; }
+      .hero-tabs .navigation .tab.color-white-border-4 {
+        border-color: white; }
+        .hero-tabs .navigation .tab.color-white-border-4:hover, .hero-tabs .navigation .tab.color-white-border-4.active {
+          border-color: #7D83BF;
+          background-color: #7D83BF; }
+      .hero-tabs .navigation .tab.color-white-border-5 {
+        border-color: white; }
+        .hero-tabs .navigation .tab.color-white-border-5:hover, .hero-tabs .navigation .tab.color-white-border-5.active {
+          border-color: #9C6FAE;
+          background-color: #9C6FAE; }
+      .hero-tabs .navigation .tab.color-white-border-6 {
+        border-color: white; }
+        .hero-tabs .navigation .tab.color-white-border-6:hover, .hero-tabs .navigation .tab.color-white-border-6.active {
+          border-color: #E8308A;
+          background-color: #E8308A; }
+      .hero-tabs .navigation .tab.color-white-border-7 {
+        border-color: white; }
+        .hero-tabs .navigation .tab.color-white-border-7:hover, .hero-tabs .navigation .tab.color-white-border-7.active {
+          border-color: #E50051;
+          background-color: #E50051; }
+      .hero-tabs .navigation .tab.color-white-border-8 {
+        border-color: white; }
+        .hero-tabs .navigation .tab.color-white-border-8:hover, .hero-tabs .navigation .tab.color-white-border-8.active {
+          border-color: #EC6608;
+          background-color: #EC6608; }
+      .hero-tabs .navigation .tab.color-white-border-9 {
+        border-color: white; }
+        .hero-tabs .navigation .tab.color-white-border-9:hover, .hero-tabs .navigation .tab.color-white-border-9.active {
+          border-color: #F4B003;
+          background-color: #F4B003; }
+      .hero-tabs .navigation .tab.color-white-border-10 {
+        border-color: white; }
+        .hero-tabs .navigation .tab.color-white-border-10:hover, .hero-tabs .navigation .tab.color-white-border-10.active {
+          border-color: #B5BBB4;
           background-color: #B5BBB4; }
   .hero-tabs.mm-four .navigation .tab:nth-of-type(5), .hero-tabs.mm-four .navigation .tab:nth-of-type(6) {
     display: none; }
