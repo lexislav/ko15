@@ -25,8 +25,7 @@
         }
 
         &:nth-of-type(2),
-        &:nth-of-type(3)
-        {
+        &:nth-of-type(3) {
             height: $cellheight;
             @include move(-1/2);
         }
@@ -43,8 +42,7 @@
             }
 
             &:nth-of-type(2),
-            &:nth-of-type(3)
-            {
+            &:nth-of-type(3) {
                 height: $cellheight;
             }
         }
@@ -63,8 +61,7 @@
             }
 
             &:nth-of-type(2),
-            &:nth-of-type(3)
-            {
+            &:nth-of-type(3) {
                 height: $cellheight;
                 @include move(-1/4);
             }
@@ -83,13 +80,83 @@
             }
 
             &:nth-of-type(2),
-            &:nth-of-type(3)
-            {
+            &:nth-of-type(3) {
                 height: $cellheight;
             }
         }
     }
 }
+
+.l-section_half-page {
+    display: flex;
+    min-height: 200px;
+    flex-direction: column;
+    @include media(B) {
+        flex-direction: row;
+
+    }
+
+    .l-half-wide {
+        flex: 1;
+        display: flex;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+
+        &.mm-left {
+            order: 1;
+            justify-content: flex-end;
+        }
+
+        &.mm-right {
+            order: 2;
+            justify-content: flex-start;
+
+            &.mm-has-background {
+                order: 0;
+                @include media(B) {
+                    order: 2;
+                    }
+            }
+        }
+
+
+
+
+        &.mm-has-background {
+            min-height: 160px;
+
+        }
+
+    }
+
+    .l-content-wrap {
+        flex: 1;
+        display: flex;
+        padding: 0 15px; // gutter
+        max-width: 100%;
+
+        @include media(C) {
+            max-width: $layout-width-C / 2;
+        }
+        @include media(D) {
+            max-width: $layout-width-D / 2;
+        }
+    }
+
+    .l-content {
+        padding: 20px 30px;
+        flex: 1;
+        flex-direction: row;
+        justify-content: center;
+
+        @include media(C) {
+            padding: 50px 60px;
+
+        }
+    }
+}
+
 
 
 

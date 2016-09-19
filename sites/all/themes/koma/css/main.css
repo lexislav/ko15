@@ -3602,6 +3602,52 @@ h1, h2, h3, h4, h5, h6 {
   .l-section_side-triple .l-section--item:nth-of-type(2), .l-section_side-triple .l-section--item:nth-of-type(3) {
     height: 200px; } }
 
+.l-section_half-page {
+  display: flex;
+  min-height: 200px;
+  flex-direction: column; }
+  @media only screen and (min-width: 641px) {
+    .l-section_half-page {
+      flex-direction: row; } }
+  .l-section_half-page .l-half-wide {
+    flex: 1;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%; }
+    .l-section_half-page .l-half-wide.mm-left {
+      order: 1;
+      justify-content: flex-end; }
+    .l-section_half-page .l-half-wide.mm-right {
+      order: 2;
+      justify-content: flex-start; }
+      .l-section_half-page .l-half-wide.mm-right.mm-has-background {
+        order: 0; }
+        @media only screen and (min-width: 641px) {
+          .l-section_half-page .l-half-wide.mm-right.mm-has-background {
+            order: 2; } }
+    .l-section_half-page .l-half-wide.mm-has-background {
+      min-height: 160px; }
+  .l-section_half-page .l-content-wrap {
+    flex: 1;
+    display: flex;
+    padding: 0 15px;
+    max-width: 100%; }
+    @media only screen and (min-width: 961px) {
+      .l-section_half-page .l-content-wrap {
+        max-width: 480px; } }
+    @media only screen and (min-width: 1331px) {
+      .l-section_half-page .l-content-wrap {
+        max-width: 648px; } }
+  .l-section_half-page .l-content {
+    padding: 20px 30px;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center; }
+    @media only screen and (min-width: 961px) {
+      .l-section_half-page .l-content {
+        padding: 50px 60px; } }
+
 .l-feed_list .l-single {
   float: left;
   width: calc(100% * 1 - 30px - 1px);
@@ -7289,6 +7335,12 @@ aside .m-aside-block--meta {
   font-family: Purista_Medium;
   font-weight: normal;
   font-size: 0.875rem; }
+
+.l-section_half-page .m-card--headline {
+  margin-bottom: 2em; }
+
+.l-section_half-page .m-card--content {
+  margin-bottom: 3em; }
 
 .m-filter {
   margin-bottom: 30px; }
