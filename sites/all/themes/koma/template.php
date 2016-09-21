@@ -21,8 +21,8 @@ function koma_is_local()
 
 function koma_theme_wrapper($variable)
 {
-        $pth = pathinfo($variable);
-        echo 'theme-wrapper="' . $pth["basename"] . '"';
+    $pth = pathinfo($variable);
+    echo 'theme-wrapper="' . $pth["basename"] . '"';
 }
 
 
@@ -115,8 +115,11 @@ function koma_menu_breadcrumb_alter(&$active_trail, $item)
     $i = 0;
     foreach (array_keys($active_trail) as $key) {
         if ($i != 0) {
+          if(isset($active_trail[$key]['mlid'])){
             $translatedValue = i18n_string_translate(array('menu', 'item', $active_trail[$key]['mlid'], 'title'), $active_trail[$key]['title'], array('langcode' => $lang_name, 'sanitize' => false));
             $active_trail[$key]['title'] = $translatedValue;
+          }
+
         }
         $i++;
     }
