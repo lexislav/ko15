@@ -52,6 +52,12 @@
             text-decoration: underline;
         }
     }
+    .m-card--more {
+        a,
+        a:hover {
+            text-decoration: none;
+        }
+    }
 
 }
 
@@ -120,6 +126,12 @@
         top: 20px;
         left: 30px;
         color: white;
+
+        a,
+        a:hover {
+            color: white;
+            text-decoration: none;
+        }
     }
 
     &:hover {
