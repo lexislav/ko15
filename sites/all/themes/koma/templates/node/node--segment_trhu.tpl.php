@@ -31,7 +31,7 @@ global $language;
 
                     <div class="l-full">
                         <figure class="m-basic-page--image" style="background-image: url(<?= $GLOBALS['base_url'] ?>/sites/default/files/segment_trhu/<?= $node->field_segment_img['und'][0]['filename'] ?>)">
-                            <a href=""><img src="<?= $GLOBALS['base_url'] ?>/sites/default/files/segment_trhu/<?= $node->field_segment_img['und'][0]['filename'] ?>" alt="" /></a>
+                            <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>"><img src="<?= $GLOBALS['base_url'] ?>/sites/default/files/segment_trhu/<?= $node->field_segment_img['und'][0]['filename'] ?>" alt="" /></a>
                             <figcaption>
                                 <?= $content['field_segment_img_text']['#items'][0]['value'] ?>
                             </figcaption>
@@ -85,7 +85,7 @@ global $language;
                     <header>
                       <!-- @TODO dodelat nacitani main img z fotogalerie -->
                       <div class="m-item--image" style="background-image: url(<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>)">
-                        <a href="">
+                        <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>">
                           <img src="<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>" alt="" />
                         </a>
                       </div>
@@ -215,7 +215,7 @@ if($node->field_segment_reference['und']){
         <header>
           <!--                        @TODO dodelat nacitani main img z fotogalerie-->
           <div class="m-item--image" style="background-image: url(<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>)">
-            <a href="">
+            <a href="<?= test_lang_prefix('node/' . $reference['entity']->nid) ?>">
               <img src="<?= image_style_url('x310-340', $reference['entity']->field_reference_main_img['und'][0]['uri']) ?>" alt="" />
             </a>
           </div>

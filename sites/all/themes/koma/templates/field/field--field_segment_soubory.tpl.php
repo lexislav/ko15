@@ -54,6 +54,7 @@
             foreach ($items AS $soubor) {
                 $trida = '';
               if(isset($soubor['#file']->filename)){
+                dpm($soubor['#file']->filename);
                 $typ = end(explode('.', $soubor['#file']->filename));
                 switch ($typ) {
                   case "zip":

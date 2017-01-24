@@ -1,4 +1,9 @@
-<div class="m-section l-feed_three" <?php koma_theme_wrapper(__FILE__)?>>
+<?php
+$modificatiorClass = '';
+if (isset($items[0]['myclass'])) $modificatiorClass = $items[0]['myclass'];
+?>
+
+<div class="m-section l-feed_three <?=$modificatiorClass?>" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="row rowfix">
         <?php
         // @TODO zkontrolovat kategorie a tenhle seznam
@@ -24,7 +29,7 @@
             $target_id = ($element['#object']->field_or_odkazy['cs'][$poradi]['field_ereference_segment']['und'][0]['target_id']);
             $node_target = node_load($target_id); // $nid contains the node id
 
-
+//          test_lang_code
 
 
             if (isset($cast['field_page_link']['#items'][0]['url'])) {
