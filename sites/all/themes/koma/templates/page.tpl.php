@@ -103,6 +103,8 @@ if ($user->uid == 1) {
 
         if (($user->uid > 0 AND $banner1->field_zobrazeni['und'][0]['value'] == 2 ) OR $banner1->field_zobrazeni['und'][0]['value'] == 1) {
 
+          dpm($banner1);
+
 
             if (isset($banner1->field_simple_img['und'][0]['uri'])) {
                 $uri1 = $banner1->field_simple_img['und'][0]['uri'];
@@ -142,15 +144,18 @@ if ($user->uid == 1) {
 
 
 <!--banner loga zive firmy-->
-<div  id="page-banner-bottom" class="m-section bg-secondary">
+<div id="page-banner-bottom" class="m-section bg-white">
   <article class="m-banner">
     <header>
+      <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/slusnafirma_clenove_logo-156.png)">
+        <img style="height: 68px;margin-top:-2px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/slusnafirma_clenove_logo-156.png">
+      </div>
       <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/spolehliva-firma-2016_125.png)">
-        <img style="height: 64px;"  src="http://www.koma-modular.cz/sites/all/themes/koma/images/spolehliva-firma-2016_125.png">
+        <img style="height: 64px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/spolehliva-firma-2016_125.png">
       </div>
       <div class="m-banner--summary">
         <h1 class="m-banner--hed">
-          Jsme držiteli ocenění Spolehlivá firma.
+          Jsme držiteli ocenění Spolehlivá firma a Slušná firma.
         </h1>
       </div>
     </header>
