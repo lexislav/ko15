@@ -29,12 +29,10 @@ if (isset($row->field_field_zpravodaj_main_img[0])) {
                     <br />
                     <a href="<?= test_lang_prefix('node/'.$row->nid) ?>">&rarr;</a></p>
             </div>
-            <?php if(isset($prislusenstvi)){?>
             <div class="m-item--meta">
                 <span><?= $row->field_field_zpravodaj_kategorie[0]['rendered']['#markup'] ?> /</span> <span
                     class="colored"><?= $row->field_field_zpravodaj_publikace[0]['rendered']['#markup'] ?></span>
             </div>
-            <?php } ?>
         </div>
     </header>
 </article>
