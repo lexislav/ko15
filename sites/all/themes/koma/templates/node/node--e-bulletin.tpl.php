@@ -1,4 +1,6 @@
 <?php
+global $user;
+if($user->uid > 0){
 if (isset($_POST['odeslano'])) {
 
     $body = variable_get('nastaveni_bulletin', $default = NULL);
@@ -137,7 +139,7 @@ if (isset($_POST['odeslano'])) {
                     ?>
                     <input type="hidden" name="odeslano"
                            value="<?= count($content['field_bulletin_reference']['#items']) ?>"/>
-                    <button type="submit" value="vytvořit html">vytvořit html</button>
+                    <button type="submit" value="vytvořit html">vytvořit htmls</button>
 
                 </form>
             </article>
@@ -147,5 +149,6 @@ if (isset($_POST['odeslano'])) {
         CKEDITOR.replace('area');
     </script>
 <?php
+}
 }
 ?>

@@ -35,9 +35,11 @@
             <?php
             print $rows; ?>
         <?php elseif ($empty): ?>
-            <div class="view-empty">
-                <?php print $empty; ?>
+          <div class="">
+            <div class="m-search--noresults">
+              <h2 class="m-search--hed"><?php print $empty; ?></h2>
             </div>
+          </div>
         <?php endif; ?>
         <?php if ($attachment_after): ?>
             <div class="attachment attachment-after">

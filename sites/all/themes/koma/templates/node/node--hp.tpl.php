@@ -67,7 +67,6 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
 <!--htmlblok-->
 <?php
 GLOBAL $user;
-dpm($node);
 if($user->uid == 1 OR $user->uid == 114){
   $display = array('label' => 'hidden');
   $htmltext = field_view_field('node', $node, 'field_basic_popis_2',$display);
@@ -79,7 +78,7 @@ if($user->uid == 1 OR $user->uid == 114){
   </div>
   <div class="row">
     <div class="small-12 medium-6 columns">
-      <img src="<?= image_style_url('x618-480', $node->field_jeden_obrazek['und'][0]['uri']) ?>">
+      <img src="<?= image_style_url('x618-0', $node->field_jeden_obrazek['und'][0]['uri']) ?>">
     </div>
     <div class="small-12 medium-6 columns">
       <h3 class="m-section--hed mm-big mm-tiny mm-center mm-pad-bottom mm-pad-top">
