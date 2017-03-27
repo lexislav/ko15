@@ -3,178 +3,229 @@ $prev_nid = prev_next_nid($node->nid, 'prev');
 $next_nid = prev_next_nid($node->nid, 'next');
 ?>
 
-<div class="m-section l-detail-page" <?php koma_theme_wrapper(__FILE__) ?>>
-  <div class="row">
-    <header class="m-section--header"></header>
-  </div>
+<div class="m-section l-detail-page" update <?php koma_theme_wrapper(__FILE__) ?>>
+    <div class="row">
+        <header class="m-section--header"></header>
+    </div>
 
-  <article class="m-story">
-    <header>
+    <article class="m-story">
+        <header>
 
-      <div class="m-story--summary">
-        <h1 class="m-story--hed"><a href=""><?php print $title; ?></a></h1>
+            <div class="m-story--summary">
+                <h1 class="m-story--hed"><a href=""><?php print $title; ?></a></h1>
 
-        <div class="m-story--meta">
-          <dl>
-            <dt><?php print t('Datum') ?></dt>
-            <dd><?= ($content['field_zpravodaj_publikace'][0]['#markup']); ?></dd>
-          </dl>
+                <div class="m-story--meta">
+                    <dl>
+                        <dt><?php print t('Datum') ?></dt>
+                        <dd><?= ($content['field_zpravodaj_publikace'][0]['#markup']); ?></dd>
+                    </dl>
 
-          <dl>
-            <dt><?php print t('Category') ?></dt>
-            <dd style="display: none;">
-              <a href="<?= test_basic_url() ?>zpravodaj?field_zpravodaj_kategorie_tid=<?= $content['field_zpravodaj_kategorie']['#items'][0]['tid'] ?>" title="<?= $content['field_zpravodaj_kategorie'][0]['#title'] ?>">
-                <?= ($content['field_zpravodaj_kategorie'][0]['#title']); ?>
-              </a>
-            </dd>
-            <dd>
-              <?= ($content['field_zpravodaj_kategorie'][0]['#title']); ?>
-            </dd>
-          </dl>
-        </div>
-
-      </div>
-    </header>
-
-    <?php
-    $hasImage = FALSE;
-    if (isset($node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'][0])) {
-      $hasImage = TRUE;
-    }
-    $contentClass = '';
-    if ($hasImage) {
-      $contentClass = "mm-has-image";
-    }
-    ?>
-
-    <div class="m-story--content <?php echo $contentClass; ?>">
-
-      <?php
-
-
-      if ($hasImage) { ?>
-        <div class="m-story--image">
-          <img src="<?= image_style_url('x412-300', $node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'][0]['uri']) ?>" alt="">
-        </div>
-      <?php } ?>
-      <?php
-      if ($_GET['admin'] == 1) {
-        if (isset($content['field_zpravodaj_soubory']['#items'])) {
-          $output = field_view_field('node', $node, 'field_zpravodaj_soubory');
-          print render($output);
-        }
-        if (isset($content['field_zpravodaj_link']['#items'])) {
-          $output = field_view_field('node', $node, 'field_zpravodaj_link');
-          print render($output);
-        }
-      }
-      ?>
-
-
-      <div class="m-body--content">
-        <?= ($content['field_zpravodaj_text']['#items'][0]['value']); ?>
-        <?php
-        if (isset($content['field_zpravodaj_video']['#items'])) {
-
-          foreach ($content['field_zpravodaj_video']['#items'] AS $video) { ?>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/<?= $video['video_id'] ?>?rel=0" frameborder="0" allowfullscreen></iframe>
-            <br/>
-          <?php };
-        } ?>
-      </div>
-
-
-      <?php
-      if (isset($node->field_zpravodaj_foogalerie['und'])):
-        ?>
-        <aside>
-          <div class="m-aside-block">
-            <header class="m-aside-block--header">
-              <div class="m-aside-block--summary">
-                <h2 class="m-aside-block--hed">&rarr; <?php print t('Photo gallery') ?></h2>
-
-                <div class="m-aside-block--meta">
-                  (<?= count($node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und']) ?> <?php print t('photographs') ?>
-                  )
+                    <dl>
+                        <dt><?php print t('Category') ?></dt>
+                        <dd style="display: none;">
+                            <a href="<?= test_basic_url() ?>zpravodaj?field_zpravodaj_kategorie_tid=<?= $content['field_zpravodaj_kategorie']['#items'][0]['tid'] ?>" title="<?= $content['field_zpravodaj_kategorie'][0]['#title'] ?>">
+                                <?= ($content['field_zpravodaj_kategorie'][0]['#title']); ?>
+                            </a>
+                        </dd>
+                        <dd>
+                            <?= ($content['field_zpravodaj_kategorie'][0]['#title']); ?>
+                        </dd>
+                    </dl>
                 </div>
-              </div>
-            </header>
-            <div class="m-aside-block--content">
-              <ul class="m-gallery mm-medium" class="clearing-thumbs" data-clearing>
-                <?php foreach ($node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'] AS $obrazek) { ?>
-                  <li class="m-gallery--item">
-                    <a href="<?= image_style_url('zadny', $obrazek['uri']) ?>"><img src="<?= image_style_url('x412-300', $obrazek['uri']) ?>"></a>
-                  </li>
+
+            </div>
+        </header>
+
+        <?php
+        $hasImage = false;
+        if (isset($node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'][0])) {
+            $hasImage = true;
+        }
+        $contentClass = '';
+        if ($hasImage) {
+            $contentClass = "mm-has-image";
+        }
+        ?>
+
+        <div class="m-story--content <?php echo $contentClass; ?>">
+
+
+            <div class="m-body--content">
+                <?php if ($hasImage) { ?>
+                    <div class="m-story--image mm-mobile">
+                        <img src="<?= image_style_url('x412-300', $node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'][0]['uri']) ?>" alt="">
+                    </div>
                 <?php } ?>
-              </ul>
+
+
+                <?= ($content['field_zpravodaj_text']['#items'][0]['value']); ?>
+                <?php
+                if (isset($content['field_zpravodaj_video']['#items'])) {
+
+                    foreach ($content['field_zpravodaj_video']['#items'] AS $video) { ?>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/<?= $video['video_id'] ?>?rel=0" frameborder="0" allowfullscreen></iframe>
+                        <br />
+                    <?php };
+                } ?>
+            </div>
+
+            <div class="m-story--aside">
+
+                <?php if ($hasImage) { ?>
+                    <div class="m-story--image mm-desktop">
+                        <img src="<?= image_style_url('x412-300', $node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'][0]['uri']) ?>" alt="">
+                    </div>
+                <?php } ?>
+
+
+                <!--
+                <div class="m-aside-block bg-secondary-light mm-pad">
+                    <header class="m-aside-block--header">
+                        <h3 class="m-aside-block--hed">Ke stažení</h3>
+                    </header>
+                    <div class="m-reference--meta m-properties">
+                        <dl class="mm-nolabels mm-noborder">
+                            <dt>Technický list Comfort Line</dt>
+                            <dd><a href="http://www.koma-modular.cz/sites/default/files/rada/soubory/m3_cj.pdf" target="_blank" title="Technický list Comfort Line">
+                                    <i class="fa fa-file-pdf-o"></i> Technický list Comfort Line</a></dd>
+                        </dl>
+                        <dl class="mm-nolabels mm-noborder">
+                            <dt>Ceník</dt>
+                            <dd><a href="http://www.koma-modular.cz/sites/default/files/rada/soubory/cenik_1.1.2016_cz.pdf" target="_blank" title="Ceník">
+                                    <i class="fa fa-file-pdf-o"></i> Ceník</a></dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="m-aside-block bg-secondary-light mm-pad">
+                    <header class="m-aside-block--header">
+                        <h3 class="m-aside-block--hed">Odkazy</h3>
+                    </header>
+                    <div class="m-reference--meta m-properties">
+                        <dl class="mm-nolabels mm-noborder">
+                            <dt>Technický list Comfort Line</dt>
+                            <dd><a href="http://www.koma-modular.cz/sites/default/files/rada/soubory/m3_cj.pdf" target="_blank" title="Technický list Comfort Line">
+                                    <i class="fa fa-file-pdf-o"></i> Technický list Comfort Line</a></dd>
+                        </dl>
+                        <dl class="mm-nolabels mm-noborder">
+                            <dt>Ceník</dt>
+                            <dd><a href="http://www.koma-modular.cz/sites/default/files/rada/soubory/cenik_1.1.2016_cz.pdf" target="_blank" title="Ceník">
+                                    <i class="fa fa-file-pdf-o"></i> Ceník</a></dd>
+                        </dl>
+                    </div>
+                </div>
+                -->
+
+
+                <?php
+
+                //@todo: Michal Řezníček - tady tyhle dva výpisy musí mít šablonu aside blocku - viz to co je nahoře zakomentované. Už to používáme, není to nová věc. Jen je třeba aby ten print render($output) plival správné html
+
+                if ($_GET['admin'] == 1) {
+                    if (isset($content['field_zpravodaj_soubory']['#items'])) {
+                        $output = field_view_field('node', $node, 'field_zpravodaj_soubory');
+                        print render($output);
+                    }
+                    if (isset($content['field_zpravodaj_link']['#items'])) {
+                        $output = field_view_field('node', $node, 'field_zpravodaj_link');
+                        print render($output);
+                    }
+                }
+                ?>
             </div>
 
 
-          </div>
-        </aside>
-        <?php
-      endif;
-      ?>
-    </div>
-  </article>
-
-  <footer class="m-section--footer" style="padding: 0" <?php koma_theme_wrapper(__FILE__) ?>>
-
-    <!-- starší novější -->
-    <?php if (($prev_nid[0]->prev_nid > 0) || ($next_nid[0]->next_nid > 0)) { ?>
-      <div class="clearfix">
-        <div class="row" style="padding:  48px 0">
-          <div class="l-half" style="padding: 0 48px; text-align: right">
             <?php
-            if ($prev_nid[0]->prev_nid > 0) {
-              ?>
-              <a href="<?= test_lang_prefix('node/' . $prev_nid[0]->prev_nid) ?>">&larr;<?php print t('STARŠÍ') ?></a>
-              <?php
-            }
+            if (isset($node->field_zpravodaj_foogalerie['und'])):
+                ?>
+                <aside>
+                    <div class="m-aside-block">
+                        <header class="m-aside-block--header">
+                            <div class="m-aside-block--summary">
+                                <h2 class="m-aside-block--hed">&rarr; <?php print t('Photo gallery') ?></h2>
+
+                                <div class="m-aside-block--meta">
+                                    (<?= count($node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und']) ?> <?php print t('photographs') ?>
+                                    )
+                                </div>
+                            </div>
+                        </header>
+                        <div class="m-aside-block--content">
+                            <ul class="m-gallery mm-medium" class="clearing-thumbs" data-clearing>
+                                <?php foreach ($node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'] AS $obrazek) { ?>
+                                    <li class="m-gallery--item">
+                                        <a href="<?= image_style_url('zadny', $obrazek['uri']) ?>"><img src="<?= image_style_url('x412-300', $obrazek['uri']) ?>"></a>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </aside>
+                <?php
+            endif;
             ?>
-          </div>
-
-          <div class="l-half" style="padding: 0 48px;">
-            <?php
-            if ($next_nid[0]->next_nid > 0) {
-              ?>
-              <a href="<?= test_lang_prefix('node/' . $next_nid[0]->next_nid) ?>"><?php print t('NOVĚJŠÍ') ?>&rarr;</a>
-
-              <?php
-            }
-            ?>
-          </div>
-
         </div>
-      </div>
-    <?php } ?>
+    </article>
 
-    <div class="bg-white clearfix">
-      <div class="row" style="padding:  48px 0">
+    <footer class="m-section--footer" style="padding: 0" <?php koma_theme_wrapper(__FILE__) ?>>
 
-        <div class="l-third">
-          <div class="m-section--top">
-            <a href=""><?php print t('UP') ?> &uarr;</a></div>
+        <!-- starší novější -->
+        <?php if (($prev_nid[0]->prev_nid > 0) || ($next_nid[0]->next_nid > 0)) { ?>
+            <div class="clearfix">
+                <div class="row" style="padding:  48px 0">
+                    <div class="l-half" style="padding: 0 48px; text-align: right">
+                        <?php
+                        if ($prev_nid[0]->prev_nid > 0) {
+                            ?>
+                            <a href="<?= test_lang_prefix('node/' . $prev_nid[0]->prev_nid) ?>">&larr;<?php print t('STARŠÍ') ?></a>
+                            <?php
+                        }
+                        ?>
+                    </div>
+
+                    <div class="l-half" style="padding: 0 48px;">
+                        <?php
+                        if ($next_nid[0]->next_nid > 0) {
+                            ?>
+                            <a href="<?= test_lang_prefix('node/' . $next_nid[0]->next_nid) ?>"><?php print t('NOVĚJŠÍ') ?>&rarr;</a>
+
+                            <?php
+                        }
+                        ?>
+                    </div>
+
+                </div>
+            </div>
+        <?php } ?>
+
+        <div class="bg-white clearfix">
+            <div class="row" style="padding:  48px 0">
+
+                <div class="l-third">
+                    <div class="m-section--top">
+                        <a href=""><?php print t('UP') ?> &uarr;</a></div>
+                </div>
+                <div class="l-two-thirds">
+                    <?php
+                    $tree = taxonomy_get_tree(5);
+                    ?>
+                    <ul class="m-section--nav inline-right">
+                        <?php
+                        foreach ($tree as $term) {
+
+                            ?>
+                            <li>
+                                <a href="<?= test_basic_url() ?>zpravodaj?field_zpravodaj_kategorie_tid=<?= $term->tid ?>" title="<?= $term->name ?>"><?= $term->name ?></a>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="l-two-thirds">
-          <?php
-          $tree = taxonomy_get_tree(5);
-          ?>
-          <ul class="m-section--nav inline-right">
-            <?php
-            foreach ($tree as $term) {
-
-              ?>
-              <li>
-                <a href="<?= test_basic_url() ?>zpravodaj?field_zpravodaj_kategorie_tid=<?= $term->tid ?>" title="<?= $term->name ?>"><?= $term->name ?></a>
-              </li>
-              <?php
-            }
-            ?>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 </div>
 

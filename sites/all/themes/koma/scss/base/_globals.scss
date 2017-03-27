@@ -46,3 +46,18 @@ body {
 .mm-grid-pad-top {
     margin-top: 20px;
 }
+
+
+.mm-mobile {
+    display: block;
+    @include media(C) {
+        display: none;
+    }
+}
+
+.mm-desktop {
+    display: none;
+    @include media(C) {
+        display: block;
+    }
+}

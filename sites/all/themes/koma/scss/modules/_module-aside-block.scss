@@ -31,6 +31,10 @@
     }
 }
 
+.m-aside-block ~ .m-aside-block {
+    margin-top: 30px;
+}
+
 aside {
     .m-aside-block--header {
         margin-bottom: 20px;
