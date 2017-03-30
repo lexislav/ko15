@@ -75,66 +75,19 @@ $next_nid = prev_next_nid($node->nid, 'next');
                     <div class="m-story--image mm-desktop">
                         <img src="<?= image_style_url('x412-300', $node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'][0]['uri']) ?>" alt="">
                     </div>
-                <?php } ?>
+                <?php }
 
-
-                <!--
-                <div class="m-aside-block bg-secondary-light mm-pad">
-                    <header class="m-aside-block--header">
-                        <h3 class="m-aside-block--hed">Ke stažení</h3>
-                    </header>
-                    <div class="m-reference--meta m-properties">
-                        <dl class="mm-nolabels mm-noborder">
-                            <dt>Technický list Comfort Line</dt>
-                            <dd><a href="http://www.koma-modular.cz/sites/default/files/rada/soubory/m3_cj.pdf" target="_blank" title="Technický list Comfort Line">
-                                    <i class="fa fa-file-pdf-o"></i> Technický list Comfort Line</a></dd>
-                        </dl>
-                        <dl class="mm-nolabels mm-noborder">
-                            <dt>Ceník</dt>
-                            <dd><a href="http://www.koma-modular.cz/sites/default/files/rada/soubory/cenik_1.1.2016_cz.pdf" target="_blank" title="Ceník">
-                                    <i class="fa fa-file-pdf-o"></i> Ceník</a></dd>
-                        </dl>
-                    </div>
-                </div>
-
-                <div class="m-aside-block bg-secondary-light mm-pad">
-                    <header class="m-aside-block--header">
-                        <h3 class="m-aside-block--hed">Odkazy</h3>
-                    </header>
-                    <div class="m-reference--meta m-properties">
-                        <dl class="mm-nolabels mm-noborder">
-                            <dt>Technický list Comfort Line</dt>
-                            <dd><a href="http://www.koma-modular.cz/sites/default/files/rada/soubory/m3_cj.pdf" target="_blank" title="Technický list Comfort Line">
-                                    <i class="fa fa-file-pdf-o"></i> Technický list Comfort Line</a></dd>
-                        </dl>
-                        <dl class="mm-nolabels mm-noborder">
-                            <dt>Ceník</dt>
-                            <dd><a href="http://www.koma-modular.cz/sites/default/files/rada/soubory/cenik_1.1.2016_cz.pdf" target="_blank" title="Ceník">
-                                    <i class="fa fa-file-pdf-o"></i> Ceník</a></dd>
-                        </dl>
-                    </div>
-                </div>
-                -->
-
-
-                <?php
-
-                //@todo: Michal Řezníček - tady tyhle dva výpisy musí mít šablonu aside blocku - viz to co je nahoře zakomentované. Už to používáme, není to nová věc. Jen je třeba aby ten print render($output) plival správné html
-
-                if ($_GET['admin'] == 1) {
                     if (isset($content['field_zpravodaj_soubory']['#items'])) {
                         $output = field_view_field('node', $node, 'field_zpravodaj_soubory');
                         print render($output);
                     }
+                echo "<br />";
                     if (isset($content['field_zpravodaj_link']['#items'])) {
                         $output = field_view_field('node', $node, 'field_zpravodaj_link');
                         print render($output);
                     }
-                }
                 ?>
             </div>
-
-
             <?php
             if (isset($node->field_zpravodaj_foogalerie['und'])):
                 ?>
