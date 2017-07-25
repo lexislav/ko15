@@ -7,12 +7,18 @@ if ($row->_field_data['nid']['entity']->type == 'koma_zpravodaj') {
     } else {
         $uricko = $row->field_field_zpravodaj_foogalerie[0]['raw']['entity']->field_fotogalerie_main_img['und'][0]['uri'];
     }
+
+  $image_uri      = $uricko;
+  $style          = 'x595-0';
+  $derivative_uri = image_style_path($style, $image_uri);
+  $success        = file_exists($derivative_uri) || image_style_create_derivative(image_style_load($style), $image_uri, $derivative_uri);
+  $newimgurl  = file_create_url($derivative_uri);
     $kategorie = $row->field_field_zpravodaj_kategorie[0]['rendered']['#markup'];
     $rok = $row->field_field_zpravodaj_publikace[0]['rendered']['#markup'];
     $popis = $row->_field_data['nid']['entity']->type;
     $popis .= ' / ' . $kategorie;
     $popis .= ' | ' . $rok;
-    $src_img = image_style_url('x595-0', $uricko);
+    $src_img = $newimgurl;
 
 
 } elseif ($row->_field_data['nid']['entity']->type == 'reference') {
@@ -21,12 +27,18 @@ if ($row->_field_data['nid']['entity']->type == 'koma_zpravodaj') {
     } else {
         $uricko = $row->field_field_reference_fotogalerie[0]['raw']['entity']->field_fotogalerie_main_img['und'][0]['uri'];
     }
+  $image_uri      = $uricko;
+  $style          = 'x595-0';
+  $derivative_uri = image_style_path($style, $image_uri);
+  $success        = file_exists($derivative_uri) || image_style_create_derivative(image_style_load($style), $image_uri, $derivative_uri);
+  $newimgurl  = file_create_url($derivative_uri);
+
     $popis = $row->_field_data['nid']['entity']->type;
     $kategorie = $row->field_field_reference_vyrobkova_rada[0]['rendered']['#markup'];
     $rok = str_replace('-01-01 00:00:00', '', $row->field_field_reference_rok[0]['raw']['value']);
     $popis .= ' / ' . $kategorie;
     $popis .= ' | ' . $rok;
-    $src_img = image_style_url('x595-0', $uricko);
+    $src_img = $newimgurl;
 }else{
     $popis = 'Stránka';
 }

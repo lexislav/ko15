@@ -11,12 +11,20 @@ if (isset($row->field_field_zpravodaj_main_img[0])) {
     $text = $fields['field_basic_text']->content;
 
 }
+
+
+$image_uri      = $uricko;
+$style          = 'x595-0';
+$derivative_uri = image_style_path($style, $image_uri);
+$success        = file_exists($derivative_uri) || image_style_create_derivative(image_style_load($style), $image_uri, $derivative_uri);
+$new_image_url  = file_create_url($derivative_uri);
+
 ?>
 <article class="m-story">
     <header>
-        <div class="m-item--image" style="background-image: url(<?= image_style_url('x595-0', $uricko) ?>)">
+        <div class="m-item--image" style="background-image: url(<?= $new_image_url ?>)">
             <a href="<?= test_lang_prefix('node/'.$row->nid) ?>">
-                <img src="<?= image_style_url('x595-0', $uricko) ?>" alt=""/>
+                <img src="<?= $new_image_url ?>" alt=""/>
             </a>
         </div>
         <div class="m-item--summary">

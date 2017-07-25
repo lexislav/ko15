@@ -19,14 +19,19 @@ if (isset($row->field_field_reference_main_img[0])) {
 } else {
     $uricko = $row->field_field_reference_fotogalerie[0]['raw']['entity']->field_fotogalerie_main_img['und'][0]['uri'];
 }
+$image_uri      = $uricko;
+$style          = 'x595-0';
+$derivative_uri = image_style_path($style, $image_uri);
+$success        = file_exists($derivative_uri) || image_style_create_derivative(image_style_load($style), $image_uri, $derivative_uri);
+$newimgurl  = file_create_url($derivative_uri);
 ?>
 <div
     class="m-card_vertical mm-color-<?= $poleprobarvy[$row->field_field_reference_kategorie_stavby[0]['raw']['tid']] ?> l-single">
     <article class="m-story">
         <header>
-            <div class="m-item--image" style="background-image: url(<?= image_style_url('x595-0', $uricko) ?>)">
+            <div class="m-item--image" style="background-image: url(<?= $newimgurl ?>)">
                 <a href="<?= test_lang_prefix('node/'.$row->nid) ?>">
-                    <img src="<?= image_style_url('x595-0', $uricko) ?>" alt=""/>
+                    <img src="<?= $newimgurl ?>" alt=""/>
                 </a>
             </div>
             <div class="m-item--summary">
