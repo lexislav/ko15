@@ -146,24 +146,35 @@ if ($user->uid == 1) {
 <div id="page-banner-bottom" class="m-section bg-white">
   <article class="m-banner">
     <header>
-      <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/slusnafirma.jpeg)">
-        <img style="height: 68px;margin-top:-2px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/slusnafirma.jpeg">
+      <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/banner/some2.png)">
+        <img style="height: 68px;margin-top:-2px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/banner/some2.png">
       </div>
-      <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/spolehlivafirma.png)">
-        <img style="height: 64px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/spolehlivafirma.png">
-      </div>
-      <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/proverenaspolecnost.jpg)">
-        <img style="height: 64px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/proverenaspolecnost.jpg">
-      </div>
+        <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/banner/ocl.png)">
+            <img style="height: 68px;margin-top:-2px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/banner/ocl.png">
+        </div>
+        <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/banner/stiky.png)">
+            <img style="height: 68px;margin-top:-2px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/banner/stiky.png">
+        </div>
+        <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/banner/ex.png)">
+            <img style="height: 68px;margin-top:-2px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/banner/ex.png">
+        </div>
+
+        <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/banner/some.png)">
+            <img style="height: 68px;margin-top:-2px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/banner/some.png">
+        </div>
+        <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/banner/slusna.png)">
+            <img style="height: 68px;margin-top:-2px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/banner/slusna.png">
+        </div>
+
       <div class="m-banner--summary">
         <h1 class="m-banner--hed">
           <?php
           if ($language->language == 'cs') {
-          echo "Jsme držiteli ocenění Spolehlivá a Slušná firma<br />a Prověřená společnost.";
+          echo "Jsme držiteli ocenění Firma roku, Český lídr, Štiky českého byznysu, Exportér roku, Inovační firma a Slušná firma. ";
           }else if ($language->language == 'en') {
-            echo "We are proud to have been recognised as<br />A Fair and Reliable Company and as A Proven Company.";
+            echo "We are proud to have won the following awards: Company of the Year, Driving Force of Czech Business, Czech Leader, Exporter of the Year, Innovative Company, and Fair Company.";
           }else {
-            echo "Wir sind im Besitz der Auszeichnungen Zuverlässige<br />und faire Gesellschaft und Beglaubigte Gesellschaft.";
+            echo "Wir sind im Besitz der Auszeichnungen \"Die Firma des Jahres\",  \"Tschechischer Leader\", \"Hechte des tschechischen Business\", \"Der Exporteur des Jahres\", \"Innovative Gesellschaft\"  und \"Faire Gesellschaft”. ";
           }
 
           ?>

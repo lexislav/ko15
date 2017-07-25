@@ -3,7 +3,7 @@
     <article class="m-story">
         <header>
             <h1 class="m-item--hed">
-                <a target="_blank" href="<?=drupal_get_path_alias('node/'.$row->nid,$row->node_language)?>">
+                <a href="http://www.koma-modular.cz/<?=drupal_get_path_alias('node/'.$row->nid,$row->node_language)?>">
                     <?= $row->node_title ?>
                 </a>
             </h1>

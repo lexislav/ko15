@@ -1,36 +1,39 @@
 <!--slider-->
 <?php
+global $language;
 $wrapper = entity_metadata_wrapper('node', $node);
 $pole_slider = $content['field_hlavni_slider']['#items'];
 ?>
 
-<div class="hero-tabs mm-four neco" slick>
+<div class="hero-tabs mm-four" slick <?php koma_theme_wrapper(__FILE__)?>>
   <div class="hero-slides" carousel>
     <?php
     foreach ($pole_slider as $cislo => $r) {
-      if(isset($r['field_basic_img']['und'][0]['uri'])){
-        $uri = $r['field_basic_img']['und'][0]['uri'];
+
+      if($r['field_basic_img']['und'][0]['uri']==''){
+        $file = file_load($r['field_basic_img']['und'][0]['fid']);
+        $uri = ($file->uri);
       }else{
-        $uri = file_load($r['field_basic_img']['und'][0]['fid'])->uri;
+        $uri = $r['field_basic_img']['und'][0]['uri'];
       }
 
 
 
       if ($cislo == 0) {
-
         ?>
         <div class="content-tab mm-center mm-welcome" style="background-image: url(<?= image_style_url('none', $uri) ?>);">
           <div class="row">
             <div class="description">
-              <?= $r['field_basic_text']['und'][0]['value'] ?>
+              <p><?= $r['field_basic_text']['und'][0]['value'] ?></p>
+              <img src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/square-down.svg" alt="" />
             </div>
           </div>
         </div>
       <?php } else { ?>
-        <div class="content-tab <?php echo ($cislo <= 2) ? '' : 'mm-right'; ?>" style="background-image: url(<?= image_style_url('none', $uri) ?>);">
+        <div class="content-tab <?php echo ($cislo <= 3) ? '' : 'mm-right'; ?>" style="background-image: url(<?= image_style_url('none', $uri) ?>);">
           <div class="row">
             <div class="description">
-              <?= $r['field_basic_text']['und'][0]['value'] ?>
+              <p><?= $r['field_basic_text']['und'][0]['value'] ?></p>
             </div>
           </div>
         </div>
@@ -44,35 +47,13 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
       <?php
       foreach ($pole_slider as $cislo => $r) {
         if ($cislo == 0) continue;
-        $odkaz_nid = $content['field_hlavni_slider']['#object']->field_hlavni_slider['cs'][$cislo]['field_c_hp_odkaz']['und'][0]['target_id'];
+
+
+        $odkaz_nid = $content['field_hlavni_slider']['#object']->field_hlavni_slider[$language->language][$cislo]['field_c_hp_odkaz']['und'][0]['target_id'];
         ?>
+        <div class="tab color-white-border-0" slick-to="<?= $cislo ?>">
 
-        <div class="tab" slick-to="<?= $cislo ?>">
-          <?php
-          $logoClass = '';
-          if ($cislo == 1) {
-            $logoClass = 'koma-modular';
-            $urlwebu = test_basic_url('koma-modular.cz');
-          }
-          if ($cislo == 2) {
-            $logoClass = 'koma-space';
-            $urlwebu = test_basic_url_special('koma-space.at');
-          }
-          if ($cislo == 3) {
-            $logoClass = 'koma-rent';
-            $urlwebu = 'http://www.koma-rent.cz';
-          }
-          if ($cislo == 4) {
-            $logoClass = 'koma-slovakia';
-            $urlwebu = 'http://koma-slovakia.sk/';
-          }
-
-          ?>
-
-          <?= $theme_path ?>
-          <a target="_blank" href="<?= $urlwebu ?>">
-            <div class="tab-logo <?=$cislo?> <?= $logoClass ?>"></div>
-          </a>
+          <a href="<?=test_lang_prefix('node/'.$odkaz_nid)?>"><?= $r['field_basic_title']['und'][0]['value'] ?></a>
         </div>
         <?php
       }

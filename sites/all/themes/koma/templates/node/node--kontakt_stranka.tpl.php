@@ -158,7 +158,7 @@ else { ?>
                         <input type="text" id="name" name="name" placeholder="<?php print t('Your first and surname') ?>" required/>
                         <input type="email" id="email" name="email" placeholder="<?php print t('Your e-mail address') ?>" required/>
                         <textarea id="body" name="body" style="height: 200px" required placeholder="<?php print t('The text of your question') ?>"></textarea>
-                        <button type="submit" class="button"><?php print t('Send the message') ?>1
+                        <button type="submit" class="button"><?php print t('Send the message') ?>
                             <i class="fa fa-paper-plane-o"></i></button>
                     </form>
                 </div>
