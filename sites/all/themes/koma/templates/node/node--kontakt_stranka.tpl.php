@@ -25,14 +25,14 @@
                 <h1 class="m-contact--hed color-black"><?php print t('KOMA Modular s.r.o.') ?></h1>
 
                 <div class="m-contact--description">
-                  <?= $content['field_basic_text']['#items'][0]['value'] ?>
-                    <br/>
+                    <?= $content['field_basic_text']['#items'][0]['value'] ?>
+                    <br />
                     <span class="color-primary">T</span> <?= $content['kontakt_telefon']['#items'][0]['value'] ?>
-                    <br/>
+                    <br />
                     <span class="color-primary">F</span> <?= $content['kontakt_fax']['#items'][0]['value'] ?>
-                    <br/>
+                    <br />
                     <span class="color-primary">E</span> <?= $content['kontakt_email']['#items'][0]['value'] ?>
-                    <br/>
+                    <br />
                 </div>
 
                 <div class="m-contact--meta"></div>
@@ -40,11 +40,11 @@
             </div>
 
             <div class="m-contact--image" style="background-image: url(<?= image_style_url('x294-226', $content['field_image']['#items'][0]['uri']) ?>)">
-                <a target="_blank" href="https://www.google.cz/maps/place/KOMA+MODULAR+s.r.o./@49.212273,17.862165,17z/data=!3m1!4b1!4m2!3m1!1s0x4713774877b90479:0xf22380988353fbe9"><img src="<?= image_style_url('x294-226', $content['field_image']['#items'][0]['uri']) ?>" alt=""/></a>
+                <a target="_blank" href="https://www.google.cz/maps/place/KOMA+MODULAR+s.r.o./@49.212273,17.862165,17z/data=!3m1!4b1!4m2!3m1!1s0x4713774877b90479:0xf22380988353fbe9"><img src="<?= image_style_url('x294-226', $content['field_image']['#items'][0]['uri']) ?>" alt="" /></a>
             </div>
 
             <div class="m-contact--map" style="background-image: url(<?= image_style_url('x294-226', $content['field_image']['#items'][1]['uri']) ?>)">
-                <a target="_blank" href="https://www.google.cz/maps/place/KOMA+MODULAR+s.r.o./@49.212273,17.862165,17z/data=!3m1!4b1!4m2!3m1!1s0x4713774877b90479:0xf22380988353fbe9"><img src="<?= image_style_url('x294-226', $content['field_image']['#items'][1]['uri']) ?>" alt=""/></a>
+                <a target="_blank" href="https://www.google.cz/maps/place/KOMA+MODULAR+s.r.o./@49.212273,17.862165,17z/data=!3m1!4b1!4m2!3m1!1s0x4713774877b90479:0xf22380988353fbe9"><img src="<?= image_style_url('x294-226', $content['field_image']['#items'][1]['uri']) ?>" alt="" /></a>
             </div>
 
         </header>
@@ -53,12 +53,14 @@
     <div class="row">
         <footer class="m-section--footer">
             <div class="l-half">
-                <a href="<?php print url('node/1444', array('absolute' => TRUE)); ?>#formSection">
+                <!-- @todo: add measure code-->
+                <a href="<?php print url('node/1444', array('absolute' => true)); ?>#formSection">
                     <button class="button"><?php print t('Ask us') ?></button>
                 </a>
             </div>
             <div class="l-half">
                 <ul class="m-section--nav inline-right">
+                    <!-- @todo: add measure code-->
                     <li><a href="#kariera"><?php print t('Career with KOMA') ?> </a></li>
                     <li><a href="#adresar"><?php print t('Directory') ?> </a></li>
                     <li><a href="#formSection">&darr; <?php print t('Contact form') ?> </a></li>
@@ -78,10 +80,10 @@
             </div>
         </header>
     </div>
-  <?php
-  $block = module_invoke('views', 'block_view', 'kontakty-block');
-  print render($block);
-  ?>
+    <?php
+    $block = module_invoke('views', 'block_view', 'kontakty-block');
+    print render($block);
+    ?>
 
     <div class="row">
         <footer class="m-section--footer"></footer>
@@ -91,15 +93,14 @@
 <?php
 
 if (isset($_POST['mailto'])) {
-  $mailto = $_POST['mailto'];
-  $mailfrom = $_POST['email'];
-  $name = $_POST['name'];
-  $text = $_POST['body'];
-  test_mail($mailfrom, $mailto, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
-  test_mail('info@koma-modular.cz', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
+    $mailto = $_POST['mailto'];
+    $mailfrom = $_POST['email'];
+    $name = $_POST['name'];
+    $text = $_POST['body'];
+    test_mail($mailfrom, $mailto, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
+    test_mail('info@koma-modular.cz', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
 
-
-  ?>
+    ?>
 
     <div class="m-section" id="contact-form" <?php koma_theme_wrapper(__FILE__) ?>>
         <div class="row">
@@ -117,19 +118,22 @@ if (isset($_POST['mailto'])) {
                         <i class="fa fa-paper-plane-o"></i> <?php print t('Formulář byl úspěšně odeslán na adresu') ?>
                         :
                         <span><?= $mailto ?></span>
-                        <br/><?php print t('a na vámi zadanou adresu') ?>
+                        <br /><?php print t('a na vámi zadanou adresu') ?>
                         <span><?= $mailfrom ?></span>
                     </p>
                     <a href="http://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="button">Odeslat
-                        novou zprávu
+                                                                                                           novou zprávu
                         <i class="fa fa-paper-plane-o"></i></a>
-                    <br/>
+                    <br />
                 </div>
             </div>
         </div>
     </div>
-<?php }
-else { ?>
+
+<!--  @todo: add measure codes after send -->
+
+
+<?php } else { ?>
     <div class="m-section" id="formSection" <?php koma_theme_wrapper(__FILE__) ?>>
         <div class="row">
             <header class="m-section--header">
@@ -153,10 +157,10 @@ else { ?>
                 <!--@TODO dodelat cele vsechno omg-->
 
                 <div class="m-contact-form--content">
-                    <form action="<?php print url('node/1444', array('absolute' => TRUE)); ?>#contact-form" method="post">
-                        <input type="hidden" name="mailto" id="mailto" value="info@koma-modular.cz"/>
-                        <input type="text" id="name" name="name" placeholder="<?php print t('Your first and surname') ?>" required/>
-                        <input type="email" id="email" name="email" placeholder="<?php print t('Your e-mail address') ?>" required/>
+                    <form action="<?php print url('node/1444', array('absolute' => true)); ?>#contact-form" method="post">
+                        <input type="hidden" name="mailto" id="mailto" value="info@koma-modular.cz" />
+                        <input type="text" id="name" name="name" placeholder="<?php print t('Your first and surname') ?>" required />
+                        <input type="email" id="email" name="email" placeholder="<?php print t('Your e-mail address') ?>" required />
                         <textarea id="body" name="body" style="height: 200px" required placeholder="<?php print t('The text of your question') ?>"></textarea>
                         <button type="submit" class="button"><?php print t('Send the message') ?>
                             <i class="fa fa-paper-plane-o"></i></button>
@@ -172,7 +176,7 @@ else { ?>
         </div>
     </div>
 
-  <?php
+    <?php
 }
 ?>
 
@@ -183,46 +187,46 @@ else { ?>
 
 <div class="m-section bg-white" id="kariera" <?php koma_theme_wrapper(__FILE__) ?>>
 
-  <?php
-  global $language;
-  if ($language->language == 'cs') {
-    ?>
-      <div class="row">
-          <header class="m-section--header"></header>
-      </div>
-      <div class="row">
-          <div class="m-card_bigpromo l-single bg-secondary-light">
-
-              <article class="m-story">
-                  <header>
-                      <div class="m-item--image" style="background-image: url(<?= image_style_url('x633-540', $content['field_basic_img']['#items'][0]['uri']) ?>)">
-                          <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>">
-                              <img src="<?= image_style_url('x633-540', $content['field_basic_img']['#items'][0]['uri']) ?>" alt="">
-                          </a>
-                      </div>
-                      <div class="m-item--summary">
-                          <h1 class="m-item--hed mm-center">
-                              <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>"><?php print t('Kariéra v KOMA') ?></a>
-                          </h1>
-
-                          <div class="m-item--description">
-                            <?= $content['field_basic_popis_2']['#items'][0]['value'] ?>
-                          </div>
-
-                          <div class="m-card--more bg-8">
-                              <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>" title="<?php print t('Aktuální volná místa') ?>"><?php print t('Aktuální volná místa') ?>
-                                  &nbsp;→</a>
-                          </div>
-                      </div>
-                  </header>
-
-              </article>
-
-          </div>
-      </div>
     <?php
-  }
-  ?>
+    global $language;
+    if ($language->language == 'cs') {
+        ?>
+        <div class="row">
+            <header class="m-section--header"></header>
+        </div>
+        <div class="row">
+            <div class="m-card_bigpromo l-single bg-secondary-light">
+
+                <article class="m-story">
+                    <header>
+                        <div class="m-item--image" style="background-image: url(<?= image_style_url('x633-540', $content['field_basic_img']['#items'][0]['uri']) ?>)">
+                            <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>">
+                                <img src="<?= image_style_url('x633-540', $content['field_basic_img']['#items'][0]['uri']) ?>" alt="">
+                            </a>
+                        </div>
+                        <div class="m-item--summary">
+                            <h1 class="m-item--hed mm-center">
+                                <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>"><?php print t('Kariéra v KOMA') ?></a>
+                            </h1>
+
+                            <div class="m-item--description">
+                                <?= $content['field_basic_popis_2']['#items'][0]['value'] ?>
+                            </div>
+
+                            <div class="m-card--more bg-8">
+                                <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>" title="<?php print t('Aktuální volná místa') ?>"><?php print t('Aktuální volná místa') ?>
+                                    &nbsp;→</a>
+                            </div>
+                        </div>
+                    </header>
+
+                </article>
+
+            </div>
+        </div>
+        <?php
+    }
+    ?>
     <div class="row">
         <footer class="m-section--footer">
             <div class="l-half">

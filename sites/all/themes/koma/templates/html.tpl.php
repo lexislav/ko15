@@ -14,56 +14,60 @@
 <html <?php print $html_attributes . $rdf_namespaces; ?>><!--<![endif]-->
 
 <head>
-  <?php print $head; ?>
+    <?php print $head; ?>
     <title><?php print $head_title; ?></title>
 
-    <meta name="HandheldFriendly" content="True"/>
-    <meta name="MobileOptimized" content="320"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="google-site-verification" content="lyJrEQqJPKsQ2aF1tLoDthgPHrvcZ62KnvMSetiaxbg" />
     <meta http-equiv="cleartype" content="on">
 
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="format-detection" content="address=no"/>
-  <?php print $styles; ?>
-  <?php print $scripts; ?>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <?php print $styles; ?>
+    <!-- GA thru Drupal extension-->
+    <?php print $scripts; ?>
 
 
-  <?php if ($add_html5_shim and !$add_respond_js): ?>
-      <!--[if lt IE 9]>
-      <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script><![endif]-->
-  <?php elseif ($add_html5_shim and $add_respond_js): ?>
-      <!--[if lt IE 9]>
-      <script src="<?php print $base_path . $path_to_zen; ?>/js/html5-respond.js"></script><![endif]-->
-  <?php elseif ($add_respond_js): ?>
-      <!--[if lt IE 9]>
-      <script src="<?php print $base_path . $path_to_zen; ?>/js/respond.js"></script><![endif]-->
-  <?php endif; ?>
+    <?php if ($add_html5_shim and !$add_respond_js): ?>
+        <!--[if lt IE 9]>
+        <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script><![endif]-->
+    <?php elseif ($add_html5_shim and $add_respond_js): ?>
+        <!--[if lt IE 9]>
+        <script src="<?php print $base_path . $path_to_zen; ?>/js/html5-respond.js"></script><![endif]-->
+    <?php elseif ($add_respond_js): ?>
+        <!--[if lt IE 9]>
+        <script src="<?php print $base_path . $path_to_zen; ?>/js/respond.js"></script><![endif]-->
+    <?php endif; ?>
+
     <script src="http://www.koma-modular.cz/sites/all/themes/koma/js/komacookies.js" async></script>
-
     <script>
-        var koma_eu_config = {
-            "l18n": {
-              <?php
-              if(test_lang_code()=='en'){
-              ?>
-                "text": "Cookies allow you to utilise the services provided by us. By utilising our services, you automatically agree with the use of cookies.",
-                "accept": "OK",
-                "more": "Legal warning / More at:,
-                "link": "http://www.koma-modular.cz/en/informations-about-cookies"
-              <?php
-              }elseif(test_lang_code()=='de'){
-              ?>
-                "text": "Cookies ermöglichen Ihnen die Nutzung der von uns bereitgestellten Dienstleistungen. Mit der Nutzung unserer Dienstleistungen stimmen Sie automatisch der Nutzung von Cookies zu.",
-                "accept": "OK",
-                "more": "Rechtliche Hinweise / Mehr auf:",
-                "link": "http://www.koma-modular.cz/de/cookies"
-              <?php
-              }
-              ?>
+      var koma_eu_config = {
+        "l18n": {
+            <?php
+            if(test_lang_code() == 'en'){
+            ?>
+          "text": "Cookies allow you to utilise the services provided by us. By utilising our services, you automatically agree with the use of cookies.",
+          "accept": "OK",
+          "more": "Legal warning / More at:,
+          "link": "http://www.koma-modular.cz/en/informations-about-cookies"
+            <?php
+            }elseif(test_lang_code() == 'de'){
+            ?>
+          "text": "Cookies ermöglichen Ihnen die Nutzung der von uns bereitgestellten Dienstleistungen. Mit der Nutzung unserer Dienstleistungen stimmen Sie automatisch der Nutzung von Cookies zu.",
+          "accept": "OK",
+          "more": "Rechtliche Hinweise / Mehr auf:",
+          "link": "http://www.koma-modular.cz/de/cookies"
+            <?php
             }
-        };
+            ?>
+        }
+      };
     </script>
+
+    <!-- // @formatter:off -->
+    <!-- smart look -->
     <script type="text/javascript">
         window.smartlook||(function(d) {
             var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
@@ -72,6 +76,7 @@
         })(document);
         smartlook('init', '51c6e4b0bf31ecea9b624aefed91d10cd49e8a80');
     </script>
+
     <!-- Facebook Pixel Code -->
     <script>
         !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -79,48 +84,49 @@
             n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
             t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
             document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
         fbq('init', '812543485458193');
-        fbq('track', "PageView");</script>
-    <noscript><img height="1" width="1" style="display:none"
-                   src="https://www.facebook.com/tr?id=812543485458193&ev=PageView&noscript=1"
-        /></noscript>
+        fbq('track', "PageView");
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=812543485458193&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
+    <!-- // @formatter:on -->
 </head>
+
+
 <?php
-if($_SERVER['SERVER_ADDR']=='217.115.249.155'){
-  $jakej = 'internet';
-}else{
-  $jakej = 'local';
+if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
+    $jakej = 'internet';
+} else {
+    $jakej = 'local';
 }
 ?>
+
 <body class="l-page <?php print $classes; ?> <?= $jakej ?>" <?php print $attributes; ?>>
 
 <?php if ($skip_link_text && $skip_link_anchor): ?>
     <p id="skip-link">
-        <a href="#<?php print $skip_link_anchor; ?>"
-           class="element-invisible element-focusable"><?php print $skip_link_text; ?></a>
+        <a href="#<?php print $skip_link_anchor; ?>" class="element-invisible element-focusable"><?php print $skip_link_text; ?></a>
     </p>
 <?php endif; ?>
 <?php print $page_top; ?>
 <?php print $page; ?>
 <?php print $page_bottom; ?>
+
 <div class="m-page-scroll">
     <div class="m-page-scroll--item">
-        <img src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/scroll-down-sipka.svg"
-             alt="Scroll Down" class="scroll-sipka"/> <?php print t('Scroll down') ?>
+        <img src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/scroll-down-sipka.svg" alt="Scroll Down" class="scroll-sipka" /> <?php print t('Scroll down') ?>
     </div>
 </div>
-<script type="text/javascript" src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/js/app.js"></script>
+
 <script type="text/javascript"> var leady_track_key = "zdY943A7JNzTW7S9";
-    var leady_track_server = document.location.protocol + "//t.leady.cz/";
-    (function () {
-        var l = document.createElement("script");
-        l.type = "text/javascript";
-        l.async = true;
-        l.src = leady_track_server + leady_track_key + "/L.js";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(l, s);
-    })(); </script>
+  var leady_track_server = document.location.protocol + "//t.leady.cz/";
+  (function () {
+    var l = document.createElement("script");
+    l.type = "text/javascript";
+    l.async = true;
+    l.src = leady_track_server + leady_track_key + "/L.js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(l, s);
+  })(); </script>
 </body>
 </html>

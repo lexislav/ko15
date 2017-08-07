@@ -4,15 +4,7 @@ jQuery(document).foundation();
 
 //
 jQuery(function () {
-
-
-
-
-    //
-
     var currentSlide = -1;
-
-
     jQuery('[slick]').each(function () {
         var SlickWrapper = jQuery(this);
         var carousel = SlickWrapper.find('[carousel]');
@@ -48,7 +40,7 @@ jQuery(function () {
                 }
             });
         }
-        
+
 
         if (nav) {
             //  console.log("nav");
