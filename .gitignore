@@ -16,6 +16,7 @@ config.codekit
 /e-bulletin.html
 /sites/all/_themes
 /databaze
+/syncdb.sh
 
 #
 # Created by .ignore support plugin (hsz.mobi)
