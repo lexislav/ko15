@@ -117,7 +117,7 @@ if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
         <img src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/scroll-down-sipka.svg" alt="Scroll Down" class="scroll-sipka" /> <?php print t('Scroll down') ?>
     </div>
 </div>
-
+<script type="text/javascript" src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/js/app.js"></script>
 <script type="text/javascript"> var leady_track_key = "zdY943A7JNzTW7S9";
   var leady_track_server = document.location.protocol + "//t.leady.cz/";
   (function () {
