@@ -71,9 +71,17 @@ $next_nid = prev_next_nid($node->nid, 'next');
 
             <div class="m-story--aside">
 
-                <?php if ($hasImage) { ?>
+                <?php if ($hasImage) {
+                  $image_uri      = $node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'][0]['uri'];
+                  $style          = 'x412-300';
+                  $derivative_uri = image_style_path($style, $image_uri);
+                  $success        = file_exists($derivative_uri) || image_style_create_derivative(image_style_load($style), $image_uri, $derivative_uri);
+                  $newimgurl  = file_create_url($derivative_uri);
+
+
+                    ?>
                     <div class="m-story--image mm-desktop">
-                        <img src="<?= image_style_url('x412-300', $node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'][0]['uri']) ?>" alt="">
+                        <img src="<?= $newimgurl ?>" alt="">
                     </div>
                 <?php }
 
@@ -105,9 +113,15 @@ $next_nid = prev_next_nid($node->nid, 'next');
                         </header>
                         <div class="m-aside-block--content">
                             <ul class="m-gallery mm-medium" class="clearing-thumbs" data-clearing>
-                                <?php foreach ($node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'] AS $obrazek) { ?>
+                                <?php foreach ($node->field_zpravodaj_foogalerie['und'][0]['entity']->field_fotogalerie_imgs['und'] AS $obrazek) {
+                                  $image_uri      = $obrazek['uri'];
+                                  $style          = 'x412-300';
+                                  $derivative_uri = image_style_path($style, $image_uri);
+                                  $success        = file_exists($derivative_uri) || image_style_create_derivative(image_style_load($style), $image_uri, $derivative_uri);
+                                  $newimgurlthumb  = file_create_url($derivative_uri);
+                                    ?>
                                     <li class="m-gallery--item">
-                                        <a href="<?= image_style_url('zadny', $obrazek['uri']) ?>"><img src="<?= image_style_url('x412-300', $obrazek['uri']) ?>"></a>
+                                        <a href="<?= file_create_url($obrazek['uri']) ?>"><img src="<?= $newimgurlthumb ?>"></a>
                                     </li>
                                 <?php } ?>
                             </ul>
