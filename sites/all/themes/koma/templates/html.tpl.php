@@ -84,14 +84,13 @@
             n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
             t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
             document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '812543485458193');
+        fbq('init', '133400910573829');
         fbq('track', "PageView");
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=812543485458193&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
     <!-- // @formatter:on -->
 </head>
-
 
 <?php
 if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
@@ -117,7 +116,10 @@ if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
         <img src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/scroll-down-sipka.svg" alt="Scroll Down" class="scroll-sipka" /> <?php print t('Scroll down') ?>
     </div>
 </div>
+<!-- app scripts -->
 <script type="text/javascript" src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/js/app.js"></script>
+
+<!-- leady.cz -->
 <script type="text/javascript"> var leady_track_key = "zdY943A7JNzTW7S9";
   var leady_track_server = document.location.protocol + "//t.leady.cz/";
   (function () {
@@ -127,6 +129,29 @@ if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
     l.src = leady_track_server + leady_track_key + "/L.js";
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(l, s);
-  })(); </script>
+  })();
+</script>
+
+<!-- sklik -->
+<script type="text/javascript">
+  /* <![CDATA[ */
+  var seznam_retargeting_id = 47562;
+  /* ]]> */
+</script>
+<script type="text/javascript" src="//c.imedia.cz/js/retargeting.js"></script>
+
+
+<!-- google remarketing : START -->
+<script type="text/javascript">
+  /* <![CDATA[ */
+  var google_conversion_id = 847326048;
+  var google_custom_params = window.google_tag_params;
+  var google_remarketing_only = true;
+  /* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript><div style="display:inline;"><img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/847326048/?guid=ON&amp;script=0"/></div></noscript>
+<!-- google remarketing : END -->
+
 </body>
 </html>

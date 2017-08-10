@@ -31,7 +31,7 @@
                     <br />
                     <span class="color-primary">F</span> <?= $content['kontakt_fax']['#items'][0]['value'] ?>
                     <br />
-                    <span class="color-primary">E</span> <?= $content['kontakt_email']['#items'][0]['value'] ?>
+                    <span class="color-primary">E</span> <?= $content['kontakt_email']['#items'][0]['value'] ?></span>
                     <br />
                 </div>
 
@@ -54,16 +54,20 @@
         <footer class="m-section--footer">
             <div class="l-half">
                 <!-- @todo: add measure code-->
-                <a href="<?php print url('node/1444', array('absolute' => true)); ?>#formSection">
+                <a href="<?php print url('node/1444', array('absolute' => true)); ?>#formSection" onclick="ga('send', 'event', 'button', 'click', 'zeptejte se nas');">
                     <button class="button"><?php print t('Ask us') ?></button>
                 </a>
             </div>
             <div class="l-half">
                 <ul class="m-section--nav inline-right">
                     <!-- @todo: add measure code-->
-                    <li><a href="#kariera"><?php print t('Career with KOMA') ?> </a></li>
+                    <li>
+                        <a href="#kariera" onclick="ga('send', 'event', 'button', 'click', 'kariera v koma');"><?php print t('Career with KOMA') ?> </a>
+                    </li>
                     <li><a href="#adresar"><?php print t('Directory') ?> </a></li>
-                    <li><a href="#formSection">&darr; <?php print t('Contact form') ?> </a></li>
+                    <li>
+                        <a href="#formSection" onclick="ga('send', 'event', 'button', 'click', 'kontaktni formular');">&darr; <?php print t('Contact form') ?> </a>
+                    </li>
                 </ul>
             </div>
         </footer>
@@ -101,7 +105,6 @@ if (isset($_POST['mailto'])) {
     test_mail('info@koma-modular.cz', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
 
     ?>
-
     <div class="m-section" id="contact-form" <?php koma_theme_wrapper(__FILE__) ?>>
         <div class="row">
             <header class="m-section--header">
@@ -121,8 +124,7 @@ if (isset($_POST['mailto'])) {
                         <br /><?php print t('a na vámi zadanou adresu') ?>
                         <span><?= $mailfrom ?></span>
                     </p>
-                    <a href="http://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="button">Odeslat
-                                                                                                           novou zprávu
+                    <a href="http://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="button">Odeslat novou zprávu
                         <i class="fa fa-paper-plane-o"></i></a>
                     <br />
                 </div>
@@ -130,10 +132,38 @@ if (isset($_POST['mailto'])) {
         </div>
     </div>
 
-<!--  @todo: add measure codes after send -->
+    <!--  @todo: add measure codes after send -->
+    <script>
+      ga('send', 'event', 'form', 'sent', 'odeslat zpravu');
+    </script>
 
+    <script>
+      fbq('track', '<FORMULAR_SEND>');
+    </script>
+
+    <!-- Google Code for Odesl&aacute;n&iacute; kontaktn&iacute;ho formul&aacute;&#345;e Conversion Page -->
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 847326048;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "x9y2CPqRy3IQ4NaElAM";
+      var google_remarketing_only = false;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/847326048/?label=x9y2CPqRy3IQ4NaElAM&amp;guid=ON&amp;script=0" />
+        </div>
+    </noscript>
+
+    <!-- Měřicí kód Sklik.cz --> 
+    <iframe width="119" height="22" frameborder="0" scrolling="no" src="//c.imedia.cz/checkConversion?c=100033707&amp;color=ffffff&amp;v=0"></iframe>
 
 <?php } else { ?>
+
     <div class="m-section" id="formSection" <?php koma_theme_wrapper(__FILE__) ?>>
         <div class="row">
             <header class="m-section--header">
@@ -180,11 +210,7 @@ if (isset($_POST['mailto'])) {
 }
 ?>
 
-
 <!-- volna mista-->
-
-<!-- volna mista-->
-
 <div class="m-section bg-white" id="kariera" <?php koma_theme_wrapper(__FILE__) ?>>
 
     <?php
@@ -206,7 +232,7 @@ if (isset($_POST['mailto'])) {
                         </div>
                         <div class="m-item--summary">
                             <h1 class="m-item--hed mm-center">
-                                <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>"><?php print t('Kariéra v KOMA') ?></a>
+                                <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>" onclick="ga('send', 'event', 'button', 'click', 'kariera v koma');"><?php print t('Kariéra v KOMA') ?></a>
                             </h1>
 
                             <div class="m-item--description">
@@ -214,8 +240,7 @@ if (isset($_POST['mailto'])) {
                             </div>
 
                             <div class="m-card--more bg-8">
-                                <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>" title="<?php print t('Aktuální volná místa') ?>"><?php print t('Aktuální volná místa') ?>
-                                    &nbsp;→</a>
+                                <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>" title="<?php print t('Aktuální volná místa') ?>" onclick="ga('send', 'event', 'button', 'click', 'aktualni volna mista');"><?php print t('Aktuální volná místa') ?>&nbsp;→</a>
                             </div>
                         </div>
                     </header>

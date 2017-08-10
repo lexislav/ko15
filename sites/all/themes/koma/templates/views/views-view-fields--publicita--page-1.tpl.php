@@ -1,4 +1,4 @@
-<div class="m-card_faq l-single">
+<div class="m-card_faq l-single" <?php koma_theme_wrapper(__FILE__)?>>
     <article class="m-story">
         <header>
             <h1 class="m-item--hed">
