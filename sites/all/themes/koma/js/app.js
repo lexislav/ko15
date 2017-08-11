@@ -176,6 +176,42 @@ function registerSlickMangers() {
   });
 }
 
+// chosen filters - select boxes
+function registerChosenManagers() {
+  console.log("registerChosenManagers:On");
+  var isMobile = jQuery('html').hasClass('touch');
+
+  // apply chosen only for desktops, mobiles using native fields
+  if (!isMobile) {
+    jQuery(".form-select").chosen({
+      width: "95%",
+      inherit_select_classes: true,
+      create_option: true,
+      persistent_create_option: true,
+      create_option_text: 'add',
+      disable_search_threshold: 40,
+      //allow_single_deselect: true
+    });
+  }
+}
+
+// button scrollTop
+function registerScrollToTop() {
+  console.log("registerScrollToTop:On");
+  jQuery('.m-section--top').each(function () {
+    var el = jQuery(this);
+    el.addClass("jsActivated");
+    el.click(function (e) {
+      e.preventDefault();
+      var scrollTo = 0;
+      console.log("ScrollToTop");
+      jQuery('body,html').animate({scrollTop: scrollTo}, '500', 'swing', function () {
+        console.log("ScrollToTopDone");
+      });
+    });
+  });
+}
+
 // hack megamenu, prehazení DOM kuli Safari
 function registerMegaMenuHacks() {
 
@@ -220,7 +256,6 @@ function registerMegaMenuHacks() {
 
     jQuery(".m-mega--sub").append(sub);
     tabs.push(sub);
-
     submenucounter++;
 
     par.hover(
@@ -270,8 +305,9 @@ function registerMegaMenuHacks() {
   });
 }
 
-// block feed JS
 
+/* NEED more refactor */
+// block feed JS
 var blogSlick = jQuery('.block-feed-slider').slick({
   dots: false,
   infinite: true,
@@ -301,39 +337,7 @@ var blogSlick = jQuery('.full-carousel').slick({
 });
 
 
-// chosen filters - select boxes
-// apply chosen only for desktops
-
-// detect mobile devices
-var isMobile = jQuery('html').hasClass('touch');
-
-if (!isMobile) {
-  jQuery(".form-select").chosen({
-    width: "95%",
-    inherit_select_classes: true,
-    create_option: true,
-    persistent_create_option: true,
-    create_option_text: 'add',
-    disable_search_threshold: 40,
-    //allow_single_deselect: true
-  });
-}
-
-jQuery('.m-section--top').each(function () {
-  var el = jQuery(this);
-  el.addClass("jsActivated");
-
-  el.click(function (e) {
-    e.preventDefault();
-
-    var scrollTo = 0;
-    console.log("ScrollToTop");
-    jQuery('body,html').animate({scrollTop: scrollTo}, '500', 'swing', function () {
-      console.log("ScrollToTopDone");
-    });
-  });
-});
-
+/* HELPERS */
 
 /* List available templace by parsiong theme-wrappers*/
 function listTemplates() {
@@ -344,19 +348,19 @@ function listTemplates() {
   });
 }
 
-
-/* core (need refactor) */
+// main
 jQuery(function () {
-  registerMegaMenuHacks();
+
+  //registerMegaMenuHacks();
   registerCookieBannerManager();
   registerSlickMangers();
+  registerChosenManagers();
   registerNavbarManagers();
   registerCollapsible();
   registerCloseSection();
+  registerScrollToTop();
 
-  /* Enable GA mailto: events & parser*/
   registerGGMailEvents();
-
 
   // helpers
   // listTemplates();
