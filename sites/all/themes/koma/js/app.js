@@ -1,14 +1,77 @@
 // run foundation
 jQuery(document).foundation();
 
+// map dollar back to jQuery
+var $ = jQuery;
 
 function registerGGMailEvents() {
   console.log("registerGGMailEvents:On");
   jQuery('a').on('click', function (e) {
     //e.preventDefault(); // for debug only
-    console.log('a click');
+
+    var el = $(e.currentTarget);
+    var link = el.attr('href');
+    if (!link || link === '' || link === '#') {
+      return;
+    }
+
+    // send mail link
+    if (link.indexOf("mailto:") >= 0) {
+
+      // check google analytics
+      if (!ga) {
+        console.error("[registerGGMailEvents]: ga method is not accessible")
+        return;
+      }
+
+      var mailto = link.substr(6, link.length);
+      //console.log('mailoTo event: ' + mailto);
+      ga('send', 'event', 'mail', 'click',  mailto);
+    }
+
   });
 }
+
+function registerContactFormManager() {
+
+  console.log("registerContactFormManager:On");
+
+  var targetFormField = jQuery("#mailto");
+  var targetInfoElement = jQuery("#targetMailInfo");
+
+  jQuery('[fillform]').each(function () {
+    var el = jQuery(this);
+
+    el.click(function (e) {
+      e.preventDefault();
+
+      var injectName = el.data('name');
+      var injectSubject = el.data('subject');
+      var injectEmail = el.data('email');
+
+      targetFormField.attr('value', injectEmail);
+      targetInfoElement.text(injectEmail);
+
+      var scrollTo = jQuery('#formSection').position().top - 100;
+      jQuery('body,html').animate({scrollTop:scrollTo}, '500', 'swing', function() {
+        //console.log('Fill form with: ' + injectName, injectEmail, injectSubject);
+      });
+
+      // send GA event
+
+      if (!ga) {
+        console.error("[registerContactFormManager]: ga method is not accessible")
+        return;
+      }
+
+      //console.log('ga event: ' + injectEmail);
+      ga('send', 'event', 'mail', 'click',  injectEmail);
+
+
+    });
+  });
+}
+
 
 // collapsible
 function registerCollapsible() {
@@ -308,6 +371,9 @@ function registerMegaMenuHacks() {
 }
 
 
+
+
+
 /* NEED more refactor */
 // block feed JS
 var blogSlick = jQuery('.block-feed-slider').slick({
@@ -361,6 +427,7 @@ jQuery(function () {
   registerCollapsible();
   registerCloseSection();
   registerScrollToTop();
+  registerContactFormManager();
 
   registerGGMailEvents();
 
