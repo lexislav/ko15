@@ -220,6 +220,7 @@ function registerMegaMenuHacks() {
   var submenucounter = 0;
   var tabs = Array();
   var menuroot = jQuery("#mega");
+  var newRoot = jQuery(".xmega");
 
   function closeTabs() {
     for (var i = 0; i < tabs.length; i++) {
@@ -276,7 +277,8 @@ function registerMegaMenuHacks() {
     );
   });
 
-  jQuery(".xmega").append(menuroot);
+  newRoot.append(menuroot);
+  newRoot.addClass('is-ready'); // this enable menu, it is set invisible on load
 
   jQuery("[open-mega-mobile]").click(function () {
     console.log("open hamburger");
@@ -351,7 +353,7 @@ function listTemplates() {
 // main
 jQuery(function () {
 
-  //registerMegaMenuHacks();
+  registerMegaMenuHacks();
   registerCookieBannerManager();
   registerSlickMangers();
   registerChosenManagers();

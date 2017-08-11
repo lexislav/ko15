@@ -4448,7 +4448,10 @@ h1, h2, h3, h4, h5, h6 {
     display: block; }
 
 .xmega {
-  margin-left: 170px; }
+  margin-left: 170px;
+  display: none; }
+  .xmega.is-ready {
+    display: block; }
 
 .megacleaned > .nav {
   *zoom: 1;

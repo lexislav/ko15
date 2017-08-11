@@ -2,6 +2,11 @@ $menu-debug: false;
 
 .xmega {
     margin-left: 170px;
+    display: none;
+
+    &.is-ready {
+        display: block;
+    }
 }
 
 .megacleaned {
