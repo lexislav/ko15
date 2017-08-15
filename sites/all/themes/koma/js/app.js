@@ -4,6 +4,30 @@ jQuery(document).foundation();
 // map dollar back to jQuery
 var $ = jQuery;
 
+
+function getSelectionText() {
+  var text = "";
+  if (window.getSelection) {
+    text = window.getSelection().toString();
+  } else if (document.selection && document.selection.type != "Control") {
+    text = document.selection.createRange().text;
+  }
+  return text;
+}
+
+function extractEmails(text) {
+  return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+}
+
+function extractPhone(text) {
+  // numero = parseInt(text.repla(' '));
+  var clean = text.replace(/ /g, '');
+  return clean.match(/([0-9]{9,12})/gi);
+  //return numero;
+  //return telInteger = parseInt(text.replace(/[^0-9]/g,''));
+  //return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+}
+
 function registerGGMailEvents() {
   console.log("registerGGMailEvents:On");
   jQuery('a').on('click', function (e) {
@@ -26,11 +50,41 @@ function registerGGMailEvents() {
 
       var mailto = link.substr(6, link.length);
       //console.log('mailoTo event: ' + mailto);
-      ga('send', 'event', 'mail', 'click',  mailto);
+      ga('send', 'event', 'mail', 'click', mailto);
     }
 
   });
 }
+
+function registerGACopyEvents() {
+  console.log("registerGACopyEvents:On");
+
+  $(document).bind('copy', function (event) {
+    var text = getSelectionText();
+
+    if (text.length < 40) {
+      var mails = extractEmails(text);
+      var phones = extractPhone(text);
+
+      if (mails && mails.length > 0) {
+        // send only one mail
+        var mail = mails[0];
+        // console.log("copy mail "+ mail);
+        ga('send', 'event', 'mail', 'copy', 'zkopirovani emailu ' + mail);
+      }
+
+      if (phones && phones.length > 0) {
+        // send only one phone
+        var phone = phones[0];
+        // console.dir("copy phone: "+ phone);
+        ga('send', 'event', 'phone', 'copy', 'zkopirovani telefonu ' + phone);
+      }
+    }
+
+  })
+
+}
+
 
 function registerContactFormManager() {
 
@@ -53,7 +107,7 @@ function registerContactFormManager() {
       targetInfoElement.text(injectEmail);
 
       var scrollTo = jQuery('#formSection').position().top - 100;
-      jQuery('body,html').animate({scrollTop:scrollTo}, '500', 'swing', function() {
+      jQuery('body,html').animate({scrollTop: scrollTo}, '500', 'swing', function () {
         //console.log('Fill form with: ' + injectName, injectEmail, injectSubject);
       });
 
@@ -65,7 +119,7 @@ function registerContactFormManager() {
       }
 
       //console.log('ga event: ' + injectEmail);
-      ga('send', 'event', 'mail', 'click',  injectEmail);
+      ga('send', 'event', 'mail', 'click', injectEmail);
 
 
     });
@@ -371,9 +425,6 @@ function registerMegaMenuHacks() {
 }
 
 
-
-
-
 /* NEED more refactor */
 // block feed JS
 var blogSlick = jQuery('.block-feed-slider').slick({
@@ -430,6 +481,7 @@ jQuery(function () {
   registerContactFormManager();
 
   registerGGMailEvents();
+  registerGACopyEvents();
 
   // helpers
   // listTemplates();
