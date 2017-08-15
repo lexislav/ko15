@@ -1,0 +1,1032 @@
+<?php
+/**
+ * @file
+ * Views Filter Selective Handler Overrides.
+ */
+
+/**
+ * Views filter handler for selective values.
+ */
+class views_handler_filter_selective extends views_handler_filter_in_operator {
+
+  /**
+   * The original filter value options, if it's an options list handler.
+   *
+   * @var array|false
+   */
+  protected $originalOptions;
+
+  protected static $results;
+
+  /**
+   * Override set_default_options.
+   */
+  public function set_default_options() {
+    parent::set_default_options();
+    // This filter should always be exposed!
+    $this->options['exposed'] = TRUE;
+    // Do not allow to reduce options, makes no sense.
+    $this->options['expose']['reduce'] = FALSE;
+  }
+
+  /**
+   * Override get_value_options: retrieve available values.
+   */
+  public function get_value_options() {
+    $this->value_options = array();
+    // If $this->view->selective_oids means that the handler is
+    // being called inside the cloned view used to obtain
+    // the selective values and thus this is to prevent infinite
+    // recursive loop.
+    if (empty($this->view->selective_oids) && !empty($this->view->inited)) {
+      $oids = $this->get_oids();
+      $this->value_options = $oids;
+      // TODO: Omit null values in result: they are improperly handled.
+      // When constructing the query.
+      $this->value_options = array_diff_key($this->value_options, array("" => NULL));
+      // Set a flag in the view so we know it is using selective filters.
+      $this->view->using_selective = TRUE;
+    }
+    else {
+      if (!empty($this->view->selective_oids)) {
+        $this->value_options = array();
+      }
+      else {
+        // This is a special case, if $this->value_options is not an array
+        // then parent::value_form() will throw an exception, so,
+        // in our custom override no form is generated when $this->value_options
+        // is not an array. We only want this to happen in the administrative
+        // interface.
+        unset($this->value_options);
+      }
+    }
+  }
+
+  /**
+   * Override value_form.
+   */
+  public function value_form(&$form, &$form_state) {
+    $this->get_value_options();
+    // If you call parent::value_form() and $this->value_options
+    // is not an array, an exception is thrown.
+    if (isset($this->value_options) && is_array($this->value_options)) {
+      parent::value_form($form, $form_state);
+    }
+    // Avoid the 'illegal values' Form API error.
+    $form['value']['#validated'] = TRUE;
+    // Add behaviour for ajax block refresh.
+    // Don't do this if the view is being executed
+    // to obtain selective values.
+    if (empty($this->view->selective_oids)) {
+      $form['#attached']['js'][] = drupal_get_path('module', 'views_filters_selective') . '/js/attachBehaviours.js';
+    }
+  }
+
+  /**
+   * Tell if two base fields are compatible.
+   */
+  private function BaseFieldCompatible($base_field1, $base_field2) {
+    // Extended condition see https://www.drupal.org/node/2295707
+    return preg_match('/^' . $base_field1 . '/', $base_field2);
+  }
+  
+  /**
+   * Override options_form.
+   */
+  public function options_form(&$form, &$form_state) {
+    $base_field = $this->definition['field_base'];
+    
+    parent::options_form($form, $form_state);
+    // Filter should always be exposed, show warning.
+    array_unshift($form['expose_button'], array(
+      'warning' => array(
+        '#type' => 'markup',
+        '#markup' => '<div class="messages warning">' . t('This filter is always exposed to users.') . '</div>',
+      )));
+    // Remove option to unexpose filter. Tried to disable, but did not work.
+    $form['expose_button']['checkbox']['checkbox']['#type'] = 'hidden';
+    unset($form['expose_button']['button']);
+    unset($form['expose_button']['markup']);
+    // Do not allow to check "all values".
+    $form['value']['#attributes']['disabled'] = 'disabled';
+    // Cannot group without values.
+    unset($form['group_button']);
+    
+    // Preload handlers, sorts and filters.
+    // This gest cached all along.
+    $this->view->display_handler->get_handlers('field');
+    $this->view->display_handler->get_handlers('sort');
+    $this->view->display_handler->get_handlers('filter');
+    
+    // Add combo to pick display field for filter.
+    $options = array();
+    foreach ($this->view->display_handler->handlers['field'] as $key => $handler) {
+      if ($this->BaseFieldCompatible($base_field, $handler->field)) {
+        $options[$handler->options['id']] = $handler->definition['group'] . ': ' . $handler->definition['title'] . '(' . $handler->label() . ')';
+      }
+    }
+    
+    $form['selective_display_field'] = array(
+      '#title' => t('Display field'),
+      '#type' => 'select',
+      '#description' => t('Field to be used for the selective options.'),
+      '#options' => $options,
+      '#default_value' => $this->options['selective_display_field'],
+    );
+    
+    // Add combo to pick sort for display.
+    $options = array();
+    // Add option for custom sortings.
+    if ($this->getOriginalOptions()) {
+      $options['ORIG'] = t('As the original filter');
+    }
+    $options['ASC'] = t('Custom ascending (asort)');
+    $options['DESC'] = t('Custom descending (asort reverse)');
+    // TODO: Allow the use of view's sorts!
+    //foreach ($this->view->display_handler->handlers['sort'] as $key => $handler) {
+    //  $options[$handler->options['id']] = $handler->definition['group'] . ': ' . $handler->definition['title'];
+    //}
+    $form['selective_display_sort'] = array(
+      '#title' => t('Sort field'),
+      '#type' => 'select',
+      '#description' => t('Choose wich field to use for display'),
+      '#options' => $options,
+      '#default_value' => 'ASC',
+    );
+    $form['selective_items_limit'] = array(
+      '#title' => t('Limit number of select items'),
+      '#type' => 'textfield',
+      '#description' => t("Don't allow a badly configured selective filter to return thousands of possible values. Enter a limit or remove any value for no limit. We recommend to set a limit no higher than 100."),
+      '#default_value' => $this->options['selective_items_limit'],
+      '#size' => 10,
+      '#element_validate' => array('element_validate_integer_positive'),
+    );
+  }
+
+  /**
+   * Override expose_form.
+   */
+  public function expose_form(&$form, &$form_state) {
+    parent::expose_form($form, $form_state);
+    // Remove reduce resultset interface.
+    unset($form['expose']['reduce']);
+    // TODO: Populated somewhere through AJAX, I could not find it....
+    // Provide default value for filter name.
+    if (empty($form['expose']['identifier']['#default_value'])) {
+      $form['expose']['identifier']['#default_value'] = $this->options['field'];
+    }
+    if (empty($form['expose']['label']['#default_value'])) {
+      $form['expose']['label']['#default_value'] = $this->definition['title'];
+    }
+    if (empty($form['ui_name']['#default_value'])) {
+      $form['ui_name']['#default_value'] = $this->definition['title'];
+    }
+  }
+
+  /**
+   * Override query.
+   */
+  public function query() {
+    // If this view was constructed to obtain the selective values for this
+    // handler, the handler should not add any constraints itself.
+    if (isset($this->view->selective_handler_signature) && $this->GetSignature() == $this->view->selective_handler_signature) {
+      return;
+    }
+    // Decode the values to restore special chars.
+    $this->value = array_map('urldecode', $this->value);
+    parent::query();
+  }
+  
+  /**
+   * Override option_definition
+   */
+  function option_definition() {
+    $options = parent::option_definition();
+
+    // Storage for field used to display values.
+    $options['selective_display_field']['default'] = '';
+    // Storage for sort used to sort display values.
+    $options['selective_display_sort']['default'] = '';
+    // Storage for aggregated fields
+    $options['selective_aggregated_fields']['default'] = '';
+    // Limit aggregated items to prevent a huge number of options in select.
+    $options['selective_items_limit']['default'] = 100;
+
+    return $options;
+  }
+
+  /**
+   * Get a signature for current filter handler.
+   */
+  protected function GetSignature() {
+    $signature = md5(serialize(array(
+      'name' => $this->view->name,
+      'args' => $this->view->args,
+      'input' => $this->view->exposed_input,
+      'base_field' => $this->definition['field_base'],
+      'real_field' => $this->real_field,
+      'field' => $this->field,
+      'table' => $this->table,
+      'ui_name' => $this->options['ui_name'],
+    )));
+    return $signature;
+  }
+
+  /**
+   * Get list of options for current view, only at runtime.
+   */
+  protected function get_oids() {
+    // Parameters that we will be using during the process.
+    $base_field = $this->definition['field_base'];
+    $ui_name = $this->options['ui_name'];
+    $signature = $this->GetSignature();
+
+    // Prevent same filters from being recalculated.
+    if (empty(self::$results[$signature])) {
+      // We don't want a badly configured selective filter
+      // to return thousands of possible values.
+      $max_items = (int) $this->options['selective_items_limit'];
+
+      // Clone the view (so it works while editting) and get all results.
+      $view_copy = $this->view->clone_view();
+      if (!$view_copy) {
+        return NULL;
+      }
+      // Store a flag so that we can know from other places
+      // that this view is being used to obtain selective data.
+      $view_copy->selective_oids = TRUE;
+      // Store information about what filter is this view being used for.
+      $view_copy->selective_handler_signature = $signature;
+      // Transfer contextual information to cloned view.
+      $view_copy->set_exposed_input($this->view->exposed_input);
+      $view_copy->set_arguments($this->view->args);
+
+      // Mess up with the field used for distinct have thousands of elements.
+      // Limit result set to 100: anything above is not user friendly at all.
+      $view_copy->set_items_per_page($max_items);
+
+      // Remove paging, and page number from context.
+      if (isset($_GET['items_per_page'])) {
+        $items_per_page = $_GET['items_per_page'];
+        unset($_GET['items_per_page']);
+      }
+      if (isset($_GET['page'])) {
+        $exposed_page = $_GET['page'];
+        unset($_GET['page']);
+      }
+
+      // Manipulate display + default: don't know if fields are overriden.
+      $display = $view_copy->display[$this->view->current_display];
+      $display_default = $view_copy->display['default'];
+
+      // Remove any exposed form configuration. This showed up with BEF module!
+      unset($display->display_options['exposed_form']);
+      unset($display_default->display_options['exposed_form']);
+
+      // If we are using fields from default or current display.
+      if (isset($display->display_options['fields'])) {
+        $display_options_fields = &$display->display_options['fields'];
+      }
+      else {
+        $display_options_fields = &$display_default->display_options['fields'];
+      }
+
+      // Original implementation based field matching on ui_name matches
+      // so we need to preserve backwards compatibility.
+      $field_to_keep = $this->options['selective_display_field'];
+      if (empty($field_to_keep)) {
+        foreach ($display_options_fields as $key => $value) {
+          if ((isset($value['ui_name']) && ($value['ui_name'] == $ui_name))) {
+            $field_to_keep = $key;
+            break;
+          }
+        }
+      }
+//fujkahnuka, ale ted se neda nic delat
+      $countries = array(
+          'AD' => t('Andorra'),
+          'AE' => t('United Arab Emirates'),
+          'AF' => t('Afghanistan'),
+          'AG' => t('Antigua and Barbuda'),
+          'AI' => t('Anguilla'),
+          'AL' => t('Albania'),
+          'AM' => t('Armenia'),
+          'AN' => t('Netherlands Antilles'),
+          'AO' => t('Angola'),
+          'AQ' => t('Antarctica'),
+          'AR' => t('Argentina'),
+          'AS' => t('American Samoa'),
+          'AT' => t('Austria'),
+          'AU' => t('Australia'),
+          'AW' => t('Aruba'),
+          'AX' => t('Aland Islands'),
+          'AZ' => t('Azerbaijan'),
+          'BA' => t('Bosnia and Herzegovina'),
+          'BB' => t('Barbados'),
+          'BD' => t('Bangladesh'),
+          'BE' => t('Belgium'),
+          'BF' => t('Burkina Faso'),
+          'BG' => t('Bulgaria'),
+          'BH' => t('Bahrain'),
+          'BI' => t('Burundi'),
+          'BJ' => t('Benin'),
+          'BL' => t('Saint Barthélemy'),
+          'BM' => t('Bermuda'),
+          'BN' => t('Brunei'),
+          'BO' => t('Bolivia'),
+          'BQ' => t('Caribbean Netherlands'),
+          'BR' => t('Brazil'),
+          'BS' => t('Bahamas'),
+          'BT' => t('Bhutan'),
+          'BV' => t('Bouvet Island'),
+          'BW' => t('Botswana'),
+          'BY' => t('Belarus'),
+          'BZ' => t('Belize'),
+          'CA' => t('Canada'),
+          'CC' => t('Cocos (Keeling) Islands'),
+          'CD' => t('Congo (Kinshasa)'),
+          'CF' => t('Central African Republic'),
+          'CG' => t('Congo (Brazzaville)'),
+          'CH' => t('Switzerland'),
+          'CI' => t('Ivory Coast'),
+          'CK' => t('Cook Islands'),
+          'CL' => t('Chile'),
+          'CM' => t('Cameroon'),
+          'CN' => t('China'),
+          'CO' => t('Colombia'),
+          'CR' => t('Costa Rica'),
+          'CU' => t('Cuba'),
+          'CV' => t('Cape Verde'),
+          'CW' => t('Curaçao'),
+          'CX' => t('Christmas Island'),
+          'CY' => t('Cyprus'),
+          'CZ' => t('Czech Republic'),
+          'DE' => t('Germany'),
+          'DJ' => t('Djibouti'),
+          'DK' => t('Denmark'),
+          'DM' => t('Dominica'),
+          'DO' => t('Dominican Republic'),
+          'DZ' => t('Algeria'),
+          'EC' => t('Ecuador'),
+          'EE' => t('Estonia'),
+          'EG' => t('Egypt'),
+          'EH' => t('Western Sahara'),
+          'ER' => t('Eritrea'),
+          'ES' => t('Spain'),
+          'ET' => t('Ethiopia'),
+          'FI' => t('Finland'),
+          'FJ' => t('Fiji'),
+          'FK' => t('Falkland Islands'),
+          'FM' => t('Micronesia'),
+          'FO' => t('Faroe Islands'),
+          'FR' => t('France'),
+          'GA' => t('Gabon'),
+          'GB' => t('United Kingdom'),
+          'GD' => t('Grenada'),
+          'GE' => t('Georgia'),
+          'GF' => t('French Guiana'),
+          'GG' => t('Guernsey'),
+          'GH' => t('Ghana'),
+          'GI' => t('Gibraltar'),
+          'GL' => t('Greenland'),
+          'GM' => t('Gambia'),
+          'GN' => t('Guinea'),
+          'GP' => t('Guadeloupe'),
+          'GQ' => t('Equatorial Guinea'),
+          'GR' => t('Greece'),
+          'GS' => t('South Georgia and the South Sandwich Islands'),
+          'GT' => t('Guatemala'),
+          'GU' => t('Guam'),
+          'GW' => t('Guinea-Bissau'),
+          'GY' => t('Guyana'),
+          'HK' => t('Hong Kong S.A.R., China'),
+          'HM' => t('Heard Island and McDonald Islands'),
+          'HN' => t('Honduras'),
+          'HR' => t('Croatia'),
+          'HT' => t('Haiti'),
+          'HU' => t('Hungary'),
+          'ID' => t('Indonesia'),
+          'IE' => t('Ireland'),
+          'IL' => t('Israel'),
+          'IM' => t('Isle of Man'),
+          'IN' => t('India'),
+          'IO' => t('British Indian Ocean Territory'),
+          'IQ' => t('Iraq'),
+          'IR' => t('Iran'),
+          'IS' => t('Iceland'),
+          'IT' => t('Italy'),
+          'JE' => t('Jersey'),
+          'JM' => t('Jamaica'),
+          'JO' => t('Jordan'),
+          'JP' => t('Japan'),
+          'KE' => t('Kenya'),
+          'KG' => t('Kyrgyzstan'),
+          'KH' => t('Cambodia'),
+          'KI' => t('Kiribati'),
+          'KM' => t('Comoros'),
+          'KN' => t('Saint Kitts and Nevis'),
+          'KP' => t('North Korea'),
+          'KR' => t('South Korea'),
+          'KW' => t('Kuwait'),
+          'KY' => t('Cayman Islands'),
+          'KZ' => t('Kazakhstan'),
+          'LA' => t('Laos'),
+          'LB' => t('Lebanon'),
+          'LC' => t('Saint Lucia'),
+          'LI' => t('Liechtenstein'),
+          'LK' => t('Sri Lanka'),
+          'LR' => t('Liberia'),
+          'LS' => t('Lesotho'),
+          'LT' => t('Lithuania'),
+          'LU' => t('Luxembourg'),
+          'LV' => t('Latvia'),
+          'LY' => t('Libya'),
+          'MA' => t('Morocco'),
+          'MC' => t('Monaco'),
+          'MD' => t('Moldova'),
+          'ME' => t('Montenegro'),
+          'MF' => t('Saint Martin (French part)'),
+          'MG' => t('Madagascar'),
+          'MH' => t('Marshall Islands'),
+          'MK' => t('Macedonia'),
+          'ML' => t('Mali'),
+          'MM' => t('Myanmar'),
+          'MN' => t('Mongolia'),
+          'MO' => t('Macao S.A.R., China'),
+          'MP' => t('Northern Mariana Islands'),
+          'MQ' => t('Martinique'),
+          'MR' => t('Mauritania'),
+          'MS' => t('Montserrat'),
+          'MT' => t('Malta'),
+          'MU' => t('Mauritius'),
+          'MV' => t('Maldives'),
+          'MW' => t('Malawi'),
+          'MX' => t('Mexico'),
+          'MY' => t('Malaysia'),
+          'MZ' => t('Mozambique'),
+          'NA' => t('Namibia'),
+          'NC' => t('New Caledonia'),
+          'NE' => t('Niger'),
+          'NF' => t('Norfolk Island'),
+          'NG' => t('Nigeria'),
+          'NI' => t('Nicaragua'),
+          'NL' => t('Netherlands'),
+          'NO' => t('Norway'),
+          'NP' => t('Nepal'),
+          'NR' => t('Nauru'),
+          'NU' => t('Niue'),
+          'NZ' => t('New Zealand'),
+          'OM' => t('Oman'),
+          'PA' => t('Panama'),
+          'PE' => t('Peru'),
+          'PF' => t('French Polynesia'),
+          'PG' => t('Papua New Guinea'),
+          'PH' => t('Philippines'),
+          'PK' => t('Pakistan'),
+          'PL' => t('Poland'),
+          'PM' => t('Saint Pierre and Miquelon'),
+          'PN' => t('Pitcairn'),
+          'PR' => t('Puerto Rico'),
+          'PS' => t('Palestinian Territory'),
+          'PT' => t('Portugal'),
+          'PW' => t('Palau'),
+          'PY' => t('Paraguay'),
+          'QA' => t('Qatar'),
+          'RE' => t('Reunion'),
+          'RO' => t('Romania'),
+          'RS' => t('Serbia'),
+          'RU' => t('Russia'),
+          'RW' => t('Rwanda'),
+          'SA' => t('Saudi Arabia'),
+          'SB' => t('Solomon Islands'),
+          'SC' => t('Seychelles'),
+          'SD' => t('Sudan'),
+          'SE' => t('Sweden'),
+          'SG' => t('Singapore'),
+          'SH' => t('Saint Helena'),
+          'SI' => t('Slovenia'),
+          'SJ' => t('Svalbard and Jan Mayen'),
+          'SK' => t('Slovakia'),
+          'SL' => t('Sierra Leone'),
+          'SM' => t('San Marino'),
+          'SN' => t('Senegal'),
+          'SO' => t('Somalia'),
+          'SR' => t('Suriname'),
+          'SS' => t('South Sudan'),
+          'ST' => t('Sao Tome and Principe'),
+          'SV' => t('El Salvador'),
+          'SX' => t('Sint Maarten'),
+          'SY' => t('Syria'),
+          'SZ' => t('Swaziland'),
+          'TC' => t('Turks and Caicos Islands'),
+          'TD' => t('Chad'),
+          'TF' => t('French Southern Territories'),
+          'TG' => t('Togo'),
+          'TH' => t('Thailand'),
+          'TJ' => t('Tajikistan'),
+          'TK' => t('Tokelau'),
+          'TL' => t('Timor-Leste'),
+          'TM' => t('Turkmenistan'),
+          'TN' => t('Tunisia'),
+          'TO' => t('Tonga'),
+          'TR' => t('Turkey'),
+          'TT' => t('Trinidad and Tobago'),
+          'TV' => t('Tuvalu'),
+          'TW' => t('Taiwan'),
+          'TZ' => t('Tanzania'),
+          'UA' => t('Ukraine'),
+          'UG' => t('Uganda'),
+          'UM' => t('United States Minor Outlying Islands'),
+          'US' => t('United States'),
+          'UY' => t('Uruguay'),
+          'UZ' => t('Uzbekistan'),
+          'VA' => t('Vatican'),
+          'VC' => t('Saint Vincent and the Grenadines'),
+          'VE' => t('Venezuela'),
+          'VG' => t('British Virgin Islands'),
+          'VI' => t('U.S. Virgin Islands'),
+          'VN' => t('Vietnam'),
+          'VU' => t('Vanuatu'),
+          'WF' => t('Wallis and Futuna'),
+          'WS' => t('Samoa'),
+          'YE' => t('Yemen'),
+          'YT' => t('Mayotte'),
+          'ZA' => t('South Africa'),
+          'ZM' => t('Zambia'),
+          'ZW' => t('Zimbabwe'),
+      );
+
+      $countriesen = array(
+          'AD' => ('Andorra'),
+          'AE' => ('United Arab Emirates'),
+          'AF' => ('Afghanistan'),
+          'AG' => ('Antigua and Barbuda'),
+          'AI' => ('Anguilla'),
+          'AL' => ('Albania'),
+          'AM' => ('Armenia'),
+          'AN' => ('Netherlands Antilles'),
+          'AO' => ('Angola'),
+          'AQ' => ('Antarctica'),
+          'AR' => ('Argentina'),
+          'AS' => ('American Samoa'),
+          'AT' => ('Austria'),
+          'AU' => ('Australia'),
+          'AW' => ('Aruba'),
+          'AX' => ('Aland Islands'),
+          'AZ' => ('Azerbaijan'),
+          'BA' => ('Bosnia and Herzegovina'),
+          'BB' => ('Barbados'),
+          'BD' => ('Bangladesh'),
+          'BE' => ('Belgium'),
+          'BF' => ('Burkina Faso'),
+          'BG' => ('Bulgaria'),
+          'BH' => ('Bahrain'),
+          'BI' => ('Burundi'),
+          'BJ' => ('Benin'),
+          'BL' => ('Saint Barthélemy'),
+          'BM' => ('Bermuda'),
+          'BN' => ('Brunei'),
+          'BO' => ('Bolivia'),
+          'BQ' => ('Caribbean Netherlands'),
+          'BR' => ('Brazil'),
+          'BS' => ('Bahamas'),
+          'BT' => ('Bhutan'),
+          'BV' => ('Bouvet Island'),
+          'BW' => ('Botswana'),
+          'BY' => ('Belarus'),
+          'BZ' => ('Belize'),
+          'CA' => ('Canada'),
+          'CC' => ('Cocos (Keeling) Islands'),
+          'CD' => ('Congo (Kinshasa)'),
+          'CF' => ('Central African Republic'),
+          'CG' => ('Congo (Brazzaville)'),
+          'CH' => ('Switzerland'),
+          'CI' => ('Ivory Coast'),
+          'CK' => ('Cook Islands'),
+          'CL' => ('Chile'),
+          'CM' => ('Cameroon'),
+          'CN' => ('China'),
+          'CO' => ('Colombia'),
+          'CR' => ('Costa Rica'),
+          'CU' => ('Cuba'),
+          'CV' => ('Cape Verde'),
+          'CW' => ('Curaçao'),
+          'CX' => ('Christmas Island'),
+          'CY' => ('Cyprus'),
+          'CZ' => ('Czech Republic'),
+          'DE' => ('Germany'),
+          'DJ' => ('Djibouti'),
+          'DK' => ('Denmark'),
+          'DM' => ('Dominica'),
+          'DO' => ('Dominican Republic'),
+          'DZ' => ('Algeria'),
+          'EC' => ('Ecuador'),
+          'EE' => ('Estonia'),
+          'EG' => ('Egypt'),
+          'EH' => ('Western Sahara'),
+          'ER' => ('Eritrea'),
+          'ES' => ('Spain'),
+          'ET' => ('Ethiopia'),
+          'FI' => ('Finland'),
+          'FJ' => ('Fiji'),
+          'FK' => ('Falkland Islands'),
+          'FM' => ('Micronesia'),
+          'FO' => ('Faroe Islands'),
+          'FR' => ('France'),
+          'GA' => ('Gabon'),
+          'GB' => ('United Kingdom'),
+          'GD' => ('Grenada'),
+          'GE' => ('Georgia'),
+          'GF' => ('French Guiana'),
+          'GG' => ('Guernsey'),
+          'GH' => ('Ghana'),
+          'GI' => ('Gibraltar'),
+          'GL' => ('Greenland'),
+          'GM' => ('Gambia'),
+          'GN' => ('Guinea'),
+          'GP' => ('Guadeloupe'),
+          'GQ' => ('Equatorial Guinea'),
+          'GR' => ('Greece'),
+          'GS' => ('South Georgia and the South Sandwich Islands'),
+          'GT' => ('Guatemala'),
+          'GU' => ('Guam'),
+          'GW' => ('Guinea-Bissau'),
+          'GY' => ('Guyana'),
+          'HK' => ('Hong Kong S.A.R., China'),
+          'HM' => ('Heard Island and McDonald Islands'),
+          'HN' => ('Honduras'),
+          'HR' => ('Croatia'),
+          'HT' => ('Haiti'),
+          'HU' => ('Hungary'),
+          'ID' => ('Indonesia'),
+          'IE' => ('Ireland'),
+          'IL' => ('Israel'),
+          'IM' => ('Isle of Man'),
+          'IN' => ('India'),
+          'IO' => ('British Indian Ocean Territory'),
+          'IQ' => ('Iraq'),
+          'IR' => ('Iran'),
+          'IS' => ('Iceland'),
+          'IT' => ('Italy'),
+          'JE' => ('Jersey'),
+          'JM' => ('Jamaica'),
+          'JO' => ('Jordan'),
+          'JP' => ('Japan'),
+          'KE' => ('Kenya'),
+          'KG' => ('Kyrgyzstan'),
+          'KH' => ('Cambodia'),
+          'KI' => ('Kiribati'),
+          'KM' => ('Comoros'),
+          'KN' => ('Saint Kitts and Nevis'),
+          'KP' => ('North Korea'),
+          'KR' => ('South Korea'),
+          'KW' => ('Kuwait'),
+          'KY' => ('Cayman Islands'),
+          'KZ' => ('Kazakhstan'),
+          'LA' => ('Laos'),
+          'LB' => ('Lebanon'),
+          'LC' => ('Saint Lucia'),
+          'LI' => ('Liechtenstein'),
+          'LK' => ('Sri Lanka'),
+          'LR' => ('Liberia'),
+          'LS' => ('Lesotho'),
+          'LT' => ('Lithuania'),
+          'LU' => ('Luxembourg'),
+          'LV' => ('Latvia'),
+          'LY' => ('Libya'),
+          'MA' => ('Morocco'),
+          'MC' => ('Monaco'),
+          'MD' => ('Moldova'),
+          'ME' => ('Montenegro'),
+          'MF' => ('Saint Martin (French part)'),
+          'MG' => ('Madagascar'),
+          'MH' => ('Marshall Islands'),
+          'MK' => ('Macedonia'),
+          'ML' => ('Mali'),
+          'MM' => ('Myanmar'),
+          'MN' => ('Mongolia'),
+          'MO' => ('Macao S.A.R., China'),
+          'MP' => ('Northern Mariana Islands'),
+          'MQ' => ('Martinique'),
+          'MR' => ('Mauritania'),
+          'MS' => ('Montserrat'),
+          'MT' => ('Malta'),
+          'MU' => ('Mauritius'),
+          'MV' => ('Maldives'),
+          'MW' => ('Malawi'),
+          'MX' => ('Mexico'),
+          'MY' => ('Malaysia'),
+          'MZ' => ('Mozambique'),
+          'NA' => ('Namibia'),
+          'NC' => ('New Caledonia'),
+          'NE' => ('Niger'),
+          'NF' => ('Norfolk Island'),
+          'NG' => ('Nigeria'),
+          'NI' => ('Nicaragua'),
+          'NL' => ('Netherlands'),
+          'NO' => ('Norway'),
+          'NP' => ('Nepal'),
+          'NR' => ('Nauru'),
+          'NU' => ('Niue'),
+          'NZ' => ('New Zealand'),
+          'OM' => ('Oman'),
+          'PA' => ('Panama'),
+          'PE' => ('Peru'),
+          'PF' => ('French Polynesia'),
+          'PG' => ('Papua New Guinea'),
+          'PH' => ('Philippines'),
+          'PK' => ('Pakistan'),
+          'PL' => ('Poland'),
+          'PM' => ('Saint Pierre and Miquelon'),
+          'PN' => ('Pitcairn'),
+          'PR' => ('Puerto Rico'),
+          'PS' => ('Palestinian Territory'),
+          'PT' => ('Portugal'),
+          'PW' => ('Palau'),
+          'PY' => ('Paraguay'),
+          'QA' => ('Qatar'),
+          'RE' => ('Reunion'),
+          'RO' => ('Romania'),
+          'RS' => ('Serbia'),
+          'RU' => ('Russia'),
+          'RW' => ('Rwanda'),
+          'SA' => ('Saudi Arabia'),
+          'SB' => ('Solomon Islands'),
+          'SC' => ('Seychelles'),
+          'SD' => ('Sudan'),
+          'SE' => ('Sweden'),
+          'SG' => ('Singapore'),
+          'SH' => ('Saint Helena'),
+          'SI' => ('Slovenia'),
+          'SJ' => ('Svalbard and Jan Mayen'),
+          'SK' => ('Slovakia'),
+          'SL' => ('Sierra Leone'),
+          'SM' => ('San Marino'),
+          'SN' => ('Senegal'),
+          'SO' => ('Somalia'),
+          'SR' => ('Suriname'),
+          'SS' => ('South Sudan'),
+          'ST' => ('Sao Tome and Principe'),
+          'SV' => ('El Salvador'),
+          'SX' => ('Sint Maarten'),
+          'SY' => ('Syria'),
+          'SZ' => ('Swaziland'),
+          'TC' => ('Turks and Caicos Islands'),
+          'TD' => ('Chad'),
+          'TF' => ('French Southern Territories'),
+          'TG' => ('Togo'),
+          'TH' => ('Thailand'),
+          'TJ' => ('Tajikistan'),
+          'TK' => ('Tokelau'),
+          'TL' => ('Timor-Leste'),
+          'TM' => ('Turkmenistan'),
+          'TN' => ('Tunisia'),
+          'TO' => ('Tonga'),
+          'TR' => ('Turkey'),
+          'TT' => ('Trinidad and Tobago'),
+          'TV' => ('Tuvalu'),
+          'TW' => ('Taiwan'),
+          'TZ' => ('Tanzania'),
+          'UA' => ('Ukraine'),
+          'UG' => ('Uganda'),
+          'UM' => ('United States Minor Outlying Islands'),
+          'US' => ('United States'),
+          'UY' => ('Uruguay'),
+          'UZ' => ('Uzbekistan'),
+          'VA' => ('Vatican'),
+          'VC' => ('Saint Vincent and the Grenadines'),
+          'VE' => ('Venezuela'),
+          'VG' => ('British Virgin Islands'),
+          'VI' => ('U.S. Virgin Islands'),
+          'VN' => ('Vietnam'),
+          'VU' => ('Vanuatu'),
+          'WF' => ('Wallis and Futuna'),
+          'WS' => ('Samoa'),
+          'YE' => ('Yemen'),
+          'YT' => ('Mayotte'),
+          'ZA' => ('South Africa'),
+          'ZM' => ('Zambia'),
+          'ZW' => ('Zimbabwe'),
+      );
+
+      //end fujkahnuka, ale ted se neda nic delat
+      // Remove all fields but the one used to display and aggregate.
+      foreach ($display_options_fields as $key => $value) {
+        if ($key != $field_to_keep) {
+          unset($display_options_fields[$key]);
+        }
+        else {
+          // If there is a group column on the field, remove it so Field Collections will work.
+          // https://www.drupal.org/node/2333065
+          unset($display_options_fields[$key]['group_column']);
+        }
+      }
+
+      // Check to see if the user remembered to add the field.
+      if (empty($display_options_fields)) {
+        drupal_set_message(t('Selective query filter must have corresponding field added to view with Administrative Name set to "@name" and Base Type "@type"',
+          array(
+            '@name' => $ui_name,
+            '@type' => $base_field)),
+            'error');
+        return array();
+      }
+
+      // Get ID of field that will be used for rendering.
+      $display_field = reset($display_options_fields);
+
+      // Get field Id.
+      $display_field_id = $display_field['id'];
+
+      // Check that relationships are coherent between Field and Filter.
+      $no_display_field_relationship = empty($display_field['relationship']) || $display_field['relationship'] === 'none';
+      $no_filter_relationship = empty($this->options['relationship']) || $this->options['relationship'] === 'none';
+      $equal
+        = (($no_display_field_relationship === TRUE) && ($no_filter_relationship === TRUE)) ||
+        ($display_field['relationship'] === $this->options['relationship']);
+
+      if (!$equal) {
+        drupal_set_message(t('Selective filter "@name": relationship of field and filter must match.',
+          array(
+            '@name' => $ui_name,
+            '@type' => $base_field)),
+            'error');
+        return array();
+      }
+
+      // If main field is excluded from presentation, bring it back.
+      // Set group type for handler to populate database relationships in query.
+      $display_field['exclude'] = 0;
+      $display_field['group_type'] = 'group';
+
+      // Remove all sorting: sorts must be added to aggregate fields.
+      unset($display->display_options['sorts']);
+      unset($display_default->display_options['sorts']);
+
+      // Turn this into an aggregate query.
+      $display->display_options['group_by'] = 1;
+      $display->handler->options['group_by'] = 1;
+
+      $display_default->display_options['group_by'] = 1;
+      $display_default->handler->options['group_by'] = 1;
+
+      // Aggregate is incompatible with distinct and pure distinct.
+      // At least it does not make sense as it is implemented now.
+      unset($display_default->display_options['query']['options']['distinct']);
+      unset($display_default->display_options['query']['options']['pure_distinct']);
+
+      unset($display->display_options['query']['options']['distinct']);
+      unset($display->display_options['query']['options']['pure_distinct']);
+
+      // Some style plugins can affect the built query, make sure
+      // we use a reliable field based style plugin.
+      $display->display_options['style_plugin'] = 'default';
+      $display->display_options['style_options'] = unserialize('a:4:{s:9:"row_class";s:0:"";s:17:"default_row_class";i:1;s:17:"row_class_special";i:1;s:11:"uses_fields";i:0;}');
+      $display->display_options['row_plugin'] = 'fields';
+      $display->display_options['row_options'] = unserialize('s:6:"fields";');
+
+      // Run View.
+      $view_copy->execute($this->view->current_display);
+
+      // Restore context parameters for real View.
+      if (isset($items_per_page)) {
+        $_GET['items_per_page'] = $items_per_page;
+      }
+      if (isset($exposed_page)) {
+        $_GET['page'] = $exposed_page;
+      }
+
+      // Get Handler after execution.
+      $display_field_handler = $view_copy->field[$display_field_id];
+
+      // We show human-readable values when case.
+      if (method_exists($display_field_handler, 'get_value_options')) {
+        $display_field_handler->get_value_options();
+      }
+
+      // Create array of objects for selector.
+      $oids = array();
+      $field_alias = isset($display_field_handler->aliases[$display_field_handler->real_field]) ? $display_field_handler->aliases[$display_field_handler->real_field] : $display_field_handler->table_alias . '_' . $display_field_handler->real_field;
+      foreach ($view_copy->result as $index => $row) {
+        // $key = $display_field_handler->get_value($row) should be more robust.
+        // But values are sometimes nested arrays, and we need single values.
+        // For the filters.
+        $key = $display_field_handler->get_value($row);
+
+
+
+        if (is_array($key)) {
+          $key = $row->{$field_alias};
+        }
+
+
+        $value = strip_tags($view_copy->render_field($display_field_id, $index));
+
+
+
+
+        $oids[$key] = empty($value) ? t('Empty (@key)', array('@key' => empty($key) ? json_encode($key) : $key)) : $value;
+      }
+
+
+      if($field_alias == 'field_data_field_reference_zeme_field_reference_zeme_iso2'){
+
+        if(test_lang_code()=='en'){
+          foreach($oids AS $lala => $neco){
+            $oids[$lala] = $countriesen[$lala];
+          }
+        }else{
+          foreach($oids AS $lala => $neco){
+            $oids[$lala] = $countries[$lala];
+          }
+        }
+
+ 
+
+
+      }
+
+
+      // Sort values.
+      $sort_option = $this->options['selective_display_sort'];
+      if (empty($sort_option) || $sort_option == 'ASC') {
+        asort($oids);
+      }
+      elseif ($sort_option == 'DESC') {
+        arsort($oids);
+      }
+      elseif ($sort_option == 'ORIG') {
+        $oids = static::filterOriginalOptions($this->getOriginalOptions(), array_keys($oids));
+      }
+
+      // If limit exceeded this field is not good for being "selective".
+      if (!empty($max_items) && count($oids) == $max_items) {
+        drupal_set_message(t('Selective filter "@field" has limited the amount of total results. Please, review you query configuration.', array('@field' => $ui_name)), 'warning');
+      }
+
+      self::$results[$signature] = $oids;
+      $view_copy->destroy();
+    }
+    return self::$results[$signature];
+  }
+
+  /**
+   * Filters a list of original options according to selected set.
+   *
+   * @param array $options
+   *   The options list of the original filter.
+   * @param array $set
+   *   The narrowed set of results provided by the cloned view.
+   *
+   * @return array
+   *   The original filter options list narrowed to the cloned query results.
+   */
+  static protected function filterOriginalOptions($options, $set) {
+    $filtered = array();
+
+    foreach ($options as $key => $value) {
+      // Handle grouped options.
+      // @see hook_options_list().
+      if (is_array($value)) {
+        $nested = self::filterOriginalOptions($value, $set);
+        if (!empty($nested)) {
+          $filtered[$key] = $nested;
+        }
+        continue;
+      }
+      if (in_array($key, $set)) {
+        $filtered[$key] = $value;
+      }
+    }
+
+    return $filtered;
+  }
+
+  /**
+   * Returns the original filter value options, if provides an options list.
+   *
+   * @return array|false
+   *   The original filter option list, if available, or FALSE.
+   */
+  protected function getOriginalOptions() {
+    if (!isset($this->originalOptions)) {
+      $this->originalOptions = FALSE;
+      $class = $this->definition['proxy'];
+      $original_filter = new $class();
+      if (method_exists($original_filter, 'get_value_options')) {
+        $original_filter->set_definition($this->definition);
+        $options = $original_filter->get_value_options();
+        // We store only non-empty array.
+        if (is_array($options) && !empty($options)) {
+          $this->originalOptions = $options;
+        }
+        else {
+          $this->originalOptions = array();
+        }
+      }
+    }
+
+    return $this->originalOptions;
+  }
+
+}
