@@ -19,6 +19,11 @@ function extractEmails(text) {
   return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
 }
 
+function hackSeznamSklik() {
+  $("#komasklik").remove();
+  $('body').append('<iframe id="komasklik" width="119" height="22" frameborder="0" scrolling="no" src="//c.imedia.cz/checkConversion?c=100033708&amp;color=ffffff&amp;v=0"></iframe>');
+}
+
 function extractPhone(text) {
   // numero = parseInt(text.repla(' '));
   var clean = text.replace(/ /g, '');
@@ -42,15 +47,12 @@ function registerGGMailEvents() {
     // send mail link
     if (link.indexOf("mailto:") >= 0) {
 
-      // check google analytics
-      if (!ga) {
-        console.error("[registerGGMailEvents]: ga method is not accessible")
-        return;
-      }
-
       var mailto = link.substr(6, link.length);
       //console.log('mailoTo event: ' + mailto);
       ga('send', 'event', 'mail', 'click', mailto);
+
+      <!-- Měřicí kód Sklik.cz -->
+      hackSeznamSklik();
     }
 
   });
@@ -71,6 +73,12 @@ function registerGACopyEvents() {
         var mail = mails[0];
         // console.log("copy mail "+ mail);
         ga('send', 'event', 'mail', 'copy', 'zkopirovani emailu ' + mail);
+
+        // sklik hack
+
+        <!-- Měřicí kód Sklik.cz -->
+        hackSeznamSklik();
+
       }
 
       if (phones && phones.length > 0) {
