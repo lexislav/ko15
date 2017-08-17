@@ -129,6 +129,8 @@ function registerContactFormManager() {
       //console.log('ga event: ' + injectEmail);
       ga('send', 'event', 'mail', 'click', injectEmail);
 
+      <!-- Měřicí kód Sklik.cz -->
+      hackSeznamSklik();
 
     });
   });
