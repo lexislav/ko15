@@ -20,6 +20,8 @@ function extractEmails(text) {
 }
 
 function hackSeznamSklik() {
+  console.log('renew/send: sklik iframe');
+
   $("#komasklik").remove();
   $('body').append('<iframe id="komasklik" width="119" height="22" frameborder="0" scrolling="no" src="//c.imedia.cz/checkConversion?c=100033708&amp;color=ffffff&amp;v=0"></iframe>');
 }
@@ -46,13 +48,15 @@ function registerGGMailEvents() {
 
     // send mail link
     if (link.indexOf("mailto:") >= 0) {
-
       var mailto = link.substr(6, link.length);
-      //console.log('mailoTo event: ' + mailto);
+
       ga('send', 'event', 'mail', 'click', mailto);
 
-      <!-- Měřicí kód Sklik.cz -->
       hackSeznamSklik();
+      console.log('send fb: COPY_OR_CLICK_ON_EMAIL');
+      fbq('track', '<COPY_OR_CLICK_ON_EMAIL>');
+
+
     }
 
   });
@@ -72,12 +76,16 @@ function registerGACopyEvents() {
         // send only one mail
         var mail = mails[0];
         // console.log("copy mail "+ mail);
+        console.log('send ga: mail copy');
         ga('send', 'event', 'mail', 'copy', 'zkopirovani emailu ' + mail);
 
         // sklik hack
 
         <!-- Měřicí kód Sklik.cz -->
         hackSeznamSklik();
+
+        console.log('send fb: COPY_OR_CLICK_ON_EMAIL');
+        fbq('track', '<COPY_OR_CLICK_ON_EMAIL>');
 
       }
 
@@ -120,17 +128,14 @@ function registerContactFormManager() {
       });
 
       // send GA event
-
-      if (!ga) {
-        console.error("[registerContactFormManager]: ga method is not accessible")
-        return;
-      }
-
-      //console.log('ga event: ' + injectEmail);
+      console.log('send ga: mail click');
       ga('send', 'event', 'mail', 'click', injectEmail);
 
       // <!-- Měřicí kód Sklik.cz -->
-      // hackSeznamSklik();
+      hackSeznamSklik();
+
+      console.log('send fb: COPY_OR_CLICK_ON_EMAIL');
+      fbq('track', '<COPY_OR_CLICK_ON_EMAIL>');
 
     });
   });
