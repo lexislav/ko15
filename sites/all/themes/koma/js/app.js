@@ -40,8 +40,8 @@ function sendGaAdwords(action, email) {
     window.google_trackConversion({
       google_conversion_id: 847326048,
       google_custom_params: {
-        parameter1: action,
-        parameter2: email
+        action: action,
+        email: email
       },
       google_remarketing_only: true
     });
