@@ -141,6 +141,9 @@ if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
 <script type="text/javascript" src="//c.imedia.cz/js/retargeting.js"></script>
 
 
+<!-- google remarketing support for ASYNC calls -->
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>
+
 <!-- google remarketing : START -->
 <script type="text/javascript">
   /* <![CDATA[ */

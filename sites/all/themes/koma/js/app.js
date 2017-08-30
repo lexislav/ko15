@@ -35,6 +35,18 @@ function extractPhone(text) {
   //return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
 }
 
+
+function sendGaAdwords(action, email) {
+    window.google_trackConversion({
+      google_conversion_id: 847326048,
+      google_custom_params: {
+        parameter1: action,
+        parameter2: email
+      },
+      google_remarketing_only: true
+    });
+}
+
 function registerGGMailEvents() {
   console.log("registerGGMailEvents:On");
   jQuery('a').on('click', function (e) {
@@ -52,7 +64,10 @@ function registerGGMailEvents() {
 
       ga('send', 'event', 'mail', 'click', mailto);
 
+      sendGaAdwords('mail-click', mailto);
+
       hackSeznamSklik();
+
       console.log('send fb: COPY_OR_CLICK_ON_EMAIL');
       fbq('track', '<COPY_OR_CLICK_ON_EMAIL>');
 
@@ -77,9 +92,10 @@ function registerGACopyEvents() {
         var mail = mails[0];
         // console.log("copy mail "+ mail);
         console.log('send ga: mail copy');
+
         ga('send', 'event', 'mail', 'copy', 'zkopirovani emailu ' + mail);
 
-        // sklik hack
+        sendGaAdwords('mail-copy', mail);
 
         <!-- Měřicí kód Sklik.cz -->
         hackSeznamSklik();
@@ -129,7 +145,10 @@ function registerContactFormManager() {
 
       // send GA event
       console.log('send ga: mail click');
+
       ga('send', 'event', 'mail', 'click', injectEmail);
+
+      sendGaAdwords('mail-click', injectEmail);
 
       // <!-- Měřicí kód Sklik.cz -->
       hackSeznamSklik();
