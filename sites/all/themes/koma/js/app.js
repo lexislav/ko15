@@ -60,17 +60,16 @@ function registerGGMailEvents() {
 
     // send mail link
     if (link.indexOf("mailto:") >= 0) {
-      var mailto = link.substr(6, link.length);
+      e.preventDefault();
+      var mailto = link.substr(7, link.length);
 
       ga('send', 'event', 'mail', 'click', mailto);
-
       sendGaAdwords('mail-click', mailto);
-
       hackSeznamSklik();
-
-      console.log('send fb: COPY_OR_CLICK_ON_EMAIL');
       fbq('track', '<COPY_OR_CLICK_ON_EMAIL>');
-
+      setTimeout(function(){
+        window.location.href = "mailto:"+mailto;
+      }, 1000);
 
     }
 
@@ -135,6 +134,7 @@ function registerContactFormManager() {
       var injectSubject = el.data('subject');
       var injectEmail = el.data('email');
 
+
       targetFormField.attr('value', injectEmail);
       targetInfoElement.text(injectEmail);
 
@@ -144,7 +144,7 @@ function registerContactFormManager() {
       });
 
       // send GA event
-      console.log('send ga: mail click');
+      console.log('send ga: mail click: ' + injectEmail);
 
       ga('send', 'event', 'mail', 'click', injectEmail);
 
