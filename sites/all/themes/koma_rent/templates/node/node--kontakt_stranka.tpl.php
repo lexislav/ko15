@@ -52,7 +52,7 @@
     <div class="row">
         <footer class="m-section--footer">
             <div class="l-half">
-                <a href="<?= test_basic_url() ?>kontakty#formSection">
+                <a href="<?= test_basic_url() ?>kontakty#formSection" onclick="ga('send', 'event', 'button', 'click', 'zeptejte se nas');">
                     <button class="button"><?php print t('Ask us') ?></button>
                 </a>
             </div>
@@ -60,7 +60,7 @@
                 <ul class="m-section--nav inline-right">
                     <li><a href="#kariera"><?php print t('Career with KOMA') ?> </a></li>
                     <li><a href="#adresar"><?php print t('Directory') ?> </a></li>
-                    <li><a href="#formSection">&darr; <?php print t('Contact form') ?> </a></li>
+                    <li><a href="#formSection" onclick="ga('send', 'event', 'button', 'click', 'tlacitko kontaktni formular');">&darr; <?php print t('Contact form') ?> </a></li>
                 </ul>
             </div>
         </footer>

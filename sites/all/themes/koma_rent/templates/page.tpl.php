@@ -104,7 +104,7 @@ if ($user->uid == 1) {
                     <h1 class="m-item--hed mm-small color-primary"><?php print t('Customer support') ?></h1>
                 </header>
                 <div class="m-item--description"><?php print t('Have you not found answers to your questions here? Ask us directly!') ?></div>
-                <a href="<?= test_basic_url() ?>kontakty#formSection">
+                <a href="<?= test_basic_url() ?>kontakty#formSection" onclick="ga('send', 'event', 'button', 'click', 'zeptejte se nas');">
                     <button><?php print t('Ask us') ?> &rarr;</button>
                 </a>
             </article>

@@ -1,6 +1,15 @@
 // run foundation
 jQuery(document).foundation();
 
+// koma modular
+// var googleAdWordsID = "847326048";
+// var sklikId = "100033708";
+
+// koma rent
+// var googleAdWordsID = "835058301";
+// var sklikId = "100035525";
+
+
 // map dollar back to jQuery
 var $ = jQuery;
 
@@ -19,23 +28,23 @@ function extractEmails(text) {
   return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
 }
 
-function hackSeznamSklik() {
-  console.log('renew/send: sklik iframe');
-
-  $("#komasklik").remove();
-  $('body').append('<iframe id="komasklik" width="119" height="22" frameborder="0" scrolling="no" src="//c.imedia.cz/checkConversion?c=100033708&amp;color=ffffff&amp;v=0"></iframe>');
-}
-
 function extractPhone(text) {
   var clean = text.replace(/ /g, '');
   return clean.match(/([0-9]{9,12})/gi);
 }
 
+// KomaModular
+function hackSeznamSklik() {
+  console.log('renew/send: sklik iframe');
+
+  $("#komasklik").remove();
+  $('body').append('<iframe id="komasklik" width="119" height="22" frameborder="0" scrolling="no" src="//c.imedia.cz/checkConversion?c='+sklikId+'&amp;color=ffffff&amp;v=0"></iframe>');
+}
 
 // KomaModular
 function sendGaAdwords(action, email) {
     window.google_trackConversion({
-      google_conversion_id: 847326048,
+      google_conversion_id: googleAdWordsID,
       google_custom_params: {
         action: action,
         email: email
@@ -43,6 +52,7 @@ function sendGaAdwords(action, email) {
       google_remarketing_only: true
     });
 }
+
 
 function registerGGMailEvents() {
   console.log("registerGGMailEvents:On");

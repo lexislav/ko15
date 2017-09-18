@@ -108,6 +108,10 @@ if($_SERVER['SERVER_ADDR']=='217.115.249.155'){
 </div>
 
 <!-- app scripts -->
+<script>
+  var googleAdWordsID = "835058301";
+  var sklikId = "100035525";
+</script>
 <script type="text/javascript" src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/js/app.js"></script>
 
 <!-- leady.cz -->
