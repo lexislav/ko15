@@ -149,11 +149,11 @@ if ($user->uid == 1) {
                 <ul class="m-footer--menu-secondary">
 
                     <li class="m-footer--menu-link">
-                        <a href="https://www.facebook.com/KOMA-RENT-sro-252931971538577/" target="" title=""><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/KOMA-RENT-sro-252931971538577/"><i class="fa fa-facebook"></i></a>
                     </li>
 
                     <li class="m-footer--menu-link">
-                        <a href="https://www.youtube.com/user/TopKOMASPACE" target="" title=""><i class="fa fa-youtube-play"></i></a>
+                        <a href="https://www.youtube.com/user/TopKOMASPACE"><i class="fa fa-youtube-play"></i></a>
                     </li>
                 </ul>
 
