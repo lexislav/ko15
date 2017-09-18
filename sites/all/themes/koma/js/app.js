@@ -10,6 +10,10 @@ jQuery(document).foundation();
 // var sklikId = "100035525";
 
 
+// koma space
+// var googleAdWordsID = "835061881";
+// var sklikId = null;
+
 // map dollar back to jQuery
 var $ = jQuery;
 
@@ -35,22 +39,23 @@ function extractPhone(text) {
 
 // KomaModular
 function hackSeznamSklik() {
-  console.log('renew/send: sklik iframe');
-
-  $("#komasklik").remove();
-  $('body').append('<iframe id="komasklik" width="119" height="22" frameborder="0" scrolling="no" src="//c.imedia.cz/checkConversion?c='+sklikId+'&amp;color=ffffff&amp;v=0"></iframe>');
+  if (sklikId !== null) {
+    console.log('renew/send: sklik iframe');
+    $("#komasklik").remove();
+    $('body').append('<iframe id="komasklik" width="119" height="22" frameborder="0" scrolling="no" src="//c.imedia.cz/checkConversion?c=' + sklikId + '&amp;color=ffffff&amp;v=0"></iframe>');
+  }
 }
 
 // KomaModular
 function sendGaAdwords(action, email) {
-    window.google_trackConversion({
-      google_conversion_id: googleAdWordsID,
-      google_custom_params: {
-        action: action,
-        email: email
-      },
-      google_remarketing_only: true
-    });
+  window.google_trackConversion({
+    google_conversion_id: googleAdWordsID,
+    google_custom_params: {
+      action: action,
+      email: email
+    },
+    google_remarketing_only: true
+  });
 }
 
 
@@ -74,8 +79,8 @@ function registerGGMailEvents() {
       sendGaAdwords('mail-click', mailto);
       hackSeznamSklik();
       fbq('track', '<COPY_OR_CLICK_ON_EMAIL>');
-      setTimeout(function(){
-        window.location.href = "mailto:"+mailto;
+      setTimeout(function () {
+        window.location.href = "mailto:" + mailto;
       }, 1000);
 
     }
