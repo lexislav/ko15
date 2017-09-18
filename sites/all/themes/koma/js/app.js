@@ -27,15 +27,12 @@ function hackSeznamSklik() {
 }
 
 function extractPhone(text) {
-  // numero = parseInt(text.repla(' '));
   var clean = text.replace(/ /g, '');
   return clean.match(/([0-9]{9,12})/gi);
-  //return numero;
-  //return telInteger = parseInt(text.replace(/[^0-9]/g,''));
-  //return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
 }
 
 
+// KomaModular
 function sendGaAdwords(action, email) {
     window.google_trackConversion({
       google_conversion_id: 847326048,
@@ -115,7 +112,6 @@ function registerGACopyEvents() {
   })
 
 }
-
 
 function registerContactFormManager() {
 
