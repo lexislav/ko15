@@ -1,21 +1,12 @@
 <?php print render($tabs); ?>
 
-
-
 <?php
-
 if ($user->uid == 1) {
     print $messages;
-
-
 }
-
-
 ?>
 
-
 <div class="l-navbar">
-
     <div class="m-navbar mm-secondary" id="navbarSecondary">
         <div class="m-navbar--container">
 
@@ -32,27 +23,18 @@ if ($user->uid == 1) {
                     </a>
                 </li>
             </ul>
-
-
-
         </div>
     </div>
 
     <div class="m-navbar mm-primary" id="navbarPrimary">
-
-
         <div class="m-navbar--container">
-
             <a class="m-navbar--logo" href="<?= $front_page ?>">
-                <div class="mm-has-svg"
-                     style="background-image: url('<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma_rent/logo.svg');"></div>
+                <div class="mm-has-svg" style="background-image: url('<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma_rent/logo.svg');"></div>
             </a>
-
             <div class="xmega">
                 <?php print render($page['navigation']); ?>
             </div>
         </div>
-
     </div>
 
     <?php
@@ -60,24 +42,24 @@ if ($user->uid == 1) {
         $banner1 = node_load(2316);
         if ($banner1->status == 1) {
 
-            if(isset($banner1->field_simple_img['und'][0]['uri'])){
+            if (isset($banner1->field_simple_img['und'][0]['uri'])) {
                 $uri1 = $banner1->field_simple_img['und'][0]['uri'];
             }
             ?>
-            <div id="page-banner" class="m-section <?=($banner1->field_banner_barva['und'][0]['value']==2)?'bg-secondary':'bg-primary';?>" <?php koma_theme_wrapper(__FILE__) ?>>
+            <div id="page-banner" class="m-section <?= ($banner1->field_banner_barva['und'][0]['value'] == 2) ? 'bg-secondary' : 'bg-primary'; ?>" <?php koma_theme_wrapper(__FILE__) ?>>
                 <div class="m-section--close" close-section>&times;</div>
                 <article class="m-banner">
                     <header>
-                        <?php if(isset($banner1->field_simple_img['und'][0]['uri'])){ ?>
+                        <?php if (isset($banner1->field_simple_img['und'][0]['uri'])) { ?>
                             <div class="m-banner--image" style="background-image: url(<?= image_style_url('0x60', $uri1) ?>)">
-                                <a href="<?=$banner1->field_page_link[test_lang_code()][0]['url']?>">
+                                <a href="<?= $banner1->field_page_link[test_lang_code()][0]['url'] ?>">
                                     <img src="<?= image_style_url('0x60', $uri1) ?>" />
                                 </a>
                             </div>
                         <?php } ?>
                         <div class="m-banner--summary">
                             <h1 class="m-banner--hed">
-                                <?=$banner1->field_basic_text[test_lang_code()][0]['value']?>
+                                <?= $banner1->field_basic_text[test_lang_code()][0]['value'] ?>
                             </h1>
                         </div>
                     </header>
@@ -108,56 +90,44 @@ if ($user->uid == 1) {
     <div class="row">
         <footer class="m-section--footer"></footer>
     </div>
-</div><!--certifikace-->
+</div>
+<!--certifikace-->
 
 
 <!--support-->
 <div class="m-section m-section_support">
-
     <div class="l-grid">
         <div class="m-section--item">
-
             <article class="m-newsletter">
                 <header>
-                    <div class="m-item--hed-icon"
-                         style="background-image: url(<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/votaznik.png)"></div>
+                    <div class="m-item--hed-icon" style="background-image: url(<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/votaznik.png)"></div>
                     <h1 class="m-item--hed mm-small color-primary"><?php print t('Customer support') ?></h1>
                 </header>
-
-                <div
-                    class="m-item--description"><?php print t('Have you not found answers to your questions here? Ask us directly!') ?></div>
+                <div class="m-item--description"><?php print t('Have you not found answers to your questions here? Ask us directly!') ?></div>
                 <a href="<?= test_basic_url() ?>kontakty#formSection">
                     <button><?php print t('Ask us') ?> &rarr;</button>
                 </a>
             </article>
-
         </div>
-
         <div class="m-section--item worker">
-            <img src="<?= $GLOBALS['base_url'] ?>/sites/koma/assets/images/worker.jpg"/>
-        </div>
-
+            <img src="<?= $GLOBALS['base_url'] ?>/sites/koma/assets/images/worker.jpg" /></div>
         <div class="m-section--item">
-
             <article class="m-bulletin">
-
                 <header>
                     <h1 class="m-item--hed mm-small color-primary"><?php print t('Get modular news with e-bulletin') ?></h1>
                 </header>
-
-
-                <div
-                    class="m-item--description"><?php print t('If you subscribe to our monthly e-bulletin you will be periodically informed about the latest developments in the world of modular architecture and new offers of the KOMA modular building system.') ?></div>
-
+                <div class="m-item--description">
+                    <?php print t('If you subscribe to our monthly e-bulletin you will be periodically informed about the latest developments in the world of modular architecture and new offers of the KOMA modular building system.') ?>
+                </div>
                 <?php print render($page['form_email']); ?>
             </article>
-
         </div>
     </div>
+</div>
+<!--support-->
 
-</div><!--support-->
 
-
+<!--paticka-->
 <footer class="m-footer m-section l-footer">
     <div class="m-footer--container">
         <div class="row">
@@ -173,10 +143,6 @@ if ($user->uid == 1) {
                         'class' => array('m-footer--menu-primary'),
                     )
                 )); ?>
-                <!--            @TODO Upravit podle predlohy-->
-                <!--                    <li class="m-footer--menu-link">-->
-                <!--                        <a target="{{ link.target }}" title="{{ link.title }}"><em class="">{{ link.title }}</em></a>-->
-                <!--                    </li>-->
             </section>
 
             <section class="m-footer--section">
@@ -206,4 +172,5 @@ if ($user->uid == 1) {
             </section>
         </div>
     </div>
-</footer><!--paticka-->
+</footer>
+<!--paticka-->
