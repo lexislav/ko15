@@ -1,5 +1,8 @@
 // push data to form
 
+// this is refactored to app.js
+
+/*
 var targetFormField = jQuery("#mailto");
 var targetInfoElement = jQuery("#targetMailInfo");
 
@@ -22,3 +25,4 @@ jQuery('[fillform]').each(function () {
         });
     });
 });
+*/

@@ -328,20 +328,40 @@ function template_preprocess_tb_megamenu_block(&$vars) {
           $block->subject = i18n_string_plain("blocks:$block->module:$block->delta:title", $block->subject);
         }
       }
-GLOBAL $user;
 
-if($user->uid>0){
-  $idb = str_replace('block--','',$vars['block_key']);
-$styl = 'style="padding:1px 4px;background-color:rgba(0,0,0,0.15);font-weight:bold;"';
-  $block->content .= '<a '.$styl.' target="_blank" href="http://www.koma-modular.cz/admin/structure/block/manage/block/'.$idb.'/configure">EDITOVAT</a>';
-}
+//      michal r. upravy
+      GLOBAL $user;
+
+      if ($user->uid > 0) {
+        GLOBAL $language;
+        if($language->language!='cs'){
+          $jazyk = '/'.$language->language;
+        }else{
+          $jazyk = '';
+        }
+        $idb = str_replace('block--', '', $vars['block_key']);
+        $styl = 'style="padding:1px 4px;background-color:rgba(0,0,0,0.15);font-weight:bold;"';
+        $block->content .= '<a ' . $styl . ' target="_blank" href="'.$GLOBALS['base_url'].$jazyk.'/admin/structure/block/manage/block/' . $idb . '/configure">EDITOVAT</a>';
 
 
-      $block->subject = htmlspecialchars_decode($block->subject);
-      $block->content = htmlspecialchars_decode($block->content);
-      if($block->bid==332){
-        $block->content = str_replace('<br />','',$block->content);
+
+
+
+
+
+
+      }else{
+
       }
+
+        $block->subject = htmlspecialchars_decode($block->subject);
+        $block->content = htmlspecialchars_decode($block->content);
+        if ($block->bid == 332 OR $block->bid == 716) {
+            $block->content = str_replace('<br />', '', $block->content);
+        }
+
+
+//      michal r. upravy
 
 
       $vars['content'] = theme("block", array(
@@ -351,7 +371,6 @@ $styl = 'style="padding:1px 4px;background-color:rgba(0,0,0,0.15);font-weight:bo
           '#block' => $block
         )
       ));
-
 
 
     }

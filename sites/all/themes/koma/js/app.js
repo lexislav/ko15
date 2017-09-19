@@ -1,343 +1,524 @@
 // run foundation
 jQuery(document).foundation();
 
-
-//
-jQuery(function () {
-    var currentSlide = -1;
-    jQuery('[slick]').each(function () {
-        var SlickWrapper = jQuery(this);
-        var carousel = SlickWrapper.find('[carousel]');
-        var oldActive = null;
-        var nav = SlickWrapper.find('[carouselnav]');
+// map dollar back to jQuery
+var $ = jQuery;
 
 
-        if (carousel) {
-            carousel.slick({
-                dots: false,
-                infinite: true,
-                //fade: true,
-                //cssEase: 'linear',
-                draggable: false,
-                speed: 300,
-                slidesToShow: 1,
-                adaptiveHeight: true
-            });
+function getSelectionText() {
+  var text = "";
+  if (window.getSelection) {
+    text = window.getSelection().toString();
+  } else if (document.selection && document.selection.type != "Control") {
+    text = document.selection.createRange().text;
+  }
+  return text;
+}
 
-            carousel.on('afterChange', function (event, slick, currentSlide) {
-                if (nav) {
-                    var items = nav.find('[slick-to]');
-                    if (oldActive) {
-                        oldActive.removeClass("active");
-                    }
-                    for (var i = 0; i < items.length; i++) {
-                        var item = jQuery(items[i]);
-                        if(item.attr('slick-to') == currentSlide) {
-                            item.addClass("active");
-                            oldActive = item;
-                        }
-                    }
-                }
-            });
-        }
+function extractEmails(text) {
+  return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+}
 
+function hackSeznamSklik() {
+  console.log('renew/send: sklik iframe');
 
-        if (nav) {
-            //  console.log("nav");
-            var count = 0;
-            var items = nav.find('[slick-to]');
-            for (var i = 0; i < items.length; i++) {
-                var item = jQuery(items[i]);
+  $("#komasklik").remove();
+  $('body').append('<iframe id="komasklik" width="119" height="22" frameborder="0" scrolling="no" src="//c.imedia.cz/checkConversion?c=100033708&amp;color=ffffff&amp;v=0"></iframe>');
+}
 
-                if (nav.attr("slick-method") == "mouseenter") {
-
-                    item.mouseenter(function (e) {
-                        if (oldActive) {
-                            oldActive.removeClass("active");
-                        }
-
-                        e.preventDefault();
-                        carousel.slick('slickGoTo', jQuery(this).attr('slick-to'));
-                        currentSlide = carousel.slick('slickCurrentSlide');
-                        console.log(currentSlide);
-                        jQuery(this).addClass("active");
-                        oldActive = jQuery(this);
-                    });
-
-                } else {
-                    item.click(function (e) {
-
-                        if (oldActive) {
-                            oldActive.removeClass("active");
-                        }
-
-                        e.preventDefault();
-                        carousel.slick('slickGoTo', jQuery(this).attr('slick-to'));
-                        currentSlide = carousel.slick('slickCurrentSlide');
-                        console.log(currentSlide);
-                        jQuery(this).addClass("active");
-                        oldActive = jQuery(this);
-                    });
-                }
-            }
-        }
+function extractPhone(text) {
+  // numero = parseInt(text.repla(' '));
+  var clean = text.replace(/ /g, '');
+  return clean.match(/([0-9]{9,12})/gi);
+  //return numero;
+  //return telInteger = parseInt(text.replace(/[^0-9]/g,''));
+  //return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+}
 
 
+function sendGaAdwords(action, email) {
+    window.google_trackConversion({
+      google_conversion_id: 847326048,
+      google_custom_params: {
+        action: action,
+        email: email
+      },
+      google_remarketing_only: true
     });
+}
 
+function registerGGMailEvents() {
+  console.log("registerGGMailEvents:On");
+  jQuery('a').on('click', function (e) {
+    //e.preventDefault(); // for debug only
 
-    // resize Navbar
-
-    var navbarPrimary = jQuery('#navbarPrimary');
-    var navbarSecondary = jQuery('#navbarSecondary');
-    var scrollDriver = jQuery(window);
-
-    var currentTop = function () {
-        return scrollDriver.scrollTop();
+    var el = $(e.currentTarget);
+    var link = el.attr('href');
+    if (!link || link === '' || link === '#') {
+      return;
     }
 
-    jQuery(window).scroll(function () {
-        if (currentTop() > 40) {
-            if (!navbarPrimary.hasClass("is-collapsed")) {
-                navbarPrimary.addClass("is-collapsed");
-            }
-            if (!navbarSecondary.hasClass("is-hidden")) {
-                navbarSecondary.addClass("is-hidden");
-            }
-        } else {
-            navbarPrimary.removeClass("is-collapsed");
-            navbarSecondary.removeClass("is-hidden");
-        }
-    });
+    // send mail link
+    if (link.indexOf("mailto:") >= 0) {
+      e.preventDefault();
+      var mailto = link.substr(7, link.length);
 
+      ga('send', 'event', 'mail', 'click', mailto);
+      sendGaAdwords('mail-click', mailto);
+      hackSeznamSklik();
+      fbq('track', '<COPY_OR_CLICK_ON_EMAIL>');
+      setTimeout(function(){
+        window.location.href = "mailto:"+mailto;
+      }, 1000);
 
-// hack megamenu, prehazení DOM kuli Safari
-    var submenucounter = 0;
-    var tabs = Array();
-    var menuroot = jQuery("#mega");
-
-    function closeTabs() {
-        for (var i = 0; i < tabs.length; i++) {
-            tabs[i].removeClass("is-opened");
-        }
     }
 
-    function openTabs() {
-        for (var i = 0; i < tabs.length; i++) {
-            tabs[i].addClass("is-opened");
-        }
+  });
+}
+
+function registerGACopyEvents() {
+  console.log("registerGACopyEvents:On");
+
+  $(document).bind('copy', function (event) {
+    var text = getSelectionText();
+
+    if (text.length < 40) {
+      var mails = extractEmails(text);
+      var phones = extractPhone(text);
+
+      if (mails && mails.length > 0) {
+        // send only one mail
+        var mail = mails[0];
+        // console.log("copy mail "+ mail);
+        console.log('send ga: mail copy');
+
+        ga('send', 'event', 'mail', 'copy', 'zkopirovani emailu ' + mail);
+
+        sendGaAdwords('mail-copy', mail);
+
+        <!-- Měřicí kód Sklik.cz -->
+        hackSeznamSklik();
+
+        console.log('send fb: COPY_OR_CLICK_ON_EMAIL');
+        fbq('track', '<COPY_OR_CLICK_ON_EMAIL>');
+
+      }
+
+      if (phones && phones.length > 0) {
+        // send only one phone
+        var phone = phones[0];
+        // console.dir("copy phone: "+ phone);
+        ga('send', 'event', 'phone', 'copy', 'zkopirovani telefonu ' + phone);
+      }
     }
 
-    function closeMega() {
-        closeTabs();
-        menuroot.removeClass('is-opened');
-    }
+  })
 
-    function openAllTabs() {
-        openTabs();
-        menuroot.addClass('is-opened');
-        //menuroot.css('height', jQuery(window).height());
-        menuroot.find(".m-mega--sub").css('height', jQuery(window).height());
-    }
+}
 
-    jQuery(".megacleaned > .nav > .item > .item-submenu").each(function () {
-        var idGen = "mega-id-" + submenucounter;
 
-        var sub = jQuery(this);
-        var par = sub.parent();
+function registerContactFormManager() {
 
-        sub.attr("id", idGen);
-        par.attr("open-mega", idGen);
+  console.log("registerContactFormManager:On");
 
-        jQuery(".m-mega--sub").append(sub);
-        tabs.push(sub);
+  var targetFormField = jQuery("#mailto");
+  var targetInfoElement = jQuery("#targetMailInfo");
 
-        submenucounter++;
+  jQuery('[fillform]').each(function () {
+    var el = jQuery(this);
 
-        par.hover(
-            function () {
-                //  console.log("openMega" + idGen );
-                jQuery(".megacleaned .is-hovered").each(function () {
-                    jQuery(this).removeClass("is-hovered");
-                });
-                par.addClass("is-hovered");
-                closeTabs();
-                sub.addClass("is-opened");
-                menuroot.addClass("is-opened");
-                jQuery('body').addClass("scroll-lock");
-            },
-            function () {
-                //par.removeClass("is-hovered");
-            }
-        );
+    el.click(function (e) {
+      e.preventDefault();
+
+      var injectName = el.data('name');
+      var injectSubject = el.data('subject');
+      var injectEmail = el.data('email');
+
+
+      targetFormField.attr('value', injectEmail);
+      targetInfoElement.text(injectEmail);
+
+      var scrollTo = jQuery('#formSection').position().top - 100;
+      jQuery('body,html').animate({scrollTop: scrollTo}, '500', 'swing', function () {
+        //console.log('Fill form with: ' + injectName, injectEmail, injectSubject);
+      });
+
+      // send GA event
+      console.log('send ga: mail click: ' + injectEmail);
+
+      ga('send', 'event', 'mail', 'click', injectEmail);
+
+      sendGaAdwords('mail-click', injectEmail);
+
+      // <!-- Měřicí kód Sklik.cz -->
+      hackSeznamSklik();
+
+      console.log('send fb: COPY_OR_CLICK_ON_EMAIL');
+      fbq('track', '<COPY_OR_CLICK_ON_EMAIL>');
+
     });
-
-    jQuery(".xmega").append(menuroot);
-
-    jQuery("[open-mega-mobile]").click(function () {
-        console.log("open hamburger");
-        openAllTabs();
-        jQuery('body').addClass("scroll-lock");
-    });
-
-    menuroot.hover(
-        function () {
-        },
-        function () {
-            jQuery(".megacleaned .is-hovered").each(function () {
-                jQuery(this).removeClass("is-hovered");
-            });
-            closeMega();
-            jQuery('body').removeClass("scroll-lock");
-        }
-    );
-
-// pocita sloupce na mega
-    jQuery(".m-mega .columns").each(function () {
-        var el = jQuery(this);
-        var cols = el.find("> .column");
-        //console.log(cols.length);
-        el.attr("cols", cols.length);
-    });
-});
+  });
+}
 
 
-// block feed JS
+// collapsible
+function registerCollapsible() {
+  console.log('registerCollapsible:On');
 
-var blogSlick = jQuery('.block-feed-slider').slick({
-    dots: false,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    adaptiveHeight: true,
-    responsive: [
-        {
-            breakpoint: 960,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
-    ]
-});
-
-// full size carousel
-
-var blogSlick = jQuery('.full-carousel').slick({
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    adaptiveHeight: true
-});
-
-
-// script
-
-
-jQuery('[collapsible]').each(function () {
+  jQuery('[collapsible]').each(function () {
     var el = jQuery(this);
 
     if (el.data('target') == "parent") {
-        el.click(function () {
-            el.parent().toggleClass("is-open");
-        });
+      el.click(function () {
+        el.parent().toggleClass("is-open");
+      });
     } else if (el.data('target')) {
-        el.click(function () {
-            var tgt = jQuery(el.data('target'));
-            tgt.toggleClass("is-open");
-        });
+      el.click(function () {
+        var tgt = jQuery(el.data('target'));
+        tgt.toggleClass("is-open");
+      });
     } else {
-        el.click(function () {
-            el.toggleClass("is-open");
-        });
+      el.click(function () {
+        el.toggleClass("is-open");
+      });
     }
-
-});
-
-// close section
-
-jQuery('[close-section]').each(function () {
-    var el = jQuery(this);
-    el.click(function () {
-        el.parent().css("display", "none");
-    });
-});
-
-
-// chosen filters - select boxes
-// apply chosen only for desktops
-
-// detect mobile devices
-var isMobile = jQuery('html').hasClass('touch');
-
-if (!isMobile) {
-    jQuery(".form-select").chosen({
-        width: "95%",
-        inherit_select_classes: true,
-        create_option: true,
-        persistent_create_option: true,
-        create_option_text: 'add',
-        disable_search_threshold: 40,
-        //allow_single_deselect: true
-    });
+  });
 }
 
-jQuery('.m-section--top').each(function () {
+// close section
+function registerCloseSection() {
+  console.log("registerCloseSection:On");
+
+  jQuery('[close-section]').each(function () {
     var el = jQuery(this);
-    el.addClass("jsActivated");
-
-    el.click(function (e) {
-        e.preventDefault();
-
-        var scrollTo = 0;
-        console.log("ScrollToTop");
-        jQuery('body,html').animate({scrollTop: scrollTo}, '500', 'swing', function () {
-            console.log("ScrollToTopDone");
-        });
-
+    el.click(function () {
+      el.parent().css("display", "none");
     });
-});
+  });
+}
 
+// cookie banner
+function registerCookieBannerManager() {
+  console.log("registerCookieBannerManager:On");
 
-// banners
-var hostname = jQuery('<a>').prop('href', '/').prop('hostname');
-var hostCookieName = hostname + "-banner";
+  var hostname = jQuery('<a>').prop('href', '/').prop('hostname');
+  var hostCookieName = hostname + "-banner";
 
-if (!jQuery.cookie(hostCookieName)) {
-    console.log("Show banners")
+  if (!jQuery.cookie(hostCookieName)) {
+    console.log("> Show banners")
     jQuery("#page-banner").show();
-
-    //jQuery(".close").click(function() {
-    //  jQuery( "#page-banner" ).hide();
-    // set the cookie for 24 hours
     var date = new Date();
     date.setTime(date.getTime() + 24 * 60 * 60 * 1000);
     jQuery.cookie(hostCookieName, true, {expires: date});
-    //});
-
-} else {
-    console.log("Hide banners");
+  } else {
+    console.log("> Hide banners");
     jQuery("#page-banner").hide();
+  }
+}
+
+// navbar controlls
+function registerNavbarManagers() {
+  console.log("registerNavbarManagers:On");
+
+  // resize Navbar
+  var navbarPrimary = jQuery('#navbarPrimary');
+  var navbarSecondary = jQuery('#navbarSecondary');
+  var scrollDriver = jQuery(window);
+
+  var currentTop = function () {
+    return scrollDriver.scrollTop();
+  }
+
+  jQuery(window).scroll(function () {
+    if (currentTop() > 40) {
+      if (!navbarPrimary.hasClass("is-collapsed")) {
+        navbarPrimary.addClass("is-collapsed");
+      }
+      if (!navbarSecondary.hasClass("is-hidden")) {
+        navbarSecondary.addClass("is-hidden");
+      }
+    } else {
+      navbarPrimary.removeClass("is-collapsed");
+      navbarSecondary.removeClass("is-hidden");
+    }
+  });
+}
+
+// slickManager
+function registerSlickMangers() {
+  console.log("registerSlickMangers:On");
+
+  var currentSlide = -1;
+
+  jQuery('[slick]').each(function () {
+    var SlickWrapper = jQuery(this);
+    var carousel = SlickWrapper.find('[carousel]');
+    var oldActive = null;
+    var nav = SlickWrapper.find('[carouselnav]');
+
+    if (carousel) {
+      carousel.slick({
+        dots: false,
+        infinite: true,
+        //fade: true,
+        //cssEase: 'linear',
+        draggable: false,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true
+      });
+
+      carousel.on('afterChange', function (event, slick, currentSlide) {
+        if (nav) {
+          var items = nav.find('[slick-to]');
+          if (oldActive) {
+            oldActive.removeClass("active");
+          }
+          for (var i = 0; i < items.length; i++) {
+            var item = jQuery(items[i]);
+            if (item.attr('slick-to') == currentSlide) {
+              item.addClass("active");
+              oldActive = item;
+            }
+          }
+        }
+      });
+    }
+
+    if (nav) {
+      //  console.log("nav");
+      var count = 0;
+      var items = nav.find('[slick-to]');
+      for (var i = 0; i < items.length; i++) {
+        var item = jQuery(items[i]);
+
+        if (nav.attr("slick-method") == "mouseenter") {
+
+          item.mouseenter(function (e) {
+            if (oldActive) {
+              oldActive.removeClass("active");
+            }
+
+            e.preventDefault();
+            carousel.slick('slickGoTo', jQuery(this).attr('slick-to'));
+            currentSlide = carousel.slick('slickCurrentSlide');
+            //console.log(currentSlide);
+            jQuery(this).addClass("active");
+            oldActive = jQuery(this);
+          });
+
+        } else {
+          item.click(function (e) {
+
+            if (oldActive) {
+              oldActive.removeClass("active");
+            }
+
+            e.preventDefault();
+            carousel.slick('slickGoTo', jQuery(this).attr('slick-to'));
+            currentSlide = carousel.slick('slickCurrentSlide');
+            //console.log(currentSlide);
+            jQuery(this).addClass("active");
+            oldActive = jQuery(this);
+          });
+        }
+      }
+    }
+  });
+}
+
+// chosen filters - select boxes
+function registerChosenManagers() {
+  console.log("registerChosenManagers:On");
+  var isMobile = jQuery('html').hasClass('touch');
+
+  // apply chosen only for desktops, mobiles using native fields
+  if (!isMobile) {
+    jQuery(".form-select").chosen({
+      width: "95%",
+      inherit_select_classes: true,
+      create_option: true,
+      persistent_create_option: true,
+      create_option_text: 'add',
+      disable_search_threshold: 40,
+      //allow_single_deselect: true
+    });
+  }
+}
+
+// button scrollTop
+function registerScrollToTop() {
+  console.log("registerScrollToTop:On");
+  jQuery('.m-section--top').each(function () {
+    var el = jQuery(this);
+    el.addClass("jsActivated");
+    el.click(function (e) {
+      e.preventDefault();
+      var scrollTo = 0;
+      console.log("ScrollToTop");
+      jQuery('body,html').animate({scrollTop: scrollTo}, '500', 'swing', function () {
+        console.log("ScrollToTopDone");
+      });
+    });
+  });
+}
+
+// hack megamenu, prehazení DOM kuli Safari
+function registerMegaMenuHacks() {
+
+  console.log("registerMegaMenuHacks:On");
+
+  var submenucounter = 0;
+  var tabs = Array();
+  var menuroot = jQuery("#mega");
+  var newRoot = jQuery(".xmega");
+
+  function closeTabs() {
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].removeClass("is-opened");
+    }
+  }
+
+  function openTabs() {
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].addClass("is-opened");
+    }
+  }
+
+  function closeMega() {
+    closeTabs();
+    menuroot.removeClass('is-opened');
+  }
+
+  function openAllTabs() {
+    openTabs();
+    menuroot.addClass('is-opened');
+    //menuroot.css('height', jQuery(window).height());
+    menuroot.find(".m-mega--sub").css('height', jQuery(window).height());
+  }
+
+  jQuery(".megacleaned > .nav > .item > .item-submenu").each(function () {
+    var idGen = "mega-id-" + submenucounter;
+
+    var sub = jQuery(this);
+    var par = sub.parent();
+
+    sub.attr("id", idGen);
+    par.attr("open-mega", idGen);
+
+    jQuery(".m-mega--sub").append(sub);
+    tabs.push(sub);
+    submenucounter++;
+
+    par.hover(
+      function () {
+        //  console.log("openMega" + idGen );
+        jQuery(".megacleaned .is-hovered").each(function () {
+          jQuery(this).removeClass("is-hovered");
+        });
+        par.addClass("is-hovered");
+        closeTabs();
+        sub.addClass("is-opened");
+        menuroot.addClass("is-opened");
+        jQuery('body').addClass("scroll-lock");
+      },
+      function () {
+        //par.removeClass("is-hovered");
+      }
+    );
+  });
+
+  newRoot.append(menuroot);
+  newRoot.addClass('is-ready'); // this enable menu, it is set invisible on load
+
+  jQuery("[open-mega-mobile]").click(function () {
+    console.log("open hamburger");
+    openAllTabs();
+    jQuery('body').addClass("scroll-lock");
+  });
+
+  menuroot.hover(
+    function () {
+    },
+    function () {
+      jQuery(".megacleaned .is-hovered").each(function () {
+        jQuery(this).removeClass("is-hovered");
+      });
+      closeMega();
+      jQuery('body').removeClass("scroll-lock");
+    }
+  );
+
+// pocita sloupce na mega
+  jQuery(".m-mega .columns").each(function () {
+    var el = jQuery(this);
+    var cols = el.find("> .column");
+    //console.log(cols.length);
+    el.attr("cols", cols.length);
+  });
 }
 
 
+/* NEED more refactor */
+// block feed JS
+var blogSlick = jQuery('.block-feed-slider').slick({
+  dots: false,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 2,
+  slidesToScroll: 2,
+  adaptiveHeight: true,
+  responsive: [
+    {
+      breakpoint: 960,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+
+// full size carousel
+var blogSlick = jQuery('.full-carousel').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  adaptiveHeight: true
+});
+
+
+/* HELPERS */
+
+/* List available templace by parsiong theme-wrappers*/
 function listTemplates() {
-    jQuery('[theme-wrapper]').each(function () {
-        var el = jQuery(this);
-        console.dir(el.attr('theme-wrapper'));
-    });
+  console.log("listTemplates:On");
+  jQuery('[theme-wrapper]').each(function () {
+    var el = jQuery(this);
+    console.dir(el.attr('theme-wrapper'));
+  });
 }
 
-function highlightTemplates() {
-    jQuery('[theme-wrapper]').each(function () {
-        var el = jQuery(this);
-        el.css("outline", "1px dashed black");
-        var elInfo = jQuery('<div class="theme-wrapper-info">tpl: ' + el.attr('theme-wrapper') + '</div>');
-        elInfo.prependTo(el);
-    });
-}
+// main
+jQuery(function () {
 
-listTemplates();
+  registerMegaMenuHacks();
+  registerCookieBannerManager();
+  registerSlickMangers();
+  registerChosenManagers();
+  registerNavbarManagers();
+  registerCollapsible();
+  registerCloseSection();
+  registerScrollToTop();
+  registerContactFormManager();
+
+  registerGGMailEvents();
+  registerGACopyEvents();
+
+  // helpers
+  // listTemplates();
+
+});
+
