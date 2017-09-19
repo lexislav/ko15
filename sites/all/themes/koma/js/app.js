@@ -34,7 +34,7 @@ function extractEmails(text) {
 
 function extractPhone(text) {
   var clean = text.replace(/ /g, '');
-  return clean.match(/([0-9]{9,12})/gi);
+  return clean.match(/([0-9|\(|\)]{9,15})/gi);
 }
 
 function hackSeznamSklik() {
