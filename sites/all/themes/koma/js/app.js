@@ -37,7 +37,6 @@ function extractPhone(text) {
   return clean.match(/([0-9]{9,12})/gi);
 }
 
-// KomaModular
 function hackSeznamSklik() {
   if (sklikId !== null) {
     console.log('renew/send: sklik iframe');
@@ -46,7 +45,6 @@ function hackSeznamSklik() {
   }
 }
 
-// KomaModular
 function sendGaAdwords(action, email) {
   window.google_trackConversion({
     google_conversion_id: googleAdWordsID,
@@ -56,6 +54,15 @@ function sendGaAdwords(action, email) {
     },
     google_remarketing_only: true
   });
+}
+
+function registerNewsletterGA() {
+  console.log("registerGGMailEvents:On");
+  // rent: #webform-client-form-1442
+  // space: #webform-client-form-1442
+  $('#webform-client-form-1442').on('submit', function (event) {
+    ga('send', 'event', 'form', 'sent', 'vyplneny e-bulletin');
+  })
 }
 
 
@@ -525,6 +532,7 @@ jQuery(function () {
   registerScrollToTop();
   registerContactFormManager();
 
+  registerNewsletterGA();
   registerGGMailEvents();
   registerGACopyEvents();
 

@@ -66,7 +66,7 @@
                     </li>
                     <li><a href="#adresar"><?php print t('Directory') ?> </a></li>
                     <li>
-                        <a href="#formSection" onclick="ga('send', 'event', 'button', 'click', 'kontaktni formular');">&darr; <?php print t('Contact form') ?> </a>
+                        <a href="#formSection" onclick="ga('send', 'event', 'button', 'click', 'tlacitko kontaktni formular');">&darr; <?php print t('Contact form') ?> </a>
                     </li>
                 </ul>
             </div>

@@ -14,8 +14,6 @@
         </header>
     </div>
 
-
-
     <article class="m-contact">
         <header>
             <div class="m-contact--summary">
@@ -24,9 +22,6 @@
                 </div>
                 <div class="m-contact--meta"></div>
             </div>
-
-
-
 
             <div class="m-contact--image"
                     style="background-image: url(<?= image_style_url('x294-226', $content['field_image']['#items'][0]['uri']) ?>)">
@@ -62,9 +57,7 @@
             </div>
         </footer>
     </div>
-
 </div>
-
 
 
 
@@ -78,27 +71,18 @@
             </div>
         </header>
     </div>
-
-
     <div class="row fix-height-kontakty">
       <?php
       $block = module_invoke('views', 'block_view', 'kontakty-block');
       print render($block);
       ?>
     </div>
-
     <div class="row">
         <footer class="m-section--footer"></footer>
     </div>
 
 </div>
 <!-- contact list -->
-
-
-
-
-
-
 
 
 <?php
@@ -110,8 +94,6 @@ if (isset($_POST['mailto'])) {
   $text = $_POST['body'];
   test_mail($mailfrom, $mailto, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
   test_mail('info@koma-space.at', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
-
-
   ?>
 
     <div class="m-section" id="contact-form" <?php koma_theme_wrapper(__FILE__) ?>>
@@ -139,7 +121,37 @@ if (isset($_POST['mailto'])) {
             </div>
         </div>
     </div>
+
+    <script>
+      ga('send', 'event', 'form', 'sent', 'odeslat zpravu');
+    </script>
+
+    <script>
+      fbq('track', '<FORMULAR_SEND>');
+    </script>
+
+    <!-- Google Code for Odesl&aacute;n&iacute; kontaktn&iacute;ho formul&aacute;&#345;e Conversion Page -->
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 835061881;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "SVUrCLTj7nQQ-ZCYjgM";
+      var google_remarketing_only = false;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/835061881/?label=SVUrCLTj7nQQ-ZCYjgM&amp;guid=ON&amp;script=0"/>
+        </div>
+    </noscript>
+
+
 <?php } else { ?>
+
     <div class="m-section" id="formSection" <?php koma_theme_wrapper(__FILE__) ?>>
         <div class="row">
             <header class="m-section--header">
@@ -153,12 +165,8 @@ if (isset($_POST['mailto'])) {
         <div class="row">
             <div class="m-contact-form">
                 <header>
-                    <i class="fa fa-paper-plane-o"></i> <?php print t('The contact form will be sent to the following address') ?>
-                    :
-                    <span id="targetMailInfo">info@koma-space.at</span>
+                    <i class="fa fa-paper-plane-o"></i> <?php print t('The contact form will be sent to the following address') ?>: <span id="targetMailInfo">info@koma-space.at</span>
                 </header>
-
-
 
                 <div class="m-contact-form--content">
                     <form action="http://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>#contact-form" method="post">
@@ -173,11 +181,8 @@ if (isset($_POST['mailto'])) {
                             <i class="fa fa-paper-plane-o"></i></button>
                     </form>
                 </div>
-
-
             </div>
         </div>
-
         <div class="row">
             <footer class="m-section--footer"></footer>
         </div>
