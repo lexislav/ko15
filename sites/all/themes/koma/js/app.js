@@ -1,6 +1,19 @@
 // run foundation
 jQuery(document).foundation();
 
+// koma modular
+// var googleAdWordsID = "847326048";
+// var sklikId = "100033708";
+
+// koma rent
+// var googleAdWordsID = "835058301";
+// var sklikId = "100035525";
+
+
+// koma space
+// var googleAdWordsID = "835061881";
+// var sklikId = null;
+
 // map dollar back to jQuery
 var $ = jQuery;
 
@@ -19,33 +32,39 @@ function extractEmails(text) {
   return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
 }
 
-function hackSeznamSklik() {
-  console.log('renew/send: sklik iframe');
-
-  $("#komasklik").remove();
-  $('body').append('<iframe id="komasklik" width="119" height="22" frameborder="0" scrolling="no" src="//c.imedia.cz/checkConversion?c=100033708&amp;color=ffffff&amp;v=0"></iframe>');
-}
-
 function extractPhone(text) {
-  // numero = parseInt(text.repla(' '));
   var clean = text.replace(/ /g, '');
-  return clean.match(/([0-9]{9,12})/gi);
-  //return numero;
-  //return telInteger = parseInt(text.replace(/[^0-9]/g,''));
-  //return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+  return clean.match(/([0-9|\(|\)]{9,15})/gi);
 }
 
+function hackSeznamSklik() {
+  if (sklikId !== null) {
+    console.log('renew/send: sklik iframe');
+    $("#komasklik").remove();
+    $('body').append('<iframe id="komasklik" width="119" height="22" frameborder="0" scrolling="no" src="//c.imedia.cz/checkConversion?c=' + sklikId + '&amp;color=ffffff&amp;v=0"></iframe>');
+  }
+}
 
 function sendGaAdwords(action, email) {
-    window.google_trackConversion({
-      google_conversion_id: 847326048,
-      google_custom_params: {
-        action: action,
-        email: email
-      },
-      google_remarketing_only: true
-    });
+  window.google_trackConversion({
+    google_conversion_id: googleAdWordsID,
+    google_custom_params: {
+      action: action,
+      email: email
+    },
+    google_remarketing_only: true
+  });
 }
+
+function registerNewsletterGA() {
+  console.log("registerGGMailEvents:On");
+  // rent: #webform-client-form-1442
+  // space: #webform-client-form-1442
+  $('#webform-client-form-1442').on('submit', function (event) {
+    ga('send', 'event', 'form', 'sent', 'vyplneny e-bulletin');
+  })
+}
+
 
 function registerGGMailEvents() {
   console.log("registerGGMailEvents:On");
@@ -67,8 +86,8 @@ function registerGGMailEvents() {
       sendGaAdwords('mail-click', mailto);
       hackSeznamSklik();
       fbq('track', '<COPY_OR_CLICK_ON_EMAIL>');
-      setTimeout(function(){
-        window.location.href = "mailto:"+mailto;
+      setTimeout(function () {
+        window.location.href = "mailto:" + mailto;
       }, 1000);
 
     }
@@ -115,7 +134,6 @@ function registerGACopyEvents() {
   })
 
 }
-
 
 function registerContactFormManager() {
 
@@ -514,6 +532,7 @@ jQuery(function () {
   registerScrollToTop();
   registerContactFormManager();
 
+  registerNewsletterGA();
   registerGGMailEvents();
   registerGACopyEvents();
 

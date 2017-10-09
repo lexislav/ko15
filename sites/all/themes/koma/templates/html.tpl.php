@@ -116,8 +116,14 @@ if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
         <img src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/scroll-down-sipka.svg" alt="Scroll Down" class="scroll-sipka" /> <?php print t('Scroll down') ?>
     </div>
 </div>
+
 <!-- app scripts -->
+<script>
+  var googleAdWordsID = "847326048";
+  var sklikId = "100033708";
+</script>
 <script type="text/javascript" src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/js/app.js"></script>
+
 
 <!-- leady.cz -->
 <script type="text/javascript"> var leady_track_key = "zdY943A7JNzTW7S9";
