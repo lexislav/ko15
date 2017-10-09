@@ -12,8 +12,8 @@ if ($user->uid == 1) {
             <ul class="m-navbar--menu m-navbar--menu-tertiary">
 
                 <li class="m-navbar--menu-social m-navbar--menu-twitter">
-                    <a target="_blank" title="" href="<?= variable_get('nastaveni_twitter', 'nastaveni') ?>">
-                        <span class="fa fa-twitter"><em class="">Twitter</em></span>
+                    <a target="_blank" title="" href="https://www.linkedin.com/company/2810844/">
+                        <span class="fa fa-linkedin"><em class="">Twitter</em></span>
                     </a>
                 </li>
 
@@ -297,8 +297,8 @@ if ($user->uid == 1) {
                                 class="fa fa-facebook"></i></a>
                     </li>
                     <li class="m-footer--menu-link">
-                        <a href="<?= variable_get('nastaveni_twitter', 'nastaveni') ?>" target="" title=""><i
-                                class="fa fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/2810844/ " target="" title=""><i
+                                class="fa fa-linkedin"></i></a>
                     </li>
                     <li class="m-footer--menu-link">
                         <a href="<?= variable_get('nastaveni_youtube', 'nastaveni') ?>" target="" title=""><i
