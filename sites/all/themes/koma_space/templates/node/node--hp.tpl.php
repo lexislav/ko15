@@ -7,7 +7,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
 
 <div class="hero-tabs mm-four" slick <?php koma_theme_wrapper(__FILE__)?>>
   <div class="hero-slides" carousel>
-    <?php
+    <?php 
     foreach ($pole_slider as $cislo => $r) {
 
       if($r['field_basic_img']['und'][0]['uri']==''){
@@ -25,7 +25,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
           <div class="row">
             <div class="description">
               <p><?= $r['field_basic_text']['und'][0]['value'] ?></p>
-              <img src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/square-down.svg" alt="" />
+
             </div>
           </div>
         </div>
