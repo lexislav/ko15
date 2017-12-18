@@ -60,10 +60,10 @@ if (isset($node->field_reference_main_img['und'][0]['uri'])) {
                         <dt><?php print t('Country of implementation') ?> </dt>
                         <dd><?= test_get_list($content['field_reference_zeme']['#items'][0]['iso2']); ?></dd>
                     </dl>
-                  <?php if (isset($content['field_reference_architekt'][0]['#title'])): ?>
+                  <?php if (isset($content['field_reference_architekt']['#items'][0]['value'])): ?>
                       <dl>
                           <dt><?php print t('Architekt / studio') ?></dt>
-                          <dd><?= ($content['field_reference_architekt']['und'][0]['value']); ?></dd>
+                          <dd><?= ($content['field_reference_architekt']['#items'][0]['value']); ?></dd>
                       </dl>
                   <?php endif ?>
                     <?php if (isset($content['field_reference_pomodulu']['#items'][0]['value'])): ?>
