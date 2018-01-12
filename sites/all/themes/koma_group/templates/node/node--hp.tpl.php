@@ -59,7 +59,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
                     }
                     if ($cislo == 3) {
                         $logoClass = 'koma-rent';
-                        $urlwebu = 'http://www.koma-rent.cz';
+                        $urlwebu = 'https://www.koma-rent.cz';
                     }
                     if ($cislo == 4) {
                         $logoClass = 'koma-slovakia';

@@ -60,7 +60,7 @@
             <div class="l-half">
 
                 <div class="m-section--more"><a
-                        href="http://www.koma-modular.cz/o-firme/certifikace"><?php print t('WHOLE ARCHIVES') ?> &rarr;</a>
+                        href="https://www.koma-modular.cz/o-firme/certifikace"><?php print t('WHOLE ARCHIVES') ?> &rarr;</a>
                 </div>
             </div>
         </footer>

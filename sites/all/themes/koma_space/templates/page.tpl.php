@@ -145,8 +145,8 @@ if ($user->uid == 1) {
 <div  id="page-banner-bottom" class="m-section bg-secondary">
   <article class="m-banner">
     <header>
-      <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/spolehliva-firma-2016_125.png)">
-        <img style="height: 64px;"  src="http://www.koma-modular.cz/sites/all/themes/koma/images/spolehliva-firma-2016_125.png">
+      <div class="m-banner--image" style="background-image: url(https://www.koma-modular.cz/sites/all/themes/koma/images/spolehliva-firma-2016_125.png)">
+        <img style="height: 64px;"  src="https://www.koma-modular.cz/sites/all/themes/koma/images/spolehliva-firma-2016_125.png">
       </div>
       <div class="m-banner--summary">
         <h1 class="m-banner--hed">

@@ -8,20 +8,20 @@
 
 
                 <li class="m-navbar--menu-link">
-                    <a target="" href="http://www.koma-slovakia.sk" title="www.koma-slovakia.sk"><em class="">Koma Slovakia</em></a>
+                    <a target="" href="https://www.koma-slovakia.sk" title="www.koma-slovakia.sk"><em class="">Koma Slovakia</em></a>
                 </li>
 
                 <li class="m-navbar--menu-link">
-                    <a target="" href="http://www.koma-rent.cz" title="www.koma-rent.cz"><em class="">Koma rent</em></a>
+                    <a target="" href="https://www.koma-rent.cz" title="www.koma-rent.cz"><em class="">Koma rent</em></a>
                 </li>
                 <li class="m-navbar--menu-link">
-                    <a target="" href="http://www.koma-space.at/cs" title="www.koma-space.at/cs"><em class="">Koma Space</em></a>
+                    <a target="" href="https://www.koma-space.at/cs" title="www.koma-space.at/cs"><em class="">Koma Space</em></a>
                 </li>
                 <li class="m-navbar--menu-link">
-                    <a target="" href="http://www.koma-modular.cz/" title="www.koma-modular.cz/"><em class="">Koma Modular</em></a>
+                    <a target="" href="https://www.koma-modular.cz/" title="www.koma-modular.cz/"><em class="">Koma Modular</em></a>
                 </li>
                 <li class="m-navbar--menu-link">
-                    <a target="" href="http://www.koma-group.cz" title="www.koma-group.cz"><em class="">Koma Group</em></a>
+                    <a target="" href="https://www.koma-group.cz" title="www.koma-group.cz"><em class="">Koma Group</em></a>
                 </li>
             </ul>
         </div>

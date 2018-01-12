@@ -68,14 +68,9 @@ function koma_theme_wrapper($variable)
 //}
 function koma_links__locale_block(&$variables)
 {
-    // the global $language variable tells you what the current language is
     global $language;
-
-// an array of list items
     $items = array();
-
     foreach ($variables['links'] as $lang => $info) {
-
         $name = $info['language']->native;
         $href = isset($info['href']) ? $info['href'] : '';
         $li_classes = array('list-item-class');
@@ -89,22 +84,16 @@ function koma_links__locale_block(&$variables)
             'html' => true
         );
         $link = l($name, $href, $options);
-
         // display only translated links
         if ($href) $items[] = array('data' => $link, 'class' => $li_classes);
     }
-
-// output
-    $attributes = array('class' => array('my-list'));
-
     $linky = '';
     foreach ($items AS $poradi => $item) {
-        if ($poradi == 1) continue;
+//        if ($poradi == 1) continue;
         $linky .= '<li class="lang_' . $poradi . '">';
         $linky .= $item['data'];
         $linky .= '</li>';
     }
-
     return $linky;
 }
 

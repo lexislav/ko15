@@ -1,0 +1,7 @@
+form li#edit-field-reference-vyrobkova-rada-tid-selective,
+form li#edit-field-reference-zeme-iso2-selective{
+  display: none;
+}
+form li#edit-field-typ-dodavky-tid-selective{
+  display: block !important;
+}

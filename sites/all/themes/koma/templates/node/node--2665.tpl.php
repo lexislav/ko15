@@ -3,7 +3,7 @@ $body_field = field_get_items('node', $node, 'body');
 $body = field_view_value('node', $node, 'body', $body_field[0]);
 $img_path = image_style_url('x618-480', $node->field_jeden_obrazek['und'][0]['uri'])
 ?>
-<div class="m-section" theme-wrapper="node--pronajem_kontejneru.tpl.php">
+<div class="m-section" <?php koma_theme_wrapper(__FILE__) ?>>
     
 
     <div class="row mm-pad-bottom">

@@ -52,7 +52,7 @@
             </div>
             <div class="l-half">
                 <div class="m-section--more">
-                    <a href="http://www.koma-modular.cz/firma-a-lide/kariera"><?php print t('WHOLE ARCHIVES') ?> &rarr;</a>
+                    <a href="https://www.koma-modular.cz/firma-a-lide/kariera"><?php print t('WHOLE ARCHIVES') ?> &rarr;</a>
                 </div>
             </div>
         </footer>

@@ -13,14 +13,14 @@
         <div class="m-card_image l-single">
             <article class="m-story">
                 <header>
-                    <div class="m-item--image" style="background-image: url(http://www.koma-modular.cz/sites/default/files/styles/x595-0/public/segment_trhu/skolske-stavby-deti-uhrnieves.jpg?itok=gL4k7ZDb)">
-                        <a href="http://www.koma-modular.cz/realizace-skolske">
-                            <img src="http://www.koma-modular.cz/sites/default/files/styles/x595-0/public/segment_trhu/skolske-stavby-deti-uhrnieves.jpg?itok=gL4k7ZDb" alt="">
+                    <div class="m-item--image" style="background-image: url(https://www.koma-modular.cz/sites/default/files/styles/x595-0/public/segment_trhu/skolske-stavby-deti-uhrnieves.jpg?itok=gL4k7ZDb)">
+                        <a href="https://www.koma-modular.cz/realizace-skolske">
+                            <img src="https://www.koma-modular.cz/sites/default/files/styles/x595-0/public/segment_trhu/skolske-stavby-deti-uhrnieves.jpg?itok=gL4k7ZDb" alt="">
                         </a>
                     </div>
                     <div class="m-item--summary">
                         <h1 class="m-item--hed">
-                            <a href="http://www.koma-modular.cz/realizace-skolske">Realizace školské</a>
+                            <a href="https://www.koma-modular.cz/realizace-skolske">Realizace školské</a>
                         </h1>
                     </div>
                 </header>
@@ -32,14 +32,14 @@
         <div class="m-card_image l-single">
             <article class="m-story">
                 <header>
-                    <div class="m-item--image" style="background-image: url(http://www.koma-modular.cz/sites/default/files/styles/x595-0/public/segment_trhu/img_2256.jpg?itok=GqFmlmf_)">
-                        <a href="http://www.koma-modular.cz/realizace-pro-podnikani">
-                            <img src="http://www.koma-modular.cz/sites/default/files/styles/x595-0/public/segment_trhu/img_2256.jpg?itok=GqFmlmf_" alt="">
+                    <div class="m-item--image" style="background-image: url(https://www.koma-modular.cz/sites/default/files/styles/x595-0/public/segment_trhu/img_2256.jpg?itok=GqFmlmf_)">
+                        <a href="https://www.koma-modular.cz/realizace-pro-podnikani">
+                            <img src="https://www.koma-modular.cz/sites/default/files/styles/x595-0/public/segment_trhu/img_2256.jpg?itok=GqFmlmf_" alt="">
                         </a>
                     </div>
                     <div class="m-item--summary">
                         <h1 class="m-item--hed">
-                            <a href="http://www.koma-modular.cz/realizace-pro-podnikani">Realizace pro podnikání</a>
+                            <a href="https://www.koma-modular.cz/realizace-pro-podnikani">Realizace pro podnikání</a>
                         </h1>
                     </div>
                 </header>

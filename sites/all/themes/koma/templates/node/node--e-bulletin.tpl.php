@@ -42,7 +42,7 @@ if (isset($_POST['odeslano'])) {
         }
 
 
-        $domena = "http://www.koma-modular.cz/$domena";
+        $domena = "https://www.koma-modular.cz/$domena";
         $tmp_text = strtr($body_txt, array(
             '{nadpis_clanku}' => $cast['entity']->title,
             '{domena}' => $domena,

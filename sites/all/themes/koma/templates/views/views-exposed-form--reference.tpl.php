@@ -37,7 +37,7 @@
       if($id == 'filter-field_reference_forma_value_selective')continue;
       ?>
 
-      <li>
+      <li id="<?=$widget->id?>">
 
 
         <?php

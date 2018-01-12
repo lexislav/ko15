@@ -146,24 +146,24 @@ if ($user->uid == 1) {
 <div id="page-banner-bottom" class="m-section bg-white">
   <article class="m-banner">
     <header>
-      <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/banner/some2.png)">
-        <img style="height: 68px;margin-top:-2px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/banner/some2.png">
+      <div class="m-banner--image" style="background-image: url(https://www.koma-modular.cz/sites/all/themes/koma/images/banner/some2.png)">
+        <img style="height: 68px;margin-top:-2px;" src="https://www.koma-modular.cz/sites/all/themes/koma/images/banner/some2.png">
       </div>
-        <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/banner/ocl.png)">
-            <img style="height: 68px;margin-top:-2px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/banner/ocl.png">
+        <div class="m-banner--image" style="background-image: url(https://www.koma-modular.cz/sites/all/themes/koma/images/banner/ocl.png)">
+            <img style="height: 68px;margin-top:-2px;" src="https://www.koma-modular.cz/sites/all/themes/koma/images/banner/ocl.png">
         </div>
-        <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/banner/stiky.png)">
-            <img style="height: 68px;margin-top:-2px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/banner/stiky.png">
+        <div class="m-banner--image" style="background-image: url(https://www.koma-modular.cz/sites/all/themes/koma/images/banner/stiky.png)">
+            <img style="height: 68px;margin-top:-2px;" src="https://www.koma-modular.cz/sites/all/themes/koma/images/banner/stiky.png">
         </div>
-        <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/banner/ex.png)">
-            <img style="height: 68px;margin-top:-2px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/banner/ex.png">
+        <div class="m-banner--image" style="background-image: url(https://www.koma-modular.cz/sites/all/themes/koma/images/banner/ex.png)">
+            <img style="height: 68px;margin-top:-2px;" src="https://www.koma-modular.cz/sites/all/themes/koma/images/banner/ex.png">
         </div>
 
-        <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/banner/some.png)">
-            <img style="height: 68px;margin-top:-2px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/banner/some.png">
+        <div class="m-banner--image" style="background-image: url(https://www.koma-modular.cz/sites/all/themes/koma/images/banner/some.png)">
+            <img style="height: 68px;margin-top:-2px;" src="https://www.koma-modular.cz/sites/all/themes/koma/images/banner/some.png">
         </div>
-        <div class="m-banner--image" style="background-image: url(http://www.koma-modular.cz/sites/all/themes/koma/images/banner/slusna.png)">
-            <img style="height: 68px;margin-top:-2px;" src="http://www.koma-modular.cz/sites/all/themes/koma/images/banner/slusna.png">
+        <div class="m-banner--image" style="background-image: url(https://www.koma-modular.cz/sites/all/themes/koma/images/banner/slusna.png)">
+            <img style="height: 68px;margin-top:-2px;" src="https://www.koma-modular.cz/sites/all/themes/koma/images/banner/slusna.png">
         </div>
 
       <div class="m-banner--summary">

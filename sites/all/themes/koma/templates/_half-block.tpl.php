@@ -1,7 +1,7 @@
 <!-- obrazek vlevo-->
 <div class="m-section l-section_half-page" <?php koma_theme_wrapper(__FILE__)?>>
     <!-- left-->
-    <div class="l-half-wide mm-left mm-has-background" style="background-image: url('http://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/koma-zpravodaj//uvodni/_mg_6997.jpg?itok=5TKNG8OR');">
+    <div class="l-half-wide mm-left mm-has-background" style="background-image: url('https://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/koma-zpravodaj//uvodni/_mg_6997.jpg?itok=5TKNG8OR');">
         <div class="l-content-wrap">
             <div class="l-content">
                 <!-- obsah levé-->
@@ -52,7 +52,7 @@
         </div>
     </div>
     <!-- right-->
-    <div class="l-half-wide mm-right mm-has-background" style="background-image: url('http://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/koma-zpravodaj//uvodni/_mg_6997.jpg?itok=5TKNG8OR');">
+    <div class="l-half-wide mm-right mm-has-background" style="background-image: url('https://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/koma-zpravodaj//uvodni/_mg_6997.jpg?itok=5TKNG8OR');">
         <div class="l-content-wrap">
             <div class="l-content">
                 <!-- obsah levé-->

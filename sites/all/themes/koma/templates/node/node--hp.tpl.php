@@ -66,7 +66,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
 <!--htmlblok-->
 <?php
 GLOBAL $user;
-if($user->uid == 1 OR $user->uid == 114){
+if(true){
   $display = array('label' => 'hidden');
   $htmltext = field_view_field('node', $node, 'field_basic_popis_2',$display);
 ?>
@@ -184,7 +184,7 @@ if($user->uid == 1 OR $user->uid == 114){
   <div class="row">
     <h2 class="m-section--hed mm-big mm-tiny mm-pad-bottom firstline-primary">
       <?php foreach ($content['field_hp_2_text']['#items'] as $cislo2 => $text) { ?>
-        <!-- odkaz http://www.koma-modular.cz/o-firme/hodnoty-vize-strategie-firmy -->
+        <!-- odkaz https://www.koma-modular.cz/o-firme/hodnoty-vize-strategie-firmy -->
         <a href="<?= $content['field_page_link']['#items'][0]['url'] ?>"><?= $text['value'] ?></a>
         <br/>
       <?php } ?>

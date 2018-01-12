@@ -46,7 +46,7 @@ function koma_space_links__locale_block(&$variables) {
 
     $linky = '';
     foreach($items AS $poradi => $item){
-        if($poradi==1)continue;
+//        if($poradi==1)continue;
         $linky.= '<li class="lang_'.$poradi.'">';
         $linky.= $item['data'];
         $linky.= '</li>';

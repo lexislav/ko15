@@ -2,7 +2,9 @@
 $modificatiorClass = '';
 if (isset($items[0]['myclass'])) $modificatiorClass = $items[0]['myclass'];
 ?>
-
+<div class="m-section l-feed bg-white">
+    <div class="l-full"><br><br><br>
+    </div></div>
 <div class="m-section l-feed_three <?=$modificatiorClass?>" <?php koma_theme_wrapper(__FILE__)?>>
     <div class="row rowfix">
         <?php

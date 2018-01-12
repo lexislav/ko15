@@ -1,7 +1,6 @@
 <?php
 //
-dsm($node);
-dsm($content);
+
 $typ = 1;
 $vyskaObrazku = '330';
 if ($node->nid == 2290) {
