@@ -18,7 +18,7 @@
                     <a target="" href="https://www.koma-space.at/cs" title="www.koma-space.at/cs"><em class="">Koma Space</em></a>
                 </li>
                 <li class="m-navbar--menu-link">
-                    <a target="" href="https://www.koma-modular.cz/" title="www.koma-modular.cz/"><em class="">Koma Modular</em></a>
+                    <a target="" href="https://www.koma-modular.cz/" title="www.koma-modular.cz/"><em class="">Koma MODULAR</em></a>
                 </li>
                 <li class="m-navbar--menu-link">
                     <a target="" href="https://www.koma-group.cz" title="www.koma-group.cz"><em class="">Koma Group</em></a>
