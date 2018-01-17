@@ -22,7 +22,7 @@
         <header>
 
             <div class="m-contact--summary">
-                <h1 class="m-contact--hed color-black"><?php print t('KOMA Modular s.r.o.') ?></h1>
+                <h1 class="m-contact--hed color-black"><?php print t('KOMA MODULAR s.r.o.') ?></h1>
 
                 <div class="m-contact--description">
                     <?= $content['field_basic_text']['#items'][0]['value'] ?>
