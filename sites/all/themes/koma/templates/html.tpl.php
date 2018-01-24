@@ -90,6 +90,9 @@
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=812543485458193&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
     <!-- // @formatter:on -->
+
+    <!-- Pinterest METACODE -->
+    <meta name="p:domain_verify" content="8b47656b97d543a3b45580dcec3ab33b"/> 
 </head>
 
 <?php
