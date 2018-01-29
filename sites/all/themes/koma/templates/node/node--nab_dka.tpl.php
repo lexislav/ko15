@@ -52,7 +52,7 @@
             <div class="m-story--aside">
 
                 <div class="m-story--image mm-desktop">
-                    <img src="https://www.koma-modular.cz/sites/default/files/styles/x412-300/public/tempfotogalerie/_5mm9508.jpg" alt="">
+                    <img src="<?= image_style_url('x412-300', $node->field_basic_img['und'][0]['uri']) ?>" alt="">
                 </div>
                 <br>
             </div>
