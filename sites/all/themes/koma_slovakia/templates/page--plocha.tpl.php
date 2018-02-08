@@ -355,19 +355,19 @@ if ($user->uid == 1) {
 
                     <dl class="mm-nolabels mm-noborder">
                         <dt>Garáže - sestava 2 ks kontejnerů </dt>
-                        <dd><a href="https://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
+                        <dd><a href="http://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
                                 <i class="fa fa-file-pdf-o"></i>Garáže - sestava 2 ks kontejnerů </a></dd>
                     </dl>
 
                     <dl class="mm-nolabels mm-noborder">
                         <dt>Garáže - sestava 2 ks kontejnerů </dt>
-                        <dd><a href="https://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
+                        <dd><a href="http://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
                                 <i class="fa fa-file-pdf-o"></i>Garáže - sestava 2 ks kontejnerů </a></dd>
                     </dl>
 
                     <dl class="mm-nolabels mm-noborder">
                         <dt>Garáže - sestava 2 ks kontejnerů </dt>
-                        <dd><a href="https://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
+                        <dd><a href="http://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
                                 <i class="fa fa-file-pdf-o"></i>Garáže - sestava 2 ks kontejnerů </a></dd>
                     </dl>
 
@@ -386,19 +386,19 @@ if ($user->uid == 1) {
 
                     <dl class="mm-nolabels mm-noborder">
                         <dt>Garáže - sestava 2 ks kontejnerů </dt>
-                        <dd><a href="https://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
+                        <dd><a href="http://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
                                 <i class="fa fa-file-pdf-o"></i>Garáže - sestava 2 ks kontejnerů </a></dd>
                     </dl>
 
                     <dl class="mm-nolabels mm-noborder">
                         <dt>Garáže - sestava 2 ks kontejnerů </dt>
-                        <dd><a href="https://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
+                        <dd><a href="http://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
                                 <i class="fa fa-file-pdf-o"></i>Garáže - sestava 2 ks kontejnerů </a></dd>
                     </dl>
 
                     <dl class="mm-nolabels mm-noborder">
                         <dt>Garáže - sestava 2 ks kontejnerů </dt>
-                        <dd><a href="https://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
+                        <dd><a href="http://www.koma-modular.cz/nabidka/garaze-sestava-2-ks-kontejneru" title="Garáže - sestava 2 ks kontejnerů ">
                                 <i class="fa fa-file-pdf-o"></i>Garáže - sestava 2 ks kontejnerů </a></dd>
                     </dl>
 
@@ -433,7 +433,7 @@ if ($user->uid == 1) {
                 <article class="m-story">
                     <header>
                         <h1 class="m-item--hed">
-                            <a href="https://www.koma-modular.cz/znalostni-baze/jaky-rozsah-specifikace-montazi-provadi-koma-modular-v-zahranici">Jaký rozsah (specifikace) montáží provádí KOMA Modular v&nbsp;zahraničí?</a>
+                            <a href="http://www.koma-modular.cz/znalostni-baze/jaky-rozsah-specifikace-montazi-provadi-koma-modular-v-zahranici">Jaký rozsah (specifikace) montáží provádí KOMA Modular v&nbsp;zahraničí?</a>
                         </h1>
 
                         <div class="m-item--summary">
@@ -507,8 +507,8 @@ if ($user->uid == 1) {
             <!-- 2/2-->
             <div class="l-half">
 
-                <div class="m-story--image" style="background-image: url(https://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/reference//uvodni?itok=_rvgewtr)">
-                    <a href=""><img src="https://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/reference//uvodni?itok=_rvgewtr" alt=""></a>
+                <div class="m-story--image" style="background-image: url(http://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/reference//uvodni?itok=_rvgewtr)">
+                    <a href=""><img src="http://www.koma-modular.cz/sites/default/files/styles/x618-480/public/soubory/fotogalerie/reference//uvodni?itok=_rvgewtr" alt=""></a>
                 </div>
 
 
@@ -527,22 +527,22 @@ if ($user->uid == 1) {
 
                         <ul class="m-gallery" data-clearing>
                             <li class="m-gallery--item">
-                                <a href="https://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-2.jpg?itok=hveNC31L"><img src="https://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-2.jpg?itok=6KMb-CXb"></a>
+                                <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-2.jpg?itok=hveNC31L"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-2.jpg?itok=6KMb-CXb"></a>
                             </li>
                             <li class="m-gallery--item">
-                                <a href="https://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-1.jpg?itok=V5-y-Jn6"><img src="https://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-1.jpg?itok=kICIl0MV"></a>
+                                <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-1.jpg?itok=V5-y-Jn6"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-1.jpg?itok=kICIl0MV"></a>
                             </li>
                             <li class="m-gallery--item">
-                                <a href="https://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-18.jpg?itok=tOgGWN5x"><img src="https://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-18.jpg?itok=5bI217hV"></a>
+                                <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-18.jpg?itok=tOgGWN5x"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-18.jpg?itok=5bI217hV"></a>
                             </li>
                             <li class="m-gallery--item">
-                                <a href="https://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-3.jpg?itok=uTLwQdTX"><img src="https://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-3.jpg?itok=Hiy1uOBl"></a>
+                                <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-3.jpg?itok=uTLwQdTX"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-3.jpg?itok=Hiy1uOBl"></a>
                             </li>
                             <li class="m-gallery--item">
-                                <a href="https://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-7.jpg?itok=IFxIKlri"><img src="https://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-7.jpg?itok=pzNZ6pzB"></a>
+                                <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-7.jpg?itok=IFxIKlri"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-7.jpg?itok=pzNZ6pzB"></a>
                             </li>
                             <li class="m-gallery--item">
-                                <a href="https://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-13.jpg?itok=G-D7eZ-d"><img src="https://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-13.jpg?itok=z0oOTHfO"></a>
+                                <a href="http://www.koma-modular.cz/sites/default/files/styles/zadny/public/tempfotogalerie/dpa-anrochte-13.jpg?itok=G-D7eZ-d"><img src="http://www.koma-modular.cz/sites/default/files/styles/x186-139/public/tempfotogalerie/dpa-anrochte-13.jpg?itok=z0oOTHfO"></a>
                             </li>
 
                         </ul>
@@ -564,7 +564,7 @@ if ($user->uid == 1) {
             </div>
             <div class="l-half">
                 <div class="m-section--more">
-                    <a href="https://www.koma-modular.cz/reference/archiv">CELÝ ARCHIV →</a>
+                    <a href="http://www.koma-modular.cz/reference/archiv">CELÝ ARCHIV →</a>
                 </div>
             </div>
         </footer>
@@ -582,13 +582,13 @@ if ($user->uid == 1) {
             <article class="m-story">
                 <header>
                     <div class="m-item--image" style="background-image: url(http://lorempixel.com/400/300/)">
-                        <a href="https://www.koma-modular.cz/reference/zakladni-skola-schaarbeek-b ">
+                        <a href="http://www.koma-modular.cz/reference/zakladni-skola-schaarbeek-b ">
                             <img src="http://lorempixel.com/400/300/" alt="">
                         </a>
                     </div>
                     <div class="m-item--summary">
                         <h1 class="m-item--hed">
-                            <a href="https://www.koma-modular.cz/reference/zakladni-skola-schaarbeek-b">Základní škola Schaarbeek, B</a>
+                            <a href="http://www.koma-modular.cz/reference/zakladni-skola-schaarbeek-b">Základní škola Schaarbeek, B</a>
                         </h1>
                     </div>
                 </header>
@@ -599,13 +599,13 @@ if ($user->uid == 1) {
             <article class="m-story">
                 <header>
                     <div class="m-item--image" style="background-image: url(http://lorempixel.com/400/300/)">
-                        <a href="https://www.koma-modular.cz/reference/bytove-domy-pro-uprchliky-hamburk-brookkehre-str-de">
+                        <a href="http://www.koma-modular.cz/reference/bytove-domy-pro-uprchliky-hamburk-brookkehre-str-de">
                             <img src="http://lorempixel.com/400/300/" alt="">
                         </a>
                     </div>
                     <div class="m-item--summary">
                         <h1 class="m-item--hed">
-                            <a href="https://www.koma-modular.cz/reference/bytove-domy-pro-uprchliky-hamburk-brookkehre-str-de">Bytové domy pro uprchlíky Hamburk – Brookkehre Str., DE</a>
+                            <a href="http://www.koma-modular.cz/reference/bytove-domy-pro-uprchliky-hamburk-brookkehre-str-de">Bytové domy pro uprchlíky Hamburk – Brookkehre Str., DE</a>
                         </h1>
 
                     </div>
@@ -664,7 +664,7 @@ if ($user->uid == 1) {
         <div class="row">
             <section class="m-footer--subsection">
                 <a class="m-footer--author" href="/">
-                    <a href="">© 2015 – 2017 KOMA MODULAR s. r. o.</a>
+                    <a href="">© 2015 – 2017 KOMA Modular, s. r. o.</a>
                 </a>
             </section>
             <section class="m-footer--subsection">

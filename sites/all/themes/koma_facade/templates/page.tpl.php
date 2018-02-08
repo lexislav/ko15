@@ -11,45 +11,28 @@ if ($user->uid == 1) {
 
       <ul class="m-navbar--menu m-navbar--menu-tertiary">
 
-        <li class="m-navbar--menu-social m-navbar--menu-twitter">
-          <a target="_blank" title="" href="<?= variable_get('nastaveni_twitter', 'nastaveni') ?>">
-            <span class="fa fa-twitter"><em class="">Twitter</em></span>
-          </a>
-        </li>
+
 
         <li class="m-navbar--menu-social m-navbar--menu-facebook">
-          <?php
-          if ($language->language == 'cs') {
-          ?>
-          <a target="_blank" title="" href="<?= variable_get('nastaveni_fb', 'nastaveni') ?>">
-            <?php
-            }else{
-            ?>
-            <a target="_blank" title="" href="https://www.facebook.com/KomaModularInternational">
-              <?php
-              }
-              ?>
+
+            <a target="_blank" title="" href="https://www.facebook.com/KOMAFacade/">
 
               <span class="fa fa-facebook"><em>Facebook</em></span>
             </a>
         </li>
 
-        <li class="m-navbar--menu-social m-navbar--menu-youtube">
-          <a target="_blank" title="" href="<?= variable_get('nastaveni_youtube', 'nastaveni') ?>">
-            <span class="fa fa-youtube-play"><em class="">YouTube</em></span>
-          </a>
-        </li>
-      </ul>
 
-      <ul class="m-navbar--menu m-navbar--menu-secondary">
-        <li class="m-navbar--menu-dropdown">
-          <a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false"><em
-              class="">Language</em></a>
-          <ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
-            <?php print block_render('locale', 'language'); ?>
-          </ul>
-        </li>
       </ul>
+        <ul class="m-navbar--menu m-navbar--menu-secondary">
+            <li class="m-navbar--menu-dropdown">
+                <a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false"><em
+                            class="">Language</em></a>
+                <ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+                  <?php print block_render('locale', 'language'); ?>
+                </ul>
+            </li>
+        </ul>
+
 
       <?php
 
@@ -86,7 +69,7 @@ if ($user->uid == 1) {
 
       <a class="m-navbar--logo" href="<?= $front_page ?>">
         <div class="mm-has-svg"
-             style="background-image: url('/sites/koma/assets/images/koma-space-logo.svg');"></div>
+             style="background-image: url('/sites/koma/assets/images/logo-koma-facade.svg');"></div>
       </a>
 
       <div class="xmega">
@@ -141,21 +124,7 @@ if ($user->uid == 1) {
 <?php print render($page['content']); ?>
 
 
-<!--banner loga zive firmy-->
-<div  id="page-banner-bottom" class="m-section bg-secondary">
-  <article class="m-banner">
-    <header>
-      <div class="m-banner--image" style="background-image: url(https://www.koma-modular.cz/sites/all/themes/koma/images/spolehliva-firma-2016_125.png)">
-        <img style="height: 64px;"  src="https://www.koma-modular.cz/sites/all/themes/koma/images/spolehliva-firma-2016_125.png">
-      </div>
-      <div class="m-banner--summary">
-        <h1 class="m-banner--hed">
-          Jsme držiteli ocenění Spolehlivá firma.
-        </h1>
-      </div>
-    </header>
-  </article>
-</div>
+
 
 <!--certifikace-->
 <div class="m-section l-feed_six">
@@ -228,7 +197,7 @@ if ($user->uid == 1) {
       <section class="m-footer--section">
         <a class="m-footer--logo" href="/">
           <img
-            src="<?= $GLOBALS['base_url'] ?>/sites/koma/assets/images/logo-koma-space-inline-white.svg"
+            src="<?= $GLOBALS['base_url'] ?>/sites/koma/assets/images/logo-koma-facade-inline-white.svg"
             alt=""/>
         </a>
 
@@ -254,28 +223,13 @@ if ($user->uid == 1) {
         <ul class="m-footer--menu-secondary">
 
           <li class="m-footer--menu-link">
-            <?php
-            if ($language->language == 'cs') {
-            ?>
-            <a target="_blank" title="" href="<?= variable_get('nastaveni_fb', 'nastaveni') ?>">
-              <?php
-              }else{
-              ?>
-              <a target="_blank" title="" href="https://www.facebook.com/KomaModularInternational">
-                <?php
-                }
-                ?>
+
+              <a target="_blank" title="" href="https://www.facebook.com/KOMAFacade/">
+
                 <i
                   class="fa fa-facebook"></i></a>
           </li>
-          <li class="m-footer--menu-link">
-            <a href="<?= variable_get('nastaveni_twitter', 'nastaveni') ?>" target="" title=""><i
-                class="fa fa-twitter"></i></a>
-          </li>
-          <li class="m-footer--menu-link">
-            <a href="<?= variable_get('nastaveni_youtube', 'nastaveni') ?>" target="" title=""><i
-                class="fa fa-youtube-play"></i></a>
-          </li>
+
         </ul>
 
       </section>

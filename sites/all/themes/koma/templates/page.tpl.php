@@ -313,7 +313,7 @@ if ($user->uid == 1) {
 
             <section class="m-footer--subsection">
                 <a class="m-footer--author" href="/">
-                    <a href="">© 2015 – 2017 KOMA MODULAR, s. r. o.</a>
+                    <a href="">© 2015 – 2017 KOMA MODULAR s. r. o.</a>
                 </a>
             </section>
 

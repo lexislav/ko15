@@ -17,7 +17,9 @@ jQuery(document).foundation();
 // map dollar back to jQuery
 var $ = jQuery;
 
-
+$( ".accordeon-items" ).click(function() {
+  $( this ).toggleClass("open-accordeon");
+});
 function getSelectionText() {
   var text = "";
   if (window.getSelection) {

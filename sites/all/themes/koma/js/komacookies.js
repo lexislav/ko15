@@ -57,7 +57,7 @@
             text: "Tento web používá k poskytování služeb, personalizaci reklam a analýze návštěvnosti soubory cookie. Používáním tohoto webu s tím souhlasíte. &nbsp;&nbsp;",
             accept: "Souhlasím",
             more: "Více informací",
-            link: "http://www.koma-modular.cz/informace-o-cookies"
+            link: "https://www.koma-modular.cz/informace-o-cookies"
         },
         options: {popupMore: !1, callback: null, dataLayerName: null}
     }, q = {};
