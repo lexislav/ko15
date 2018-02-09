@@ -80,6 +80,15 @@
     <!-- End Facebook Pixel Code -->
 
     <!-- // @formatter:on -->
+
+    <!-- Sklik -->
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    var seznam_retargeting_id = 52689;
+    /* ]]> */
+    </script>
+    <script type="text/javascript" src="//c.imedia.cz/js/retargeting.js"></script>
+                            
 </head>
 <?php
 if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
