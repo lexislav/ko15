@@ -79,16 +79,7 @@
     <!-- DO NOT MODIFY -->
     <!-- End Facebook Pixel Code -->
 
-    <!-- // @formatter:on -->
-
-    <!-- Sklik -->
-    <script type="text/javascript">
-    /* <![CDATA[ */
-    var seznam_retargeting_id = 52689;
-    /* ]]> */
-    </script>
-    <script type="text/javascript" src="//c.imedia.cz/js/retargeting.js"></script>
-                            
+    <!-- // @formatter:on -->                            
 </head>
 <?php
 if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
@@ -132,7 +123,14 @@ if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
   })();
 </script>
 
-<!-- sklik --><!-- sklik -->
+<!-- Sklik -->
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var seznam_retargeting_id = 52689;
+    /* ]]> */
+</script>
+<script type="text/javascript" src="//c.imedia.cz/js/retargeting.js"></script>
+<!-- sklik -->
 
 <!-- google remarketing support for ASYNC calls -->
 <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>
