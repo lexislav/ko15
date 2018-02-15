@@ -3,7 +3,7 @@
 $wrapper = entity_metadata_wrapper('node', $node);
 $pole_slider = $content['field_hlavni_slider']['#items'];
 ?>
-<div class="hero-tabs mm-four" slick>
+<div class="hero-tabs mm-five" slick>
     <div class="hero-slides" carousel>
         <?php
         foreach ($pole_slider as $cislo => $r) {
@@ -64,6 +64,10 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
                     if ($cislo == 4) {
                         $logoClass = 'koma-slovakia';
                         $urlwebu = 'http://koma-slovakia.sk/';
+                    }
+                    if ($cislo == 5) {
+                        $logoClass = 'koma-family';
+                        $urlwebu = 'https://koma-family.cz/';
                     }
 
                     ?>

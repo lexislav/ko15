@@ -177,6 +177,9 @@
             .koma-rent {
                 background-image: url(/sites/all/themes/koma/assets/images/koma-rent-atl.png);
             }
+            .koma-family {
+                background-image: url(/sites/all/themes/koma/assets/images/logo-koma-family-white.png);
+            }
 
             &.active,
             &:hover {
@@ -192,7 +195,11 @@
                 .koma-rent {
                     background-image: url(/sites/all/themes/koma/assets/images/koma-rent-atl-o.png);
                 }
+                .koma-family {
+                    background-image: url(/sites/all/themes/koma/assets/images/logo-koma-family-hover.png);
+                }
             }
+
 
             // colors
             @each $colorName, $colorValue in $pallete {
@@ -232,6 +239,26 @@
 
                 @include media(C) {
                     @include column(1/4);
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &.mm-five {
+        .navigation {
+            .tab {
+                &:nth-of-type(6) {
+                    display: none;
+                }
+
+                @include media(B) {
+                    @include column(1/2);
+                    margin-bottom: 0;
+                }
+
+                @include media(C) {
+                    @include column(1/5);
                     margin-bottom: 0;
                 }
             }
