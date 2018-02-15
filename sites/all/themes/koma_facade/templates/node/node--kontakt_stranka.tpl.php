@@ -25,17 +25,19 @@
                 <h1 class="m-contact--hed color-black"><?php print t('KOMA FACADE s.r.o.') ?></h1>
 
                 <div class="m-contact--description">
-                  <?= $content['field_basic_text']['#items'][0]['value'] ?>
+                    <?= $content['field_basic_text']['#items'][0]['value'] ?>
                     <br />
                     <span class="color-primary">T</span> <?= $content['kontakt_telefon']['#items'][0]['value'] ?>
                     <br />
-                   <?php if($content['kontakt_fax']['#items'][0]['value']){
-                       ?>
-                       <span class="color-primary">F</span> <?= $content['kontakt_fax']['#items'][0]['value'] ?>
-                       <br />
-                    <?php
-                   }
-                   ?>
+
+                    <?php if ($content['kontakt_fax']['#items'][0]['value']) {
+                        ?>
+                        <span class="color-primary">F</span> <?= $content['kontakt_fax']['#items'][0]['value'] ?>
+                        <br />
+                        <?php
+                    }
+                    ?>
+
                     <span class="color-primary">E</span> <?= $content['kontakt_email']['#items'][0]['value'] ?></span>
                     <br />
                 </div>
@@ -89,10 +91,10 @@
             </div>
         </header>
     </div>
-  <?php
-  $block = module_invoke('views', 'block_view', 'kontakty-block_1');
-  print render($block);
-  ?>
+    <?php
+    $block = module_invoke('views', 'block_view', 'kontakty-block_1');
+    print render($block);
+    ?>
 
     <div class="row">
         <footer class="m-section--footer"></footer>
@@ -102,14 +104,14 @@
 <?php
 
 if (isset($_POST['mailto'])) {
-  $mailto = $_POST['mailto'];
-  $mailfrom = $_POST['email'];
-  $name = $_POST['name'];
-  $text = $_POST['body'];
-  test_mail($mailfrom, $mailto, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
-  test_mail('obchod@koma-facade.cz', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
+    $mailto = $_POST['mailto'];
+    $mailfrom = $_POST['email'];
+    $name = $_POST['name'];
+    $text = $_POST['body'];
+    test_mail($mailfrom, $mailto, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
+    test_mail('obchod@koma-facade.cz', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
 
-  ?>
+    ?>
     <div class="m-section" id="contact-form" <?php koma_theme_wrapper(__FILE__) ?>>
         <div class="row">
             <header class="m-section--header">
@@ -165,7 +167,7 @@ if (isset($_POST['mailto'])) {
     </noscript>
 
     <!-- Měřicí kód Sklik.cz --> 
-    <iframe width="119" height="22" frameborder="0" scrolling="no" src="//c.imedia.cz/checkConversion?c=100033707&amp;color=ffffff&amp;v=0"></iframe>
+    <iframe width="119" height="22" frameborder="0" scrolling="no" src="//c.imedia.cz/checkConversion?c=100039884&amp;color=ffffff&amp;v="></iframe>
 
 <?php } else { ?>
 
@@ -211,52 +213,52 @@ if (isset($_POST['mailto'])) {
         </div>
     </div>
 
-  <?php
+    <?php
 }
 ?>
 
 <!-- volna mista-->
 <div class="m-section bg-white" id="kariera" <?php koma_theme_wrapper(__FILE__) ?>>
 
-  <?php
-  global $language;
-  if ($language->language == 'cs') {
-    ?>
-      <div class="row">
-          <header class="m-section--header"></header>
-      </div>
-      <div class="row">
-          <div class="m-card_bigpromo l-single bg-secondary-light">
-
-              <article class="m-story">
-                  <header>
-                      <div class="m-item--image" style="background-image: url(<?= image_style_url('x633-540', $content['field_basic_img']['#items'][0]['uri']) ?>)">
-                          <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>">
-                              <img src="<?= image_style_url('x633-540', $content['field_basic_img']['#items'][0]['uri']) ?>" alt="">
-                          </a>
-                      </div>
-                      <div class="m-item--summary">
-                          <h1 class="m-item--hed mm-center">
-                              <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>" onclick="ga('send', 'event', 'button', 'click', 'kariera v koma');"><?php print t('Kariéra v KOMA') ?></a>
-                          </h1>
-
-                          <div class="m-item--description">
-                            <?= $content['field_basic_popis_2']['#items'][0]['value'] ?>
-                          </div>
-
-                          <div class="m-card--more bg-8">
-                              <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>" title="<?php print t('Aktuální volná místa') ?>" onclick="ga('send', 'event', 'button', 'click', 'aktualni volna mista');"><?php print t('Aktuální volná místa') ?>&nbsp;→</a>
-                          </div>
-                      </div>
-                  </header>
-
-              </article>
-
-          </div>
-      </div>
     <?php
-  }
-  ?>
+    global $language;
+    if ($language->language == 'cs') {
+        ?>
+        <div class="row">
+            <header class="m-section--header"></header>
+        </div>
+        <div class="row">
+            <div class="m-card_bigpromo l-single bg-secondary-light">
+
+                <article class="m-story">
+                    <header>
+                        <div class="m-item--image" style="background-image: url(<?= image_style_url('x633-540', $content['field_basic_img']['#items'][0]['uri']) ?>)">
+                            <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>">
+                                <img src="<?= image_style_url('x633-540', $content['field_basic_img']['#items'][0]['uri']) ?>" alt="">
+                            </a>
+                        </div>
+                        <div class="m-item--summary">
+                            <h1 class="m-item--hed mm-center">
+                                <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>" onclick="ga('send', 'event', 'button', 'click', 'kariera v koma');"><?php print t('Kariéra v KOMA') ?></a>
+                            </h1>
+
+                            <div class="m-item--description">
+                                <?= $content['field_basic_popis_2']['#items'][0]['value'] ?>
+                            </div>
+
+                            <div class="m-card--more bg-8">
+                                <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>" title="<?php print t('Aktuální volná místa') ?>" onclick="ga('send', 'event', 'button', 'click', 'aktualni volna mista');"><?php print t('Aktuální volná místa') ?>&nbsp;→</a>
+                            </div>
+                        </div>
+                    </header>
+
+                </article>
+
+            </div>
+        </div>
+        <?php
+    }
+    ?>
     <div class="row">
         <footer class="m-section--footer">
             <div class="l-half">
