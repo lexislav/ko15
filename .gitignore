@@ -19,8 +19,11 @@ config.codekit3
 /databaze
 /syncdb.sh
 
-
+/scripts
 /system
+
+
+
 #
 # Created by .ignore support plugin (hsz.mobi)
 ### Drupal template
