@@ -40,7 +40,7 @@
         <script src="<?php print $base_path . $path_to_zen; ?>/js/respond.js"></script><![endif]-->
     <?php endif; ?>
 
-    <script src="https://www.koma-modular.cz/sites/all/themes/koma/js/komacookies.js" async></script>
+    <script src="https://www.koma-facade.cz/sites/all/themes/koma/js/komacookies.js" async></script>
     <script>
       var koma_eu_config = {
         "l18n": {
@@ -50,14 +50,14 @@
           "text": "Cookies allow you to utilise the services provided by us. By utilising our services, you automatically agree with the use of cookies.",
           "accept": "OK",
           "more": "Legal warning / More at:,
-          "link": "https://www.koma-modular.cz/en/informations-about-cookies"
+          "link": "https://www.koma-facade.cz/en/informations-about-cookies"
             <?php
             }elseif(test_lang_code() == 'de'){
             ?>
           "text": "Cookies ermöglichen Ihnen die Nutzung der von uns bereitgestellten Dienstleistungen. Mit der Nutzung unserer Dienstleistungen stimmen Sie automatisch der Nutzung von Cookies zu.",
           "accept": "OK",
           "more": "Rechtliche Hinweise / Mehr auf:",
-          "link": "https://www.koma-modular.cz/de/cookies"
+          "link": "https://www.koma-facade.cz/de/cookies"
             <?php
             }
             ?>
@@ -79,16 +79,7 @@
     <!-- DO NOT MODIFY -->
     <!-- End Facebook Pixel Code -->
 
-    <!-- // @formatter:on -->
-
-    <!-- Sklik -->
-    <script type="text/javascript">
-    /* <![CDATA[ */
-    var seznam_retargeting_id = 52689;
-    /* ]]> */
-    </script>
-    <script type="text/javascript" src="//c.imedia.cz/js/retargeting.js"></script>
-                            
+    <!-- // @formatter:on -->                            
 </head>
 <?php
 if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
@@ -119,20 +110,14 @@ if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
 </script>
 <script type="text/javascript" src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/js/app.js"></script>
 
-<!-- leady.cz -->
-<script type="text/javascript"> var leady_track_key = "zdY943A7JNzTW7S9";
-  var leady_track_server = document.location.protocol + "//t.leady.cz/";
-  (function () {
-    var l = document.createElement("script");
-    l.type = "text/javascript";
-    l.async = true;
-    l.src = leady_track_server + leady_track_key + "/L.js";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(l, s);
-  })();
+<!-- Sklik -->
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var seznam_retargeting_id = 52689;
+    /* ]]> */
 </script>
-
-<!-- sklik --><!-- sklik -->
+<script type="text/javascript" src="//c.imedia.cz/js/retargeting.js"></script>
+<!-- sklik -->
 
 <!-- google remarketing support for ASYNC calls -->
 <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>
