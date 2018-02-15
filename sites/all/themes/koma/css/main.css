@@ -8730,8 +8730,8 @@ article header figure {
         background-image: url(/sites/all/themes/koma/assets/images/koma-slovakia-atl.png); }
       .hero-tabs .navigation .tab .koma-rent {
         background-image: url(/sites/all/themes/koma/assets/images/koma-rent-atl.png); }
-      .hero-tabs .navigation .tab .koma-family {
-        background-image: url(/sites/all/themes/koma/assets/images/logo-koma-family-white.png); }
+      .hero-tabs .navigation .tab .koma-facade {
+        background-image: url(/sites/all/themes/koma/assets/images/logo-koma-facade-white.png); }
       .hero-tabs .navigation .tab.active .koma-modular, .hero-tabs .navigation .tab:hover .koma-modular {
         background-image: url(/sites/all/themes/koma/assets/images/koma-modular-atl-o.png); }
       .hero-tabs .navigation .tab.active .koma-space, .hero-tabs .navigation .tab:hover .koma-space {
@@ -8740,8 +8740,8 @@ article header figure {
         background-image: url(/sites/all/themes/koma/assets/images/koma-slovakia-atl-o.png); }
       .hero-tabs .navigation .tab.active .koma-rent, .hero-tabs .navigation .tab:hover .koma-rent {
         background-image: url(/sites/all/themes/koma/assets/images/koma-rent-atl-o.png); }
-      .hero-tabs .navigation .tab.active .koma-family, .hero-tabs .navigation .tab:hover .koma-family {
-        background-image: url(/sites/all/themes/koma/assets/images/logo-koma-family-hover.png); }
+      .hero-tabs .navigation .tab.active .koma-facade, .hero-tabs .navigation .tab:hover .koma-facade {
+        background-image: url(/sites/all/themes/koma/assets/images/logo-koma-facade-hover.png); }
       .hero-tabs .navigation .tab.color-0 {
         border-color: #C20E1A; }
         .hero-tabs .navigation .tab.color-0:hover, .hero-tabs .navigation .tab.color-0.active {

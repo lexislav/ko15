@@ -66,8 +66,8 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
                         $urlwebu = 'http://koma-slovakia.sk/';
                     }
                     if ($cislo == 5) {
-                        $logoClass = 'koma-family';
-                        $urlwebu = 'https://koma-family.cz/';
+                        $logoClass = 'koma-facade';
+                        $urlwebu = 'https://www.koma-facade.cz/';
                     }
 
                     ?>
