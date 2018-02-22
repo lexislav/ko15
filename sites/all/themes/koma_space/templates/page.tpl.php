@@ -25,7 +25,7 @@ if ($user->uid == 1) {
             <?php
             }else{
             ?>
-            <a target="_blank" title="" href="https://www.facebook.com/KomaModularInternational">
+            <a target="_blank" title="" href="https://www.facebook.com/KOMAspace/">
               <?php
               }
               ?>
@@ -35,7 +35,7 @@ if ($user->uid == 1) {
         </li>
 
         <li class="m-navbar--menu-social m-navbar--menu-youtube">
-          <a target="_blank" title="" href="<?= variable_get('nastaveni_youtube', 'nastaveni') ?>">
+          <a target="_blank" title="" href="https://www.youtube.com/user/KOMASPACE1">
             <span class="fa fa-youtube-play"><em class="">YouTube</em></span>
           </a>
         </li>
