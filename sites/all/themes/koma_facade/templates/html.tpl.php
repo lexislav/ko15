@@ -24,9 +24,11 @@
 
     <meta name="format-detection" content="telephone=no" />
     <meta name="format-detection" content="address=no" />
+
     <?php print $styles; ?>
+
     <!-- GA thru Drupal extension-->
-    <?php print $scripts; ?>
+    <?php  print $scripts; ?>
 
 
     <?php if ($add_html5_shim and !$add_respond_js): ?>
@@ -65,6 +67,7 @@
       };
     </script>
     <!-- // @formatter:off -->
+
     <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -79,15 +82,10 @@
     <!-- DO NOT MODIFY -->
     <!-- End Facebook Pixel Code -->
 
-    <!-- // @formatter:on -->                            
+    <!-- // @formatter:on -->
 </head>
-<?php
-if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
-    $jakej = 'internet';
-} else {
-    $jakej = 'local';
-}
-?>
+<?php if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') { $jakej = 'internet'; } else { $jakej = 'local'; } ?>
+
 <body class="komaspace l-page <?php print $classes; ?> <?= $jakej ?>" <?php print $attributes; ?>>
 <?php if ($skip_link_text && $skip_link_anchor): ?>
     <p id="skip-link">
@@ -108,6 +106,9 @@ if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
   var googleAdWordsID = "835061881";
   var sklikId = null;
 </script>
+
+<!-- APP.JS-->
+<script>var googleApiVersion = 2018</script>
 <script type="text/javascript" src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/js/app.js"></script>
 
 <!-- Sklik -->
@@ -119,20 +120,32 @@ if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
 <script type="text/javascript" src="//c.imedia.cz/js/retargeting.js"></script>
 <!-- sklik -->
 
+<!-- google gtag-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-62231986-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-62231986-3');
+</script>
+
+
 <!-- google remarketing support for ASYNC calls -->
-<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>
+<!--<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>-->
 
 
 <!-- google remarketing : START -->
-<script type="text/javascript">
-  /* <![CDATA[ */
-  var google_conversion_id = 835061881;
-  var google_custom_params = window.google_tag_params;
-  var google_remarketing_only = true;
-  /* ]]> */
-</script>
-<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
-<noscript><div style="display:inline;"><img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/835061881/?guid=ON&amp;script=0" /></div></noscript>
+<!--<script type="text/javascript">-->
+<!--  /* <![CDATA[ */-->
+<!--  var google_conversion_id = 835061881;-->
+<!--  var google_custom_params = window.google_tag_params;-->
+<!--  var google_remarketing_only = true;-->
+<!--  /* ]]> */-->
+<!--</script>-->
+<!---->
+<!--<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>-->
+<!--<noscript><div style="display:inline;"><img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/835061881/?guid=ON&amp;script=0" /></div></noscript>-->
 <!-- google remarketing : END -->
 
 </body>

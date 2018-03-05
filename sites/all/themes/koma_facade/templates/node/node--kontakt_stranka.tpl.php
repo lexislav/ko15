@@ -141,7 +141,17 @@ if (isset($_POST['mailto'])) {
 
     <!--  @todo: add measure codes after send -->
     <script>
-      ga('send', 'event', 'form', 'sent', 'odeslat zpravu');
+
+      if(isGAApi(2018)) {
+        gtag('event', 'send', {
+          'event_category': 'form',
+          'event_action': 'sent',
+          'event_label': 'odeslat zpravu'
+        });
+      } else {
+        ga('send', 'event', 'form', 'sent', 'odeslat zpravu');
+      }
+
     </script>
 
     <script>

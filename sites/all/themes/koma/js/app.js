@@ -17,9 +17,22 @@ jQuery(document).foundation();
 // map dollar back to jQuery
 var $ = jQuery;
 
-$( ".accordeon-items" ).click(function() {
-  $( this ).toggleClass("open-accordeon");
+function isGAApi(apiID) {
+  if (typeof googleApiVersion != 'undefined') {
+    if (googleApiVersion === apiID) {
+      return true
+    }
+    return false
+  }
+  console.log('GA API: deprecated');
+  return false
+}
+
+
+$(".accordeon-items").click(function () {
+  $(this).toggleClass("open-accordeon");
 });
+
 function getSelectionText() {
   var text = "";
   if (window.getSelection) {
@@ -63,7 +76,21 @@ function registerNewsletterGA() {
   // rent: #webform-client-form-1442
   // space: #webform-client-form-1442
   $('#webform-client-form-1442').on('submit', function (event) {
-    ga('send', 'event', 'form', 'sent', 'vyplneny e-bulletin');
+
+    if (isGAApi(2018)) {
+
+      gtag('event', 'send', {
+        'event_category': 'form',
+        'event_action': 'sent',
+        'event_label': 'vyplneny_e-bulletin'
+      });
+
+    } else {
+      ga('send', 'event', 'form', 'sent', 'vyplneny e-bulletin');
+
+    }
+
+
   })
 }
 
@@ -84,7 +111,16 @@ function registerGGMailEvents() {
       e.preventDefault();
       var mailto = link.substr(7, link.length);
 
-      ga('send', 'event', 'mail', 'click', mailto);
+      if (isGAApi(2018)) {
+        gtag('event', 'send', {
+          'event_category': 'mail',
+          'event_action': 'click',
+          'event_label': mailto
+        });
+      } else {
+        ga('send', 'event', 'mail', 'click', mailto);
+      }
+
       sendGaAdwords('mail-click', mailto);
       hackSeznamSklik();
       fbq('track', '<COPY_OR_CLICK_ON_EMAIL>');
@@ -101,39 +137,60 @@ function registerGACopyEvents() {
   console.log("registerGACopyEvents:On");
 
   $(document).bind('copy', function (event) {
-    var text = getSelectionText();
+      var text = getSelectionText();
 
-    if (text.length < 40) {
-      var mails = extractEmails(text);
-      var phones = extractPhone(text);
+      if (text.length < 40) {
+        var mails = extractEmails(text);
+        var phones = extractPhone(text);
 
-      if (mails && mails.length > 0) {
-        // send only one mail
-        var mail = mails[0];
-        // console.log("copy mail "+ mail);
-        console.log('send ga: mail copy');
+        if (mails && mails.length > 0) {
+          // send only one mail
+          var mail = mails[0];
+          // console.log("copy mail "+ mail);
 
-        ga('send', 'event', 'mail', 'copy', 'zkopirovani emailu ' + mail);
+          if (isGAApi(2018)) {
+            gtag('event', 'send', {
+              // Event parameters
+              'event_category': 'mail',
+              'event_action': 'copy',
+              'event_label': mail
+            });
 
-        sendGaAdwords('mail-copy', mail);
+          } else {
+            ga('send', 'event', 'mail', 'copy', 'zkopirovani emailu ' + mail);
+          }
+          sendGaAdwords('mail-copy', mail);
 
-        <!-- Měřicí kód Sklik.cz -->
-        hackSeznamSklik();
+          <!-- Měřicí kód Sklik.cz -->
+          hackSeznamSklik();
 
-        console.log('send fb: COPY_OR_CLICK_ON_EMAIL');
-        fbq('track', '<COPY_OR_CLICK_ON_EMAIL>');
+          console.log('send fb: COPY_OR_CLICK_ON_EMAIL');
+          fbq('track', '<COPY_OR_CLICK_ON_EMAIL>');
 
+        }
+
+        if (phones && phones.length > 0) {
+          // send only one phone
+          var phone = phones[0];
+          // console.dir("copy phone: "+ phone);
+
+          if (isGAApi(2018)) {
+            gtag('event', 'send', {
+              // Event parameters
+              'event_category': 'phone',
+              'event_action': 'copy',
+              'event_label': phone
+            });
+
+          } else {
+            ga('send', 'event', 'phone', 'copy', 'zkopirovani telefonu ' + phone);
+          }
+
+        }
       }
 
-      if (phones && phones.length > 0) {
-        // send only one phone
-        var phone = phones[0];
-        // console.dir("copy phone: "+ phone);
-        ga('send', 'event', 'phone', 'copy', 'zkopirovani telefonu ' + phone);
-      }
     }
-
-  })
+  )
 
 }
 
@@ -163,11 +220,20 @@ function registerContactFormManager() {
         //console.log('Fill form with: ' + injectName, injectEmail, injectSubject);
       });
 
-      // send GA event
-      console.log('send ga: mail click: ' + injectEmail);
+      // console.log('send ga: mail click: ' + injectEmail);
+      if (isGAApi(2018)) {
+        gtag('event', 'send', {
+          // Event parameters
+          'event_category': 'mail',
+          'event_action': 'click',
+          'event_label': injectEmail
+        });
 
-      ga('send', 'event', 'mail', 'click', injectEmail);
+      } else {
+        // send GA event
 
+        ga('send', 'event', 'mail', 'click', injectEmail);
+      }
       sendGaAdwords('mail-click', injectEmail);
 
       // <!-- Měřicí kód Sklik.cz -->
