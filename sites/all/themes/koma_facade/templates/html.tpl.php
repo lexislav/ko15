@@ -26,8 +26,6 @@
     <meta name="format-detection" content="address=no" />
 
     <?php print $styles; ?>
-
-    <!-- GA thru Drupal extension-->
     <?php  print $scripts; ?>
 
 
