@@ -25,9 +25,19 @@
 
     <meta name="format-detection" content="telephone=no" />
     <meta name="format-detection" content="address=no" />
+
     <?php print $styles; ?>
-    <!-- GA thru Drupal extension-->
     <?php print $scripts; ?>
+
+    <!-- google GA -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-12370093-1', 'auto');
+      ga('send', 'pageview');
+    </script>
 
 
     <?php if ($add_html5_shim and !$add_respond_js): ?>
@@ -92,16 +102,12 @@
     <!-- // @formatter:on -->
 
     <!-- Pinterest METACODE -->
-    <meta name="p:domain_verify" content="8b47656b97d543a3b45580dcec3ab33b"/> 
+    <meta name="p:domain_verify" content="8b47656b97d543a3b45580dcec3ab33b"/>
 </head>
 
-<?php
-if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
-    $jakej = 'internet';
-} else {
-    $jakej = 'local';
-}
-?>
+
+<?php if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') { $jakej = 'internet';} else { $jakej = 'local';} ?>
+
 
 <body class="l-page <?php print $classes; ?> <?= $jakej ?>" <?php print $attributes; ?>>
 
@@ -119,6 +125,7 @@ if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
         <img src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/assets/images/scroll-down-sipka.svg" alt="Scroll Down" class="scroll-sipka" /> <?php print t('Scroll down') ?>
     </div>
 </div>
+
 
 <!-- app scripts -->
 <script>
@@ -148,7 +155,6 @@ if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
   /* ]]> */
 </script>
 <script type="text/javascript" src="//c.imedia.cz/js/retargeting.js"></script>
-
 
 <!-- google remarketing support for ASYNC calls -->
 <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>
