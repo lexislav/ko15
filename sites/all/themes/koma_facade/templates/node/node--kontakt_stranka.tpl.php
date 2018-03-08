@@ -139,25 +139,7 @@ if (isset($_POST['mailto'])) {
         </div>
     </div>
 
-    <!--  @todo: add measure codes after send -->
-    <script>
-
-      if(isGAApi(2018)) {
-        gtag('event', 'send', {
-          'event_category': 'form',
-          'event_action': 'sent',
-          'event_label': 'odeslat zpravu'
-        });
-      } else {
-        ga('send', 'event', 'form', 'sent', 'odeslat zpravu');
-      }
-
-    </script>
-
-    <script>
-      fbq('track', '<FORMULAR_SEND>');
-    </script>
-
+    <!--  Metrics start -->
     <!-- Google Code for Odesl&aacute;n&iacute; kontaktn&iacute;ho formul&aacute;&#345;e Conversion Page -->
     <script type="text/javascript">
       /* <![CDATA[ */
@@ -176,8 +158,29 @@ if (isset($_POST['mailto'])) {
         </div>
     </noscript>
 
-    <!-- Měřicí kód Sklik.cz --> 
+    <!-- Měřicí kód Sklik.cz -->
     <iframe width="119" height="22" frameborder="0" scrolling="no" src="//c.imedia.cz/checkConversion?c=100039884&amp;color=ffffff&amp;v="></iframe>
+
+    <script>
+
+      jQuery( document ).ready(function() {
+        // ga
+        if(isGAApi(2018)) {
+          gtag('event', 'send', {
+            'event_category': 'form',
+            'event_action': 'sent',
+            'event_label': 'odeslat zpravu'
+          });
+        } else {
+          ga('send', 'event', 'form', 'sent', 'odeslat zpravu');
+        }
+
+        // FB
+        fbq('track', '<FORMULAR_SEND>');
+
+      });
+    </script>
+    <!--  Metrics: End  -->
 
 <?php } else { ?>
 

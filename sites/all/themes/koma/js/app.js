@@ -61,14 +61,19 @@ function hackSeznamSklik() {
 }
 
 function sendGaAdwords(action, email) {
-  window.google_trackConversion({
-    google_conversion_id: googleAdWordsID,
-    google_custom_params: {
-      action: action,
-      email: email
-    },
-    google_remarketing_only: true
-  });
+  try {
+    window.google_trackConversion({
+      google_conversion_id: googleAdWordsID,
+      google_custom_params: {
+        action: action,
+        email: email
+      },
+      google_remarketing_only: true
+    });
+  }
+  catch(err) {
+    console.warn("GAdwords error: " + err);
+  }
 }
 
 function registerNewsletterGA() {
@@ -231,9 +236,9 @@ function registerContactFormManager() {
 
       } else {
         // send GA event
-
         ga('send', 'event', 'mail', 'click', injectEmail);
       }
+
       sendGaAdwords('mail-click', injectEmail);
 
       // <!-- Měřicí kód Sklik.cz -->

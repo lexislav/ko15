@@ -122,14 +122,7 @@ if (isset($_POST['mailto'])) {
         </div>
     </div>
 
-    <script>
-      ga('send', 'event', 'form', 'sent', 'odeslat zpravu');
-    </script>
-
-    <script>
-      fbq('track', '<FORMULAR_SEND>');
-    </script>
-
+    <!--  Metrics start -->
     <!-- Google Code for Odesl&aacute;n&iacute; kontaktn&iacute;ho formul&aacute;&#345;e Conversion Page -->
     <script type="text/javascript">
       /* <![CDATA[ */
@@ -149,6 +142,26 @@ if (isset($_POST['mailto'])) {
         </div>
     </noscript>
 
+    <script>
+
+      jQuery( document ).ready(function() {
+        // ga
+        if(isGAApi(2018)) {
+          gtag('event', 'send', {
+            'event_category': 'form',
+            'event_action': 'sent',
+            'event_label': 'odeslat zpravu'
+          });
+        } else {
+          ga('send', 'event', 'form', 'sent', 'odeslat zpravu');
+        }
+
+        // FB
+        fbq('track', '<FORMULAR_SEND>');
+
+      });
+    </script>
+    <!--  Metrics: End  -->
 
 <?php } else { ?>
 

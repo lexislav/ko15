@@ -139,7 +139,9 @@ if (isset($_POST['mailto'])) {
             </div>
         </div>
     </div>
+
 <?php } else { ?>
+
     <div class="m-section" id="formSection" <?php koma_theme_wrapper(__FILE__) ?>>
         <div class="row">
             <header class="m-section--header">
