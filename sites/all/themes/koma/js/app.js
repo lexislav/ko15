@@ -180,6 +180,7 @@ function registerGACopyEvents() {
           // console.dir("copy phone: "+ phone);
 
           if (isGAApi(2018)) {
+            console.log("gtag copy phone: "+ phone);
             gtag('event', 'send', {
               // Event parameters
               'event_category': 'phone',
@@ -188,6 +189,7 @@ function registerGACopyEvents() {
             });
 
           } else {
+            console.log("ga copy phone: "+ phone);
             ga('send', 'event', 'phone', 'copy', 'zkopirovani telefonu ' + phone);
           }
 
