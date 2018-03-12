@@ -1,3 +1,5 @@
+<!-- hotovec: dev GA test -->
+
 <div class="m-section l-detail-page" <?php koma_theme_wrapper(__FILE__) ?>>
     <div class="row">
         <header class="m-section--header">
