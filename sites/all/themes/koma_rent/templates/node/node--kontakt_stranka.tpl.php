@@ -154,12 +154,14 @@ if (isset($_POST['mailto'])) {
       jQuery( document ).ready(function() {
         // ga
         if(isGAApi(2018)) {
+          console.log('sendEvent gtag');
           gtag('event', 'send', {
             'event_category': 'form',
             'event_action': 'sent',
             'event_label': 'odeslat zpravu'
           });
         } else {
+          console.log('sendEvent ga');
           ga('send', 'event', 'form', 'sent', 'odeslat zpravu');
         }
 
