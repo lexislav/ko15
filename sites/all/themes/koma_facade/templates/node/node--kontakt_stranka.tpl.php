@@ -61,7 +61,7 @@
         <footer class="m-section--footer">
             <div class="l-half">
                 <!-- @todo: add measure code-->
-                <a href="<?php print url('node/1444', array('absolute' => true)); ?>#formSection" onclick="ga('send', 'event', 'button', 'click', 'zeptejte se nas');">
+                <a href="<?php print url('node/2786', array('absolute' => true)); ?>#formSection" onclick="ga('send', 'event', 'button', 'click', 'zeptejte se nas');">
                     <button class="button"><?php print t('Ask us') ?></button>
                 </a>
             </div>
