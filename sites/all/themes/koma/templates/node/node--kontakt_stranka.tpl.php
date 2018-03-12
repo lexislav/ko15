@@ -200,7 +200,7 @@ if (isset($_POST['mailto'])) {
                 <!--@TODO dodelat cele vsechno omg-->
 
                 <div class="m-contact-form--content">
-                    <form action="<?php print url('node/1444', array('absolute' => true)); ?>#contact-form" method="post">
+                    <form action="<?php print url('node/2283', array('absolute' => true)); ?>#contact-form" method="post">
                         <input type="hidden" name="mailto" id="mailto" value="info@koma-modular.cz" />
                         <input type="text" id="name" name="name" placeholder="<?php print t('Your first and surname') ?>" required />
                         <input type="email" id="email" name="email" placeholder="<?php print t('Your e-mail address') ?>" required />
