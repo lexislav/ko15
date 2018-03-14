@@ -187,7 +187,7 @@ if (isset($_POST['mailto'])) {
                     <i class="fa fa-paper-plane-o"></i> <?php print t('The contact form will be sent to the following address') ?> : <span id="targetMailInfo">pronajem@koma-rent.cz</span>
                 </header>
                 <div class="m-contact-form--content">
-                    <form action="http://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>#contact-form" method="post">
+                    <form action="https://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>#contact-form" method="post">
                         <input type="hidden" name="mailto" id="mailto" value="pronajem@koma-rent.cz" />
                         <input type="text" id="name" name="name" placeholder="<?php print t('Your first and surname') ?>" required />
                         <input type="email" id="email" name="email" placeholder="<?php print t('Your e-mail address') ?>" required />
