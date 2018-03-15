@@ -131,7 +131,7 @@ if (isset($_POST['mailto'])) {
                         <br /><?php print t('a na vámi zadanou adresu') ?>
                         <span><?= $mailfrom ?></span>
                     </p>
-                    <a href="http://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="button">Odeslat novou zprávu
+                    <a href="https://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="button">Odeslat novou zprávu
                         <i class="fa fa-paper-plane-o"></i></a>
                     <br />
                 </div>
