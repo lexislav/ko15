@@ -80,7 +80,8 @@ if ($user->uid == 1) {
   </div>
   <?php
 
-  $banner1 = node_load(2315);
+  $banner1 = node_load(3014);
+
   if ($banner1->status == 1) {
 
 
@@ -107,6 +108,7 @@ if ($user->uid == 1) {
             <div class="m-banner--summary">
               <h1 class="m-banner--hed">
                 <?=@ $banner1->field_basic_text[test_lang_code()][0]['value'] ?>
+                <?=@ $banner1->field_basic_text['und'][0]['value'] ?>
               </h1>
             </div>
           </header>
