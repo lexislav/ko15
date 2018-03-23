@@ -12,7 +12,12 @@
             </div>
         </header>
     </div>
-
+<?php
+global $user;
+if($user->uid > 0){
+print render($content['field_kestazeni_link']);
+}
+?>
     <article class="m-story">
         <header>
 
