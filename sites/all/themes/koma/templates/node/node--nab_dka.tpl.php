@@ -54,7 +54,6 @@
                 <div class="m-story--image mm-desktop">
                     <img src="<?= image_style_url('x412-300', $node->field_basic_img['und'][0]['uri']) ?>" alt="">
                 </div>
-                <br>
                 <?php
                 global $user;
                 if($user->uid > 0){
