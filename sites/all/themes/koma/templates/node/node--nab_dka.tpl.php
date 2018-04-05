@@ -12,12 +12,7 @@
             </div>
         </header>
     </div>
-<?php
-global $user;
-if($user->uid > 0){
-print render($content['field_kestazeni_link']);
-}
-?>
+
     <article class="m-story">
         <header>
 
@@ -60,6 +55,12 @@ print render($content['field_kestazeni_link']);
                     <img src="<?= image_style_url('x412-300', $node->field_basic_img['und'][0]['uri']) ?>" alt="">
                 </div>
                 <br>
+                <?php
+                global $user;
+                if($user->uid > 0){
+                    print render($content['field_kestazeni_link']);
+                }
+                ?>
             </div>
           <?php
           if (isset($node->field_nabidka_fotogalerie['und'])):
@@ -86,6 +87,7 @@ print render($content['field_kestazeni_link']);
                             <?php } ?>
                           </ul>
                       </div>
+
 
                   </div>
               </aside>
