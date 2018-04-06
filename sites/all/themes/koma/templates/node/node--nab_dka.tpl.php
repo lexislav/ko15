@@ -54,12 +54,7 @@
                 <div class="m-story--image mm-desktop">
                     <img src="<?= image_style_url('x412-300', $node->field_basic_img['und'][0]['uri']) ?>" alt="">
                 </div>
-                <?php
-                global $user;
-                if($user->uid > 0){
-                    print render($content['field_kestazeni_link']);
-                }
-                ?>
+                <?php print render($content['field_kestazeni_link']); ?>
             </div>
           <?php
           if (isset($node->field_nabidka_fotogalerie['und'])):
