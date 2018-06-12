@@ -48,7 +48,7 @@
         <script src="<?php print $base_path . $path_to_zen; ?>/js/respond.js"></script><![endif]-->
     <?php endif; ?>
 
-    <script src="https://www.koma-modular.cz/sites/all/themes/koma/js/komacookies.js" async></script>
+    <script src="https://www.koma-group.cz/sites/all/themes/koma/js/komacookies.js" async></script>
     <script>
         var koma_eu_config = {
             "l18n": {
@@ -58,14 +58,14 @@
                 "text": "Cookies allow you to utilise the services provided by us. By utilising our services, you automatically agree with the use of cookies.",
                 "accept": "OK",
                 "more": "Legal warning / More at:,
-                "link": "https://www.koma-modular.cz/en/informations-about-cookies"
+                "link": "https://www.koma-group.cz/en/informations-about-cookies"
                 <?php
                 }elseif(test_lang_code()=='de'){
                 ?>
                 "text": "Cookies ermöglichen Ihnen die Nutzung der von uns bereitgestellten Dienstleistungen. Mit der Nutzung unserer Dienstleistungen stimmen Sie automatisch der Nutzung von Cookies zu.",
                 "accept": "OK",
                 "more": "Rechtliche Hinweise / Mehr auf:",
-                "link": "https://www.koma-modular.cz/de/cookies"
+                "link": "https://www.koma-group.cz/de/cookies"
                 <?php
                 }
                 ?>

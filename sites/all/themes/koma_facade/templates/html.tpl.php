@@ -40,7 +40,7 @@
         <script src="<?php print $base_path . $path_to_zen; ?>/js/respond.js"></script><![endif]-->
     <?php endif; ?>
 
-    <script src="https://www.koma-facade.cz/sites/all/themes/koma/js/komacookies.js" async></script>
+    <script src="https://www.koma-facade.cz/sites/all/themes/koma_facade/js/komacookies.js" async></script>
     <script>
       var koma_eu_config = {
         "l18n": {
