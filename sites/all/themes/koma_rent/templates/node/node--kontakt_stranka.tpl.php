@@ -95,6 +95,7 @@
 <?php
 
 if (isset($_POST['mailto'])) {
+if(empty($_POST['lastname'])){
     $mailto = $_POST['mailto'];
     $mailfrom = $_POST['email'];
     $name = $_POST['name'];
@@ -174,7 +175,7 @@ if (isset($_POST['mailto'])) {
     </script>
     <!--  Metrics: End  -->
 
-<?php } else { ?>
+<?php } } else { ?>
 
     <div class="m-section" id="formSection" <?php koma_theme_wrapper(__FILE__) ?>>
         <div class="row">
@@ -193,6 +194,7 @@ if (isset($_POST['mailto'])) {
                 <div class="m-contact-form--content">
                     <form action="https://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>#contact-form" method="post">
                         <input type="hidden" name="mailto" id="mailto" value="pronajem@koma-rent.cz" />
+                        <input type="text" name="lastname" class="lastname" value="" />
                         <input type="text" id="name" name="name" placeholder="<?php print t('Your first and surname') ?>" required />
                         <input type="email" id="email" name="email" placeholder="<?php print t('Your e-mail address') ?>" required />
                         <textarea id="body" name="body" style="height: 200px" required placeholder="<?php print t('The text of your question') ?>"></textarea>

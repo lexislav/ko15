@@ -114,7 +114,9 @@ a.tabledrag-handle .handle {
 .chosen-single > span{
     text-transform: uppercase;
 }
-
+.m-contact-form--content .lastname{
+    display: none;
+}
 
 
 .accordeon-items {
