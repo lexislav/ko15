@@ -50,7 +50,7 @@
           "text": "Cookies allow you to utilise the services provided by us. By utilising our services, you automatically agree with the use of cookies.",
           "accept": "OK",
           "more": "Legal warning / More at:,
-          "link": "https://www.koma-facade.cz/en/informations-about-cookies"
+          "link": "https://www.koma-facade.cz/en/cookies"
             <?php
             }elseif(test_lang_code() == 'de'){
             ?>
