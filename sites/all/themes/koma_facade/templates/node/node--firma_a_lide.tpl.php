@@ -5,7 +5,7 @@
 //
 //?>
 
-<article <?php koma_theme_wrapper(__FILE__)?>>
+<article <?php koma_theme_wrapper(__FILE__) ?>>
 
     <div class="m-section l-feed_carousel bg-secondary-light">
         <div class="row">
@@ -20,11 +20,11 @@
             <div class="m-section--content">
 
                 <div class="l-full">
-                    <?php
-                    if (isset($content['field_slider_2'][0])) {
-                        print render($content['field_slider_2']);
-                    }
-                    ?>
+                  <?php
+                  if (isset($content['field_slider_2'][0])) {
+                    print render($content['field_slider_2']);
+                  }
+                  ?>
                 </div>
 
             </div>
@@ -37,15 +37,15 @@
             <header class="m-section--header"></header>
         </div>
 
-        <?php
-        if (isset($content['field_img_text_text'][0])) {
+      <?php
+      if (isset($content['field_img_text_text'][0])) {
 
-            $content['field_img_text_text'][0]['myclass'] = "mm-promo";
+        $content['field_img_text_text'][0]['myclass'] = "mm-promo";
 
-            // @todo: potrebuji pridat do tehle sablony classu, tak aby to neovlivnilo jina zobrazeni
-            print render($content['field_img_text_text']);
-        }
-        ?>
+        // @todo: potrebuji pridat do tehle sablony classu, tak aby to neovlivnilo jina zobrazeni
+        print render($content['field_img_text_text']);
+      }
+      ?>
 
         <div class="row">
             <footer class="m-section--footer"></footer>
@@ -55,60 +55,57 @@
 </article>
 
 
-
-
-<div class="m-section l-feed_two bg-white" id="ke-stazeni" <?php koma_theme_wrapper(__FILE__)?>>
-
-
+<div class="m-section l-feed_three bg-white" id="ke-stazeni" <?php koma_theme_wrapper(__FILE__) ?>>
 
     <div class="row">
         <header class="m-section--header">
             <div class="l-full">
-                <h2 class="m-section--hed mm-medium color-primary mm-upcase"><?php print t('For download') ?></h2>
+                <h2 class="m-section--hed mm-big "><?php print t('For download') ?></h2>
             </div>
         </header>
     </div>
-
     <div class="row">
         <div class="l-single">
-            <?php
-            if (isset($content['field_brozury'][0])) {
-                print render($content['field_brozury']);
-            }
-            ?>
+          <?php
+          if (isset($content['field_brozury'][0])) {
+            print render($content['field_brozury']);
+          }
+          ?>
         </div>
-
         <div class="l-single">
-            <?php
-            if (isset($content['field_ceniky'][0])) {
-                print render($content['field_ceniky']);
-            }
-            ?>
+          <?php
+          $block = module_invoke('views', 'block_view', 'buletin-block');
+          print render($block);
+          ?>
+        </div>
+        <div class="l-single">
+          <?php
+          if (isset($content['field_ceniky'][0])) {
+            print render($content['field_ceniky']);
+          }
+          ?>
         </div>
     </div>
 
-
 </div>
 
-
-
-
-
-
-
-<div class="kotva" id="dalsi-informace" <?php koma_theme_wrapper(__FILE__)?>></div>
+<div class="kotva" id="dalsi-informace" <?php koma_theme_wrapper(__FILE__) ?>></div>
 <?php
 $block = module_invoke('views', 'block_view', 'publicita-block');
 print render($block);
 ?>
 
+
+
+
+
+
+
 <?php
-//dpm($content['field_text_text_link']);
 if (isset($content['field_text_text_link'][0])) {
-    print render($content['field_text_text_link']);
+  print render($content['field_text_text_link']);
 }
 ?>
-
 
 
 
@@ -214,7 +211,7 @@ else { ?>
                 <header>
                     <i class="fa fa-paper-plane-o"></i> <?php print t('The contact form will be sent to the following address') ?>
                     :
-                    <span id="targetMailInfo">pronajem@koma-rent.cz</span>
+                    <span id="targetMailInfo">info@koma-modular.cz</span>
                 </header>
 
 
@@ -222,7 +219,7 @@ else { ?>
 
                 <div class="m-contact-form--content">
                     <form action="<?php print url('node/1552', ['absolute' => TRUE]); ?>#contact-form" method="post">
-                        <input type="hidden" name="mailto" id="mailto" value="pronajem@koma-rent.cz"/>
+                        <input type="hidden" name="mailto" id="mailto" value="info@koma-modular.cz"/>
                         <input type="text" name="lastname" class="lastname" value=""/>
                         <input type="text" id="name" name="name" placeholder="<?php print t('Your first and surname') ?>" required/>
                         <input type="email" id="email" name="email" placeholder="<?php print t('Your e-mail address') ?>" required/>
