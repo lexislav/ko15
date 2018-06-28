@@ -76,12 +76,22 @@
                             <style>
                                 .webform-confirm-question {
                                     padding-top: 30px;
+                                    padding-bottom: 30px;
                                     display: flex;
                                 }
 
                                 .webform-confirm-question-check,
                                 webform-confirm-question-option {
 
+                                }
+
+                                .webform-confirm-question p {
+                                    margin: 0;
+                                    padding: 0;
+                                }
+
+                                .webform-confirm-question-check {
+                                    margin-top: 3px;
                                 }
 
                             </style>
