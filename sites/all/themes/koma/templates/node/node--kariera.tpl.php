@@ -106,7 +106,7 @@
 
                                     <div class="form-managed-file">
                                         <input type="file" id="edit-submitted-pripojit-soubor-upload" name="files[submitted_pripojit_soubor]" size="22" class="form-file">
-                                        <input type="submit" id="edit-submitted-pripojit-soubor-upload-button" name="submitted_pripojit_soubor_upload_button" value="Nahrát" class="form-submit ajax-processed">
+<!--                                        <input type="submit" id="edit-submitted-pripojit-soubor-upload-button" name="submitted_pripojit_soubor_upload_button" value="Nahrát" class="form-submit ajax-processed">-->
                                         <input type="hidden" name="submitted[pripojit_soubor][fid]" value="0">
                                     </div>
 
