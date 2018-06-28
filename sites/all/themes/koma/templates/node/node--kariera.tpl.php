@@ -89,7 +89,6 @@
 
                             .upload-description {
                                 font-size: 13px;
-                                padding-top: 20px;
                             }
                         </style>
 
