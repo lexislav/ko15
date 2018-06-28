@@ -80,11 +80,6 @@
                                     display: flex;
                                 }
 
-                                .webform-confirm-question-check,
-                                webform-confirm-question-option {
-
-                                }
-
                                 .webform-confirm-question p {
                                     margin: 0;
                                     padding: 0;
@@ -98,7 +93,6 @@
                                     font-size: 13px;
                                     padding-top: 20px;
                                 }
-
                             </style>
 
                             <div>
@@ -113,7 +107,9 @@
                                         <label for="edit-submitted-pripojit-soubor-upload">Připojit soubor </label>
 
                                         <div class="form-managed-file">
-                                            <input type="file" id="edit-submitted-pripojit-soubor-upload" name="files[submitted_pripojit_soubor]" size="22" class="form-file"><input type="submit" id="edit-submitted-pripojit-soubor-upload-button" name="submitted_pripojit_soubor_upload_button" value="Nahrát" class="form-submit ajax-processed"><input type="hidden" name="submitted[pripojit_soubor][fid]" value="0">
+                                            <input type="file" id="edit-submitted-pripojit-soubor-upload" name="files[submitted_pripojit_soubor]" size="22" class="form-file">
+                                            <input type="submit" id="edit-submitted-pripojit-soubor-upload-button" name="submitted_pripojit_soubor_upload_button" value="Nahrát" class="form-submit ajax-processed">
+                                            <input type="hidden" name="submitted[pripojit_soubor][fid]" value="0">
                                         </div>
 
                                         <div class="upload-description description">Soubory musí být menší než
