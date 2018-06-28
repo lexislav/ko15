@@ -70,30 +70,31 @@
 
                     <div class="m-contact-form--content">
                         <form class="webform-client-form webform-client-form-1602" enctype="multipart/form-data" action="<?= $form['#action'] ?>" method="post" id="webform-client-form-1602" accept-charset="UTF-8">
+
                             <div>
-
                                 <input disabled="disabled" type="hidden" id="edit-submitted-email-pro-komu" name="submitted[email_pro_komu]" value="<?= $content['kontakt_email']['#items'][0]['value'] ?>" size="60" maxlength="128" class="form-text">
-
                                 <input required="required" placeholder="<?php print t('Your first and surname') ?>" type="text" id="edit-submitted-jmeno-a-prijmeni" name="submitted[jmeno_a_prijmeni]" value="<?= $form['submitted']['jmeno_a_prijmeni']['#value'] ?>" size="60" maxlength="128" required>
                                 <input required="required" placeholder="<?php print t('Your e-mail address') ?>" type="email" id="edit-submitted-e-mail" name="submitted[e_mail]" value="<?= $form['submitted']['e_mail']['#value'] ?>" size="60" required>
                                 <textarea placeholder="<?php print t('The text of your question') ?>" style="height: 200px" id="edit-submitted-text-sdeleni-nebo-vaseho-dotazu" name="submitted[text_sdeleni_nebo_vaseho_dotazu]" required></textarea>
 
                                 <div id="edit-submitted-pripojit-soubor-ajax-wrapper">
                                     <div class="form-item webform-component webform-component-file webform-component--pripojit-soubor webform-container-inline">
+
                                         <label for="edit-submitted-pripojit-soubor-upload">Připojit soubor </label>
+
                                         <div class="form-managed-file">
                                             <input type="file" id="edit-submitted-pripojit-soubor-upload" name="files[submitted_pripojit_soubor]" size="22" class="form-file"><input type="submit" id="edit-submitted-pripojit-soubor-upload-button" name="submitted_pripojit_soubor_upload_button" value="Nahrát" class="form-submit ajax-processed"><input type="hidden" name="submitted[pripojit_soubor][fid]" value="0">
                                         </div>
-                                        <div class="description">Soubory musí být menší než
-                                            <strong>5 MB</strong>.<br>Povolené typy souborů:
-                                            <strong>jpg pdf doc docx</strong>.
-                                        </div>
+
+                                        <div class="description">Soubory musí být menší než <strong>5 MB</strong>.<br>Povolené typy souborů: <strong>jpg pdf doc docx</strong>.</div>
+
                                     </div>
                                 </div>
 
-                                <input required="required" type="checkbox" id="edit-submitted-souhlasim-1" name="submitted[souhlasim][souhlasim]" value="souhlasim" class="form-checkbox" required>
-                                <label class="option" for="edit-submitted-souhlasim-1"><?= $form['submitted']['text']['#markup'] ?></label>
-
+                                <div class="webform-confirm-question">
+                                    <input class="webform-confirm-question" required="required" type="checkbox" id="edit-submitted-souhlasim-1" name="submitted[souhlasim][souhlasim]" value="souhlasim" class="form-checkbox" required>
+                                    <label class="webform-confirm-question option" for="edit-submitted-souhlasim-1"><?= $form['submitted']['text']['#markup'] ?></label>
+                                </div>
 
                                 <?php
                                     print drupal_render($form['submitted']);
@@ -101,6 +102,7 @@
                                 ?>
                                 <input class="button" type="submit" name="op" value="Odeslat">
                             </div>
+
                         </form>
                     </div>
 
