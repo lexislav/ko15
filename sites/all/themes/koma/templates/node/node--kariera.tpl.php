@@ -62,7 +62,6 @@
             <div class="m-contact-form">
                 <header>
                     <i class="fa fa-paper-plane-o"></i> Formulář bude odeslán na adresu:
-                                                        :
                     <span id="targetMailInfo"> <?= $content['kontakt_email']['#items'][0]['value'] ?></span>
                 </header>
 
