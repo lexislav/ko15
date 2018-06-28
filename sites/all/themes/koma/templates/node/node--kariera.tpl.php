@@ -48,10 +48,6 @@
 
 
   <?php
-  if ($user->uid > 0) {
-    //      $block = module_invoke('webform', 'block_view', 'client-block-1602');
-    //      print render($block['content']);
-
     $nid = 1602;
     $wnode = node_load($nid);
     $form = drupal_get_form('webform_client_form_' . $nid, $wnode, []);
@@ -126,12 +122,6 @@
       </div>
 
 
-    <?php
-
-
-  }
-
-  ?>
 
 
     <div class="row">
