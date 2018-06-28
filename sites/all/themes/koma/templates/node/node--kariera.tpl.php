@@ -91,7 +91,12 @@
                                 }
 
                                 .webform-confirm-question-check {
-                                    margin-top: 3px;
+                                    margin-top: 3px !important;
+                                }
+
+                                .upload-description {
+                                    font-size: 13px;
+                                    padding-top: 20px;
                                 }
 
                             </style>
@@ -111,7 +116,7 @@
                                             <input type="file" id="edit-submitted-pripojit-soubor-upload" name="files[submitted_pripojit_soubor]" size="22" class="form-file"><input type="submit" id="edit-submitted-pripojit-soubor-upload-button" name="submitted_pripojit_soubor_upload_button" value="Nahrát" class="form-submit ajax-processed"><input type="hidden" name="submitted[pripojit_soubor][fid]" value="0">
                                         </div>
 
-                                        <div class="description">Soubory musí být menší než
+                                        <div class="upload-description description">Soubory musí být menší než
                                             <strong>5 MB</strong>.<br>Povolené typy souborů:
                                             <strong>jpg pdf doc docx</strong>.
                                         </div>
