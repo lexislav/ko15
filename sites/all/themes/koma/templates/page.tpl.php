@@ -1,8 +1,8 @@
 <?php print render($tabs); ?>
 <?php
-if ($user->uid == 1) {
+
     print $messages;
-}
+
 ?>
 <div class="l-navbar">
 

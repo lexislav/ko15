@@ -32,33 +32,29 @@
     </article>
 
 
-    <?php
-    if ($user->uid > 0) {
-        //      $block = module_invoke('webform', 'block_view', 'client-block-1602');
-        //      print render($block['content']);
-
-        $nid = 1602;
-        $wnode = node_load($nid);
-        $form = drupal_get_form('webform_client_form_' . $nid, $wnode, []);
-        hide($form['submitted']['jmeno_a_prijmeni']);
-        hide($form['submitted']['e_mail']);
-        hide($form['submitted']['email_pro_komu']);
-        hide($form['submitted']['text_sdeleni_nebo_vaseho_dotazu']);
-        hide($form['submitted']['text']);
-        hide($form['submitted']['souhlasim']);
-        hide($form['submitted']['pripojit_soubor']);
-        hide($form['actions']['submit']);
-        ?>
-        <div class="m-section" id="formSection" <?php koma_theme_wrapper(__FILE__) ?>>
-            <div class="row">
-                <header class="m-section--header">
-                    <div class="l-full">
-                        <h2 class="m-section--hed mm-tiny mm-medium mm-center">Máte zájem o tuto pozici?
-                            <span class="color-primary"> Napište nám!</span>
-                        </h2>
-                    </div>
-                </header>
-            </div>
+  <?php
+    $nid = 1602;
+    $wnode = node_load($nid);
+    $form = drupal_get_form('webform_client_form_' . $nid, $wnode, []);
+    hide($form['submitted']['jmeno_a_prijmeni']);
+    hide($form['submitted']['e_mail']);
+    hide($form['submitted']['email_pro_komu']);
+    hide($form['submitted']['text_sdeleni_nebo_vaseho_dotazu']);
+    hide($form['submitted']['text']);
+    hide($form['submitted']['souhlasim']);
+    hide($form['submitted']['pripojit_soubor']);
+    hide($form['actions']['submit']);
+    ?>
+      <div class="m-section" id="formSection" <?php koma_theme_wrapper(__FILE__) ?>>
+          <div class="row">
+              <header class="m-section--header">
+                  <div class="l-full">
+                      <h2 class="m-section--hed mm-tiny mm-medium mm-center">Máte zájem o tuto pozici?
+                          <span class="color-primary"> Napište nám!</span>
+                      </h2>
+                  </div>
+              </header>
+          </div>
 
             <div class="row">
                 <div class="m-contact-form">
@@ -135,7 +131,7 @@
                         </form>
                     </div>
 
-
+              </div>
                 </div>
             </div>
 
@@ -144,7 +140,8 @@
             </div>
         </div>
 
-    <?php } ?>
+
+
 
     <div class="row">
         <footer class="m-section--footer">
@@ -158,7 +155,6 @@
             </div>
         </footer>
     </div>
-
 </div>
 
 
