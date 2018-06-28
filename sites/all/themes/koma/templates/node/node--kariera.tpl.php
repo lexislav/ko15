@@ -71,6 +71,21 @@
                     <div class="m-contact-form--content">
                         <form class="webform-client-form webform-client-form-1602" enctype="multipart/form-data" action="<?= $form['#action'] ?>" method="post" id="webform-client-form-1602" accept-charset="UTF-8">
 
+
+                            <!-- patch -->
+                            <style>
+                                .webform-confirm-question {
+                                    padding-top: 30px;
+                                    display: flex;
+                                }
+
+                                .webform-confirm-question-check,
+                                webform-confirm-question-option {
+
+                                }
+
+                            </style>
+
                             <div>
                                 <input disabled="disabled" type="hidden" id="edit-submitted-email-pro-komu" name="submitted[email_pro_komu]" value="<?= $content['kontakt_email']['#items'][0]['value'] ?>" size="60" maxlength="128" class="form-text">
                                 <input required="required" placeholder="<?php print t('Your first and surname') ?>" type="text" id="edit-submitted-jmeno-a-prijmeni" name="submitted[jmeno_a_prijmeni]" value="<?= $form['submitted']['jmeno_a_prijmeni']['#value'] ?>" size="60" maxlength="128" required>
@@ -86,19 +101,22 @@
                                             <input type="file" id="edit-submitted-pripojit-soubor-upload" name="files[submitted_pripojit_soubor]" size="22" class="form-file"><input type="submit" id="edit-submitted-pripojit-soubor-upload-button" name="submitted_pripojit_soubor_upload_button" value="Nahrát" class="form-submit ajax-processed"><input type="hidden" name="submitted[pripojit_soubor][fid]" value="0">
                                         </div>
 
-                                        <div class="description">Soubory musí být menší než <strong>5 MB</strong>.<br>Povolené typy souborů: <strong>jpg pdf doc docx</strong>.</div>
+                                        <div class="description">Soubory musí být menší než
+                                            <strong>5 MB</strong>.<br>Povolené typy souborů:
+                                            <strong>jpg pdf doc docx</strong>.
+                                        </div>
 
                                     </div>
                                 </div>
 
                                 <div class="webform-confirm-question">
-                                    <input class="webform-confirm-question" required="required" type="checkbox" id="edit-submitted-souhlasim-1" name="submitted[souhlasim][souhlasim]" value="souhlasim" class="form-checkbox" required>
-                                    <label class="webform-confirm-question option" for="edit-submitted-souhlasim-1"><?= $form['submitted']['text']['#markup'] ?></label>
+                                    <input class="webform-confirm-question-check" required="required" type="checkbox" id="edit-submitted-souhlasim-1" name="submitted[souhlasim][souhlasim]" value="souhlasim" class="form-checkbox" required>
+                                    <label class="webform-confirm-question-option option" for="edit-submitted-souhlasim-1"><?= $form['submitted']['text']['#markup'] ?></label>
                                 </div>
 
                                 <?php
-                                    print drupal_render($form['submitted']);
-                                    print drupal_render_children($form);
+                                print drupal_render($form['submitted']);
+                                print drupal_render_children($form);
                                 ?>
                                 <input class="button" type="submit" name="op" value="Odeslat">
                             </div>
