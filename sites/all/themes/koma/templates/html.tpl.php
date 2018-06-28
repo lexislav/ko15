@@ -31,10 +31,17 @@
 
     <!-- google GA -->
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
       ga('create', 'UA-12370093-1', 'auto');
       ga('send', 'pageview');
     </script>
@@ -102,11 +109,15 @@
     <!-- // @formatter:on -->
 
     <!-- Pinterest METACODE -->
-    <meta name="p:domain_verify" content="8b47656b97d543a3b45580dcec3ab33b"/>
+    <meta name="p:domain_verify" content="8b47656b97d543a3b45580dcec3ab33b" />
 </head>
 
 
-<?php if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') { $jakej = 'internet';} else { $jakej = 'local';} ?>
+<?php if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
+    $jakej = 'internet';
+} else {
+    $jakej = 'local';
+} ?>
 
 
 <body class="l-page <?php print $classes; ?> <?= $jakej ?>" <?php print $attributes; ?>>
@@ -127,10 +138,41 @@
 </div>
 
 <?php if ($user->uid > 0) { ?>
-<div class="tabs_wrap tabs_wrap-secondary">
-    <div>Poslat poptávku</div>
-    <div> &rarr; </div>
-</div>
+    <!-- postrani lista s odkazem na poptávky  -->
+    <section>
+        <style>
+            .tabs_wrap-secondary {
+                position: fixed;
+                top: 50%;
+                z-index: 9999;
+                background: #c20e1a;
+                padding: 0;
+                color: white;
+                height: 38px;
+                cursor: pointer;
+                width: 176px;
+                box-shadow: 2px 6px 15px rgba(0, 0, 0, .2);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 14px;
+                transform: rotate(-90deg);
+                transform-origin: 0% 0%;
+            }
+
+            .tabs_wrap-secondary {
+                color: white;
+                text-decoration: none;
+            }
+
+            .tabs_wrap-secondary-label {
+                text-transform: uppercase;
+            }
+        </style>
+        <a class="tabs_wrap-secondary" href="#">
+            <div>&darr;</div>&nbsp;<div class="tabs_wrap-secondary-label">Poslat poptávku</div>
+        </a>
+    </section>
 <?php } ?>
 
 <!-- app scripts -->
@@ -174,7 +216,11 @@
   /* ]]> */
 </script>
 <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
-<noscript><div style="display:inline;"><img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/847326048/?guid=ON&amp;script=0"/></div></noscript>
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/847326048/?guid=ON&amp;script=0" />
+    </div>
+</noscript>
 <!-- google remarketing : END -->
 
 </body>
