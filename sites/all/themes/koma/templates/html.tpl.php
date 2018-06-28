@@ -126,6 +126,12 @@
     </div>
 </div>
 
+<?php if ($user->uid > 0) { ?>
+<div class="tabs_wrap tabs_wrap-secondary">
+    <div>Poslat poptávku</div>
+    <div> &rarr; </div>
+</div>
+<?php } ?>
 
 <!-- app scripts -->
 <script>
