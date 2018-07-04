@@ -137,7 +137,7 @@
     </div>
 </div>
 
-<?php if ($user->uid > 0) { ?>
+<?php if ($user->uid == 0 AND !drupal_is_front_page() ) { ?>
     <!-- postrani lista s odkazem na poptávky  -->
     <section>
         <style>
@@ -169,8 +169,8 @@
                 text-transform: uppercase;
             }
         </style>
-        <a class="tabs_wrap-secondary" href="#">
-            <div>&darr;</div>&nbsp;<div class="tabs_wrap-secondary-label">Poslat poptávku</div>
+        <a class="tabs_wrap-secondary" href="<?= test_lang_prefix('node/1444') ?>#formSection">
+            <div>&darr;</div>&nbsp;<div class="tabs_wrap-secondary-label"><?php print t('FREE DEMAND') ?></div>
         </a>
     </section>
 <?php } ?>
