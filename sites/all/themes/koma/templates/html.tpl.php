@@ -150,7 +150,7 @@
                 color: white;
                 height: 38px;
                 cursor: pointer;
-                width: 176px;
+                width: 210px;
                 box-shadow: 2px 6px 15px rgba(0, 0, 0, .2);
                 display: flex;
                 justify-content: center;
