@@ -169,7 +169,7 @@
                 text-transform: uppercase;
             }
         </style>
-        <a class="tabs_wrap-secondary" href="<?= test_lang_prefix('node/1444') ?>#formSection">
+        <a class="tabs_wrap-secondary" href="<?= test_lang_prefix('node/1444') ?>#formSection" onclick="ga('send', 'event', 'button', 'click', 'poslat_poptavku');">
             <div>&darr;</div>&nbsp;<div class="tabs_wrap-secondary-label"><?php print t('FREE DEMAND') ?></div>
         </a>
     </section>
@@ -205,7 +205,7 @@
 <script type="text/javascript" src="//c.imedia.cz/js/retargeting.js"></script>
 
 <!-- google remarketing support for ASYNC calls -->
-<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>
 
 <!-- google remarketing : START -->
 <script type="text/javascript">
