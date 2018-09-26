@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
 
     if(!senderr) {
       if(ga) {
-         ga('send', 'event', 'button', 'click', 'poslat_poptavku');
+        ga('send', 'event', 'form', 'sent', 'kariera');
 
       } else {
         console.log('missing ga');
