@@ -21,31 +21,45 @@
     <article class="m-contact">
         <header>
             <div class="l-half">
-                <div class="m-contact--summary">
-                    <h1 class="m-contact--hed color-black"><?php print t('KOMA MODULAR s.r.o.') ?></h1>
-
-                    <div class="m-contact--description">
-
-                        <!--                    prvni adresa-->
-                      <?= $content['field_basic_text']['#items'][0]['value'] ?>
-
-
-                        <!--                    druha adresa-->
-                      <?= ($content['field_reference_text']['#items'][0]['value']) ? $content['field_reference_text']['#items'][0]['value'] : '' ?>
-
-
-                        <br/>
-                        <span class="color-primary">T</span> <?= $content['kontakt_telefon']['#items'][0]['value'] ?>
-                        <br/>
-                        <span class="color-primary">F</span> <?= $content['kontakt_fax']['#items'][0]['value'] ?>
-                        <br/>
-                        <span class="color-primary">E</span> <?= $content['kontakt_email']['#items'][0]['value'] ?></span>
-                        <br/>
-                    </div>
-
-                    <div class="m-contact--meta"></div>
-
+                <!--                    prvni adresa-->
+                    <div class="m-contact--summary">
+                        <h1 class="m-contact--hed color-black"><?= $content['field_basic_title']['#items'][0]['value'] ?></h1>
+                        <div class="m-contact--description">       
+                            <?= $content['field_basic_text']['#items'][0]['value'] ?>
+                        </div>
+                        <div class="m-contact-mapa">
+                            <a href="<?= $content['field_page_link']['#items'][0]['url'] ?>" target="_blank" title="<?= $content['field_page_link']['#items'][0]['title'] ?>"><?= $content['field_page_link']['#items'][0]['title'] ?></a>
+                        </div>
+                        <div class="m-contact--meta">
+                            <br/>
+                            <span class="color-primary">T</span> <?= $content['kontakt_telefon']['#items'][0]['value'] ?>
+                            <br/>
+                            <span class="color-primary">F</span> <?= $content['kontakt_fax']['#items'][0]['value'] ?>
+                            <br/>
+                            <span class="color-primary">E</span> <?= $content['kontakt_email']['#items'][0]['value'] ?></span>
+                            <br/>
+                        </div>
                 </div>
+                <?php if ($content['field_reference_text']['#items'][0]['value']): ?>
+                <!--                    druha adresa-->
+                    <div class="m-contact--summary">
+                        <h1 class="m-contact--hed color-black"><?= $content['field_firma_adresa_2']['#items'][0]['value'] ?></h1>
+
+                        <div class="m-contact--description">
+            
+                            <?= ($content['field_reference_text']['#items'][0]['value']) ? $content['field_reference_text']['#items'][0]['value'] : '' ?>
+
+                        </div>
+
+                        <div class="m-contact-mapa">
+                            <a href="<?= $content['field_page_link']['#items'][1]['url'] ?>" target="_blank" title="<?= $content['field_page_link']['#items'][1]['title'] ?>"><?= $content['field_page_link']['#items'][1]['title'] ?></a>
+                        </div>
+
+                        <div class="m-contact--meta">
+                            <!-- druhy meta nemaji edit políčka -->
+                        </div>
+                    </div>
+                <?php endif ?>
             </div>
             <div class="l-half">
               <?php
