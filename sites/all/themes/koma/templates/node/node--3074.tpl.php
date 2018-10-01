@@ -66,7 +66,7 @@
                         <?= $content['field_basic_text']['#items'][0]['value'] ?>
                     </div>
                     <div class="m-contact-mapa">
-                        <a href="<?= $content['field_page_link']['#items'][0]['url'] ?>" target="_blank" title="<?= $content['field_page_link']['#items'][0]['title'] ?>"><?= $content['field_page_link']['#items'][0]['title'] ?></a>
+                        <br><i class="fa fa-globe"></i> <a href="<?= $content['field_page_link']['#items'][0]['url'] ?>" target="_blank" title="<?= $content['field_page_link']['#items'][0]['title'] ?>"><?= $content['field_page_link']['#items'][0]['title'] ?></a><br>
                     </div>
                     <div class="m-contact--meta">
                         <?php if ($content['kontakt_telefon']['#items'][0]['value']): ?>
@@ -93,7 +93,7 @@
                         </div>
 
                         <div class="m-contact-mapa">
-                            <a href="<?= $content['field_odkazy_p_link']['#items'][0]['url'] ?>" target="_blank" title="<?= $content['field_odkazy_p_link']['#items'][0]['title'] ?>"><?= $content['field_odkazy_p_link']['#items'][0]['title'] ?></a>
+                            <br><i class="fa fa-globe"></i> <a href="<?= $content['field_odkazy_p_link']['#items'][0]['url'] ?>" target="_blank" title="<?= $content['field_odkazy_p_link']['#items'][0]['title'] ?>"><?= $content['field_odkazy_p_link']['#items'][0]['title'] ?></a><br>
                         </div>
 
                         <div class="m-contact--meta">
