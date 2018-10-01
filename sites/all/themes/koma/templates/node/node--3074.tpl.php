@@ -5,6 +5,7 @@
     }
 
     .m-contact.mm-contanct-override {}
+<<<<<<< HEAD
     .m-contact.mm-contanct-override a {
         color: black;
         text-decoration: none;
@@ -13,6 +14,8 @@
         color: rgb(194, 14, 26);
         text-decoration: underline;
     }
+=======
+>>>>>>> faf04b852192f9bfc9d3476304a4c64d1ef10574
     .m-contact.mm-contanct-override .m-contact--summary {
         width: 50%;
         margin: 0;
@@ -77,7 +80,11 @@
                             <span class="color-primary">F</span> <?= $content['kontakt_fax']['#items'][0]['value'] ?>
                             <br /><?php endif ?>
                         <?php if ($content['kontakt_email']['#items'][0]['value']): ?>
+<<<<<<< HEAD
                             <span class="color-primary">E</span><a href="mailto:<?= $content['kontakt_email']['#items'][0]['value'] ?>"> <?= $content['kontakt_email']['#items'][0]['value'] ?></a></span>
+=======
+                            <span class="color-primary">E</span> <?= $content['kontakt_email']['#items'][0]['value'] ?></span>
+>>>>>>> faf04b852192f9bfc9d3476304a4c64d1ef10574
                             <br /><?php endif ?>
                     </div>
                 </div>
@@ -105,7 +112,11 @@
                                 <span class="color-primary">F</span> <?= $content['field_fax_2']['#items'][0]['value'] ?>
                                 <br /><?php endif ?>
                             <?php if ($content['field_email_2']['#items'][0]['value']): ?>
+<<<<<<< HEAD
                                 <span class="color-primary">E</span><a href="mailto:<?= $content['field_email_2']['#items'][0]['value'] ?>"> <?= $content['field_email_2']['#items'][0]['value'] ?></a></span>
+=======
+                                <span class="color-primary">E</span> <?= $content['field_email_2']['#items'][0]['value'] ?></span>
+>>>>>>> faf04b852192f9bfc9d3476304a4c64d1ef10574
                                 <br /><?php endif ?>
                         </div>
                     </div>
@@ -114,6 +125,7 @@
 
             <div class="l-half l-half-mobile-full">
                 <?php
+<<<<<<< HEAD
 
                 if (isset($_POST['mailto'])) {
                 if (empty($_POST['lastname'])) {
@@ -152,6 +164,46 @@
                         </div>
                     </div>
 
+=======
+
+                if (isset($_POST['mailto'])) {
+                if (empty($_POST['lastname'])) {
+                    $mailto = $_POST['mailto'];
+                    $mailfrom = $_POST['email'];
+                    $name = $_POST['name'];
+                    $text = $_POST['body'];
+                    test_mail($mailfrom, $mailto, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
+                    test_mail('info@koma-modular.cz', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
+
+                    ?>
+                    <div class="m-section" id="contact-form" <?php koma_theme_wrapper(__FILE__) ?>>
+                        <div class="row">
+                            <header class="m-section--header">
+                                <div class="l-full">
+                                    <h2 class="m-section--hed mm-tiny mm-medium mm-center"><?php print t('Formulář byl úspěšně odeslán') ?></h2>
+                                </div>
+                            </header>
+                        </div>
+
+                        <div class="row">
+                            <div class="m-contact-form mm-sent">
+                                <div class="m-contact-form--content">
+                                    <p>
+                                        <i class="fa fa-paper-plane-o"></i> <?php print t('Formulář byl úspěšně odeslán na adresu') ?>
+                                        :
+                                        <span><?= $mailto ?></span>
+                                        <br /><?php print t('a na vámi zadanou adresu') ?>
+                                        <span><?= $mailfrom ?></span>
+                                    </p>
+                                    <a href="http://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="button">Odeslat novou zprávu
+                                        <i class="fa fa-paper-plane-o"></i></a>
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+>>>>>>> faf04b852192f9bfc9d3476304a4c64d1ef10574
                     <!--  Metrics start  -->
                     <!-- Google Code for Odesl&aacute;n&iacute; kontaktn&iacute;ho formul&aacute;&#345;e Conversion Page -->
                     <script type="text/javascript">
@@ -243,7 +295,14 @@
 
                             </div>
                         </div>
+<<<<<<< HEAD
                         
+=======
+
+                        <div class="row">
+                            <footer class="m-section--footer"></footer>
+                        </div>
+>>>>>>> faf04b852192f9bfc9d3476304a4c64d1ef10574
                     </div>
 
                     <?php
@@ -259,9 +318,15 @@
         <footer class="m-section--footer">
             <div class="l-half">
                 <!-- @todo: add measure code-->
+<<<<<<< HEAD
                 <?php /*<a href="<?php print url('node/1444', ['absolute' => true]); ?>#formSection" onclick="ga('send', 'event', 'button', 'click', 'zeptejte se nas');">
                     <button class="button"><?php print t('Ask us') ?></button></a>*/ ?>
                 &nbsp;
+=======
+                <a href="<?php print url('node/1444', ['absolute' => true]); ?>#formSection" onclick="ga('send', 'event', 'button', 'click', 'zeptejte se nas');">
+                    <button class="button"><?php print t('Ask us') ?></button>
+                </a>
+>>>>>>> faf04b852192f9bfc9d3476304a4c64d1ef10574
             </div>
             <div class="l-half">
                 <ul class="m-section--nav inline-right">
