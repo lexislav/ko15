@@ -279,6 +279,25 @@
     </div>
 
 </div>
+<!-- contact list -->
+<div class="m-section bg-white" id="adresar" <?php koma_theme_wrapper(__FILE__) ?>>
+    <div class="row">
+        <header class="m-section--header">
+            <div class="l-half">
+                <h2 class="m-section--hed mm-small color-primary"><?php print t('COMPANY DIRECTORY') ?></h2>
+            </div>
+        </header>
+    </div>
+    <?php
+    $block = module_invoke('views', 'block_view', 'kontakty-block');
+    print render($block);
+    ?>
+
+    <div class="row">
+        <footer class="m-section--footer"></footer>
+    </div>
+</div>
+
 
 
 <!-- volna mista-->
