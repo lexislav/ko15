@@ -1,6 +1,6 @@
 <div class="m-contact-list">
     <style type="text/css">
-        .field-content {
+        .field-content, .field-content span {
             display: inline-block;
             width: auto;
         }
@@ -16,6 +16,7 @@
     <h3><?php print $title; ?></h3>
     <hr>
 <?php endif; ?>
+
 <div class="m-contact-tab--content "> 
 <?php foreach ($rows as $id => $row): ?>
       <?php print $row; ?>

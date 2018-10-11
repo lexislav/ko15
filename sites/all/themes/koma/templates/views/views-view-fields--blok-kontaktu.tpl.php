@@ -2,7 +2,13 @@
   <div class="m-address">
     <div class="m-address--name"><?php print $fields['nothing']->content; //name ?></div>
     <div class="m-address--job">
-      <div class="field-content"><?php print $fields['field_kontakt_pozice']->content; ?></div>
+      <div class="field-content">
+        <?php print $fields['field_kontakt_pozice']->content; ?><br>
+        <?php print $fields['sitename']->content; ?>
+        <?php if ($fields['sitename']->content === "www.koma-modular.cz"): ?>els hop
+        <?php endif; ?>
+      </div>
+      
     </div>
 
     <div class="m-address--phone"><span>T</span> <?php print $fields['field_kontakt_pevna']->content; ?></div>
