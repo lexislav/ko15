@@ -4,8 +4,8 @@
         <div class="m-address--job">
             <div class="field-content">
               <?php print $fields['field_kontakt_pozice']->content; ?><br>
-              <?php $domain = strtoupper(str_replace(['<span>', '</span>', 'www.', '-', '.cz', '.sk', '.at'], ['', '', '', ' ', '', '', ''], $fields['sitename']->content)) ?>
-              <?= $domain ?>
+              <?php //$domain = strtoupper(str_replace(['<span>', '</span>', 'www.', '-', '.cz', '.sk', '.at'], ['', '', '', ' ', '', '', ''], $fields['sitename']->content)) ?>
+              <?php // $domain ?>
             </div>
         </div>
       <?php if (strlen($fields['field_kontakt_pevna']->content) != 33): ?>

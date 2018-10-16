@@ -4,15 +4,15 @@
 <div class="m-section <?= $trida ?>">
 
     <header class="m-section--header">
-      <div class="row ">
+      <div class="row">
         <div class="l-full">
 
           <nav class="breadcrumbs">
               <a href="/">Domů</a><a href="/kontakt">Kontakt</a><a href="/kontakt/telefonni-seznam">Telefonní seznam firmy</a>
-              <?php
-                foreach (drupal_get_breadcrumb() AS $drobek) {
-                  echo $drobek;
-                }
+              <?php 
+                //foreach (drupal_get_breadcrumb() AS $drobek) {
+                //  echo $drobek;
+                //  }
                 ?>
           </nav>
 
@@ -51,9 +51,16 @@
 
     <?php if ($rows): ?>
         <div class="m-section bg-white">
-          <div class="row">
           <?php print $rows; ?>
+
+          <div class="row bg-white">
+            <footer class="m-section--footer bg-white">
+              <div class="l-full">
+                <div class="m-section--top jsActivated"><a href="">NAHORU ↑</a>&nbsp;&nbsp;<span class="m-right--kontaktlink">|&nbsp;&nbsp;<a href="/kontakt">&nbsp;Zpět na kontakt</a></span></div>
+              </div>
+            </footer>
           </div>
+
         </div>
     <?php elseif ($empty): ?>
         <div class="view-empty">
@@ -86,6 +93,7 @@
           <?php print $feed_icon; ?>
         </div>
     <?php endif; ?>
+
 </div><?php /* class view */ ?>
 
 
