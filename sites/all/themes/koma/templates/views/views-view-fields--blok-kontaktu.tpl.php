@@ -1,13 +1,11 @@
 <div class="m-contact-tab--address">
     <div class="m-address">
         <div class="m-address--name"><?php print $fields['nothing']->content; //name ?></div>
-        <div class="m-address--job">
-            <div class="field-content">
-              <?php print $fields['field_kontakt_pozice']->content; ?><br>
+        <?php //<div class="m-address--job"> ?>
+              <?php //print $fields['field_kontakt_pozice']->content;<br>  ?>
               <?php //$domain = strtoupper(str_replace(['<span>', '</span>', 'www.', '-', '.cz', '.sk', '.at'], ['', '', '', ' ', '', '', ''], $fields['sitename']->content)) ?>
               <?php // $domain ?>
-            </div>
-        </div>
+        <?php //</div> ?>
       <?php if (strlen($fields['field_kontakt_pevna']->content) != 33): ?>
           <div class="m-address--phone"><span>T</span> <?= $fields['field_kontakt_pevna']->content ?></div>
       <?php endif ?>
