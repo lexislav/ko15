@@ -42,7 +42,11 @@
         <div class="l-full">
 
             <?php if (!empty($title)): ?>
+<<<<<<< HEAD
                 <h3 class="m-section--hed mm-small color-secondary"><?php print $title; ?><span class="m-right--kontaktlink">|&nbsp;<a href="/kontakt">Zpět na Kontakt</a></span></h3>
+=======
+                <h3 class="m-section--hed mm-small color-secondary"><?php print $title; ?><span class="m-right--kontaktlink">|&nbsp;<a href="/kontakt"">Zpět na Kontakt</a></span></h3>
+>>>>>>> 7f8abfb820eec93f583d9a35ebc863f925420eae
                 <hr style="border: 0; height: 0; border-top: 1px solid #B5BBB4;">
             <?php endif; ?>
 
