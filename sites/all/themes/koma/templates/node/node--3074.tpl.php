@@ -258,10 +258,9 @@
     <div class="row">
         <footer class="m-section--footer">
             <div class="l-half">
-                <!-- @todo: add measure code-->
-                <?php /*<a href="<?php print url('node/1444', ['absolute' => true]); ?>#formSection" onclick="ga('send', 'event', 'button', 'click', 'zeptejte se nas');">
-                    <button class="button"><?php print t('Ask us') ?></button></a>*/ ?>
-                &nbsp;
+                <a href="https://www.koma-modular.cz/kontakt/telefonni-seznam" onclick="ga('send', 'event', 'button', 'click', 'adresar');">
+                    <button class="button">Telefonní seznam firmy</button>
+                </a>
             </div>
             <div class="l-half">
                 <ul class="m-section--nav inline-right">
@@ -269,7 +268,7 @@
                     <li>
                         <a href="#kariera" onclick="ga('send', 'event', 'button', 'click', 'kariera v koma');"><?php print t('Career with KOMA') ?> </a>
                     </li>
-                    <li><a href="#adresar">&darr; <?php print t('Directory') ?> </a></li>
+                    <li><a href="/kontakt/telefonni-seznam">&darr; <?php print t('Directory') ?> </a></li>
                     <?php /*<li>
                         <a href="#formSection" onclick="ga('send', 'event', 'button', 'click', 'tlacitko kontaktni formular');">&darr; <?php print t('Contact form') ?> </a>
                     </li>*/ ?>
@@ -279,6 +278,9 @@
     </div>
 
 </div>
+
+<?php
+/*
 <!-- contact list -->
 <div class="m-section bg-white" id="adresar" <?php koma_theme_wrapper(__FILE__) ?>>
     <div class="row">
@@ -297,6 +299,8 @@
         <footer class="m-section--footer"></footer>
     </div>
 </div>
+*/
+?>
 
 
 
