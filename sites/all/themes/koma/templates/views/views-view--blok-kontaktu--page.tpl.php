@@ -55,8 +55,11 @@
 
           <div class="row bg-white">
             <footer class="m-section--footer bg-white">
-              <div class="l-full">
-                <div class="m-section--top"><a href="">NAHORU ↑</a>&nbsp;&nbsp;<span class="m-right--kontaktlink">|&nbsp;&nbsp;&nbsp;<a href="https://www.koma-modular.cz/kontakt">Zpět na kontakt</a></span></div>
+              <div class="l-half">
+                <div class="m-section--top"><a href="">NAHORU ↑</a>&nbsp;&nbsp;</div>
+              </div>
+              <div class="l-half">
+                <span class="m-right--kontaktlink">|&nbsp;&nbsp;&nbsp;<a href="/kontakt">Zpět na kontakt</a></span>
               </div>
             </footer>
           </div>
