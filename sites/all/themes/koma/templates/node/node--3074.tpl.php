@@ -221,7 +221,7 @@
                                 <!--@TODO dodelat cele vsechno omg-->
 
                                 <div class="m-contact-form--content">
-                                    <form action="<?php print url('node/2283', ['absolute' => true]); ?>#contact-form" method="post">
+                                    <form action="<?php print url('node/3074', ['absolute' => true]); ?>#contact-form" method="post">
                                         <input type="hidden" name="mailto" id="mailto" value="info@koma-modular.cz" />
                                         <input type="text" name="lastname" class="lastname" value="" />
                                         <select name="option">
