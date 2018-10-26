@@ -104,7 +104,7 @@
 <?php
 
 if (isset($_POST['mailto'])) {
-    if(empty($_POST['lastname'])){
+  if (empty($_POST['zip'])) {
     $mailto = $_POST['mailto'];
     $mailfrom = $_POST['email'];
     $name = $_POST['name'];
@@ -211,6 +211,7 @@ if (isset($_POST['mailto'])) {
                     <form action="<?php print url('node/1444', array('absolute' => true)); ?>#contact-form" method="post">
                         <input type="hidden" name="mailto" id="mailto" value="obchod@koma-facade.cz" />
                         <input type="text" name="lastname" class="lastname" value="" />
+                        <input type="text" name="zip" class="zmiz" value="" />
                         <input type="text" id="name" name="name" placeholder="<?php print t('Your first and surname') ?>" required />
                         <input type="email" id="email" name="email" placeholder="<?php print t('Your e-mail address') ?>" required />
                         <textarea id="body" name="body" style="height: 200px" required placeholder="<?php print t('The text of your question') ?>"></textarea>
