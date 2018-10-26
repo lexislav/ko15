@@ -279,8 +279,6 @@
 
 </div>
 
-<?php
-/*
 <!-- contact list -->
 <div class="m-section bg-white" id="adresar" <?php koma_theme_wrapper(__FILE__) ?>>
     <div class="row">
@@ -290,18 +288,15 @@
             </div>
         </header>
     </div>
-    <?php
-    $block = module_invoke('views', 'block_view', 'kontakty-block');
-    print render($block);
-    ?>
+  <?php
+  $block = module_invoke('views', 'block_view', 'kontakty-block_1');
+  print render($block);
+  ?>
 
     <div class="row">
         <footer class="m-section--footer"></footer>
     </div>
 </div>
-*/
-?>
-
 
 
 <!-- volna mista-->
