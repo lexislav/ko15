@@ -109,7 +109,7 @@ a.tabledrag-handle .handle {
 
 /*front*/
 .zmiz{
-    display: none;
+    display: none !important;
 }
 .chosen-single > span{
     text-transform: uppercase;

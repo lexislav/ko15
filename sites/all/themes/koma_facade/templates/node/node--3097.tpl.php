@@ -116,7 +116,7 @@
                 <?php
 
                 if (isset($_POST['mailto'])) {
-                if (empty($_POST['lastname'])) {
+                if (empty($_POST['zip'])) {
                     $mailto = $_POST['mailto'];
                     $mailfrom = $_POST['email'];
                     $name = $_POST['name'];
@@ -224,6 +224,7 @@
                                     <form action="<?php print url('node/3074', ['absolute' => true]); ?>#contact-form" method="post">
                                         <input type="hidden" name="mailto" id="mailto" value="info@koma-modular.cz" />
                                         <input type="text" name="lastname" class="lastname" value="" />
+                                        <input type="text" name="zip" class="zmiz" id="zip" value="" />
                                         <select name="option">
                                             <?php foreach ($content['field_dropdown']['#items'] as $item) {
                                                 ?>
