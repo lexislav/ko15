@@ -43,7 +43,7 @@
             </div>
             <div class="l-half">
                 <ul class="m-section--nav inline-right">
-                    <li><a href="https://www.facebook.com/KOMAmodular" target="" title=""><i class="fa fa-facebook"></i></a>
+                    <li><a href="https://www.facebook.com/KOMAFacade/" target="" title=""><i class="fa fa-facebook"></i></a>
                     </li>
                     <li><a href="https://www.linkedin.com/company/2810844/" target="" title=""><i class="fa fa-linkedin"></i></a>
                     </li>
@@ -259,9 +259,7 @@
     <div class="row">
         <footer class="m-section--footer">
             <div class="l-half">
-                <a href="https://www.koma-modular.cz/kontakt/telefonni-seznam" onclick="ga('send', 'event', 'button', 'click', 'adresar');">
-                    <button class="button">Telefonní seznam firmy</button>
-                </a>
+                &nbsp;
             </div>
             <div class="l-half">
                 <ul class="m-section--nav inline-right">
@@ -269,7 +267,7 @@
                     <li>
                         <a href="#kariera" onclick="ga('send', 'event', 'button', 'click', 'kariera v koma');"><?php print t('Career with KOMA') ?> </a>
                     </li>
-                    <li><a href="/kontakt/telefonni-seznam">&darr; <?php print t('Directory') ?> </a></li>
+                    <li><a href="#adresar">&darr; <?php print t('Directory') ?> </a></li>
                     <?php /*<li>
                         <a href="#formSection" onclick="ga('send', 'event', 'button', 'click', 'tlacitko kontaktni formular');">&darr; <?php print t('Contact form') ?> </a>
                     </li>*/ ?>
