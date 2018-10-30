@@ -45,11 +45,13 @@
                 <ul class="m-section--nav inline-right">
                     <li><a href="https://www.facebook.com/KOMAFacade/" target="" title=""><i class="fa fa-facebook"></i></a>
                     </li>
-                    <li><a href="https://www.linkedin.com/company/2810844/" target="" title=""><i class="fa fa-linkedin"></i></a>
+                    <?php
+                    /*  <li><a href="https://www.linkedin.com/company/2810844/" target="" title=""><i class="fa fa-linkedin"></i></a>
                     </li>
                     <li>
                         <a href="https://www.youtube.com/user/TopKOMASPACE" target="" title=""><i class="fa fa-youtube-play"></i></a>
-                    </li>
+                    </li> */
+                    ?>
                 </ul>
             </div>
         </header>
