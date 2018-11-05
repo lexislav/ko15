@@ -234,6 +234,7 @@
                                             ?>
                                         </select>
                                         <input type="text" id="name" name="name" placeholder="<?php print t('Your first and surname') ?>" required />
+                                        <input type="text" id="company" name="company" class="zmiz" placeholder="<?php print t('Your company') ?>" />
                                         <input type="email" id="email" name="email" placeholder="<?php print t('Your e-mail address') ?>" required />
                                         <textarea id="body" name="body" style="height: 200px" required placeholder="<?php print t('The text of your question') ?>"></textarea>
                                         <button type="submit" class="button"><?php print t('Send the message') ?>
