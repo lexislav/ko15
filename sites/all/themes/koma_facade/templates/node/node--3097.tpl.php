@@ -43,13 +43,15 @@
             </div>
             <div class="l-half">
                 <ul class="m-section--nav inline-right">
-                    <li><a href="https://www.facebook.com/KOMAmodular" target="" title=""><i class="fa fa-facebook"></i></a>
+                    <li><a href="https://www.facebook.com/KOMAFacade/" target="" title=""><i class="fa fa-facebook"></i></a>
                     </li>
-                    <li><a href="https://www.linkedin.com/company/2810844/" target="" title=""><i class="fa fa-linkedin"></i></a>
+                    <?php
+                    /*  <li><a href="https://www.linkedin.com/company/2810844/" target="" title=""><i class="fa fa-linkedin"></i></a>
                     </li>
                     <li>
                         <a href="https://www.youtube.com/user/TopKOMASPACE" target="" title=""><i class="fa fa-youtube-play"></i></a>
-                    </li>
+                    </li> */
+                    ?>
                 </ul>
             </div>
         </header>
@@ -122,7 +124,7 @@
                     $name = $_POST['name'];
                     $text = $_POST['body'];
                     test_mail($mailfrom, $mailto, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
-                    test_mail('info@koma-modular.cz', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
+                    test_mail('obchod@koma-facade.cz', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
 
                     ?>
                     <div class="m-section" id="contact-form" <?php koma_theme_wrapper(__FILE__) ?>>
@@ -214,7 +216,7 @@
                                 <header>
                                     <i class="fa fa-paper-plane-o"></i> <?php print t('The contact form will be sent to the following address') ?>
                                     :
-                                    <span id="targetMailInfo">info@koma-modular.cz</span>
+                                    <span id="targetMailInfo">obchod@koma-facade.cz</span>
                                 </header>
 
 
@@ -234,6 +236,7 @@
                                             ?>
                                         </select>
                                         <input type="text" id="name" name="name" placeholder="<?php print t('Your first and surname') ?>" required />
+                                        <input type="text" id="company" name="company" class="zmiz" placeholder="<?php print t('Your company') ?>" />
                                         <input type="email" id="email" name="email" placeholder="<?php print t('Your e-mail address') ?>" required />
                                         <textarea id="body" name="body" style="height: 200px" required placeholder="<?php print t('The text of your question') ?>"></textarea>
                                         <button type="submit" class="button"><?php print t('Send the message') ?>
@@ -259,9 +262,7 @@
     <div class="row">
         <footer class="m-section--footer">
             <div class="l-half">
-                <a href="https://www.koma-modular.cz/kontakt/telefonni-seznam" onclick="ga('send', 'event', 'button', 'click', 'adresar');">
-                    <button class="button">Telefonní seznam firmy</button>
-                </a>
+                &nbsp;
             </div>
             <div class="l-half">
                 <ul class="m-section--nav inline-right">
@@ -269,7 +270,7 @@
                     <li>
                         <a href="#kariera" onclick="ga('send', 'event', 'button', 'click', 'kariera v koma');"><?php print t('Career with KOMA') ?> </a>
                     </li>
-                    <li><a href="/kontakt/telefonni-seznam">&darr; <?php print t('Directory') ?> </a></li>
+                    <li><a href="#adresar">&darr; <?php print t('Directory') ?> </a></li>
                     <?php /*<li>
                         <a href="#formSection" onclick="ga('send', 'event', 'button', 'click', 'tlacitko kontaktni formular');">&darr; <?php print t('Contact form') ?> </a>
                     </li>*/ ?>
