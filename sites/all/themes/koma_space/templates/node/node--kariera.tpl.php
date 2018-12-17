@@ -33,7 +33,7 @@
 
 
     <?php
-    $nid = 1602;
+    $nid = 3117;
     $wnode = node_load($nid);
     $form = drupal_get_form('webform_client_form_' . $nid, $wnode, []);
     hide($form['submitted']['jmeno_a_prijmeni']);
@@ -43,7 +43,8 @@
     hide($form['submitted']['text']);
     hide($form['submitted']['souhlasim']);
     hide($form['submitted']['pripojit_soubor']);
-    hide($form['actions']['submit']);
+//    hide($form['actions']['submit']);
+    $form['actions']['submit']['#attributes']['class'][] = 'button';
     ?>
 
     <div class="m-section" id="formSection" <?php koma_theme_wrapper(__FILE__) ?>>
@@ -51,8 +52,8 @@
         <div class="row">
             <header class="m-section--header">
                 <div class="l-full">
-                    <h2 class="m-section--hed mm-tiny mm-medium mm-center">Máte zájem o tuto pozici?
-                        <span class="color-primary"> Napište nám!</span>
+                    <h2 class="m-section--hed mm-tiny mm-medium mm-center">Interessiert?
+                        <span class="color-primary"> Schreiben Sie uns!</span>
                     </h2>
                 </div>
             </header>
@@ -61,7 +62,7 @@
         <div class="row">
             <div class="m-contact-form">
                 <header>
-                    <i class="fa fa-paper-plane-o"></i> Formulář bude odeslán na adresu:
+                    <i class="fa fa-paper-plane-o"></i> Formular wird weitergeleitet an:
                     <span id="targetMailInfo"> <?= $content['kontakt_email']['#items'][0]['value'] ?></span>
                 </header>
 
@@ -100,7 +101,7 @@
                             <div id="edit-submitted-pripojit-soubor-ajax-wrapper">
                                 <div class="form-item webform-component webform-component-file webform-component--pripojit-soubor webform-container-inline">
 
-                                    <label for="edit-submitted-pripojit-soubor-upload">Připojit soubor</label>
+                                    <label for="edit-submitted-pripojit-soubor-upload">Hängen Sie die Datei an</label>
 
                                     <div class="form-managed-file">
                                         <input type="file" id="edit-submitted-pripojit-soubor-upload" name="files[submitted_pripojit_soubor]" size="22" class="form-file">
@@ -108,9 +109,7 @@
                                         <input type="hidden" name="submitted[pripojit_soubor][fid]" value="0">
                                     </div>
 
-                                    <div class="upload-description description">Soubory musí být menší než
-                                        <strong>5 MB</strong>.<br>Povolené typy souborů:
-                                        <strong>jpg pdf doc docx</strong>.
+                                    <div class="upload-description description">Dokumente (PDF, JPG, DOC, DOCX - max. 5 MB)
                                     </div>
 
                                 </div>
@@ -118,14 +117,14 @@
 
                             <div class="webform-confirm-question">
                                 <input class="webform-confirm-question-check" required="required" type="checkbox" id="edit-submitted-souhlasim-1" name="submitted[souhlasim][souhlasim]" value="souhlasim" class="form-checkbox" required>
-                                <label class="webform-confirm-question-option option" for="edit-submitted-souhlasim-1"><?= $form['submitted']['text']['#markup'] ?></label>
+                                <label class="webform-confirm-question-option option" for="edit-submitted-souhlasim-1">Ja, ich stimme der Verarbeitung personenbezogener Daten zum Zwecke des Stellenangebots gemäß den Verarbeitungs- und Datenschutzrichtlinien der Firma KOMA MODULAR s.r.o.</label>
                             </div>
 
                             <?php
                             print drupal_render($form['submitted']);
                             print drupal_render_children($form);
                             ?>
-                            <input class="button" type="submit" name="op" value="Odeslat">
+<!--                            <input class="button" type="submit" name="op" value="Nachricht senden ">-->
                         </div>
 
                     </form>
