@@ -145,8 +145,8 @@ if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
                 text-transform: uppercase;
             }
         </style>
-        <a class="tabs_wrap-secondary" href="https://koma-space.at/de/kontakt#formSection" onclick="ga('send', 'event', 'button', 'click', 'poslat_poptavku');">
-            <div>&darr;</div>&nbsp;<div class="tabs_wrap-secondary-label"><?php print t('FREE DEMAND') ?></div>
+        <a class="tabs_wrap-secondary" href="<?= test_lang_prefix('node/2466') ?>#formSection" onclick="ga('send', 'event', 'button', 'click', 'poslat_poptavku');">
+            <div>&darr;</div>&nbsp;<div class="tabs_wrap-secondary-label"><?php print t('CONTACT NOW') ?></div>
         </a>
     </section>
 <?php } ?>
