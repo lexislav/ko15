@@ -113,6 +113,44 @@ if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
     </div>
 </div>
 
+<?php if ($user->uid == 0 AND !drupal_is_front_page() ) { ?>
+    <!-- postrani lista s odkazem na poptávky  -->
+    <section>
+        <style>
+            .tabs_wrap-secondary {
+                position: fixed;
+                top: 50%;
+                z-index: 9999;
+                background: #c20e1a;
+                padding: 0;
+                color: white;
+                height: 38px;
+                cursor: pointer;
+                width: 210px;
+                box-shadow: 2px 6px 15px rgba(0, 0, 0, .2);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 14px;
+                transform: rotate(-90deg);
+                transform-origin: 0% 0%;
+            }
+
+            .tabs_wrap-secondary {
+                color: white;
+                text-decoration: none;
+            }
+
+            .tabs_wrap-secondary-label {
+                text-transform: uppercase;
+            }
+        </style>
+        <a class="tabs_wrap-secondary" href="<?= test_lang_prefix('node/2466') ?>#formSection" onclick="ga('send', 'event', 'button', 'click', 'poslat_poptavku');">
+            <div>&darr;</div>&nbsp;<div class="tabs_wrap-secondary-label"><?php print t('FREE DEMAND') ?></div>
+        </a>
+    </section>
+<?php } ?>
+
 <!-- app scripts -->
 <script>
   var googleAdWordsID = "835061881";
