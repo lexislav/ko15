@@ -140,8 +140,8 @@ if ($user->uid == 1) {
 <?php print render($page['hledani']); ?>
 <?php print render($page['content']); ?>
 
-
-<!--banner loga zive firmy-->
+<?php
+/* <!--banner loga zive firmy-->
 <div  id="page-banner-bottom" class="m-section bg-secondary">
   <article class="m-banner">
     <header>
@@ -155,7 +155,8 @@ if ($user->uid == 1) {
       </div>
     </header>
   </article>
-</div>
+</div> */
+?>
 
 <!--certifikace-->
 <div class="m-section l-feed_six">
