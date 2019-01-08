@@ -65,15 +65,7 @@ if ($user->uid == 1) {
       ?>
       <ul class="m-navbar--menu m-navbar--menu-primary">
         <li class="m-navbar--menu-callout">
-          <?php
-          if ($language->language == 'cs') {
-            print variable_get('nastaveni_tel_cs', 'nastaveni');
-          } elseif ($language->language == 'en') {
-            print variable_get('nastaveni_tel_en', 'nastaveni');
-          } elseif ($language->language == 'de') {
-            print variable_get('nastaveni_tel_de', 'nastaveni');
-          }
-          ?>
+            Kontakt: +43 1 688 3853
         </li>
       </ul>
     </div>

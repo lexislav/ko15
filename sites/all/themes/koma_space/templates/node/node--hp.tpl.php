@@ -21,7 +21,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
 
       if ($cislo == 0) {
         ?>
-        <div class="content-tab mm-center mm-welcome" style="background-image: url(<?= image_style_url('none', $uri) ?>);">
+        <div class="content-tab mm-center mm-welcome" style="background-image: url(<?= file_create_url($uri) ?>);">
           <div class="row">
             <div class="description">
               <p><?= $r['field_basic_text']['und'][0]['value'] ?></p>
@@ -30,7 +30,7 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
           </div>
         </div>
       <?php } else { ?>
-        <div class="content-tab <?php echo ($cislo <= 3) ? '' : 'mm-right'; ?>" style="background-image: url(<?= image_style_url('none', $uri) ?>);">
+        <div class="content-tab <?php echo ($cislo <= 3) ? '' : 'mm-right'; ?>" style="background-image: url(<?= file_create_url($uri) ?>);">
           <div class="row">
             <div class="description">
               <p><?= $r['field_basic_text']['und'][0]['value'] ?></p>

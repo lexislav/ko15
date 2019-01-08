@@ -2,7 +2,7 @@
   <a href="<?php print in_array($item['link']['href'], array('<nolink>')) ? "#" : url($item['link']['href'], $item['link']['options']);?>" <?php echo drupal_attributes($item['link']['#attributes']); ?>>
     <?php if(!empty($item_config['xicon'])) : ?>
       <i class="<?php print $item_config['xicon'];?>"></i>
-    <?php endif;?>    
+    <?php endif;?>
     <?php print t($item['link']['title']);?>
     <?php if($submenu && $block_config['auto-arrow']) :?>
       <span class="caret"></span>
