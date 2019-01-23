@@ -114,8 +114,7 @@ if(empty($_POST['lastname'])){
                         <span><?= $mailto ?></span>
                         <br/><?php print t('a na vámi zadanou adresu') ?> <span><?= $mailfrom ?></span>
                     </p>
-                    <a href="http://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="button">Odeslat novou
-                        zprávu
+                    <a href="http://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="button"><?php print t('Odeslat novou zprávu')?>
                         <i class="fa fa-paper-plane-o"></i></a>
                     <br/>
                 </div>
