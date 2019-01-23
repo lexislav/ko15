@@ -80,7 +80,7 @@ if ($user->uid == 1) {
   </div>
   <?php
 
-  $banner1 = node_load(3014);
+  $banner1 = node_load(3119);
 
   if ($banner1->status == 1) {
 
@@ -97,18 +97,20 @@ if ($user->uid == 1) {
         <div class="m-section--close" close-section>&times;</div>
         <article class="m-banner">
           <header>
-            <?php if (isset($banner1->field_simple_img['und'][0]['uri'])) { ?>
+            <?php
+
+            if (isset($banner1->field_simple_img['und'][0]['uri'])) { ?>
               <div class="m-banner--image"
                    style="background-image: url(<?= image_style_url('0x60', $uri1) ?>)">
-                <a href="<?=@ $banner1->field_page_link[test_lang_code()][0]['url'] ?>">
+                <a href="<?=@ $banner1->field_page_link['und'][0]['url'] ?>">
                   <img src="<?= image_style_url('0x60', $uri1) ?>"/>
                 </a>
               </div>
             <?php } ?>
             <div class="m-banner--summary">
               <h1 class="m-banner--hed">
-                <?=@ $banner1->field_basic_text[test_lang_code()][0]['value'] ?>
-                <?=@ $banner1->field_basic_text['und'][0]['value'] ?>
+                  <a href="<?=@ $banner1->field_page_link['und'][0]['url'] ?>"><?=@ $banner1->field_basic_text[test_lang_code()][0]['value'] ?>
+                <?=@ $banner1->field_basic_text['und'][0]['value'] ?>   </a>
               </h1>
             </div>
           </header>

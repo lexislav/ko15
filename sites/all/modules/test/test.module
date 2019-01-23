@@ -110,12 +110,20 @@ function test_query_node_access_alter(QueryAlterableInterface $query) {
 }
 function test_lang_prefix($cesta)
 {
+
+  if (strpos($cesta, 'https://www.koma') !== false) {
+   return $cesta;
+  }else{
+
     global $language;
     if ($language->language == 'cs') {
-        return $GLOBALS['base_url'] . '/' . drupal_get_path_alias($cesta);
+      return $GLOBALS['base_url'] . '/' . drupal_get_path_alias($cesta);
     } else {
-        return $GLOBALS['base_url'] . '/' . ($language->language) . '/' . drupal_get_path_alias($cesta);
+      return $GLOBALS['base_url'] . '/' . ($language->language) . '/' . drupal_get_path_alias($cesta);
     }
+  }
+
+
 
 }
 
