@@ -14,23 +14,27 @@
         </header>
     </div>
 
-    <article class="m-story">
-        <header>
-            <div class="m-story--summary">
-                <h1 class="m-story--hed"><a href=""><?php print $title; ?></a></h1>
-                <div class="m-story--description"><p></p></div>
-                <div class="m-story--meta"></div>
+    <div class="row mm-pad-bottom">
+        <header class="m-section--header">
+            <div class="l-full">
+              <h2 class="m-section--hed mm-big"><?=$title?></h2>
             </div>
         </header>
 
-        <div class="m-story--content">
-            <div class="m-body--content">
-                <?= $content['field_kariera_text']['#items'][0]['value'] ?>
+        <!-- 1/1-->    
+        <div class="l-half">
+            <div class="m-item--description mm-pad-bottom">
+                <?php print render($body);?>
             </div>
         </div>
-
-    </article>
-
+        
+        <!-- 2/2-->
+        <div class="small-12 large-offset-1 large-5 columns">
+            <div class="m-item--image" style="background-image: url(<?=$img_path?>)">
+                <img src="<?=$img_path?>" alt="">
+            </div>
+        </div>
+    </div>
 
     <?php
     $nid = 3117;
