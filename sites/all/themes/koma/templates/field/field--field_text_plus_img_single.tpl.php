@@ -41,7 +41,6 @@ foreach($items AS $item) {
                             //@TODO: tady se parsuje barevny kod a beru z nej jen cislo, zde by se měla používat classa bg-cisloBarvy, nikoli color-CisloBarvy
                             $barva = explode("-", $item['field_barva_odkazu']['#items'][0]['value']);
                             $barvaClass = 'bg-' . $barva[1];
-                            dpm($item['field_page_link']['#items'][0]['url']);
                             ?>
 
                             <div class="m-card--more <?php echo $barvaClass; ?>">

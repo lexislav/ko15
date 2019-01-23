@@ -4,13 +4,12 @@
         <header>
             <h1 class="m-item--hed">
                 <?php if (arg(1) == 2665 ) {
-                    // @todo: Hack, natvrdo id stánky, může se rozbít (https://www.koma-modular.cz/firma-a-lide/kariera)
                     ?>
-                    <a href="https://www.koma-modular.cz/<?= drupal_get_path_alias('node/' . $row->nid, $row->node_language) ?>" onclick="ga('send', 'event', 'button', 'click', 'volna pracovni mista');">
+                    <a href="<?=test_basic_url()?><?= drupal_get_path_alias('node/' . $row->nid, $row->node_language) ?>" onclick="ga('send', 'event', 'button', 'click', 'volna pracovni mista');">
                         <?= $row->node_title ?>
                     </a>
                 <?php } else { ?>
-                    <a href="https://www.koma-modular.cz/<?= drupal_get_path_alias('node/' . $row->nid, $row->node_language) ?>">
+                    <a href="<?=test_basic_url()?><?= drupal_get_path_alias('node/' . $row->nid, $row->node_language) ?>">
                         <?= $row->node_title ?>
                     </a>
                 <?php } ?>
