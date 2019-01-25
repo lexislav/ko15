@@ -157,7 +157,9 @@ if(empty($_POST['lastname'])){
         }
 
         // FB
-        fbq('track', '<FORMULAR_SEND>');
+        //fbq('track', '<FORMULAR_SEND>');
+        fbq('track', 'Contact');
+
 
       });
     </script>
