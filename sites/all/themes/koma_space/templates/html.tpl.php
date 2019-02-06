@@ -163,17 +163,7 @@ if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') {
 <script type="text/javascript" src="<?= $GLOBALS['base_url'] ?>/sites/all/themes/koma/js/app.js"></script>
 
 <!-- leady.cz -->
-<script type="text/javascript"> var leady_track_key = "zdY943A7JNzTW7S9";
-  var leady_track_server = document.location.protocol + "//t.leady.cz/";
-  (function () {
-    var l = document.createElement("script");
-    l.type = "text/javascript";
-    l.async = true;
-    l.src = leady_track_server + leady_track_key + "/L.js";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(l, s);
-  })();
-</script>
+<script type="text/javascript"> var leady_track_key="2Pm5HcUx9TbThQB9"; (function(){ var l=document.createElement("script");l.type="text/javascript";l.async=true; l.src='https://t.leady.com/'+leady_track_key+"/L.js"; var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(l,s); })(); </script> 
 
 <!-- sklik --><!-- sklik -->
 
