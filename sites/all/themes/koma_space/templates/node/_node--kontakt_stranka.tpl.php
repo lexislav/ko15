@@ -114,7 +114,8 @@ if(empty($_POST['lastname'])){
                         <span><?= $mailto ?></span>
                         <br/><?php print t('a na vámi zadanou adresu') ?> <span><?= $mailfrom ?></span>
                     </p>
-                    <a href="https://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="button"><?php print t('Odeslat novou zprávu')?>
+                    <a href="http://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" class="button">Odeslat novou
+                        zprávu
                         <i class="fa fa-paper-plane-o"></i></a>
                     <br/>
                 </div>
@@ -157,9 +158,7 @@ if(empty($_POST['lastname'])){
         }
 
         // FB
-        //fbq('track', '<FORMULAR_SEND>');
-        fbq('track', 'Contact');
-
+        fbq('track', '<FORMULAR_SEND>');
 
       });
     </script>
@@ -225,7 +224,7 @@ if(empty($_POST['lastname'])){
                 <header>
                     <div class="m-item--image"
                             style="background-image: url(<?= image_style_url('x633-540', $content['field_basic_img']['#items'][0]['uri']) ?>)">
-                        <a href="https://www.koma-space.at/de/kariera">
+                        <a href="https://www.koma-space.at/de/kariera/verkaeufer-im-aussendienst-mw-b2b-vertrieb-wien-niederoesterreich">
                         <?php /* <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>"> */ ?>
                             <img
                                     src="<?= image_style_url('x633-540', $content['field_basic_img']['#items'][0]['uri']) ?>"
@@ -235,7 +234,7 @@ if(empty($_POST['lastname'])){
                     <div class="m-item--summary">
                         <h1 class="m-item--hed mm-center">
                             <?php /*<a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>"><?php print t('Kariéra v KOMA') ?></a>*/ ?>
-                            <a href="https://www.koma-space.at/de/kariera"><?php print t('Kariéra v KOMA') ?></a>
+                            <a href="https://www.koma-space.at/de/kariera/verkaeufer-im-aussendienst-mw-b2b-vertrieb-wien-niederoesterreich"><?php print t('Kariéra v KOMA') ?></a>
                         </h1>
 
                         <div class="m-item--description">
@@ -244,7 +243,7 @@ if(empty($_POST['lastname'])){
 
                         <div class="m-card--more bg-8">
                             <?php /* <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>" */ ?>
-                            <a href="https://www.koma-space.at/de/kariera"
+                            <a href="https://www.koma-space.at/de/kariera/verkaeufer-im-aussendienst-mw-b2b-vertrieb-wien-niederoesterreich"
                                     title="<?php print t('Aktuální volná místa') ?>"><?php print t('Aktuální volná místa') ?>
                                 &nbsp;→</a>
                         </div>
