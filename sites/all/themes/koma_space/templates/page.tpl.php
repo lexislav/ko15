@@ -18,20 +18,9 @@ if ($user->uid == 1) {
         </li>
 
         <li class="m-navbar--menu-social m-navbar--menu-facebook">
-          <?php
-          if ($language->language == 'cs') {
-          ?>
-          <a target="_blank" title="" href="<?= variable_get('nastaveni_fb', 'nastaveni') ?>">
-            <?php
-            }else{
-            ?>
-            <a target="_blank" title="" href="https://www.facebook.com/KomaModularInternational">
-              <?php
-              }
-              ?>
-
-              <span class="fa fa-facebook"><em>Facebook</em></span>
-            </a>
+          <a target="_blank" title="" href="https://www.facebook.com/KomaModularInternational">
+            <span class="fa fa-facebook"><em>Facebook</em></span>
+          </a>
         </li>
 
         <li class="m-navbar--menu-social m-navbar--menu-youtube">
