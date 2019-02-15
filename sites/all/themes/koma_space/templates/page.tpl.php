@@ -25,7 +25,7 @@ if ($user->uid == 1) {
             <?php
             }else{
             ?>
-            <a target="_blank" title="" href="https://www.facebook.com/KOMAspace/">
+            <a target="_blank" title="" href="https://www.facebook.com/KomaModularInternational">
               <?php
               }
               ?>
