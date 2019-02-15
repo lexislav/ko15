@@ -16,7 +16,7 @@
           <ul class="m-gallery clearing-feature clearing-thumbs" data-clearing>
             <?php
             $poradi = 0;
-            dpm($pole);
+
             if (isset($pole['node'][key($pole['node'])]['field_fotogalerie_main_img']['#items'][0])) {
               $poradi = 1;
               $mainUri = $pole['node'][key($pole['node'])]['field_fotogalerie_main_img']['#items'][0]['uri'];
