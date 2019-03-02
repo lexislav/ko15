@@ -12,7 +12,7 @@ if ($user->uid == 1) {
 
             <ul class="m-navbar--menu m-navbar--menu-tertiary">
                 <li class="m-navbar--menu-social m-navbar--menu-facebook">
-                    <a target="_blank" title="" href="https://www.facebook.com/KOMA-RENT-sro-252931971538577/">
+                    <a target="_blank" title="" href="https://www.facebook.com/KOMACZ/">
                         <span class="fa fa-facebook"><em>Facebook</em></span>
                     </a>
                 </li>
@@ -149,7 +149,7 @@ if ($user->uid == 1) {
                 <ul class="m-footer--menu-secondary">
 
                     <li class="m-footer--menu-link">
-                        <a href="https://www.facebook.com/KOMA-RENT-sro-252931971538577/"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/KOMACZ/"><i class="fa fa-facebook"></i></a>
                     </li>
 
                     <li class="m-footer--menu-link">
