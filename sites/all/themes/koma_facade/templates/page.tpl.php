@@ -15,7 +15,7 @@ if ($user->uid == 1) {
 
         <li class="m-navbar--menu-social m-navbar--menu-facebook">
 
-            <a target="_blank" title="" href="https://www.facebook.com/KOMAFacade/">
+            <a target="_blank" title="" href="https://www.facebook.com/KOMACZ/">
 
               <span class="fa fa-facebook"><em>Facebook</em></span>
             </a>
@@ -228,7 +228,7 @@ if ($user->uid == 1) {
 
           <li class="m-footer--menu-link">
 
-              <a target="_blank" title="" href="https://www.facebook.com/KOMAFacade/">
+              <a target="_blank" title="" href="https://www.facebook.com/KOMACZ/">
 
                 <i
                   class="fa fa-facebook"></i></a>
