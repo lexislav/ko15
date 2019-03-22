@@ -67,7 +67,7 @@ if ($user->uid == 1) {
 
       <a class="m-navbar--logo" href="<?= $front_page ?>">
         <div class="mm-has-svg"
-             style="background-image: url('/sites/koma/assets/images/koma-space-logo.svg');"></div>
+             style="background-image: url('/sites/koma/assets/images/logo-koma-austria.svg');"></div>
       </a>
 
       <div class="xmega">
