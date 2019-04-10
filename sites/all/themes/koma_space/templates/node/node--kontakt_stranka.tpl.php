@@ -94,7 +94,7 @@ if(empty($_POST['lastname'])){
   $name = $_POST['name'];
   $text = $_POST['body'];
   test_mail($mailfrom, $mailto, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
-  test_mail('info@koma-space.at', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
+  test_mail('info@koma-austria.at', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
   ?>
 
     <div class="m-section" id="contact-form" <?php koma_theme_wrapper(__FILE__) ?>>
@@ -180,12 +180,12 @@ if(empty($_POST['lastname'])){
         <div class="row">
             <div class="m-contact-form">
                 <header>
-                    <i class="fa fa-paper-plane-o"></i> <?php print t('The contact form will be sent to the following address') ?>: <span id="targetMailInfo">info@koma-space.at</span>
+                    <i class="fa fa-paper-plane-o"></i> <?php print t('The contact form will be sent to the following address') ?>: <span id="targetMailInfo">info@koma-austria.at</span>
                 </header>
 
                 <div class="m-contact-form--content">
                     <form action="https://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>#contact-form" method="post">
-                        <input type="hidden" name="mailto" id="mailto" value="info@koma-space.at"/>
+                        <input type="hidden" name="mailto" id="mailto" value="info@koma-austria.at"/>
                         <input type="text" name="lastname" class="lastname" value="" />
                         <input type="text" id="name" name="name"
                                 placeholder="<?php print t('Your first and surname') ?>" required/>
@@ -225,7 +225,7 @@ if(empty($_POST['lastname'])){
                 <header>
                     <div class="m-item--image"
                             style="background-image: url(<?= image_style_url('x633-540', $content['field_basic_img']['#items'][0]['uri']) ?>)">
-                        <a href="https://www.koma-space.at/de/kariera">
+                        <a href="https://www.koma-austria.at/de/kariera">
                         <?php /* <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>"> */ ?>
                             <img
                                     src="<?= image_style_url('x633-540', $content['field_basic_img']['#items'][0]['uri']) ?>"
@@ -235,7 +235,7 @@ if(empty($_POST['lastname'])){
                     <div class="m-item--summary">
                         <h1 class="m-item--hed mm-center">
                             <?php /*<a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>"><?php print t('Kariéra v KOMA') ?></a>*/ ?>
-                            <a href="https://www.koma-space.at/de/kariera"><?php print t('Kariéra v KOMA') ?></a>
+                            <a href="https://www.koma-austria.at/de/kariera"><?php print t('Kariéra v KOMA') ?></a>
                         </h1>
 
                         <div class="m-item--description">
@@ -244,7 +244,7 @@ if(empty($_POST['lastname'])){
 
                         <div class="m-card--more bg-8">
                             <?php /* <a href="<?= test_lang_prefix('firma-a-lide/kariera') ?>" */ ?>
-                            <a href="https://www.koma-space.at/de/kariera"
+                            <a href="https://www.koma-austria.at/de/kariera"
                                     title="<?php print t('Aktuální volná místa') ?>"><?php print t('Aktuální volná místa') ?>
                                 &nbsp;→</a>
                         </div>
