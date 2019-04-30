@@ -94,7 +94,7 @@ if(empty($_POST['lastname'])){
   $name = $_POST['name'];
   $text = $_POST['body'];
   test_mail($mailfrom, $mailto, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
-  test_mail('info@koma-saustriapace.at', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
+  test_mail('info@koma-austria.at', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
   ?>
 
     <div class="m-section" id="contact-form" <?php koma_theme_wrapper(__FILE__) ?>>
