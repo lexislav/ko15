@@ -110,7 +110,7 @@ if (isset($_POST['mailto'])) {
     $name = $_POST['name'];
     $text = $_POST['body'];
     test_mail($mailfrom, $mailto, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
-    test_mail('obchod@koma-facade.cz', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
+    test_mail('obchod@koma-modular.cz', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
 
     ?>
     <div class="m-section" id="contact-form" <?php koma_theme_wrapper(__FILE__) ?>>
@@ -201,7 +201,7 @@ if (isset($_POST['mailto'])) {
                 <header>
                     <i class="fa fa-paper-plane-o"></i> <?php print t('The contact form will be sent to the following address') ?>
                     :
-                    <span id="targetMailInfo">obchod@koma-facade.cz</span>
+                    <span id="targetMailInfo">obchod@koma-modular.cz</span>
                 </header>
 
 
@@ -209,7 +209,7 @@ if (isset($_POST['mailto'])) {
 
                 <div class="m-contact-form--content">
                     <form action="<?php print url('node/1444', array('absolute' => true)); ?>#contact-form" method="post">
-                        <input type="hidden" name="mailto" id="mailto" value="obchod@koma-facade.cz" />
+                        <input type="hidden" name="mailto" id="mailto" value="obchod@koma-modular.cz" />
                         <input type="text" name="lastname" class="lastname" value="" />
                         <input type="text" name="zip" class="zmiz" value="" />
                         <input type="text" id="name" name="name" placeholder="<?php print t('Your first and surname') ?>" required />
