@@ -296,6 +296,7 @@ function registerCookieBannerManager() {
 
   var hostname = jQuery('<a>').prop('href', '/').prop('hostname');
   var hostCookieName = hostname + "-banner";
+  console.log(hostname)
 
   if (!jQuery.cookie(hostCookieName)) {
     console.log("> Show banners")
@@ -304,8 +305,10 @@ function registerCookieBannerManager() {
     date.setTime(date.getTime() + 24 * 60 * 60 * 1000);
     jQuery.cookie(hostCookieName, true, {expires: date});
   } else {
-    console.log("> Hide banners");
-    jQuery("#page-banner").hide();
+    console.log("> Hide banners except FACADE");
+    if (hostname != "www.koma-facade.cz") {
+      jQuery("#page-banner").hide();
+    } 
   }
 }
 
