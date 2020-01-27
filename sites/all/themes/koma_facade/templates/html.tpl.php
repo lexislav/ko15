@@ -28,7 +28,6 @@
     <?php print $styles; ?>
     <?php  print $scripts; ?>
 
-
     <?php if ($add_html5_shim and !$add_respond_js): ?>
         <!--[if lt IE 9]>
         <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script><![endif]-->
@@ -82,7 +81,7 @@
 
     <!-- // @formatter:on -->
 </head>
-<?php if ($_SERVER['SERVER_ADDR'] == '217.115.249.155') { $jakej = 'internet'; } else { $jakej = 'local'; } ?>
+<?php if ($_SERVER['SERVER_ADDR'] == '95.129.100.186') { $jakej = 'internet'; } else { $jakej = 'local'; } ?>
 
 <body class="komaspace l-page <?php print $classes; ?> <?= $jakej ?>" <?php print $attributes; ?>>
 <?php if ($skip_link_text && $skip_link_anchor): ?>
