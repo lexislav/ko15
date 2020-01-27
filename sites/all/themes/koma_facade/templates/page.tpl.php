@@ -69,7 +69,7 @@ if ($user->uid == 1) {
 
       <a class="m-navbar--logo" href="<?= $front_page ?>">
         <div class="mm-has-svg"
-             style="background-image: url('/sites/koma/assets/images/logo-koma-facade.svg');"></div>
+             style="background-image: url('/sites/koma/assets/images/logo-koma-provozbrno.svg');"></div>
       </a>
 
       <div class="xmega">
@@ -201,7 +201,7 @@ if ($user->uid == 1) {
       <section class="m-footer--section">
         <a class="m-footer--logo" href="/">
           <img
-            src="<?= $GLOBALS['base_url'] ?>/sites/koma/assets/images/logo-koma-facade-inline-white.svg"
+            src="<?= $GLOBALS['base_url'] ?>/sites/koma/assets/images/logo-koma-provozbrno-inline-white.svg"
             alt=""/>
         </a>
 
