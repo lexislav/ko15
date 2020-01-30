@@ -4,7 +4,6 @@ if (count($items) > 0) {
         $cast = ($pole['entity']['field_collection_item'][key($pole['entity']['field_collection_item'])]['#entity']);
     }
     ?>
-
     <div class="m-section" <?php koma_theme_wrapper(__FILE__)?>>
         <div class="row">
             <header class="m-section--header">
