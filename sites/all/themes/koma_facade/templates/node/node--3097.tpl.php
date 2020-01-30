@@ -124,7 +124,7 @@
                     $name = $_POST['name'];
                     $text = $_POST['body'];
                     test_mail($mailfrom, $mailto, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
-                    test_mail('obchod@koma-facade.cz', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
+                    test_mail('obchod@koma-modular.cz', $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
 
                     ?>
                     <div class="m-section" id="contact-form" <?php koma_theme_wrapper(__FILE__) ?>>
@@ -216,7 +216,7 @@
                                 <header>
                                     <i class="fa fa-paper-plane-o"></i> <?php print t('The contact form will be sent to the following address') ?>
                                     :
-                                    <span id="targetMailInfo">obchod@koma-facade.cz</span>
+                                    <span id="targetMailInfo">obchod@koma-modular.cz</span>
                                 </header>
 
 
