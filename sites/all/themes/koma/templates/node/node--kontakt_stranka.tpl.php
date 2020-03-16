@@ -95,7 +95,16 @@
 </div>
 
 <?php
-
+$banlist = array(
+    "qq.com",
+    "QQ.com",
+    "126.com",
+    "163.com",
+    "21.cn",
+    "168.com",
+    "139.com",
+    "91.com" 
+);
 if (isset($_POST['mailto'])) {
 if(empty($_POST['lastname'])){
     $mailto = $_POST['mailto'];
@@ -103,9 +112,9 @@ if(empty($_POST['lastname'])){
     $name = $_POST['name'];
     $text = $_POST['body'];
     // lexuv filtr
-    $var =explode(‘@’, $mailfrom);
+    $var =explode('@', $mailfrom);
     $fromemaildomain = array_pop($var);
-    if ($fromemaildomain <> 'qq.com') {
+    if (!in_array($fromemaildomain, $banlist)) {
     test_mail('web@koma-modular.cz', $mailto, 'Nová zpráva od '.$mailfrom.' z kontaktního formulář KOMA', $name . "\n" . $mailfrom . "\n" . $text);
     test_mail($mailto, $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
     }
