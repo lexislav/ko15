@@ -102,9 +102,13 @@ if(empty($_POST['lastname'])){
     $mailfrom = $_POST['email'];
     $name = $_POST['name'];
     $text = $_POST['body'];
+    // lexuv filtr
+    $var =explode(‘@’, $mailfrom);
+    $fromemaildomain = array_pop($var);
+    if ($fromemaildomain <> 'qq.com') {
     test_mail('web@koma-modular.cz', $mailto, 'Nová zpráva od '.$mailfrom.' z kontaktního formulář KOMA', $name . "\n" . $mailfrom . "\n" . $text);
     test_mail($mailto, $mailfrom, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
-
+    }
     ?>
     <div class="m-section" id="contact-form" <?php koma_theme_wrapper(__FILE__) ?>>
         <div class="row">
