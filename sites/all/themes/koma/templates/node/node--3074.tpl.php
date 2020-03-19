@@ -122,10 +122,19 @@
                         "21.cn",
                         "168.com",
                         "139.com",
-                        "91.com" 
+                        "91.com" ,
+                        "189.com",
+                        "sina.com",
+                        "live.com",
+                        "qq.comb",
+                        "21cn.com",
+                        "qq.co",
+                        "vip.qq.com",
+                        "QQ.COM",
+                        "qqq.com"
                     );
                     if (isset($_POST['mailto'])) {
-                    if(empty($_POST['lastname'])){
+                    if ( (empty($_POST['lastname'])) && (empty($_POST['emailcc'])) ) {
                         $mailto = $_POST['mailto'];
                         $mailfrom = $_POST['email'];
                         $name = $_POST['name'];
@@ -230,9 +239,6 @@
                                     <span id="targetMailInfo">info@koma-modular.cz</span>
                                 </header>
 
-
-                                <!--@TODO dodelat cele vsechno omg-->
-
                                 <div class="m-contact-form--content">
                                     <form action="<?php print url('node/3074', ['absolute' => true]); ?>#contact-form" method="post">
                                         <input type="hidden" name="mailto" id="mailto" value="info@koma-modular.cz" />
@@ -249,6 +255,7 @@
                                         <input type="text" id="name" name="name" placeholder="<?php print t('Your first and surname') ?>" required />
                                         <input type="text" id="company" name="company" class="zmiz" placeholder="<?php print t('Your company') ?>" />
                                         <input type="email" id="email" name="email" placeholder="<?php print t('Your e-mail address') ?>" required />
+                                        <input type="text" name="emailcc" class="zmiz" id="emailcc" value="" /> 
                                         <textarea id="body" name="body" style="height: 200px" required placeholder="<?php print t('The text of your question') ?>"></textarea>
                                         <button type="submit" class="button"><?php print t('Send the message') ?>
                                             <i class="fa fa-paper-plane-o"></i></button>
