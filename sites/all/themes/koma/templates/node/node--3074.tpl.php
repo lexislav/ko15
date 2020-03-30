@@ -116,22 +116,38 @@
                 <?php
                     $banlist = array(
                         "qq.com",
+                        "qq.cn",
                         "QQ.com",
+                        "QQ.cn",
                         "126.com",
+                        "126.cn",
                         "163.com",
+                        "163.cn",
+                        "21.com",
                         "21.cn",
                         "168.com",
+                        "168.cn",
                         "139.com",
-                        "91.com" ,
+                        "139.cn",
+                        "91.com",
+                        "91.cn",
                         "189.com",
+                        "189.cn",
                         "sina.com",
+                        "sina.cn",
                         "live.com",
+                        "live.cn",
                         "qq.comb",
                         "21cn.com",
+                        "21cn.cn",
                         "qq.co",
                         "vip.qq.com",
+                        "vip.qq.cn",
                         "QQ.COM",
-                        "qqq.com"
+                        "qqq.com",
+                        "xx.com",
+                        "xx.cn",
+                        "wo.cn"
                     );
                     if (isset($_POST['mailto'])) {
                     if ( (empty($_POST['lastname'])) && (empty($_POST['emailcc'])) ) {
@@ -142,7 +158,8 @@
                         // lexuv filtr
                         $var =explode('@', $mailfrom);
                         $fromemaildomain = array_pop($var);
-                        if (!in_array($fromemaildomain, $banlist)) {
+                        $fmnum = preg_replace('/[^0-9]/', '', $mailfrom);
+                        if ( (!in_array($fromemaildomain, $banlist)) and (strlen($fmnum) < 4) ) {
                             test_mail($mailfrom, $mailto, 'Nová zpráva - kontaktní formulář KOMA', $name . "\n" . $text);
                             test_mail('info@koma-modular.cz', $mailto, 'Nová zpráva od '.$mailfrom.' z kontaktního formulář KOMA', $name . "\n" . $mailfrom . "\n" . $text);
                         }
