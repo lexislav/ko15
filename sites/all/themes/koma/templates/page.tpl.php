@@ -97,7 +97,7 @@
     </div>
     <?php
 
-    $banner1 = node_load(2315);
+    $banner1 = node_load(2317);
     if ($banner1->status == 1) {
 
 
