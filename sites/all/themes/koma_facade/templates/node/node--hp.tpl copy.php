@@ -137,3 +137,33 @@ $pole_slider = $content['field_hlavni_slider']['#items'];
     </div>
 </div>
 <!--koma zpravodaj konec-->
+
+
+<!--cim se lisime zacatek-->
+<div class="m-section l-section_side-triple bg-white" style="background-image: url('/sites/all/themes/koma/assets/images/mozaika-koma.png')" <?php koma_theme_wrapper(__FILE__)?>>
+
+    <div class="row">
+        <header class="m-section--header">
+            <div class="l-full"></div>
+        </header>
+    </div>
+
+    <div class="row">
+        <h2 class="m-section--hed mm-big mm-tiny mm-pad-bottom firstline-primary">
+            <?php foreach ($content['field_hp_2_text']['#items'] as $cislo2 => $text) { ?>
+                <!-- odkaz https://www.koma-modular.cz/o-firme/hodnoty-vize-strategie-firmy -->
+                <a href="<?=$content['field_page_link']['#items'][0]['url']?>"><?= $text['value'] ?></a><br />
+            <?php } ?>
+        </h2>
+        <?php print render($content['field_hp_2_odkazy']); ?>
+    </div>
+
+    <div class="row">
+        <footer class="m-section--footer">
+            <div class="l-half">
+                <div class="m-section--top"><a href=""><?php print t('UP') ?> &uarr;</a></div>
+            </div>
+            <div class="l-half"></div>
+        </footer>
+    </div>
+</div>cim se lisime konec
