@@ -147,10 +147,19 @@
                         "qqq.com",
                         "xx.com",
                         "xx.cn",
-                        "wo.cn"
+                        "wo.cn",
+                        "aiibaba.cn",
+                        "sohu.com",
+                        "sohu.cn",
+                        "123.com",
+                        "123.cn",
+                        "qqvip.com",
+                        "qqvip.cn",
+                        "lifebook.cn",
+                        "smg.sh.cn"
                     );
                     if (isset($_POST['mailto'])) {
-                    if ( (empty($_POST['lastname'])) && (empty($_POST['emailcc'])) ) {
+                    if ( (empty($_POST['lastname'])) && (empty($_POST['zip']))  && (empty($_POST['city']))   && (empty($_POST['company'])) ) {
                         $mailto = $_POST['mailto'];
                         $mailfrom = $_POST['email'];
                         $name = $_POST['name'];
@@ -271,6 +280,7 @@
                                         </select>
                                         <input type="text" id="name" name="name" placeholder="<?php print t('Your first and surname') ?>" required />
                                         <input type="text" id="company" name="company" class="zmiz" placeholder="<?php print t('Your company') ?>" />
+                                        <input type="text" name="city" class="zmiz" id="city" value=""  placeholder="<?php print t('City') ?>" /> 
                                         <input type="email" id="email" name="email" placeholder="<?php print t('Your e-mail address') ?>" required />
                                         <input type="text" name="emailcc" class="zmiz" id="emailcc" value="" /> 
                                         <textarea id="body" name="body" style="height: 200px" required placeholder="<?php print t('The text of your question') ?>"></textarea>
