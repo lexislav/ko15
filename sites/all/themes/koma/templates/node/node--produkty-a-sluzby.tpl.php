@@ -63,7 +63,9 @@ if (isset($content['field_bigimg_a_text'][0])) {
                     $block = module_invoke('views', 'block_view', 'nabidka-block');
                     print render($block);
                     ?>
+
                 </div>
+
             </aside>
 
 
