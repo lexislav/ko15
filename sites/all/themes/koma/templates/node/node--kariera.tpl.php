@@ -33,6 +33,7 @@
 
 
     <?php
+
     $nid = 1602;
     $wnode = node_load($nid);
     $form = drupal_get_form('webform_client_form_' . $nid, $wnode, []);
@@ -41,6 +42,7 @@
     hide($form['submitted']['email_pro_komu']);
     hide($form['submitted']['text_sdeleni_nebo_vaseho_dotazu']);
     hide($form['submitted']['text']);
+    hide($form['submitted']['pozice']);
     hide($form['submitted']['souhlasim']);
     hide($form['submitted']['pripojit_soubor']);
     hide($form['actions']['submit']);
@@ -96,7 +98,7 @@
                             <input required="required" placeholder="<?php print t('Your first and surname') ?>" type="text" id="edit-submitted-jmeno-a-prijmeni" name="submitted[jmeno_a_prijmeni]" value="<?= $form['submitted']['jmeno_a_prijmeni']['#value'] ?>" size="60" maxlength="128" required>
                             <input required="required" placeholder="<?php print t('Your e-mail address') ?>" type="email" id="edit-submitted-e-mail" name="submitted[e_mail]" value="<?= $form['submitted']['e_mail']['#value'] ?>" size="60" required>
                             <textarea placeholder="<?php print t('The text of your question') ?>" style="height: 200px" id="edit-submitted-text-sdeleni-nebo-vaseho-dotazu" name="submitted[text_sdeleni_nebo_vaseho_dotazu]" required></textarea>
-
+                            <input type="hidden" name="submitted[pozice]" value="<?=$node->title?>">
                             <div id="edit-submitted-pripojit-soubor-ajax-wrapper">
                                 <div class="form-item webform-component webform-component-file webform-component--pripojit-soubor webform-container-inline">
 
